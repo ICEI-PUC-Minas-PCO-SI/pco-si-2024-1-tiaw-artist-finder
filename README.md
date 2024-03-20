@@ -6,7 +6,7 @@ Escreva um ou dois  parágrafo resumindo o objetivo do seu projeto.
 
 Pablo Marques Cordeiro
 Lucas Fernandes Nascimento
-* Nome completo do aluno 3
+João Gabriel Soares Da Silva Franco
 * Nome completo do aluno 4
 
 ## Professores responsáveis
