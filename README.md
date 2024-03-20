@@ -5,7 +5,7 @@ Escreva um ou dois  parágrafo resumindo o objetivo do seu projeto.
 ## Alunos integrantes da equipe
 
 Pablo Marques Cordeiro
-* Nome completo do aluno 2
+Lucas Fernandes Nascimento
 * Nome completo do aluno 3
 * Nome completo do aluno 4
 
