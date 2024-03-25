@@ -7,7 +7,7 @@ Escreva um ou dois  parágrafo resumindo o objetivo do seu projeto.
 Pablo Marques Cordeiro
 Lucas Fernandes Nascimento
 João Gabriel Soares Da Silva Franco
-* Nome completo do aluno 4
+Diego Romero Ribeiro Chaves
 
 ## Professores responsáveis
 
