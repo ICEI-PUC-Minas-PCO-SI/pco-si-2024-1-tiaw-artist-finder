@@ -4,6 +4,7 @@ Escreva um ou dois  parágrafo resumindo o objetivo do seu projeto.
 
 ## Alunos integrantes da equipe
 
+* Filipe Augusto dos Santos Silva 
 * Pablo Marques Cordeiro
 * Lucas Fernandes Nascimento
 * João Gabriel Soares Da Silva Franco
