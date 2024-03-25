@@ -4,15 +4,16 @@ Escreva um ou dois  parágrafo resumindo o objetivo do seu projeto.
 
 ## Alunos integrantes da equipe
 
-Pablo Marques Cordeiro
-Lucas Fernandes Nascimento
-João Gabriel Soares Da Silva Franco
-Diego Romero Ribeiro Chaves
+* Pablo Marques Cordeiro
+* Lucas Fernandes Nascimento
+* João Gabriel Soares Da Silva Franco
+* Diego Romero Ribeiro Chaves
 
 ## Professores responsáveis
 
-* Nome completo do professor 1
-* Nome completo do professor 2
+* Amália Soares Vieira de Vasconcelos
+* Leonardo Vilela Cardoso
+
 
 ## Instruções de utilização
 
