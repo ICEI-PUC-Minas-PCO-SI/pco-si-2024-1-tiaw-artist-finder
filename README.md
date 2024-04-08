@@ -9,6 +9,7 @@ O Artist Finder é uma plataforma online dedicada a simplificar o processo de co
 * Lucas Fernandes Nascimento
 * João Gabriel Soares Da Silva Franco
 * Diego Romero Ribeiro Chaves
+* Alfredo Rodrigues Simões Macedo Campos
 
 ## Professores responsáveis
 
