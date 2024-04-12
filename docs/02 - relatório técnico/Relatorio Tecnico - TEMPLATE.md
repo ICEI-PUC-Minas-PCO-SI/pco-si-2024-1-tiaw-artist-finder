@@ -1,4 +1,7 @@
 <<<<<<< HEAD:docs/02 - relatório técnico/Relatorio Tecnico - TEMPLATE.md
+
+![Logo](imaages/../images/logo.png)
+
 # Informações do Projeto
 `TÍTULO DO PROJETO`  
 
