@@ -101,8 +101,8 @@ Nosso principal objetivo é aproximar os dois mundos; tanto os contratantes/clie
 
 Os artistas digitais hoje em dia, tem muita dificuldade para anunciar seus trabalhos, e isso faz parte de uma junção de dois fatores principais: 
 
-# A demora para possíveis clientes encontrarem artistas para seus objetivos específicos. 
-# A dificuldade dos artistas apresentarem seus trabalhos, através de um portfólio com ferramentas que atraiam um possível cliente.
+- A demora para possíveis clientes encontrarem artistas para seus objetivos específicos. 
+- A dificuldade dos artistas apresentarem seus trabalhos, através de um portfólio com ferramentas que atraiam um possível cliente.
 
 > Descreva a importância ou a motivação para trabalhar com esta aplicação
 > que você escolheu. Indique as razões pelas quais você escolheu seus
@@ -261,27 +261,27 @@ Nossa plataforma foi concebida com um propósito claro em mente: facilitar a con
 
 Principais requisitos que compõe a aplicação:
 
-# Chat Interativo:
+- Chat Interativo:
 
 Facilita a comunicação direta entre clientes e freelancers, permitindo a discussão de projetos e esclarecimento de dúvidas de forma rápida e eficiente.
 
-# Destaques em Destaque:
+- Destaques em Destaque:
 
 Destaca obras de destaque na página principal, proporcionando aos clientes uma visão rápida e inspiradora do talento disponível na plataforma.
 
-# Portfólio Personalizado:
+- Portfólio Personalizado:
 
 Permite que os freelancers exibam seus trabalhos anteriores de forma detalhada, ajudando os clientes a avaliar sua experiência e estilo.
 
-# Avaliações Transparentes:
+- Avaliações Transparentes:
 
 Oferece um sistema de avaliação transparente, permitindo que os clientes forneçam feedback detalhado sobre a experiência com os freelancers.
 
-# Planos de Conta Flexíveis:
+- Planos de Conta Flexíveis:
 
 Oferece opções de conta gratuitas e premium, permitindo que os usuários escolham o nível de funcionalidades que melhor atenda às suas necessidades e orçamento.
 
-# Categorias Relevantes em Destaque:
+- Categorias Relevantes em Destaque:
 
 Destaca as categorias mais buscadas na plataforma, simplificando a busca por profissionais e projetos específicos.
 
@@ -294,11 +294,11 @@ Destaca as categorias mais buscadas na plataforma, simplificando a busca por pro
 
 O User Flow do site foi cuidadosamente planejado para atender a dois objetivos principais:
 
-# Criação de Perfil:
+- Criação de Perfil:
 
 Permitindo que os usuários criem um perfil, eles podem acessar ferramentas como a criação de um perfil freelancer, adição de portfólio e descrição de suas qualidades. Ou, se preferirem, podem visualizar perfis de freelancers, filtrar pesquisas de acordo com suas necessidades específicas.
 
-# Contato com um Freelancer: 
+- Contato com um Freelancer: 
 
 O objetivo final é facilitar o contato direto entre cliente e freelancer, permitindo que o cliente obtenha serviços de qualidade de um profissional qualificado. Este objetivo finaliza o fluxo do usuário, proporcionando uma solução direta e eficaz para as necessidades do cliente.
 
