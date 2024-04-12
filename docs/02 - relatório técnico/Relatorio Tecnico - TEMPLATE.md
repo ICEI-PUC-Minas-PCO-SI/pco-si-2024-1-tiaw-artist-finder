@@ -251,7 +251,19 @@ Diante disso, segue o wireframe da homepage do site.
 
 ## Divisão de Papéis
 
-......  COLOQUE AQUI O SEU TEXTO ......
+Os papéis foram divididos entre os membros do grupo de acordo com a necessidade das tarefas que surgiam em paralelo com a disponibilidade de cada membro do grupo.
+
+- Filipe Augusto dos Santos Silva
+
+- Pablo Marques Cordeiro
+
+- Lucas Fernandes Nascimento: Resposável pela criação do Wireframe, Userflow, pelo Design Thinking e organização do repositório.
+
+- João Gabriel Soares Da Silva Franco: Responsável pela criação da documentação introdutória do relatório técnico e pelo Design Thinking.
+
+- Diego Romero Ribeiro Chaves
+
+- Alfredo Rodrigues Simões Macedo Campos
 
 > Apresente a divisão de papéis e tarefas entre os membros do grupo.
 >
