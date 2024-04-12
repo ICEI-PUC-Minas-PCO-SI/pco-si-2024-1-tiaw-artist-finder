@@ -85,66 +85,15 @@ As especificações do projeto foram estruturadas com base em pesquisas detalhad
 
 Persona 1:
 
-Nome: Matheus da Silva.
-Idade: 21 anos.
-Hobby: Mathes tem como hobby jogar Valorant e outros jogos competitivos.
-Trabalho: Matheus ainda não trabalha, está no 4º período de design gráfico.
-Personalidade: Matheus é organizado, muito criativo, apaixonado por arte visual, tem uma boa postura social e consegue ser muito comunicativo.
-Sonhos: Matheus tem o sonho de colocar seu conhecimento artístico e sua criatividade em peças de roupas e criar uma marca famosa, que as pessoas gostem de usar.
-
-Objetos e lugares: Quais objetos físicos e digitais essa pessoa usa? Quando, onde e como ela usa?
-Objetos físicos: iPad, Laptop e Smartphone.
-Objetos digitais: Ele utiliza de softwares de edições e desenhos como: Adobe Illustrator, Adobe Photoshop e Autodesk Sketchbook. Também usa de redes sociais para divulgar suas artes e fazer networking com outros artistas, como: Instagram, X e ArtStation.
-
-Objetivos chave: Quais são os objetivos chave da pessoa durante a utilização do serviço? Porque eles precisam deste serviço?
-- Porta de entrada para o mercado de trabalho através de trabalhos de curta duração;
-- Conseguir tirar uma renda em cima desses trabalhos;
-- Conseguir mais trabalhos para seu portfólio em busca de um emprego fixo futuramente.
-
-Como devemos tratá-lo?
-Criar um feed com projetos finalizados de outros artistas para que Matheus tenha seus insights e se sinta mais criativo.
+![Persona](imaages/../images/persona1.jpg)
 
 Persona 2:
-Nome: Júlia Santos.
-Idade: 28 anos.
-Hobby: Júlia tem como hobby fazer fotografias urbanas, explorando a cidade em busca de fotos exclusivas.
-Trabalho: Júlia é filmmaker.
-Personalidade: Júlia é uma pessoa extrovertida e comunicativa. Ela valoriza a colaboração e está sempre aberta a novas ideias.
-Sonhos: Júlia sonha em produzir seu próprio filme e que ele seja reconhecido nos festivais de cinema internacional e surpreenda as pessoas de maneira positiva.
 
-Objetos e lugares: Quais objetos físicos e digitais essa pessoa usa? Quando, onde e como ela usa?
-Objetos físicos: Câmera, Laptop, Smartphone, lentes, tripé e iluminação.
-Objetos digitais: Ela utiliza de softwares de edição de vídeo, como: Adobe Preimiere, Final Cut, DaVinci Resolve. Também utiliza o armazenamento na nuvem com o iCloud e Google Drive.
-
-Objetivos chave: Quais são os objetivos chave da pessoa durante a utilização do serviço? Porque eles precisam deste serviço?
-- Desenvolvimento profissional;
-- Ter reconhecimento do seu trabalho;
-- Alavancar suas técnicas de produção;
-- Conseguir tirar dinheiro com trabalhos temporários e de curto prazo.
-
-Como devemos tratá-la?
-Demonstrar que existem pessoas interessadas, as quais podem observar e interagir com seus trabalhos.
+![Persona](imaages/../images/persona2.jpg)
 
 Persona 3:
-Nome: Maurício Sato.
-Idade: 25 anos.
-Hobby: Maurício tem como hobby colecionar e ler diversos tipos de mangá.
-Trabalho: Desenhista e Ilustrador.
-Personalidade: Maurício é um jovem talentoso, introvertido e observador, cuja linguagem preferida é a arte. Ele usa seus desenhos para demonstrar através deles sentimentos.
-Sonhos: Maurício sonha em criar um mangá famoso que seja adaptado para uma versão animada e que fique famosa em todo o mundo. 
 
-Objetos e lugares: Quais objetos físicos e digitais essa pessoa usa? Quando, onde e como ela usa?
-Objetos físicos: Lápis, papel, iPad e Mesa Digitalizadora.
-Onjetos digitais: Ele utiliza de softwares de ilustração, como o Adobe Illustrator. Também utiliza repositórios de arte como ArtStation, além do Instagram, para postar seus desenhos.
-
-Objetivos chave: Quais são os objetivos chave da pessoa durante a utilização do serviço? Porque eles precisam deste serviço?
-- Refinar suas técnicas de desenho;
-- Ter reconhecimento do seu trabalho;
-- Mostrar sua arte para outros profissionais através do feed;
-- Conseguir estabilidade financeira através do seu talento.
-
-Como devemos tratá-lo?
-Notificá-lo quando pessoas estão interessados em sua arte.
+![Persona](imaages/../images/persona3.jpg)
 
 ## Histórias de Usuários
 
@@ -275,7 +224,7 @@ Os papéis foram divididos entre os membros do grupo de acordo com a necessidade
 
 - Filipe Augusto dos Santos Silva: Responsável por aplicar pesquisas, criação e edição dos slides, plano de entregas, organização de reuniões, formatação de ideias e participação no Design Thinking.
 
-- Pablo Marques Cordeiro
+- Pablo Marques Cordeiro: Ideação, documentação de stakeholders, pesquisas qualitativas, highlights de pesquisa, personas no Design Thinking e documentação de proposta de valores.
 
 - Lucas Fernandes Nascimento: Responsável pela criação do Wireframe, Userflow, pelo Design Thinking, formatação da documentação introdutória e organização do repositório.
 
@@ -283,7 +232,7 @@ Os papéis foram divididos entre os membros do grupo de acordo com a necessidade
 
 - Diego Romero Ribeiro Chaves: Participação na documentação de contexto e especificações do projeto.
 
-- Alfredo Rodrigues Simões Macedo Campos
+- Alfredo Rodrigues Simões Macedo Campos:
 
 ## Ferramentas
 
@@ -291,7 +240,7 @@ Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a 
 
 | Ambiente  | Plataforma              |Link de Acesso |
 |-----------|-------------------------|---------------|
-|Processo de Design Thinkgin  | Miro |  https://miro.com/XXXXXXX | 
+|Processo de Design Thinkgin  | Miro |  https://miro.com/app/board/uXjVNjOu4fI=/?share_link_id=591125358422 | 
 |Repositório de código | GitHub | https://github.com/ICEI-PUC-Minas-PCO-SI/pco-si-2024-1-tiaw-artist-finder | 
 |Hospedagem do site | Heroku |  https://XXXXXXX.herokuapp.com | 
 |Protótipo Interativo | MavelApp ou Figma | https://www.figma.com/proto/xhMqePLbQ48FSjh0R09G9H/Artist-Finder?type=design&node-id=49-27&scaling=min-zoom&page-id=49%3A25&starting-point-node-id=49%3A27 | 
@@ -320,28 +269,6 @@ etiquetas:
 - `enhancement`: uma funcionalidade precisa ser melhorada
 - `feature`: uma nova funcionalidade precisa ser introduzida
 
-> Discuta como a configuração do projeto foi feita na ferramenta de
-> versionamento escolhida. Exponha como a gerência de tags, merges,
-> commits e branchs é realizada. Discuta como a gerência de issues foi
-> realizada.
-> A ferramenta de controle de versão adotada no projeto foi o
-> [Git](https://git-scm.com/), sendo que o [Github](https://github.com)
-> foi utilizado para hospedagem do repositório `upstream`.
-> 
-> O projeto segue a seguinte convenção para o nome de branchs:
-> 
-> - `master`: versão estável já testada do software
-> - `unstable`: versão já testada do software, porém instável
-> - `testing`: versão em testes do software
-> - `dev`: versão de desenvolvimento do software
-> 
-> Quanto à gerência de issues, o projeto adota a seguinte convenção para
-> etiquetas:
-> 
-> - `bugfix`: uma funcionalidade encontra-se com problemas
-> - `enhancement`: uma funcionalidade precisa ser melhorada
-> - `feature`: uma nova funcionalidade precisa ser introduzida
->
 > **Links Úteis**:
 > - [Tutorial GitHub](https://guides.github.com/activities/hello-world/)
 > - [Git e Github](https://www.youtube.com/playlist?list=PLHz_AreHm4dm7ZULPAmadvNhH6vk9oNZA)
