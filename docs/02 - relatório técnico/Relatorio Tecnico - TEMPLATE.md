@@ -2,15 +2,22 @@
 # Informações do Projeto
 `TÍTULO DO PROJETO`  
 
-......  COLOQUE AQUI O SEU TEXTO ......
+......  Artist Finder ......
 
 `CURSO` 
 
-......  COLOQUE AQUI O SEU TEXTO ......
+......  Trabalho Interdisciplinar: Aplicações Web ......
 
 ## Participantes
 
-......  COLOQUE AQUI O SEU TEXTO ......
+Os membros do grupo são:
+
+- Filipe Augusto dos Santos Silva
+- Pablo Marques Cordeiro
+- Lucas Fernandes Nascimento
+- João Gabriel Soares Da Silva Franco
+- Diego Romero Ribeiro Chaves
+- Alfredo Rodrigues Simões Macedo Campos
 
 > Inclua a lista dos membros da equipe com seus nomes completos.
 >
