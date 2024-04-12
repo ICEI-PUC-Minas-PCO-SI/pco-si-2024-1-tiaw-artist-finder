@@ -98,7 +98,7 @@ Objetos digitais: Ele utiliza de softwares de edições e desenhos como: Adobe I
 
 Objetivos chave: Quais são os objetivos chave da pessoa durante a utilização do serviço? Porque eles precisam deste serviço?
 - Porta de entrada para o mercado de trabalho através de trabalhos de curta duração;
-- Conseguir tirar uma renda em cima desses trabalhos.
+- Conseguir tirar uma renda em cima desses trabalhos;
 - Conseguir mais trabalhos para seu portfólio em busca de um emprego fixo futuramente.
 
 Como devemos tratá-lo?
@@ -114,7 +114,7 @@ Sonhos: Júlia sonha em produzir seu próprio filme e que ele seja reconhecido n
 
 Objetos e lugares: Quais objetos físicos e digitais essa pessoa usa? Quando, onde e como ela usa?
 Objetos físicos: Câmera, Laptop, Smartphone, lentes, tripé e iluminação.
-Objetos digitais: Ela utiliza de softwares de edição de vídeo, como: Adobe Preimiere, Final Cut, DaVinci Resolve. Também utiliza o armazenamento na nuvem com o iCloud e Google Drive
+Objetos digitais: Ela utiliza de softwares de edição de vídeo, como: Adobe Preimiere, Final Cut, DaVinci Resolve. Também utiliza o armazenamento na nuvem com o iCloud e Google Drive.
 
 Objetivos chave: Quais são os objetivos chave da pessoa durante a utilização do serviço? Porque eles precisam deste serviço?
 - Desenvolvimento profissional;
@@ -123,7 +123,28 @@ Objetivos chave: Quais são os objetivos chave da pessoa durante a utilização 
 - Conseguir tirar dinheiro com trabalhos temporários e de curto prazo.
 
 Como devemos tratá-la?
-Demonstrar que existem pessoas interessadas, as quais podem observar e interagir com seus trabalhos
+Demonstrar que existem pessoas interessadas, as quais podem observar e interagir com seus trabalhos.
+
+Persona 3:
+Nome: Maurício Sato.
+Idade: 25 anos.
+Hobby: Maurício tem como hobby colecionar e ler diversos tipos de mangá.
+Trabalho: Desenhista e Ilustrador.
+Personalidade: Maurício é um jovem talentoso, introvertido e observador, cuja linguagem preferida é a arte. Ele usa seus desenhos para demonstrar através deles sentimentos.
+Sonhos: Maurício sonha em criar um mangá famoso que seja adaptado para uma versão animada e que fique famosa em todo o mundo. 
+
+Objetos e lugares: Quais objetos físicos e digitais essa pessoa usa? Quando, onde e como ela usa?
+Objetos físicos: Lápis, papel, iPad e Mesa Digitalizadora.
+Onjetos digitais: Ele utiliza de softwares de ilustração, como o Adobe Illustrator. Também utiliza repositórios de arte como ArtStation, além do Instagram, para postar seus desenhos.
+
+Objetivos chave: Quais são os objetivos chave da pessoa durante a utilização do serviço? Porque eles precisam deste serviço?
+- Refinar suas técnicas de desenho;
+- Ter reconhecimento do seu trabalho;
+- Mostrar sua arte para outros profissionais através do feed;
+- Conseguir estabilidade financeira através do seu talento.
+
+Como devemos tratá-lo?
+Notificá-lo quando pessoas estão interessados em sua arte.
 
 ## Histórias de Usuários
 
