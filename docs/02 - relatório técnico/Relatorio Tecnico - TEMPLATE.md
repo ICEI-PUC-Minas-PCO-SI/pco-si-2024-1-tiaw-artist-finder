@@ -97,7 +97,10 @@ Nosso principal objetivo é aproximar os dois mundos; tanto os contratantes/clie
 
 ## Justificativa
 
-......  COLOQUE AQUI O SEU TEXTO ......
+Os artistas digitais hoje em dia, tem muita dificuldade para anunciar seus trabalhos, e isso faz parte de uma junção de dois fatores principais: 
+
+# A demora para possíveis clientes encontrarem artistas para seus objetivos específicos. 
+# A dificuldade dos artistas apresentarem seus trabalhos, através de um portfólio com ferramentas que atraiam um possível cliente.
 
 > Descreva a importância ou a motivação para trabalhar com esta aplicação
 > que você escolheu. Indique as razões pelas quais você escolheu seus
