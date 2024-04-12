@@ -319,7 +319,11 @@ O objetivo final é facilitar o contato direto entre cliente e freelancer, permi
 ## Wireframes
 
 O Wireframe do site foi feito pelo FIGMA e é um protótipo interativo.
-[Acesso ao Wireframe](https://www.figma.com/proto/xhMqePLbQ48FSjh0R09G9H/Artist-Finder?type=design&node-id=49-27&scaling=min-zoom&page-id=49%3A25&starting-point-node-id=49%3A27)
+Diante disso, segue o wireframe da homepage do site.
+
+![Wireframe](imaages/../images/wireframe_homepage.jpg)
+
+[Acesso ao Protótipo Interativo](https://www.figma.com/proto/xhMqePLbQ48FSjh0R09G9H/Artist-Finder?type=design&node-id=49-27&scaling=min-zoom&page-id=49%3A25&starting-point-node-id=49%3A27)
 
 > Wireframes são protótipos das telas da aplicação usados em design de interface para sugerir a
 > estrutura de um site web e seu relacionamentos entre suas
