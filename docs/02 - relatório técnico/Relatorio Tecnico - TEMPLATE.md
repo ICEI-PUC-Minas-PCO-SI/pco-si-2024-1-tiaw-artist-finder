@@ -108,11 +108,10 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 |Larissa Alves  | Expor meu trabalho para ter mais alcance entre empresas | Aumentar minha renda mensal fazendo mais freelances de arte digital|
 |Marcos Terra | Achar mais artistas que trabalham na minha área | Ganhar mais conhecimento sobre arte e aprimorar minhas técnicas |
 |Fernando Pereira | Procurar artistas que atendem a minha necessidade | Conseguir um logotipo para minha nova empresa |
-|Mateus Calixto | Conseguir configurar meu perfil e expor meu portfólio de maneira que me agrade | Permitir que possam administrar contas |
+|Mateus Calixto | Conseguir configurar meu perfil e expor meu portfólio de maneira que me agrade | Trabalhar em uma área confortável para me motivar mais |
 |Álvaro dos Santos | Desejo um site específico para artistas | Achar com mais facilidade um serviço de freelance requisitado pela empresa |
 |Rogério Gomes | Forma de pagamento seguras | Ter segurança quando for efetuar uma compra no site |
-|Bruna Silva | Um meio de comunicação com os donos do site | Ter apoio quando houver alguma duvida ou algum erro |
-
+|Bruna Silva | Um meio de comunicação com os donos do site | Ter apoio quando houver alguma dúvida ou algum erro |
 
 ## Requisitos
 
