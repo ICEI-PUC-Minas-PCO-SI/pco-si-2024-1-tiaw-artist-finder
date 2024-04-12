@@ -3,10 +3,14 @@
 
 # Informações do Projeto
 
-`Artist Finder`  
+`Título do Projeto`  
+Artist Finder  
 
-`Análise e Desenvolvimento de Sistemas & Sistemas de Informação` 
-`Trabalho Interdisciplinar: Aplicações Web` 
+`Curso`
+Análise e Desenvolvimento de Sistemas & Sistemas de Informação
+
+`Disciplina`
+Trabalho Interdisciplinar: Aplicações Web 
 
 ## Participantes
 
@@ -104,17 +108,6 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 |Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
 |Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
 
-> Apresente aqui as histórias de usuário que são relevantes para o
-> projeto de sua solução. As Histórias de Usuário consistem em uma
-> ferramenta poderosa para a compreensão e elicitação dos requisitos
-> funcionais e não funcionais da sua aplicação. Se possível, agrupe as
-> histórias de usuário por contexto, para facilitar consultas
-> recorrentes à essa parte do documento.
->
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-
 ## Requisitos
 
 As tabelas que se seguem apresentam os requisitos funcionais e não funcionais que detalham o escopo do projeto.
@@ -203,11 +196,37 @@ O Wireframe do site segue o padrão:
 - Conteúdo Principal: contendo todas as informações, funcionalidades relevantes à experiência do usuário, imagens e hyperlinks, é onde o conteúdo do site será propriamente colocado.
 - Rodapé: contendo serviços secundários, suporte e termos e condições.
 
-Diante disso, segue o wireframe da homepage do site.
+Homepage:
 
 ![Wireframe](imaages/../images/wireframe_homepage.jpg)
 
+A homepage terá uma barra de pesquisa para o usuário poder pesquisar de acordo com suas preferências, bem como escolher pela sugestão de categorias mais buscadas. Além disso, terá um carrossel em destaque dos artistas premium, de modo que sua arte seja exibida na página principal do site.
+
+Pesquisa:
+
+![Wireframe](imaages/../images/wireframe_search.jpg)
+
+A página de pesquisa irá permitir o usuário visualizar os perfis dos artistas que mais se encaixam com as preferências pesquisadas, além de permitir o cliente filtrar ainda mais a pesquisa, de modo que ache exatamente um artista freelancer que combine com seu fit.
+
+Edição de perfil:
+
+![Wireframe](imaages/../images/wireframe_edit_profile.jpg)
+
+A página de editar perfil permitirá que o artista complete seu perfil com várias informações relevantes, bem como permitirá que ele adicione seu portfólio.
+
+Contratar um freelancer:
+
+![Wireframe](imaages/../images/wireframe_contact_a_freelancer.jpg)
+
+A página de contato com o freelancer servirá quando o cliente visualizar um perfil específico e selecioná-lo de acordo com suas preferências, a partir daí, ele poderá selecionar dentre os planos que o artista oferece, do mais barato, intermediário, ao mais caro, e assim mandar uma mensagem para ele combinando o projeto a ser desenvolvido.
+
 [Acesso ao Protótipo Interativo](https://www.figma.com/proto/xhMqePLbQ48FSjh0R09G9H/Artist-Finder?type=design&node-id=49-27&scaling=min-zoom&page-id=49%3A25&starting-point-node-id=49%3A27)
+
+Chat:
+
+![Wireframe](imaages/../images/wireframe_chat.jpg)
+
+O chat irá permitir um contato facilitado entre cliente e usuário, além da troca de mensagens, permitirá a anexação de arquivos.
 
 # Metodologia
 
