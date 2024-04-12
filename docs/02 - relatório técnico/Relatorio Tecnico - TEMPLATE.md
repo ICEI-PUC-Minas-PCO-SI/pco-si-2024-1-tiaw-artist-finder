@@ -220,10 +220,12 @@ O objetivo final é facilitar o contato direto entre cliente e freelancer, permi
 
 ## Wireframes
 
-O Wireframe do site foi feito pelo Figma e é um protótipo interativo.
+O Wireframe do site segue o padrão:
+- Cabeçalho: contendo logo, barra de navegação com dois botões: Contratar um Serviço (para clientes) e Oferecer um Serviço (para profissionais)
+- Conteúdo Principal: contendo todas as informações, funcionalidades relevantes à experiência do usuário, imagens e hyperlinks, é onde o conteúdo do site será propriamente colocado.
+- Rodapé: contendo serviços secundários, suporte e termos e condições.
 
 Diante disso, segue o wireframe da homepage do site.
-
 ![Wireframe](imaages/../images/wireframe_homepage.jpg)
 
 [Acesso ao Protótipo Interativo](https://www.figma.com/proto/xhMqePLbQ48FSjh0R09G9H/Artist-Finder?type=design&node-id=49-27&scaling=min-zoom&page-id=49%3A25&starting-point-node-id=49%3A27)
