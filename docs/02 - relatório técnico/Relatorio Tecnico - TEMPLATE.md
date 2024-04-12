@@ -105,8 +105,14 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
+|Larissa Alves  | Expor meu trabalho para ter mais alcance entre empresas | Aumentar minha renda mensal fazendo mais freelances de arte digital|
+|Marcos Terra | Achar mais artistas que trabalham na minha área | Ganhar mais conhecimento sobre arte e aprimorar minhas técnicas |
+|Fernando Pereira | Procurar artistas que atendem a minha necessidade | Conseguir um logotipo para minha nova empresa |
+|Mateus Calixto | Conseguir configurar meu perfil e expor meu portfólio de maneira que me agrade | Permitir que possam administrar contas |
+|Álvaro dos Santos | Desejo um site específico para artistas | Achar com mais facilidade um serviço de freelance requisitado pela empresa |
+|Rogério Gomes | Forma de pagamento seguras | Ter segurança quando for efetuar uma compra no site |
+|Bruna Silva | Um meio de comunicação com os donos do site | Ter apoio quando houver alguma duvida ou algum erro |
+
 
 ## Requisitos
 
