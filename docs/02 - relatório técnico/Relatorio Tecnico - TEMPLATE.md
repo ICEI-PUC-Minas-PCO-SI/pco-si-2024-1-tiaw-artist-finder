@@ -6,6 +6,8 @@
 
 `CURSO` 
 
+......  Análise e Desenvolvimento de Sistemas & Sistemas de Informação ......
+
 ......  Trabalho Interdisciplinar: Aplicações Web ......
 
 ## Participantes
@@ -321,7 +323,7 @@ O objetivo final é facilitar o contato direto entre cliente e freelancer, permi
 
 ## Wireframes
 
-O Wireframe do site foi feito pelo FIGMA e é um protótipo interativo.
+O Wireframe do site foi feito pelo Figma e é um protótipo interativo.
 Diante disso, segue o wireframe da homepage do site.
 
 ![Wireframe](imaages/../images/wireframe_homepage.jpg)
@@ -382,7 +384,7 @@ Diante disso, segue o wireframe da homepage do site.
 | Ambiente  | Plataforma              |Link de Acesso |
 |-----------|-------------------------|---------------|
 |Processo de Design Thinkgin  | Miro |  https://miro.com/XXXXXXX | 
-|Repositório de código | GitHub | https://github.com/XXXXXXX | 
+|Repositório de código | GitHub | https://github.com/ICEI-PUC-Minas-PCO-SI/pco-si-2024-1-tiaw-artist-finder | 
 |Hospedagem do site | Heroku |  https://XXXXXXX.herokuapp.com | 
 |Protótipo Interativo | MavelApp ou Figma | https://www.figma.com/proto/xhMqePLbQ48FSjh0R09G9H/Artist-Finder?type=design&node-id=49-27&scaling=min-zoom&page-id=49%3A25&starting-point-node-id=49%3A27 | 
 
