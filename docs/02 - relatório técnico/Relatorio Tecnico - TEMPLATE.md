@@ -251,7 +251,7 @@ Os papéis foram divididos entre os membros do grupo de acordo com a necessidade
 
 - Diego Romero Ribeiro Chaves: Participação na documentação de contexto e especificações do projeto.
 
-- Alfredo Rodrigues Simões Macedo Campos:
+- Alfredo Rodrigues Simões Macedo Campos: Participação no Design Thinking, pesquisa qualitativa e ideação.
 
 ## Ferramentas
 
