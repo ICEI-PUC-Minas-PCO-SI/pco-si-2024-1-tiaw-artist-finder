@@ -2,15 +2,11 @@
 ![Logo](imaages/../images/logo.png)
 
 # Informações do Projeto
-`TÍTULO DO PROJETO`  
 
-......  Artist Finder ......
+`Artist Finder`  
 
-`CURSO` 
-
-......  Análise e Desenvolvimento de Sistemas & Sistemas de Informação ......
-
-......  Trabalho Interdisciplinar: Aplicações Web ......
+`Análise e Desenvolvimento de Sistemas & Sistemas de Informação` 
+`Trabalho Interdisciplinar: Aplicações Web` 
 
 ## Participantes
 
@@ -22,12 +18,6 @@ Os membros do grupo são:
 - João Gabriel Soares Da Silva Franco
 - Diego Romero Ribeiro Chaves
 - Alfredo Rodrigues Simões Macedo Campos
-
-> Inclua a lista dos membros da equipe com seus nomes completos.
->
-> Os membros do grupo são: 
-> - Fulano da Silva
-> - Ciclano Albuquerque
 
 # Estrutura do Documento
 
@@ -66,6 +56,8 @@ Os membros do grupo são:
 
 # Introdução
 
+Bem-vindo ao Artist Finder, a plataforma online projetada para conectar artistas talentosos a clientes em busca de talento criativo. Com uma interface intuitiva e poderosas funcionalidades de busca, o Artist Finder facilita a descoberta e contratação de artistas para uma variedade de projetos. Explore nossa comunidade de artistas e descubra o talento certo para transformar suas ideias em realidade.
+
 ## Problema
 
 Os artistas em geral hoje enfrentam uma luta constante para encontrar oportunidades que correspondam às suas habilidades e paixões, devido à escassez de conexões e à dificuldade em divulgar seus portfólios. Enquanto isso, os clientes em busca de talentos qualificados muitas vezes se veem perdidos em um mar de opções dispersas, sem uma plataforma centralizada e confiável para encontrar e avaliar profissionais freelancer como artistas e músicos no geral. Essa lacuna na conexão entre ambos os grupos cria desafios significativos, apesar de haver a existência de apps como Linkedin ou Fiverr, ainda sim é complicado para os artistas e possíveis clientes, limitando as opções disponíveis para ambos os lados e dificultando o crescimento profissional e financeiro dos artistas e profissionais da criatividade, ao mesmo tempo em que prejudica os clientes na busca por soluções adequadas para seus projetos.
@@ -91,31 +83,47 @@ As especificações do projeto foram estruturadas com base em pesquisas detalhad
 
 ## Personas e Mapas de Empatia
 
-......  COLOQUE AQUI O SEU TEXTO ......
+Persona 1:
 
+Nome: Matheus da Silva.
+Idade: 21 anos.
+Hobby: Mathes tem como hobby jogar Valorant e outros jogos competitivos.
+Trabalho: Matheus ainda não trabalha, está no 4º período de design gráfico.
+Personalidade: Matheus é organizado, muito criativo, apaixonado por arte visual, tem uma boa postura social e consegue ser muito comunicativo.
+Sonhos: Matheus tem o sonho de colocar seu conhecimento artístico e sua criatividade em peças de roupas e criar uma marca famosa, que as pessoas gostem de usar.
 
-> Relacione as personas identificadas no seu projeto e os respectivos mapas de empatia. Lembre-se que 
-> você deve ser enumerar e descrever precisamente e de forma
-> personalizada todos os principais envolvidos com a solução almeja. 
-> 
-> Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina
-> e/ou nos seguintes links:
->
-> **Links Úteis**:
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Hotmart](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
-> - [Mapa de Empatia](https://resultadosdigitais.com.br/blog/mapa-da-empatia/)
-> - [Como fazer um mapa de empatia - Vídeo](https://www.youtube.com/watch?v=JlKHGpVoA2Y)
-> 
-> 
-> **Exemplo de Persona**
-> 
-> ![Exemplo de Persona](imaages/../images/persona.png)
-> 
-> Fonte: [Como criar uma persona para o seu negócio](https://raissaviegas.com.br/como-criar-uma-persona/)
+Objetos e lugares: Quais objetos físicos e digitais essa pessoa usa? Quando, onde e como ela usa?
+Objetos físicos: iPad, Laptop e Smartphone.
+Objetos digitais: Ele utiliza de softwares de edições e desenhos como: Adobe Illustrator, Adobe Photoshop e Autodesk Sketchbook. Também usa de redes sociais para divulgar suas artes e fazer networking com outros artistas, como: Instagram, X e ArtStation.
 
+Objetivos chave: Quais são os objetivos chave da pessoa durante a utilização do serviço? Porque eles precisam deste serviço?
+- Porta de entrada para o mercado de trabalho através de trabalhos de curta duração;
+- Conseguir tirar uma renda em cima desses trabalhos.
+- Conseguir mais trabalhos para seu portfólio em busca de um emprego fixo futuramente.
+
+Como devemos tratá-lo?
+Criar um feed com projetos finalizados de outros artistas para que Matheus tenha seus insights e se sinta mais criativo.
+
+Persona 2:
+Nome: Júlia Santos.
+Idade: 28 anos.
+Hobby: Júlia tem como hobby fazer fotografias urbanas, explorando a cidade em busca de fotos exclusivas.
+Trabalho: Júlia é filmmaker.
+Personalidade: Júlia é uma pessoa extrovertida e comunicativa. Ela valoriza a colaboração e está sempre aberta a novas ideias.
+Sonhos: Júlia sonha em produzir seu próprio filme e que ele seja reconhecido nos festivais de cinema internacional e surpreenda as pessoas de maneira positiva.
+
+Objetos e lugares: Quais objetos físicos e digitais essa pessoa usa? Quando, onde e como ela usa?
+Objetos físicos: Câmera, Laptop, Smartphone, lentes, tripé e iluminação.
+Objetos digitais: Ela utiliza de softwares de edição de vídeo, como: Adobe Preimiere, Final Cut, DaVinci Resolve. Também utiliza o armazenamento na nuvem com o iCloud e Google Drive
+
+Objetivos chave: Quais são os objetivos chave da pessoa durante a utilização do serviço? Porque eles precisam deste serviço?
+- Desenvolvimento profissional;
+- Ter reconhecimento do seu trabalho;
+- Alavancar suas técnicas de produção;
+- Conseguir tirar dinheiro com trabalhos temporários e de curto prazo.
+
+Como devemos tratá-la?
+Demonstrar que existem pessoas interessadas, as quais podem observar e interagir com seus trabalhos
 
 ## Histórias de Usuários
 
@@ -226,6 +234,7 @@ O Wireframe do site segue o padrão:
 - Rodapé: contendo serviços secundários, suporte e termos e condições.
 
 Diante disso, segue o wireframe da homepage do site.
+
 ![Wireframe](imaages/../images/wireframe_homepage.jpg)
 
 [Acesso ao Protótipo Interativo](https://www.figma.com/proto/xhMqePLbQ48FSjh0R09G9H/Artist-Finder?type=design&node-id=49-27&scaling=min-zoom&page-id=49%3A25&starting-point-node-id=49%3A27)
@@ -243,7 +252,7 @@ Além disso, a gestão de configuração do projeto foi realizada através do Gi
 
 Os papéis foram divididos entre os membros do grupo de acordo com a necessidade das tarefas que surgiam em paralelo com a disponibilidade de cada membro do grupo, as decisões foram feitas através de chat no WhatsApp e ligações no Discord.
 
-- Filipe Augusto dos Santos Silva
+- Filipe Augusto dos Santos Silva: Responsável por aplicar pesquisas, criação e edição dos slides, plano de entregas, organização de reuniões, formatação de ideias e participação no Design Thinking.
 
 - Pablo Marques Cordeiro
 
@@ -251,7 +260,7 @@ Os papéis foram divididos entre os membros do grupo de acordo com a necessidade
 
 - João Gabriel Soares Da Silva Franco: Responsável pela criação da documentação introdutória do relatório técnico e pelo Design Thinking.
 
-- Diego Romero Ribeiro Chaves
+- Diego Romero Ribeiro Chaves: Participação na documentação de contexto e especificações do projeto.
 
 - Alfredo Rodrigues Simões Macedo Campos
 
