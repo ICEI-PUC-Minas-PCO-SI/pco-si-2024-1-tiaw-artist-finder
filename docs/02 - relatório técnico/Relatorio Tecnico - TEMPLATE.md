@@ -225,13 +225,14 @@ Contratar um freelancer:
 
 A página de contato com o freelancer servirá quando o cliente visualizar um perfil específico e selecioná-lo de acordo com suas preferências, a partir daí, ele poderá selecionar dentre os planos que o artista oferece, do mais barato, intermediário, ao mais caro, e assim mandar uma mensagem para ele combinando o projeto a ser desenvolvido.
 
-[Acesso ao Protótipo Interativo](https://www.figma.com/proto/xhMqePLbQ48FSjh0R09G9H/Artist-Finder?type=design&node-id=49-27&scaling=min-zoom&page-id=49%3A25&starting-point-node-id=49%3A27)
 
 Chat:
 
 ![Wireframe](imaages/../images/wireframe_chat.jpg)
 
 O chat irá permitir um contato facilitado entre cliente e usuário, além da troca de mensagens, permitirá a anexação de arquivos.
+
+[Acesso ao Protótipo Interativo](https://www.figma.com/proto/xhMqePLbQ48FSjh0R09G9H/Artist-Finder?type=design&node-id=49-27&scaling=min-zoom&page-id=49%3A25&starting-point-node-id=49%3A27)
 
 # Metodologia
 
@@ -257,6 +258,12 @@ Os papéis foram divididos entre os membros do grupo de acordo com a necessidade
 - Diego Romero Ribeiro Chaves: Participação na documentação de contexto e especificações do projeto.
 
 - Alfredo Rodrigues Simões Macedo Campos: Participação no Design Thinking, pesquisa qualitativa e ideação.
+
+Para além disso, utilizamos a ferramenta Trello para gerenciar funções, definir prazos e assim, facilitar a organização do grupo. 
+
+![Trello](imaages/../images/trello.jpg)
+
+No Trello, os cartões representavam o prazo das tarefas, concluídas, em andamento ou a fazer, a medida que uma atividade avançava na conclusão, ela era movida para outro cartão. Além disso. A cor verde representava uma tarefa concluída, azul quase concluída, amarelo em aberto e vermelho aquela que não foi iniciada. 
 
 ## Ferramentas
 
