@@ -3,13 +3,16 @@
 
 # Informações do Projeto
 
-`Título do Projeto`  
+`Título do Projeto`
+
 Artist Finder  
 
 `Curso`
+
 Análise e Desenvolvimento de Sistemas & Sistemas de Informação
 
 `Disciplina`
+
 Trabalho Interdisciplinar: Aplicações Web 
 
 ## Participantes
@@ -156,7 +159,7 @@ Principais requisitos que compõe a aplicação:
 
 Facilita a comunicação direta entre clientes e freelancers, permitindo a discussão de projetos e esclarecimento de dúvidas de forma rápida e eficiente.
 
-- Destaques em Destaque:
+- Feed de Destaques:
 
 Destaca obras de destaque na página principal, proporcionando aos clientes uma visão rápida e inspiradora do talento disponível na plataforma.
 
@@ -272,6 +275,7 @@ Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a 
 | Ambiente  | Plataforma              |Link de Acesso |
 |-----------|-------------------------|---------------|
 |Processo de Design Thinkgin  | Miro |  https://miro.com/app/board/uXjVNjOu4fI=/?share_link_id=591125358422 | 
+|Gestão de Tarefas  | Trello |  https://trello.com/invite/b/qeJBkJK6/ATTIc2f4fb056758e231e943f2bac66f2e8fD5E28FAE/tiaw-sprint-1 | 
 |Repositório de código | GitHub | https://github.com/ICEI-PUC-Minas-PCO-SI/pco-si-2024-1-tiaw-artist-finder | 
 |Hospedagem do site | Heroku |  https://XXXXXXX.herokuapp.com | 
 |Protótipo Interativo | MavelApp ou Figma | https://www.figma.com/proto/xhMqePLbQ48FSjh0R09G9H/Artist-Finder?type=design&node-id=49-27&scaling=min-zoom&page-id=49%3A25&starting-point-node-id=49%3A27 | 
@@ -299,15 +303,6 @@ etiquetas:
 - `bugfix`: uma funcionalidade encontra-se com problemas
 - `enhancement`: uma funcionalidade precisa ser melhorada
 - `feature`: uma nova funcionalidade precisa ser introduzida
-
-> **Links Úteis**:
-> - [Tutorial GitHub](https://guides.github.com/activities/hello-world/)
-> - [Git e Github](https://www.youtube.com/playlist?list=PLHz_AreHm4dm7ZULPAmadvNhH6vk9oNZA)
-> - [5 Git Workflows & Branching Strategy to deliver better code](https://zepel.io/blog/5-git-workflows-to-improve-development/)
->
-> **Exemplo - GitHub Feature Branch Workflow**:
->
-> ![Exemplo de Wireframe](images/Github-Workflow.png)
 
 # **############## SPRINT 1 ACABA AQUI #############**
 
