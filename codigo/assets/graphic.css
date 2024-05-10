@@ -15,12 +15,11 @@
 .body-container {
     display: flex;
     min-height: 100vh;
-    background-color: #e3e9f7 !important;
     margin: 0px;
     gap: 0px;
 }
 
-/*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*Navbar*/
 
@@ -85,6 +84,14 @@
 .side-item:hover {
     background-color: #3e1983;
     transition: background-color 0.3s ease;
+}
+
+.side-item a:hover {
+    color: #fff;
+}
+
+.side-item span {
+    font-weight: 700;
 }
 
 .side-item.active a {
@@ -154,7 +161,8 @@
 
 @media (max-width: 780px) {
 
-    h1, h2 {
+    h1,
+    h2 {
         text-align: center;
     }
 
@@ -177,18 +185,18 @@
         display: none;
     }
 
-    .side-item, .side-item.active {
+    .side-item,
+    .side-item.active {
         width: 3rem;
         height: 2.5rem;
         justify-content: center;
         align-items: center;
     }
-    
+
     .logo {
         margin: 0px;
     }
 
-    
     #sidebar_content {
         padding: 0rem 1rem;
         margin-top: 0.3rem;
@@ -200,20 +208,20 @@
         justify-content: space-around;
     }
 
-    #side_items li:nth-child(2){
+    #side_items li:nth-child(2) {
         order: 1;
     }
-    #side_items li:nth-child(1){
+
+    #side_items li:nth-child(1) {
         order: 2;
     }
 
-    #side_items li:nth-child(3){
+    #side_items li:nth-child(3) {
         order: 3;
     }
-
 }
 
-/*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*Parte principal*/
 
@@ -238,7 +246,7 @@
     font-weight: 600;
 }
 
-/*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*Gráfico*/
 
@@ -259,10 +267,9 @@
 
 .chart-container h2 {
     text-align: center;
-
 }
 
-/*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*Stats*/
 
@@ -290,14 +297,16 @@
     width: 36rem;
     height: 6rem;
     border-radius: 0.2rem;
+    border: 2px solid #3e1983;
 }
 
-#avg-sales-value, #total-sales-value {
+#avg-sales-value,
+#total-sales-value {
     color: #3e1983;
     font-weight: 900;
 }
 
-/*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*Tabela*/
 
@@ -306,6 +315,7 @@
     background-color: #fff;
     border-collapse: collapse;
     width: 100%;
+    border: 2px solid #3e1983;
 }
 
 .table th,
@@ -339,7 +349,7 @@ a.btn-warning {
 
 a.btn-warning:hover,
 a.btn.btn-danger.btn-sm:hover {
-    color: rgb(201, 201, 201) !important;
+    color: #000 !important;
 }
 
 @media (max-width: 781px) {
@@ -354,4 +364,66 @@ a.btn.btn-danger.btn-sm:hover {
     margin-bottom: 3vh;
 }
 
-/*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+.table tbody tr th,
+td {
+    border-top: 2px solid #3e1983 !important;
+}
+
+.table thead tr th,
+td {
+    border-bottom: 2px solid #3e1983 !important;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*Background*/
+
+.bg {
+    animation: slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, #d5cde4 50%, #eae8ee 50%);
+    bottom: 0;
+    left: -50%;
+    opacity: 0.5;
+    position: fixed;
+    right: -50%;
+    top: 0;
+    z-index: -1;
+}
+
+.bg2 {
+    animation-direction: alternate-reverse;
+    animation-duration: 4s;
+}
+
+.bg3 {
+    animation-duration: 5s;
+}
+
+.content {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 0.25em;
+    box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+    left: 50%;
+    padding: 10vmin;
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1 {
+    font-family: monospace;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(-25%);
+    }
+
+    100% {
+        transform: translateX(25%);
+    }
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------*/
