@@ -310,6 +310,24 @@
     font-weight: 900;
 }
 
+@media (max-width: 395px) {
+    .stats-modal {
+        height: 8rem;
+    }
+}
+
+@media (max-width: 325px) {
+    .stats-modal {
+        height: 9rem;
+    }
+}
+
+@media (max-width: 277px) {
+    .stats-modal {
+        height: 12rem;
+    }
+}
+
 /*---------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*Tabela*/
@@ -363,9 +381,8 @@ a.btn.btn-danger.btn-sm:hover {
     }
 }
 
-.table-container h2 {
+.h2-table h2{
     font-weight: 600;
-    margin-bottom: 3vh;
 }
 
 .table tbody tr th,

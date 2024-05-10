@@ -10,16 +10,20 @@ document.getElementById("open_btn").addEventListener("click", function () {
 // URL da API de dados
 
 const URL = "http://localhost:3000/vendas";
+let vendas;
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------*/
 
 // GET - Recupera todos as vendas e adiciona na tabela
 
+// GET - Recupera todos as vendas e adiciona na tabela
 const vendaList = document.getElementById('venda-list');
 
 fetch(URL)
     .then(res => res.json())
-    .then(vendas => {
+    .then(vendasData => {
+        // Atribuir os dados da API à variável "vendas"
+        vendas = vendasData;
 
         vendas.sort((a, b) => {
             const mesMesA = a.mes.toLowerCase();
@@ -58,14 +62,26 @@ fetch(URL)
         vendaList.innerHTML = lista_vendas;
     });
 
+
 /*---------------------------------------------------------------------------------------------------------------------------------------------*/
 
 // DELETE - Procedimento de exclusão de venda
-
 const vendaDelete = document.getElementById('btn-delete');
 
 vendaDelete.addEventListener('click', (e) => {
+    // Verificar se a variável vendas está definida
+    if (!vendas) {
+        console.error('Erro: Dados de vendas não estão disponíveis.');
+        return;
+    }
+
     let id = $('#id-venda').text();
+
+    // Verificar se a venda com o ID especificado existe nos dados
+    if (!vendas.some(venda => venda.id === id)) {
+        console.error('Venda não encontrada. O ID especificado pode estar incorreto.');
+        return;
+    }
 
     fetch(`${URL}/${id}`, {
         method: 'DELETE',
@@ -77,14 +93,12 @@ vendaDelete.addEventListener('click', (e) => {
         return res.json();
     })
     .then(() => {
-        location.reload();
         createChart();
     })
     .catch(error => console.error('Erro ao excluir a venda:', error));
 });
 
-
-/*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------------------------------------------------------------------*/
 
 // Procedimento para recuperação dos dados de venda da API
 function getvenda(id){
@@ -116,16 +130,24 @@ function getvenda(id){
 const vendaForm = document.getElementById('venda-form');
 
 vendaForm.addEventListener('submit', (e) => {
+    e.preventDefault(); // Impede o comportamento padrão do envio do formulário
+
     // RECUPERA O ID DO venda
     let id = parseInt($('#edit-venda-id').text());    
 
     // RECUPERA OS DADOS DO venda
-    const venda = JSON.stringify({
+    const venda = {
         id: document.getElementById('venda-id').value,
         mes: document.getElementById('venda-mes').value,
         vlr: document.getElementById('venda-vlr').value,
         qtd: document.getElementById('venda-qtd').value
-    })
+    };
+
+    // Verificar se o ID da venda começa com "0" ou está vazio
+    if (venda.id.startsWith('0') || venda.id === '') {
+        alert('O ID da venda não pode começar com 0 ou estar vazio.');
+        return;
+    }
 
     if (id >= 0) {
         fetch(`${URL}/${id}`, {
@@ -133,12 +155,12 @@ vendaForm.addEventListener('submit', (e) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: venda
+            body: JSON.stringify(venda)
         })
         .then(res => res.json())
         .then(() => {
-            location.reload(); 
             createChart(); 
+            updateSalesStatistics(); // Atualiza as estatísticas após a criação ou edição da venda
         });  
     }
     else { 
@@ -147,15 +169,15 @@ vendaForm.addEventListener('submit', (e) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: venda
+            body: JSON.stringify(venda)
         })
         .then(res => res.json())
         .then(() => {
-            location.reload();
             createChart(); 
+            updateSalesStatistics(); // Atualiza as estatísticas após a criação ou edição da venda
         });  
     }      
-})
+});
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -169,7 +191,6 @@ fetch(URL)
     .then(vendas => {
 
         const vendasPorMes = {};
-
 
         vendas.forEach(venda => {
             const mes = venda.mes.toLowerCase();
@@ -235,19 +256,35 @@ function createChart(meses, valores) {
 
 // Estatística de venda
 
+fetch(URL)
+    .then(res => res.json())
+    .then(vendas => {
+        updateSalesStatistics(vendas);
+    });
+
 function updateSalesStatistics(vendas) {
-    let totalSales = vendas.reduce((total, venda) => total + (venda.qtd * venda.vlr), 0);
-    let avgSalesPerMonth = totalSales / 12;
+    let totalSales = 0;
+    let totalMonths = 0;
+
+    vendas.forEach(venda => {
+        const valorTotal = parseFloat(venda.vlr) * parseFloat(venda.qtd);
+        totalSales += valorTotal;
+        totalMonths += 1; // Incrementa o total de meses para cada venda
+    });
+
+    // Inicializa a média de vendas por mês com 0
+    let avgSalesPerMonth = 0;
+
+    // Verifica se há vendas antes de calcular a média de vendas por mês
+    if (totalMonths > 0) {
+        // Calcula a média de vendas por mês com base no total de vendas e no total de meses
+        avgSalesPerMonth = totalSales / totalMonths;
+    }
 
     document.getElementById('total-sales-value').textContent = totalSales.toFixed(2);
     document.getElementById('avg-sales-value').textContent = avgSalesPerMonth.toFixed(2);
 }
 
-fetch(URL)
-    .then(res => res.json())
-    .then(vendas => {
-        updateSalesStatistics(vendas);
-});
-
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------*/
+
