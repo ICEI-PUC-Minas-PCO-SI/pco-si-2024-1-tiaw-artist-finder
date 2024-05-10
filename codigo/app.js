@@ -1,5 +1,6 @@
+// URL DA API FAKE CRIADA COM DADOS JSON
+URL = 'http://localhost:3000/usuarios'
 
-// Dados dentro do meu Json
 const dbMock = {
     //Dados de perfil do usuario
     usuarios: [{
@@ -10,12 +11,8 @@ const dbMock = {
         foto: "assets/img/perfil.jpg",
         estado: "SP",
         instituicao: "PUC MINAS",
-        redesSociais: [
-            {
-                Instagram: "",
-                Linkedin: ""
-            }
-        ],
+        Instagram: "",
+        Linkedin: "",
         disponibilidade: "Freelance",
         idAtuacao: 4
     },
@@ -26,12 +23,8 @@ const dbMock = {
         foto: "assets/img/perfil.jpg",
         estado: "SP",
         instituicao: null,
-        redesSociais: [
-            {
-                Instagram: "",
-                Linkedin: ""
-            }
-        ],
+        Instagram: "",
+        Linkedin: "",
         disponibilidade: "Todas"
         ,
         idAtuacao: 3
@@ -43,12 +36,8 @@ const dbMock = {
         foto: "assets/img/perfil.jpg",
         estado: "MG",
         instituicao: "UFRJ",
-        redesSociais: [
-            {
-                Instagram: "",
-                Linkedin: ""
-            }
-        ],
+        Instagram: "",
+        Linkedin: "",
         disponibilidade: "Integral"
         ,
         idAtuacao: 1
@@ -60,12 +49,8 @@ const dbMock = {
         foto: "assets/img/perfil.jpg",
         estado: "RJ",
         instituicao: null,
-        redesSociais: [
-            {
-                Instagram: "",
-                Linkedin: ""
-            }
-        ],
+        Instagram: "",
+        Linkedin: "",
         disponibilidade: "Todas"
 
         ,
@@ -92,9 +77,11 @@ const dbMock = {
     ]
 }
 
+
 // Definindo uma variavel que recebe 0 caso nao tenha nenhum filtro selecionado
+
 let FILTRO_ATUACAO = 0
-let FILTRO_ESTADO = 0
+let FILTRO_ESTADO = ""
 
 //Pesquisando onde meu usuario atua dependendo do id fornecido. 
 function getDescricaoAtuacao(id) {
@@ -112,29 +99,28 @@ function exibeUsers() {
         let user = dbMock.usuarios[i]
         /* se o filtro de atuacao estiver selicionado 0 (ou seja a opcao filtro) vai imprimir todos os usuarios, caso ela n esteja selicionada criei uma condição para que o if
         veja o id que esta selicionado e mostre somente os usuarios que façam parte daquele id de atuação*/
-        if (((FILTRO_ATUACAO == 0) || user.idAtuacao == FILTRO_ATUACAO) &&
+        if ( ((FILTRO_ATUACAO == 0) || user.idAtuacao == FILTRO_ATUACAO) &&
             (FILTRO_ESTADO == "") || user.estado == FILTRO_ESTADO) {
             str += `<div class="card col-md-2 mb-4 me-4 " >
         <img src="${user.foto}" class="card-img-top"  id="foto">
         <div class="card-body" >
           <h5 class="card-title">${user.nome}</h5>
           <p class="card-text text-secondary ">${getDescricaoAtuacao(user.idAtuacao)}</p>
-          
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill  " viewBox="0 0 16 16">
-  <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
-</svg>
+          <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+          </svg>
           <p class="card-text text-secondary   ">${user.estado}</p>
-          
-          
-                    <div class="d-grid gap-2 d-md-block pt-5">
+          <div class="d-grid gap-2 d-md-block pt-5">
             <button class="btn btn-primary" type="button">Perfil</button>
             <button class="btn btn-dark"  type="button">Contratar</button>
             </div>
         </div>
       </div>`
         }
-
         
+        
+
+
 
 
     }
