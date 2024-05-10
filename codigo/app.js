@@ -7,7 +7,7 @@ const dbMock = {
         id: 1,
         nome: "Pablo Marques",
         idade: 22,
-        foto: "assets/imgs/perfil.jpg",
+        foto: "assets/img/perfil.jpg",
         estado: "SP",
         instituicao: "PUC MINAS",
         redesSociais: [
@@ -23,7 +23,7 @@ const dbMock = {
         id: 2,
         nome: "Jorge Alves",
         idade: 29,
-        foto: "assets/imgs/thiago_morrendo.jpg",
+        foto: "assets/img/perfil.jpg",
         estado: "SP",
         instituicao: null,
         redesSociais: [
@@ -40,7 +40,7 @@ const dbMock = {
         id: 3,
         nome: "Francisco Xavier",
         idade: 31,
-        foto: "assets/imgs/perfil.jpg",
+        foto: "assets/img/perfil.jpg",
         estado: "MG",
         instituicao: "UFRJ",
         redesSociais: [
@@ -57,7 +57,7 @@ const dbMock = {
         id: 4,
         nome: "André Schmidt",
         idade: 27,
-        foto: "assets/imgs/thiago_morrendo.jpg",
+        foto: "assets/img/perfil.jpg",
         estado: "RJ",
         instituicao: null,
         redesSociais: [
