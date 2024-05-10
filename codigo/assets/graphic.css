@@ -60,6 +60,10 @@
     list-style: none;
 }
 
+#side_items:nth-child(4) {
+    order: 4;
+}
+
 .side-item {
     border-radius: 0.5rem;
     padding: 0.875rem;
