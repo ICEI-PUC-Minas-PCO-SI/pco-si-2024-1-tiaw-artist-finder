@@ -199,7 +199,7 @@ vendaForm.addEventListener("submit", (e) => {
 
 // Gráfico
 
-// Esta função cria um gráfico de barras para visualizar os dados de vendas.
+// This function creates a bar chart to visualize sales data.
 
 let meses = [];
 let valores = [];
