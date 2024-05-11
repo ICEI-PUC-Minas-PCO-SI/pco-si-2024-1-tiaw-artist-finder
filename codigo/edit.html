@@ -50,23 +50,27 @@
             <p id="state" class="p-simple-info">Estado</p>
         </div>
         <div class="services">
-            <p class="p-simple-info">Tipos de Serviços</p>
-            <p id="basic-service" class="p-service-info">Básico</p>
-            <p id="medium-service" class="p-service-info">Intermediário</p>
-            <p id="premium-service" class="p-service-info">Premium</p>
+            <div class="services-container">
+                <p class="p-simple-info">Tipos de Serviços</p>
+                <p id="basic-service" class="p-service-info">Básico</p>
+                <p id="medium-service" class="p-service-info">Intermediário</p>
+                <p id="premium-service" class="p-service-info">Premium</p></div>        
             <a id="btn-service" href="" class="btn-profile">Personalizar</a>
         </div>
         <div class="contact-infos">
             <p class="edit-btn">Editar</p>
             <p class="p-simple-info">Informações de Contato</p>
-            <p class="p-contact-info">Número de Telefone</p>
+            <p class="p-contact-info">Número de Telefone:</p>
             <p class="p-contact-info">E-mail:</p>
         </div>
         <div class="portfolio">
+            <div class="portfolio-img-container">
+                <img id="portfolio_img" src="./assets/img/216803346-statue-kant.jpg" alt="" class="portfolio-img">
+            </div>        
             <form action="/upload" method="post" enctype="multipart/form-data">
                 <label for="imagem">Poste seu porfólio:</label>
                 <input type="file" id="imagem" name="imagem" accept="image/*">
-                <input type="submit" value="Enviar">
+                <a href="#" class="btn-profile">Enviar</a>
               </form>
         </div>
         <div class="personal-info">

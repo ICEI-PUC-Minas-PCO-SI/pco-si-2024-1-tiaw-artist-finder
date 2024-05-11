@@ -56,7 +56,7 @@ a {
     font-family: "Lato";
     font-style: normal;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 1.2rem;
     line-height: 24px;
     color: #290f71;
 }
@@ -102,6 +102,7 @@ main .profile-edit {
     flex-direction: column;
     justify-content: start;
     align-items: center;
+    gap: 6px;
 }
 
 main .profile-edit .edit-btn {
@@ -120,13 +121,15 @@ main .services {
     grid-row: 2;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
     padding-top: 2rem;
+    gap: 6px;
+    padding-bottom: 8px;
 }
 
-main .services .btn-profile {
-    margin-top: 10rem;
+main .services .services-container {
+    text-align: center;
 }
 
 .p-service-info, .p-contact-info {
@@ -150,6 +153,7 @@ main .contact-infos {
     flex-direction: column;
     justify-content: start;
     align-items: center;
+    gap: 6px;
 }
 
 main .contact-infos .edit-btn {
@@ -159,6 +163,7 @@ main .contact-infos .edit-btn {
 }
 
 main .portfolio {
+    display: flex;
     width: 45rem;
     height: 25rem;
     box-sizing: border-box;
@@ -166,14 +171,66 @@ main .portfolio {
     border: 3px solid #290f71;
     grid-column: 2;
     grid-row: 1;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    padding-top: 2rem;
+    gap: 6px;
+}
+
+main .portfolio .portfolio-img-container {
+    overflow-x: auto;
+    display: flex;
+    height: auto;
+    width: auto;
+    flex-direction: row;
+}
+
+main .portfolio form {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center !important;
+}
+
+main .portfolio form a {
+    margin-top: 8px;
+    align-self: center;
+}
+
+main .portfolio img {
+    width: 13rem;
+    height: 13rem;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+main .portfolio a {
+    align-self: baseline;
 }
 
 main .personal-info {
     width: 45rem;
-    height: 34rem;
+    height: 25rem;
     box-sizing: border-box;
     background: #fefcff;
     border: 3px solid #290f71;
     grid-column: 2;
     grid-row: 2;
+}
+
+main .personal-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 6px;
+}
+
+main .personal-info .edit-btn {
+    order: -1;
+    align-self: flex-end;
+    margin-right: 0.6rem;
 }
