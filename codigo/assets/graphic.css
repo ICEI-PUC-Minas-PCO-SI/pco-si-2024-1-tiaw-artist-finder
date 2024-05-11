@@ -27,6 +27,7 @@
     width: 3rem;
     height: 3rem;
     object-fit: cover;
+    margin-top: 0.2rem;
 }
 
 #sidebar {
@@ -302,6 +303,7 @@
     height: 6rem;
     border-radius: 0.2rem;
     border: 2px solid #3e1983;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
 #avg-sales-value,
@@ -338,6 +340,7 @@
     border-collapse: collapse;
     width: 100%;
     border: 2px solid #3e1983;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
 .table th,

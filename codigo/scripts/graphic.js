@@ -8,6 +8,39 @@ document.getElementById("open_btn").addEventListener("click", function () {
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------*/
 
+// Função para aplicar estilo ao elemento 'a' filho quando 'li.side-item' é hover
+
+function applyStyleOnHover() {
+    
+    const sideItems = document.querySelectorAll('li.side-item');
+
+    
+    sideItems.forEach((item) => {
+        
+        item.addEventListener('mouseenter', function() {
+            
+            const link = this.querySelector('a');
+            if (link) {
+                link.style.color = '#fff';
+            }
+        });
+
+        
+        item.addEventListener('mouseleave', function() {
+            
+            const link = this.querySelector('a');
+            if (link) {
+                link.style.color = '';
+            }
+        });
+    });
+}
+
+// Chama a função para aplicar o estilo quando a página carregar
+applyStyleOnHover();
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------*/
+
 // URL da API de dados
 
 const URL = "http://localhost:3000/vendas";
