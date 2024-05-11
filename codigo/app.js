@@ -20,7 +20,7 @@ const dbMock = {
             "foto": "assets/img/perfil.jpg",
             "estado": "SP",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Freelance",
             "idAtuacao": 3
             },
         {
@@ -40,7 +40,7 @@ const dbMock = {
             "foto": "assets/img/perfil.jpg",
             "estado": "RJ",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Freelance",
             "idAtuacao": 42
         },
         {
@@ -50,7 +50,7 @@ const dbMock = {
             "foto": "assets/img/perfil.jpg",
             "estado": "SP",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Freelance",
             "idAtuacao": 10
           },
           {
@@ -60,7 +60,7 @@ const dbMock = {
             "foto": "assets/img/perfil.jpg",
             "estado": "MG",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Freelance",
             "idAtuacao": 8
           },
           {
@@ -70,7 +70,7 @@ const dbMock = {
             "foto": "assets/img/perfil.jpg",
             "estado": "SP",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Freelance",
             "idAtuacao": 7
           },
           {
@@ -80,7 +80,7 @@ const dbMock = {
             "foto": "assets/img/perfil.jpg",
             "estado": "RJ",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Freelance",
             "idAtuacao": 8
           },
           {
@@ -90,7 +90,7 @@ const dbMock = {
             "foto": "assets/img/perfil.jpg",
             "estado": "RS",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Freelance",
             "idAtuacao": 3
           },
           {
@@ -100,7 +100,7 @@ const dbMock = {
             "foto": "assets/img/perfil.jpg",
             "estado": "AM",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Integral",
             "idAtuacao": 5
           },
           {
@@ -110,7 +110,7 @@ const dbMock = {
             "foto": "assets/img/perfil.jpg",
             "estado": "MT",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Integral",
             "idAtuacao": 9
           },
           {
@@ -120,7 +120,7 @@ const dbMock = {
             "foto": "assets/img/perfil.jpg",
             "estado": "SP",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Integral",
             "idAtuacao": 10
           },
           {
@@ -130,7 +130,7 @@ const dbMock = {
             "foto": "assets/img/perfil.jpg",
             "estado": "RS",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Integral",
             "idAtuacao": 2
           },
           {
@@ -140,7 +140,7 @@ const dbMock = {
             "foto": "assets/img/perfil.jpg",
             "estado": "PR",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Integral",
             "idAtuacao": 4
           },
           {
@@ -150,7 +150,7 @@ const dbMock = {
             "foto": "assets/img/perfil.jpg",
             "estado": "SP",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Integral",
             "idAtuacao": 3
           },
           {
@@ -160,7 +160,7 @@ const dbMock = {
             "foto": "assets/img/perfil.jpg",
             "estado": "SC",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Integral",
             "idAtuacao": 7
           },
           {
@@ -170,7 +170,7 @@ const dbMock = {
             "foto": "assets/img/perfil.jpg",
             "estado": "BA",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Integral",
             "idAtuacao": 6
           },
           {
@@ -180,7 +180,7 @@ const dbMock = {
             "foto": "assets/img/perfil.jpg",
             "estado": "SP",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Integral",
             "idAtuacao": 6
           },
           {
@@ -190,7 +190,7 @@ const dbMock = {
             "foto": "assets/img/perfil.jpg",
             "estado": "RJ",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Integral",
             "idAtuacao": 9
           },
           {
@@ -200,7 +200,7 @@ const dbMock = {
             "foto": "assets/img/perfil.jpg",
             "estado": "MG",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Integral",
             "idAtuacao": 8
           },
           {
@@ -230,7 +230,7 @@ const dbMock = {
             "foto": "assets/img/perfil.jpg",
             "estado": "SP",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Freelance",
             "idAtuacao": 4
           },
           {
@@ -260,7 +260,7 @@ const dbMock = {
             "foto": "assets/img/perfil.jpg",
             "estado": "SP",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Freelance",
             "idAtuacao": 3
           },
           {
@@ -290,7 +290,7 @@ const dbMock = {
             "foto": "assets/img/perfil.jpg",
             "estado": "RJ",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Freelance",
             "idAtuacao": 6
           },
           {
@@ -330,7 +330,7 @@ const dbMock = {
             "foto": "assets/img/perfil.jpg",
             "estado": "CE",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Freelance",
             "idAtuacao": 6
           },
           {
@@ -340,7 +340,7 @@ const dbMock = {
             "foto": "assets/img/perfil.jpg",
             "estado": "BA",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Freelance",
             "idAtuacao": 2
           },
           {
@@ -403,8 +403,9 @@ const dbMock = {
 
 // Definindo uma variavel que recebe 0 caso nao tenha nenhum filtro selecionado
 
-let FILTRO_ATUACAO = 0
+let FILTRO_ATUACAO = ""
 let FILTRO_ESTADO = ""
+let FILTRO_DISPONIBILIDADE = ""
 
 //Pesquisando onde meu usuario atua dependendo do id fornecido. 
 function getDescricaoAtuacao(id) {
@@ -425,17 +426,19 @@ function exibeUsers() {
 
 
         
-        if (((user.idAtuacao == FILTRO_ATUACAO) || (FILTRO_ATUACAO == 0)) &&
-        ((user.estado == FILTRO_ESTADO) || (FILTRO_ESTADO == ""))) {
+        if ( ((user.disponibilidade == FILTRO_DISPONIBILIDADE) || (FILTRO_DISPONIBILIDADE == "")) &&
+        ((user.idAtuacao == FILTRO_ATUACAO) || (FILTRO_ATUACAO == "")) &&
+        ((user.estado == FILTRO_ESTADO) || (FILTRO_ESTADO == "")) ) {
             str += `<div class="card col-md-2  mb-4 me-4 " >
         <img src="${user.foto}" class="card-img-top"  id="foto">
         <div class="card-body" >
           <h5 class="card-title ">${user.nome}</h5>
-          <p class="card-text text-secondary ">${getDescricaoAtuacao(user.idAtuacao)}</p>
+          <p class="card-text text-secondary "><strong> Area de atuação: </strong> ${getDescricaoAtuacao(user.idAtuacao)}</p>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill  " viewBox="0 0 16 16">
           <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
           </svg>
           <p class="card-text text-secondary ">${user.estado}</p>
+          <p class="card-text text-secondary "><strong> Disponiblidade: </strong>${user.disponibilidade}</p>
           <div class=" row">
             <button class="btn btn-primary  " type="button">Perfil</button>
             <button class="btn btn-dark  "  type="button">Contratar</button>
@@ -467,6 +470,21 @@ document.body.onload = () => {
     let filtroEstado = document.querySelector('#filtroEstado')
     filtroEstado.addEventListener('change', () => {
         FILTRO_ESTADO = filtroEstado.value
+        exibeUsers();
+    })
+    let filtroDisponibilidade = document.querySelector('#filtroDisponibilidade')
+    filtroDisponibilidade.addEventListener('change', () => {
+        FILTRO_DISPONIBILIDADE = filtroDisponibilidade.value
+        exibeUsers();
+    })
+    let limpar = document.querySelector('#limpar')
+    limpar.addEventListener('click', () => {
+        FILTRO_DISPONIBILIDADE = ""
+        filtroDisponibilidade.value = ""
+        FILTRO_ESTADO = ""
+        filtroEstado.value = ""
+        FILTRO_ATUACAO = ""
+        filtroAtuacao.value = ""
         exibeUsers();
     })
 

@@ -62,9 +62,20 @@
             </ul>
           </div>-->
 
+          <form class="mb-3">
+                <select id="filtroDisponibilidade" class="form-control me-2 text-center" name="disponilidade" >
+                    <option value="">Filtrar Disponilidade</option>
+                    <option value="">Todas</option>
+                    <option value="Integral">Integral</option>
+                    <option value="Freelance">Freelance</option>
+                </select>
+            </form>
+            <hr>
+                </hr>
             <form class="mb-3">
-                <select id="filtroAtuacao" class="form-control me-2 text-center" name="atuacao" id="atuacao">
-                    <option value="0">Filtrar Atuação</option>
+                <select id="filtroAtuacao" class="form-control me-2 text-center" name="atuacao" >
+                    <option value="">Filtrar Atuação</option>
+                    <option value="">Todas</option>
                     <option value="1">Ilustração</option>
                     <option value="2">Filmagem</option>
                     <option value="3">Fotografia</option>
@@ -78,12 +89,12 @@
 
 
                 </select>
-
                 <hr>
                 </hr>
                 <form class=" mb-3">
-                    <select id="filtroEstado" class="form-control me-2 text-center" name="estado" id="estado">
+                    <select id="filtroEstado" class="form-control  me-2 text-center" name="estado" >
                         <option value="">Filtrar Estado</option>
+                        <option value="">Todos</option>
                         <option value="RJ">RJ</option>
                         <option value="SP">SP</option>
                         <option value="MG">MG</option>
@@ -95,12 +106,13 @@
                         <option value="BA">BA</option>
                         <option value="PE">PE</option>
                         <option value="CE">CE</option>
-
-
-
-
                     </select>
                 </form>
+
+                <button class="btn btn-dark text-center " id="limpar" type="button">Limpar Filtros</button>
+
+                
+            
         </div>
         <div class="container fluid col-md-10">
             <div id="tela" class="row text-center  "></div>

@@ -17,7 +17,7 @@
             "foto": "assets/img/perfil.jpg",
             "estado": "SP",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Freelance",
             "idAtuacao": 3
             },
         {
@@ -37,7 +37,7 @@
             "foto": "assets/img/perfil.jpg",
             "estado": "RJ",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Freelance",
             "idAtuacao": 42
         },
         {
@@ -47,7 +47,7 @@
             "foto": "assets/img/perfil.jpg",
             "estado": "SP",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Freelance",
             "idAtuacao": 10
           },
           {
@@ -57,7 +57,7 @@
             "foto": "assets/img/perfil.jpg",
             "estado": "MG",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Freelance",
             "idAtuacao": 8
           },
           {
@@ -67,7 +67,7 @@
             "foto": "assets/img/perfil.jpg",
             "estado": "SP",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Freelance",
             "idAtuacao": 7
           },
           {
@@ -77,7 +77,7 @@
             "foto": "assets/img/perfil.jpg",
             "estado": "RJ",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Freelance",
             "idAtuacao": 8
           },
           {
@@ -87,7 +87,7 @@
             "foto": "assets/img/perfil.jpg",
             "estado": "RO",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Freelance",
             "idAtuacao": 3
           },
           {
@@ -97,7 +97,7 @@
             "foto": "assets/img/perfil.jpg",
             "estado": "AM",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Freelance",
             "idAtuacao": 5
           },
           {
@@ -107,7 +107,7 @@
             "foto": "assets/img/perfil.jpg",
             "estado": "MT",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Freelance",
             "idAtuacao": 9
           },
           {
@@ -117,7 +117,7 @@
             "foto": "assets/img/perfil.jpg",
             "estado": "SP",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Integral",
             "idAtuacao": 10
           },
           {
@@ -127,7 +127,7 @@
             "foto": "assets/img/perfil.jpg",
             "estado": "RS",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Integral",
             "idAtuacao": 2
           },
           {
@@ -137,7 +137,7 @@
             "foto": "assets/img/perfil.jpg",
             "estado": "PR",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Integral",
             "idAtuacao": 4
           },
           {
@@ -147,7 +147,7 @@
             "foto": "assets/img/perfil.jpg",
             "estado": "SP",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Integral",
             "idAtuacao": 3
           },
           {
@@ -157,7 +157,7 @@
             "foto": "assets/img/perfil.jpg",
             "estado": "SC",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Integral",
             "idAtuacao": 7
           },
           {
@@ -167,7 +167,7 @@
             "foto": "assets/img/perfil.jpg",
             "estado": "BA",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Integral",
             "idAtuacao": 6
           },
           {
@@ -177,7 +177,7 @@
             "foto": "assets/img/perfil.jpg",
             "estado": "SP",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Integral",
             "idAtuacao": 6
           },
           {
@@ -187,7 +187,7 @@
             "foto": "assets/img/perfil.jpg",
             "estado": "RJ",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Integral",
             "idAtuacao": 9
           },
           {
@@ -197,7 +197,7 @@
             "foto": "assets/img/perfil.jpg",
             "estado": "MG",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Integral",
             "idAtuacao": 8
           },
           {
@@ -227,7 +227,7 @@
             "foto": "assets/img/perfil_sudeste.jpg",
             "estado": "SP",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Freelance",
             "idAtuacao": 4
           },
           {
@@ -257,7 +257,7 @@
             "foto": "assets/img/perfil_sudeste.jpg",
             "estado": "SP",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Freelance",
             "idAtuacao": 3
           },
           {
@@ -287,7 +287,7 @@
             "foto": "assets/img/perfil_sudeste.jpg",
             "estado": "RJ",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Freelance",
             "idAtuacao": 6
           },
           {
@@ -327,7 +327,7 @@
             "foto": "assets/img/perfil_nordeste.jpg",
             "estado": "CE",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Freelance",
             "idAtuacao": 6
           },
           {
@@ -337,7 +337,7 @@
             "foto": "assets/img/perfil_nordeste.jpg",
             "estado": "BA",
             "instituicao": null,
-            "disponibilidade": "Todas",
+            "disponibilidade": "Freelance",
             "idAtuacao": 2
           },
           {
