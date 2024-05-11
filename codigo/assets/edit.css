@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
 #logo {
     width: 80px;
@@ -23,43 +23,48 @@ a {
     align-items: center;
     padding: 10px 20px;
     gap: 10px;
-    background: linear-gradient(180deg, #9E6EDC 0%, #875DBD 100%);
+    background: linear-gradient(180deg, #9e6edc 0%, #875dbd 100%);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
+    text-decoration: none;
+    color: #090139;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
 }
 
 .profile-name {
-    font-family: 'Lato';
+    font-family: "Lato";
     font-style: normal;
     font-weight: 700;
     font-size: 1.4rem;
     line-height: 2.5rem;
-    color: #290F71;
+    color: #290f71;
 }
 
 .edit-btn {
-    font-family: 'Lato';
+    font-family: "Lato";
     font-style: normal;
     font-weight: 700;
     font-size: 1rem;
     line-height: 1.5rem;
-    color: #290F71;
+    color: #290f71;
     cursor: pointer;
 }
 
 .p-simple-info {
-    font-family: 'Lato';
+    font-family: "Lato";
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
     line-height: 24px;
-    color: #290F71;
+    color: #290f71;
 }
 
 .profile-edit img {
     width: 9rem;
     height: 9rem;
-    border: 3px solid #290F71;
+    border: 3px solid #290f71;
     border-radius: 50%;
     object-fit: cover;
     overflow: hidden;
@@ -69,31 +74,106 @@ a {
 
 /*Edição das divs*/
 
-main-container {
+main {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.main-container {
+    margin-top: 6rem;
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 3rem;
+    grid-template-columns: auto auto;
+    grid-column-gap: 5rem;
+    grid-row-gap: 1rem;
+    grid-template-rows: auto auto auto;
 }
 
 main .profile-edit {
     box-sizing: border-box;
-    width: 22rem;
-    height: 20rem;
-    background: #FEFCFF;
-    border: 3px solid #290F71;
+    width: 25rem;
+    height: 25rem;
+    background: #fefcff;
+    border: 3px solid #290f71;
     border-radius: 5px;
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+main .profile-edit .edit-btn {
+    order: -1;
+    align-self: flex-end;
+    margin-right: 0.6rem;
 }
 
 main .services {
     box-sizing: border-box;
-    width: 22rem;
-    height: 13rem;
+    width: 25rem;
+    height: 25rem;
+    background: #fefcff;
+    border: 3px solid #290f71;
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    padding-top: 2rem;
 }
 
-main .concact-infos {
-    position: absolute;
-    width: 369.82px;
-    height: 393px;
-    left: 220px;
-    top: 786px;
+main .services .btn-profile {
+    margin-top: 10rem;
+}
+
+.p-service-info, .p-contact-info {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #4b464b;
+}
+
+main .contact-infos {
+    box-sizing: border-box;
+    width: 25rem;
+    height: 24rem;
+    background: #fefcff;
+    border: 3px solid #290f71;
+    grid-column: 1;
+    grid-row: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+main .contact-infos .edit-btn {
+    order: -1;
+    align-self: flex-end;
+    margin-right: 0.6rem; 
+}
+
+main .portfolio {
+    width: 45rem;
+    height: 25rem;
+    box-sizing: border-box;
+    background: #fefcff;
+    border: 3px solid #290f71;
+    grid-column: 2;
+    grid-row: 1;
+}
+
+main .personal-info {
+    width: 45rem;
+    height: 34rem;
+    box-sizing: border-box;
+    background: #fefcff;
+    border: 3px solid #290f71;
+    grid-column: 2;
+    grid-row: 2;
 }
