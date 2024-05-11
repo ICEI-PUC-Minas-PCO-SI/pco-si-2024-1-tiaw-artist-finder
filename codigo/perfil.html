@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    
+</head>
+<body>
+    <script src="edit.js"></script>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <img src="assets/img/logo.svg" id="logo">
+                <!--<a class="navbar-brand" href="#">Artist Finder</a>-->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse fs-3 " id="navbarTogglerDemo02">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                        <li class="nav-item me-3">
+                            <!--o active dentro de classe vai deixar a pagina que voce esta no menu-->
+                            <a class="nav-link active " aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a class="nav-link " href="#">Explorar</a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a class="nav-link " href="sign.html">Perfil</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+            <div class="left-section">
+                <div class="card mb-3 col-md-3 m-4">
+                    <div class="card-body" id="nome">
+                        <input type="image" alt="Imagem do usuário">
+                        <button type="button" title="Editar">Editar</button>
+                        <h5 class="card-title">Nome</h5>
+                        <label><h4>Nome de Usuário</h4></label>
+                        <label><h4>Cliente (ou freelancer)</h4></label>
+                        <label><p>Estado</p></label>
+                        <label><p>Membro desde Mês/ano</p></label>
+                    </div>
+                </div>
+            </div>
+        </div>    
+            <div class="card text-center col-md-4 mb-3 m-4">
+                <div class="card-body">
+                    <button type="button" title="Editar">Editar</button>
+                    <h5 class="card-title">Serviços solicitados/pendentes</h5>
+                    <p>Título do serviço</p>
+                    <p>Preço:</p>
+                    <p>Prazo restante:</p>
+                </div>
+            </div>
+        </div>
+            <div class="card text-end col-md-4 m-4">
+                <div class="card-body">
+                    <button type="button" title="Editar">Editar</button>
+                    <h5 class="card-title">Descrição:</h5>
+                    <input type="text" disabled>
+                    <h5>Idiomas:</h5>
+                    <button type="button">Adicionar Novo</button>
+                    <input type="text" disabled>
+                    <h5>Habilidades:</h5>
+                    <button type="button">Adicionar Novo</button>
+                    <input type="text" disabled>
+                    <h5>Educação:</h5>
+                    <button type="button">Adicionar Novo</button>
+                    <input type="text" disabled>
+                </div>
+            </div>
+        </div>    
+        <div class="right-section">
+            <div class="caixa m-4"> 
+            <div class="container">
+                
+                <div class="row">
+                    <div class="card mb-3 col-md-12">
+                        <div class="card-body" id="portfolio">
+                            <input type="image" alt="Imagem do portfolio">
+                            <button title="Adicionar Portfolio">Adicionar Portfolio</button>
+                        </div>
+                    </div>
+                <div class="card text-center mb-3">
+                    <div class="p-1 float-right col-md-10" >
+                        <div class="card-body" id="info">
+                            <button title="Editar" class="">Editar</button>
+                        <h5 class="card-title">Informações de Contato</h5>
+                        <label for="telefone" class="text-info">Número de Telefone</label><br>
+                        <input type="number" value="(xx)xxxxx-xxxxx" disabled><br>
+                        <label for="redes" class="redes_sociais"><strong>Redes sociais</strong><br>
+                        <input type="checkbox" disabled>WhatsApp<br>
+                        <input type="checkbox" disabled>Instagram<br>
+                        <label for="email" class="email"><strong>Email</strong></label><br>
+                        <p>Se preferir, pode entrar em contato comigo por e-mail</p>
+                        <input type="email" value="seuemail@dominio.com" disabled><a href="mailto:"></a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>    
+            </div>
+            </div>
+                </div>
+            </div>
+            
+                
+            </div>
+
+                           
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-column">
+                <h4>Mais Serviços</h4>
+                <ul>
+                    <li>Design Gráfico</li>
+                    <li>Design de Interiores</li>
+                    <li>Videografia</li>
+                    <li>Suporte Técnico</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Suporte</h4>
+                <ul>
+                    <li>Suporte</li>
+                </ul>
+                
+                <!-- Colocar aqui informações sobre suporte -->
+            </div>
+            <div class="footer-column">
+                <h4>Termos e Condições</h4>
+                <ul>
+                    <li>Termos e Condições</li>
+                </ul>
+                <!-- Colocar aqui links ou informações sobre termos e condições -->
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

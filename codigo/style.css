@@ -1,0 +1,128 @@
+/* Estilos do logo */
+#logo {
+    width: 10%;
+}
+
+/* Estilos dos inputs no formulário */
+form input {
+    border-bottom: 1px solid;
+}
+
+/* Estilos da tela principal */
+.navbar {
+    background-color: plum;
+}
+
+/* Estilos do container principal */
+.caixa {
+    background-color: antiquewhite;
+    display: flex;
+    align-content: first baseline;
+    position: absolute;
+    top: 25%;
+}
+
+/* Estilos da seção esquerda */
+.left-section {
+    display: inline;
+    padding: 20px;
+}
+
+/* Estilos da seção direita */
+.right-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+/* Estilos dos cards */
+.card {
+    display: inline;
+    height: 100%;
+    background-color: #fff;
+    width: 100%;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    overflow:auto; /* Truncar o texto que transborda */
+}
+#portfolio {
+    width: 100px;
+    height: 100px;
+}
+#info {
+    height: 200px;
+}
+
+.card .card-body {
+    padding: 10px;
+}
+
+.card-title {
+    font-size: 16px; /* Reduzir o tamanho da fonte do título */
+}
+
+.card p {
+    font-size: 14px; /* Reduzir o tamanho da fonte do texto */
+    overflow: hidden; /* Truncar o texto que transborda */
+    text-overflow: ellipsis; /* Adicionar reticências para indicar texto truncado */
+    white-space: nowrap; /* Impedir que o texto seja quebrado em várias linhas */
+}
+button {
+    float: right;
+}
+
+/*Botão de Importar portfólio*/
+#portfolio button {
+    position: absolute;
+    bottom: 1%;
+}
+/*Personalização do Rodapé*/
+/* Estilos gerais */
+
+/*Hover dos botões*/
+button:hover {
+    background-color: #333;
+}
+
+footer {
+    background-color: #f0f0f0;
+    padding: 20px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-column {
+    flex: 1;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+h4 {
+    color: #333;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-wrap: wrap;
+    }
+    .footer-column {
+        flex: 1 0 100%;
+    }
+}
+
