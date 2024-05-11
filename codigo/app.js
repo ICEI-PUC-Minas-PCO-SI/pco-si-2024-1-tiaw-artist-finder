@@ -421,15 +421,13 @@ function exibeUsers() {
     let str = ''
     for (let i = 0; i < dbMock.usuarios.length; i++) {
         let user = dbMock.usuarios[i]
+
         /* se o filtro de atuacao estiver selicionado 0 (ou seja a opcao filtro) vai imprimir todos os usuarios, caso ela n esteja selicionada criei uma condição para que o if
         veja o id que esta selicionado e mostre somente os usuarios que façam parte daquele id de atuação*/
-
-
-        
         if ( ((user.disponibilidade == FILTRO_DISPONIBILIDADE) || (FILTRO_DISPONIBILIDADE == "")) &&
         ((user.idAtuacao == FILTRO_ATUACAO) || (FILTRO_ATUACAO == "")) &&
         ((user.estado == FILTRO_ESTADO) || (FILTRO_ESTADO == "")) ) {
-            str += `<div class="card col-md-2  mb-4 me-4 " >
+            str += `<div class="card col-md-2   mb-4 me-4 " >
         <img src="${user.foto}" class="card-img-top"  id="foto">
         <div class="card-body" >
           <h5 class="card-title ">${user.nome}</h5>
@@ -440,7 +438,7 @@ function exibeUsers() {
           <p class="card-text text-secondary ">${user.estado}</p>
           <p class="card-text text-secondary "><strong> Disponiblidade: </strong>${user.disponibilidade}</p>
           <div class=" row">
-            <button class="btn btn-primary  " type="button">Perfil</button>
+            <button class="btn btn-primary mb-2 " type="button">Perfil</button>
             <button class="btn btn-dark  "  type="button">Contratar</button>
             </div>
         </div>
