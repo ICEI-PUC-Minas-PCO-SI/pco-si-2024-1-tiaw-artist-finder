@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+#logo {
+    width: 80px;
+    height: 80px;
+    margin-right: 50px;
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*Edições de classes gerais*/
+
+a {
+    text-decoration: none;
+}
+
+.btn-profile {
+    width: 7.5rem;
+    height: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 10px;
+    background: linear-gradient(180deg, #9E6EDC 0%, #875DBD 100%);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+.profile-name {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 2.5rem;
+    color: #290F71;
+}
+
+.edit-btn {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #290F71;
+    cursor: pointer;
+}
+
+.p-simple-info {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #290F71;
+}
+
+.profile-edit img {
+    width: 9rem;
+    height: 9rem;
+    border: 3px solid #290F71;
+    border-radius: 50%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*Edição das divs*/
+
+main-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+}
+
+main .profile-edit {
+    box-sizing: border-box;
+    width: 22rem;
+    height: 20rem;
+    background: #FEFCFF;
+    border: 3px solid #290F71;
+    border-radius: 5px;
+}
+
+main .services {
+    box-sizing: border-box;
+    width: 22rem;
+    height: 13rem;
+}
+
+main .concact-infos {
+    position: absolute;
+    width: 369.82px;
+    height: 393px;
+    left: 220px;
+    top: 786px;
+}
