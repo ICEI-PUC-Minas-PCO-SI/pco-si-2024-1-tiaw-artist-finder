@@ -91,7 +91,7 @@ main {
 
 main .profile-edit {
     box-sizing: border-box;
-    width: 25rem;
+    width: 24.7vw;
     height: 25rem;
     background: #fefcff;
     border: 3px solid #290f71;
@@ -113,7 +113,7 @@ main .profile-edit .edit-btn {
 
 main .services {
     box-sizing: border-box;
-    width: 25rem;
+    width: 24.7vw;
     height: 25rem;
     background: #fefcff;
     border: 3px solid #290f71;
@@ -143,7 +143,7 @@ main .services .services-container {
 
 main .contact-infos {
     box-sizing: border-box;
-    width: 25rem;
+    width: 24.7vw;
     height: 24rem;
     background: #fefcff;
     border: 3px solid #290f71;
@@ -164,7 +164,7 @@ main .contact-infos .edit-btn {
 
 main .portfolio {
     display: flex;
-    width: 45rem;
+    width: 44.5vw;
     height: 25rem;
     box-sizing: border-box;
     background: #fefcff;
@@ -212,7 +212,7 @@ main .portfolio a {
 }
 
 main .personal-info {
-    width: 45rem;
+    width: 44.5vw;
     height: 25rem;
     box-sizing: border-box;
     background: #fefcff;
@@ -234,3 +234,77 @@ main .personal-info .edit-btn {
     align-self: flex-end;
     margin-right: 0.6rem;
 }
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*Responsividade*/
+
+@media (max-width: 768px) {
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .profile-edit {
+        width: 24rem !important;
+        order: 1;
+    }
+
+    .portfolio {
+        width: 24rem !important;
+        order: 2;
+    }
+
+    .personal-info {
+        width: 24rem !important;
+        order: 3;
+    }
+    .contact-infos {
+        width: 24rem !important;
+        order: 4;
+    }
+    .services {
+        width: 24rem !important;
+        order: 5;
+    }
+
+}
+
+@media (max-width: 450px) {
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .profile-edit {
+        width: 18rem !important;
+        order: 1;
+    }
+
+    .portfolio {
+        width: 18rem !important;
+        order: 2;
+    }
+
+    .personal-info {
+        width: 18rem !important;
+        order: 3;
+    }
+    .contact-infos {
+        width: 18rem !important;
+        order: 4;
+    }
+    .services {
+        width: 18rem !important;
+        order: 5;
+    }
+
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------*/
