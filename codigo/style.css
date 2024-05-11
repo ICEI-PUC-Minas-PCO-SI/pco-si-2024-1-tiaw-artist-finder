@@ -15,7 +15,6 @@ form input {
 
 /* Estilos do container principal */
 .caixa {
-    background-color: antiquewhite;
     display: flex;
     align-content: first baseline;
     position: absolute;
@@ -46,12 +45,15 @@ form input {
     box-sizing: border-box;
     overflow:auto; /* Truncar o texto que transborda */
 }
+#usuario {
+    height: 10%;
+}
 #portfolio {
     width: 100px;
-    height: 100px;
+    height: 300px;
 }
 #info {
-    height: 200px;
+    height: 300px;
 }
 
 .card .card-body {
@@ -88,6 +90,7 @@ button:hover {
 footer {
     background-color: #f0f0f0;
     padding: 20px 0;
+    margin-top: 0%;
 }
 
 .container {
@@ -100,7 +103,6 @@ footer {
 .footer-column {
     flex: 1;
     padding: 0 20px;
-    margin-bottom: 20px;
 }
 
 h4 {
@@ -114,6 +116,13 @@ ul {
 
 li {
     margin-bottom: 5px;
+}
+#modal {
+    width: 400px;
+    height: 300px;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
 }
 
 /* Estilos responsivos */

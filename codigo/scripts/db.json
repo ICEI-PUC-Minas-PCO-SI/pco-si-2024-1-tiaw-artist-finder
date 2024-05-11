@@ -11,7 +11,8 @@
       "instituicao": "PUC MINAS",
       "disponibilidade": "Freelance",
       "idAtuacao": 4,
-      "login": "ana_silva22"
+      "login": "ana_silva22",
+      "tipo": "Freelancer" 
     },
     {
       "id": 2,
@@ -24,7 +25,8 @@
       "instituicao": null,
       "disponibilidade": "Todas",
       "idAtuacao": 3,
-      "login": "jorge_alves29"
+      "login": "jorge_alves29" ,
+      "tipo": "Freelancer"
     },
     {
       "id": 3,
@@ -37,7 +39,8 @@
       "instituicao": "UFRJ",
       "disponibilidade": "Integral",
       "idAtuacao": 1,
-      "login": "francisco_xavier31"
+      "login": "francisco_xavier",
+      "tipo": "Freelancer"
     },
     {
       "id": 4,
@@ -50,7 +53,8 @@
       "instituicao": null,
       "disponibilidade": "Todas",
       "idAtuacao": 42,
-      "login": "andre_schmidt27"
+      "login": "andre_schmidt27" ,
+      "tipo": "Freelancer"
     },
     {
       "id": 5,
@@ -63,7 +67,8 @@
       "instituicao": null,
       "disponibilidade": "Todas",
       "idAtuacao": 10,
-      "login": "gabriel_oliveira33"
+      "login": "gabriel_oliv" ,
+      "tipo": "Freelancer"
     },
     {
       "id": 6,
@@ -76,7 +81,8 @@
       "instituicao": null,
       "disponibilidade": "Todas",
       "idAtuacao": 8,
-      "login": "carla_santos25"
+      "login": "carla_santos",
+      "tipo": "Freelancer"  
     },
     {
       "id": 7,
@@ -89,7 +95,8 @@
       "instituicao": null,
       "disponibilidade": "Todas",
       "idAtuacao": 7,
-      "login": "lucas_pereira25"
+      "login": "lucas_pereir",
+      "tipo": "Freelancer"   
     },
     {
       "id": 8,
@@ -102,7 +109,8 @@
       "instituicao": null,
       "disponibilidade": "Todas",
       "idAtuacao": 8,
-      "login": "marina_santos25"
+      "login": "marina_santo",
+      "tipo": "Freelancer"   
     },
     {
       "id": 9,
@@ -115,7 +123,8 @@
       "instituicao": null,
       "disponibilidade": "Todas",
       "idAtuacao": 3,
-      "login": "thiago_oliveira25"
+      "login": "thiago_olive",
+      "tipo": "Freelancer"
     },
     {
       "id": 10,
@@ -128,7 +137,8 @@
       "instituicao": null,
       "disponibilidade": "Todas",
       "idAtuacao": 5,
-      "login": "amanda_costa25"
+      "login": "amanda_costa",
+      "tipo": "Freelancer"  
     },
     {
       "id": 11,
@@ -141,7 +151,8 @@
       "instituicao": null,
       "disponibilidade": "Todas",
       "idAtuacao": 9,
-      "login": "carla_santos25"
+      "login": "carla_santos",
+      "tipo": "Freelancer"  
     },
     {
       "id": 12,
@@ -154,7 +165,8 @@
       "instituicao": null,
       "disponibilidade": "Todas",
       "idAtuacao": 10,
-      "login": "felipe_souza25"
+      "login": "felipe_souza" ,
+      "tipo": "Freelancer"  
     },
     {
       "id": 13,
@@ -167,7 +179,8 @@
       "instituicao": null,
       "disponibilidade": "Todas",
       "idAtuacao": 2,
-      "login": "rafael_lima25"
+      "login": "rafael_lima2",
+      "tipo": "Freelancer" 
     },
     {
       "id": 14,
@@ -180,7 +193,8 @@
       "instituicao": null,
       "disponibilidade": "Todas",
       "idAtuacao": 4,
-      "login": "camila_fernandes25"
+      "login": "camila_ferna",
+      "tipo": "Freelancer"
     },
     {
       "id": 15,
@@ -193,7 +207,8 @@
       "instituicao": null,
       "disponibilidade": "Todas",
       "idAtuacao": 3,
-      "login": "gustavo_rodrigues25"
+      "login": "gustavo_rodr5",
+      "tipo": "Freelancer"
     },
     {
       "id": 16,
@@ -206,7 +221,8 @@
       "instituicao": null,
       "disponibilidade": "Todas",
       "idAtuacao": 7,
-      "login": "mariana_almeida25"
+      "login": "mariana_alme",
+      "tipo": "Freelancer"
     },
     {
       "id": 17,
@@ -219,7 +235,8 @@
       "instituicao": null,
       "disponibilidade": "Todas",
       "idAtuacao": 6,
-      "login": "bruno_oliveira25"
+      "login": "bruno_olivei",
+      "tipo": "Freelancer"    
     },
     {
       "id": 18,
@@ -232,7 +249,8 @@
       "instituicao": null,
       "disponibilidade": "Todas",
       "idAtuacao": 6,
-      "login": "larissa_silva25"
+      "login": "larissa_silv",
+      "tipo": "Freelancer"   
     },
     {
       "id": 19,
@@ -245,8 +263,9 @@
       "instituicao": null,
       "disponibilidade": "Todas",
       "idAtuacao": 9,
-      "login": "renato_santos25"
-    },
+      "login": "renato_santo",
+      "tipo": "Freelancer"  
+     },
     {
       "id": 20,
       "nome": "Isabela Costa",
@@ -258,7 +277,8 @@
       "instituicao": null,
       "disponibilidade": "Todas",
       "idAtuacao": 8,
-      "login": "isabela_costa25"
+      "login": "isabela_cost",
+      "tipo": "Freelancer"   
     },
     {
       "id": 21,
@@ -271,7 +291,8 @@
       "instituicao": null,
       "disponibilidade": "Integral",
       "idAtuacao": 3,
-      "login": "lucas_pereira28"
+      "login": "lucas_pereir",
+      "tipo": "Freelancer"   
     },
     {
       "id": 22,
@@ -284,7 +305,8 @@
       "instituicao": null,
       "disponibilidade": "Freelance",
       "idAtuacao": 2,
-      "login": "mariana_almeida33"
+      "login": "mariana_alme",
+      "tipo": "Freelancer"
     },
     {
       "id": 23,
@@ -297,7 +319,8 @@
       "instituicao": null,
       "disponibilidade": "Todas",
       "idAtuacao": 4,
-      "login": "thiago_oliveira26"
+      "login": "thiago_olive",
+      "tipo": "Freelancer"
     },
     {
       "id": 24,
@@ -310,7 +333,8 @@
       "instituicao": null,
       "disponibilidade": "Integral",
       "idAtuacao": 1,
-      "login": "amanda_costa22"
+      "login": "amanda_costa",
+      "tipo": "Freelancer"  
     },
     {
       "id": 25,
@@ -323,7 +347,8 @@
       "instituicao": null,
       "disponibilidade": "Freelance",
       "idAtuacao": 10,
-      "login": "pedro_almeida31"
+      "login": "pedro_almeid",
+      "tipo": "Freelancer"   
     },
     {
       "id": 26,
@@ -336,7 +361,8 @@
       "instituicao": null,
       "disponibilidade": "Todas",
       "idAtuacao": 3,
-      "login": "juliana_santos29"
+      "login": "juliana_sant",
+      "tipo": "Freelancer"    
     },
     {
       "id": 27,
@@ -349,7 +375,8 @@
       "instituicao": null,
       "disponibilidade": "Integral",
       "idAtuacao": 7,
-      "login": "felipe_souza34"
+      "login": "felipe_souza",
+      "tipo": "Freelancer" 
     },
     {
       "id": 28,
@@ -362,7 +389,8 @@
       "instituicao": null,
       "disponibilidade": "Freelance",
       "idAtuacao": 10,
-      "login": "carolina_lima23"
+      "login": "carolina_lim" ,
+      "tipo": "Freelancer"   
     },
     {
       "id": 29,
@@ -375,7 +403,8 @@
       "instituicao": null,
       "disponibilidade": "Todas",
       "idAtuacao": 6,
-      "login": "bruno_oliveira27"
+      "login": "bruno_olivei" ,
+      "tipo": "Freelancer"    
     },
     {
       "id": 30,
@@ -388,7 +417,8 @@
       "instituicao": null,
       "disponibilidade": "Freelance",
       "idAtuacao": 3,
-      "login": "camila_fernandes35"
+      "login": "camila_ferna" ,
+      "tipo": "Freelancer"
     },
     {
       "id": 31,
@@ -401,7 +431,8 @@
       "instituicao": null,
       "disponibilidade": "Integral",
       "idAtuacao": 8,
-      "login": "gustavo_rodrigues30"
+      "login": "gustavo_rodr",
+      "tipo": "Freelancer"
     },
     {
       "id": 32,
@@ -414,7 +445,8 @@
       "instituicao": null,
       "disponibilidade": "Freelance",
       "idAtuacao": 4,
-      "login": "larissa_silva25"
+      "login": "larissa_silv",
+      "tipo": "Freelancer"   
     },
     {
       "id": 33,
@@ -427,7 +459,8 @@
       "instituicao": null,
       "disponibilidade": "Todas",
       "idAtuacao": 6,
-      "login": "renato_santos36"
+      "login": "renato_santo",
+      "tipo": "Freelancer"   
     },
     {
       "id": 34,
@@ -440,7 +473,8 @@
       "instituicao": null,
       "disponibilidade": "Todas",
       "idAtuacao": 2,
-      "login": "isabela_costa28"
+      "login": "isabela_cost" ,
+      "tipo": "Freelancer"   
     },
     {
       "id": 35,
@@ -453,7 +487,8 @@
       "instituicao": null,
       "disponibilidade": "Freelance",
       "idAtuacao": 1,
-      "login": "thiago_oliveira32"
+      "login": "thiago_olive",
+      "tipo": "Freelancer"
     }
     
   ],

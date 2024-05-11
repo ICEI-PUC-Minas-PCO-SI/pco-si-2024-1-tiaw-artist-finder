@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Perfil</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">   
+    
 </head>
 <body>
-    <script src="edit.js"></script>
+
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
@@ -38,21 +39,21 @@
     <main>
             <div class="left-section">
                 <div class="card mb-3 col-md-3 m-4">
-                    <div class="card-body" id="nome">
-                        <input type="image" alt="Imagem do usuário">
-                        <button type="button" title="Editar">Editar</button>
-                        <h5 class="card-title">Nome</h5>
-                        <label><h4>Nome de Usuário</h4></label>
-                        <label><h4>Cliente (ou freelancer)</h4></label>
-                        <label><p>Estado</p></label>
-                        <label><p>Membro desde Mês/ano</p></label>
+                    <div class="card-body" id="usuario">
+                        <input type="image" alt="foto de perfil">
+                        <button type="button" title="Editar" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#janelamodal">Editar</button>
+                        <h5 class="card-title" id="nome"></h5>
+                        <h4 id="login"></h4>
+                        <h4>Cliente (ou freelancer)</h4>
+                        <p id="local"></p>
+                        <p id="tempo">Membro desde Mês/ano</p>
                     </div>
                 </div>
             </div>
-        </div>    
+            
             <div class="card text-center col-md-4 mb-3 m-4">
                 <div class="card-body">
-                    <button type="button" title="Editar">Editar</button>
+                    <button type="button" title="Editar" class="btn btn-secondary">Editar</button>
                     <h5 class="card-title">Serviços solicitados/pendentes</h5>
                     <p>Título do serviço</p>
                     <p>Preço:</p>
@@ -62,17 +63,17 @@
         </div>
             <div class="card text-end col-md-4 m-4">
                 <div class="card-body">
-                    <button type="button" title="Editar">Editar</button>
+                    <button type="button" title="Editar" class="btn btn-secondary">Editar</button>
                     <h5 class="card-title">Descrição:</h5>
                     <input type="text" disabled>
                     <h5>Idiomas:</h5>
-                    <button type="button">Adicionar Novo</button>
+                    <button type="button" class="btn btn-secondary">Adicionar Novo</button>
                     <input type="text" disabled>
                     <h5>Habilidades:</h5>
-                    <button type="button">Adicionar Novo</button>
+                    <button type="button" class="btn btn-secondary">Adicionar Novo</button>
                     <input type="text" disabled>
                     <h5>Educação:</h5>
-                    <button type="button">Adicionar Novo</button>
+                    <button type="button" class="btn btn-secondary">Adicionar Novo</button>
                     <input type="text" disabled>
                 </div>
             </div>
@@ -84,14 +85,14 @@
                 <div class="row">
                     <div class="card mb-3 col-md-12">
                         <div class="card-body" id="portfolio">
-                            <input type="image" alt="Imagem do portfolio">
-                            <button title="Adicionar Portfolio">Adicionar Portfolio</button>
+                            <button title="Adicionar Portfolio" class="btn btn-secondary">Adicionar Portfolio</button>
+                            <input type="file">
                         </div>
                     </div>
                 <div class="card text-center mb-3">
                     <div class="p-1 float-right col-md-10" >
                         <div class="card-body" id="info">
-                            <button title="Editar" class="">Editar</button>
+                            <button title="Editar" class="btn btn-secondary">Editar</button>
                         <h5 class="card-title">Informações de Contato</h5>
                         <label for="telefone" class="text-info">Número de Telefone</label><br>
                         <input type="number" value="(xx)xxxxx-xxxxx" disabled><br>
@@ -108,14 +109,118 @@
             </div>    
             </div>
             </div>
+        </div>
+        <!--Parte dos modals-->
+        <div id="janelamodal" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Edição de Perfil</h3>
+                        <button type="button" class="btn btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                        <div class="modal-body">
+                            <h5 id="nome">Nome</h5>
+                            <input type="text">
+                            <h5 id="nomedeusuario">Nome de usuário:</h5>
+                            <input type="text">
+                            <h5 id="tipo"></h5>
+                            <p>Cliente</p>
+                            <input type="checkbox">
+                            <p>Freelancer</p>
+                            <input type="checkbox">
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Salvar alterações</button>
+                        </div>
+                    
                 </div>
             </div>
-            
-                
-            </div>
-
+        </div>
                            
     </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      // URL da API JSON
+const url = "http://localhost:3000/usuarios";
+// ID do usuário
+const id = 1; // Substitua pelo ID real do usuário
+
+// Função para preencher o modal com os dados originais
+function preencherModal(usuario) {
+    // Preencha os campos do modal com os dados originais
+    $('#modal-input-nome').val(usuario.nome);
+    $('#modal-input-idade').val(usuario.idade);
+    // Continue preenchendo com os outros campos conforme necessário
+}
+
+// Função para exibir os dados do usuário na tela
+function exibirDadosUsuario(usuario) {
+    // Atualiza os elementos HTML nos cards com os dados do usuário
+    $('#nome').text(`Nome: ${usuario.nome}`); //por algum motivo esse apareceu na tela porém o resto ainda não
+    $('#idade').text(`Idade: ${usuario.idade}`);
+    $('#estado').text(`Estado: ${usuario.estado}`);
+    $('#instituicao').text(`Instituição: ${usuario.instituicao}`);
+    $('#disponibilidade').text(`Disponibilidade: ${usuario.disponibilidade}`);
+    // Continue atualizando com outros campos conforme necessário
+}
+
+// Função para recuperar e exibir os dados do usuário
+function recuperarDadosUsuario() {
+    fetch(`${url}/${id}`)
+        .then((res) => {
+            if (!res.ok) {
+                throw new Error(`Erro na solicitação: ${res.status}`);
+            }
+            return res.json();
+        })
+        .then((usuario) => {
+            console.log("Dados do usuário recuperados:", usuario);
+            exibirDadosUsuario(usuario); // Exibe os dados do usuário na tela
+            preencherModal(usuario); // Preenche o modal com os dados originais
+            $('#modalEditar').modal('show'); // Mostra o modal
+        })
+        .catch(error => console.error('Erro ao recuperar os dados:', error));
+}
+
+// Função para atualizar os dados do usuário no servidor
+$('#formEditar').submit(function(e) {
+    e.preventDefault();
+    
+    const dadosEditados = {
+        nome: $('#modal-input-nome').val(),
+        idade: $('#modal-input-idade').val(),
+        // Adicione os outros campos conforme necessário
+    };
+
+    fetch(`${url}/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dadosEditados),
+    })
+    .then((res) => {
+        if (!res.ok) {
+            throw new Error(`Erro na solicitação: ${res.status}`);
+        }
+        return res.json();
+    })
+    .then((usuarioAtualizado) => {
+        console.log("Dados do usuário atualizados:", usuarioAtualizado);
+        $('#modalEditar').modal('hide');
+        // Adicione qualquer ação adicional após a atualização, se necessário
+    })
+    .catch(error => console.error('Erro ao atualizar os dados:', error));
+});
+
+// Chama a função recuperarDadosUsuario() após o carregamento da página
+$(document).ready(function() {
+    recuperarDadosUsuario();
+});
+
+    </script>
+   
     
     <footer>
         <div class="container">
@@ -145,5 +250,8 @@
             </div>
         </div>
     </footer>
+    <script src="/codigo/scripts/edit.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
