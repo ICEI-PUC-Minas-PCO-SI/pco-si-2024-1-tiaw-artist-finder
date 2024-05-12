@@ -1,398 +1,362 @@
 {
-    "usuarios": [
-        {
-            "id": 1,
-            "nome": "Ana Silva",
-            "idade": 22,
-            "foto": "assets/img/perfil.jpg",
-            "estado": "SP",
-            "instituicao": "PUC MINAS",
-            "disponibilidade": "Freelance",
-            "idAtuacao": 4
+  "usuarios": [
+      {
+          "id": 1,
+          "nome": "Ana Silva",
+          "idade": 22,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "SP",
+          "instituicao": "PUC MINAS",
+          "disponibilidade": "Freelance",
+          "atuacao": "Web Design"
+      },
+      {
+          "id": 2,
+          "nome": "Jorge Alves",
+          "idade": 29,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "SP",
+          "instituicao": null,
+          "disponibilidade": "Integral",
+          "atuacao": "Fotografia"
+          },
+      {
+          "id": 3,
+          "nome": "Francisco Xavier",
+          "idade": 31,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "MG",
+          "instituicao": "UFRJ",
+          "disponibilidade": "Integral",
+          "atuacao": "Ilustração"
+      },
+      {
+          "id": 4,
+          "nome": "André Schmidt",
+          "idade": 27,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "RJ",
+          "instituicao": null,
+          "disponibilidade": "Integral",
+          "atuacao": "Web Design"
+      },
+      {
+          "id": 5,
+          "nome": "Gabriel Oliveira",
+          "idade": 33,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "SP",
+          "instituicao": null,
+          "disponibilidade": "Integral",
+          "atuacao": "Edição"
         },
         {
-            "id": 2,
-            "nome": "Jorge Alves",
-            "idade": 29,
-            "foto": "assets/img/perfil.jpg",
-            "estado": "SP",
-            "instituicao": null,
-            "disponibilidade": "Freelance",
-            "idAtuacao": 3
-            },
-        {
-            "id": 3,
-            "nome": "Francisco Xavier",
-            "idade": 31,
-            "foto": "assets/img/perfil.jpg",
-            "estado": "MG",
-            "instituicao": "UFRJ",
-            "disponibilidade": "Integral",
-            "idAtuacao": 1
+          "id": 6,
+          "nome": "Carla Santos",
+          "idade": 25,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "MG",
+          "instituicao": null,
+          "disponibilidade": "Integral",
+          "atuacao": "Grafite"
         },
         {
-            "id": 4,
-            "nome": "André Schmidt",
-            "idade": 27,
-            "foto": "assets/img/perfil.jpg",
-            "estado": "RJ",
-            "instituicao": null,
-            "disponibilidade": "Freelance",
-            "idAtuacao": 42
+          "id": 7,
+          "nome": "Lucas Pereira",
+          "idade": 25,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "SP",
+          "instituicao": null,
+          "disponibilidade": "Freelance",
+          "atuacao": "Modelagem 3D"
         },
         {
-            "id": 5,
-            "nome": "Gabriel Oliveira",
-            "idade": 33,
-            "foto": "assets/img/perfil.jpg",
-            "estado": "SP",
-            "instituicao": null,
-            "disponibilidade": "Freelance",
-            "idAtuacao": 10
-          },
-          {
-            "id": 6,
-            "nome": "Carla Santos",
-            "idade": 25,
-            "foto": "assets/img/perfil.jpg",
-            "estado": "MG",
-            "instituicao": null,
-            "disponibilidade": "Freelance",
-            "idAtuacao": 8
-          },
-          {
-            "id": 7,
-            "nome": "Lucas Pereira",
-            "idade": 25,
-            "foto": "assets/img/perfil.jpg",
-            "estado": "SP",
-            "instituicao": null,
-            "disponibilidade": "Freelance",
-            "idAtuacao": 7
-          },
-          {
-            "id": 8,
-            "nome": "Marina Santos",
-            "idade": 25,
-            "foto": "assets/img/perfil.jpg",
-            "estado": "RJ",
-            "instituicao": null,
-            "disponibilidade": "Freelance",
-            "idAtuacao": 8
-          },
-          {
-            "id": 9,
-            "nome": "Thiago Oliveira",
-            "idade": 25,
-            "foto": "assets/img/perfil.jpg",
-            "estado": "RO",
-            "instituicao": null,
-            "disponibilidade": "Freelance",
-            "idAtuacao": 3
-          },
-          {
-            "id": 10,
-            "nome": "Amanda Costa",
-            "idade": 25,
-            "foto": "assets/img/perfil.jpg",
-            "estado": "AM",
-            "instituicao": null,
-            "disponibilidade": "Freelance",
-            "idAtuacao": 5
-          },
-          {
-            "id": 11,
-            "nome": "Carla Santos",
-            "idade": 25,
-            "foto": "assets/img/perfil.jpg",
-            "estado": "MT",
-            "instituicao": null,
-            "disponibilidade": "Freelance",
-            "idAtuacao": 9
-          },
-          {
-            "id": 12,
-            "nome": "Felipe Souza",
-            "idade": 25,
-            "foto": "assets/img/perfil.jpg",
-            "estado": "SP",
-            "instituicao": null,
-            "disponibilidade": "Integral",
-            "idAtuacao": 10
-          },
-          {
-            "id": 13,
-            "nome": "Rafael Lima",
-            "idade": 25,
-            "foto": "assets/img/perfil.jpg",
-            "estado": "RS",
-            "instituicao": null,
-            "disponibilidade": "Integral",
-            "idAtuacao": 2
-          },
-          {
-            "id": 14,
-            "nome": "Camila Fernandes",
-            "idade": 25,
-            "foto": "assets/img/perfil.jpg",
-            "estado": "PR",
-            "instituicao": null,
-            "disponibilidade": "Integral",
-            "idAtuacao": 4
-          },
-          {
-            "id": 15,
-            "nome": "Gustavo Rodrigues",
-            "idade": 25,
-            "foto": "assets/img/perfil.jpg",
-            "estado": "SP",
-            "instituicao": null,
-            "disponibilidade": "Integral",
-            "idAtuacao": 3
-          },
-          {
-            "id": 16,
-            "nome": "Mariana Almeida",
-            "idade": 25,
-            "foto": "assets/img/perfil.jpg",
-            "estado": "SC",
-            "instituicao": null,
-            "disponibilidade": "Integral",
-            "idAtuacao": 7
-          },
-          {
-            "id": 17,
-            "nome": "Bruno Oliveira",
-            "idade": 25,
-            "foto": "assets/img/perfil.jpg",
-            "estado": "BA",
-            "instituicao": null,
-            "disponibilidade": "Integral",
-            "idAtuacao": 6
-          },
-          {
-            "id": 18,
-            "nome": "Larissa Silva",
-            "idade": 25,
-            "foto": "assets/img/perfil.jpg",
-            "estado": "SP",
-            "instituicao": null,
-            "disponibilidade": "Integral",
-            "idAtuacao": 6
-          },
-          {
-            "id": 19,
-            "nome": "Renato Santos",
-            "idade": 25,
-            "foto": "assets/img/perfil.jpg",
-            "estado": "RJ",
-            "instituicao": null,
-            "disponibilidade": "Integral",
-            "idAtuacao": 9
-          },
-          {
-            "id": 20,
-            "nome": "Isabela Costa",
-            "idade": 25,
-            "foto": "assets/img/perfil.jpg",
-            "estado": "MG",
-            "instituicao": null,
-            "disponibilidade": "Integral",
-            "idAtuacao": 8
-          },
-          {
-            "id": 21,
-            "nome": "Lucas Pereira",
-            "idade": 28,
-            "foto": "assets/img/perfil_sudeste.jpg",
-            "estado": "SP",
-            "instituicao": null,
-            "disponibilidade": "Integral",
-            "idAtuacao": 3
-          },
-          {
-            "id": 22,
-            "nome": "Mariana Almeida",
-            "idade": 33,
-            "foto": "assets/img/perfil_sudeste.jpg",
-            "estado": "RJ",
-            "instituicao": null,
-            "disponibilidade": "Freelance",
-            "idAtuacao": 2
-          },
-          {
-            "id": 23,
-            "nome": "Thiago Oliveira",
-            "idade": 26,
-            "foto": "assets/img/perfil_sudeste.jpg",
-            "estado": "SP",
-            "instituicao": null,
-            "disponibilidade": "Freelance",
-            "idAtuacao": 4
-          },
-          {
-            "id": 24,
-            "nome": "Amanda Costa",
-            "idade": 22,
-            "foto": "assets/img/perfil_sudeste.jpg",
-            "estado": "MG",
-            "instituicao": null,
-            "disponibilidade": "Integral",
-            "idAtuacao": 1
-          },
-          {
-            "id": 25,
-            "nome": "Pedro Almeida",
-            "idade": 31,
-            "foto": "assets/img/perfil_sudeste.jpg",
-            "estado": "RJ",
-            "instituicao": null,
-            "disponibilidade": "Freelance",
-            "idAtuacao": 10
-          },
-          {
-            "id": 26,
-            "nome": "Juliana Santos",
-            "idade": 29,
-            "foto": "assets/img/perfil_sudeste.jpg",
-            "estado": "SP",
-            "instituicao": null,
-            "disponibilidade": "Freelance",
-            "idAtuacao": 3
-          },
-          {
-            "id": 27,
-            "nome": "Felipe Souza",
-            "idade": 34,
-            "foto": "assets/img/perfil_sudeste.jpg",
-            "estado": "SP",
-            "instituicao": null,
-            "disponibilidade": "Integral",
-            "idAtuacao": 7
-          },
-          {
-            "id": 28,
-            "nome": "Carolina Lima",
-            "idade": 23,
-            "foto": "assets/img/perfil_sudeste.jpg",
-            "estado": "SP",
-            "instituicao": null,
-            "disponibilidade": "Freelance",
-            "idAtuacao": 10
-          },
-          {
-            "id": 29,
-            "nome": "Bruno Oliveira",
-            "idade": 27,
-            "foto": "assets/img/perfil_sudeste.jpg",
-            "estado": "RJ",
-            "instituicao": null,
-            "disponibilidade": "Freelance",
-            "idAtuacao": 6
-          },
-          {
-            "id": 30,
-            "nome": "Camila Fernandes",
-            "idade": 35,
-            "foto": "assets/img/perfil_sudeste.jpg",
-            "estado": "MG",
-            "instituicao": null,
-            "disponibilidade": "Freelance",
-            "idAtuacao": 3
-          },
-          {
-            "id": 31,
-            "nome": "Gustavo Rodrigues",
-            "idade": 30,
-            "foto": "assets/img/perfil_nordeste.jpg",
-            "estado": "BA",
-            "instituicao": null,
-            "disponibilidade": "Integral",
-            "idAtuacao": 8
-          },
-          {
-            "id": 32,
-            "nome": "Larissa Silva",
-            "idade": 25,
-            "foto": "assets/img/perfil_nordeste.jpg",
-            "estado": "PE",
-            "instituicao": null,
-            "disponibilidade": "Freelance",
-            "idAtuacao": 4
-          },
-          {
-            "id": 33,
-            "nome": "Renato Santos",
-            "idade": 36,
-            "foto": "assets/img/perfil_nordeste.jpg",
-            "estado": "CE",
-            "instituicao": null,
-            "disponibilidade": "Freelance",
-            "idAtuacao": 6
-          },
-          {
-            "id": 34,
-            "nome": "Isabela Costa",
-            "idade": 28,
-            "foto": "assets/img/perfil_nordeste.jpg",
-            "estado": "BA",
-            "instituicao": null,
-            "disponibilidade": "Freelance",
-            "idAtuacao": 2
-          },
-          {
-            "id": 35,
-            "nome": "Thiago Oliveira",
-            "idade": 32,
-            "foto": "assets/img/perfil_nordeste.jpg",
-            "estado": "PE",
-            "instituicao": null,
-            "disponibilidade": "Freelance",
-            "idAtuacao": 1
-          }
-                    
-          
-    ],
-    "atuacao": [
-        {
-            "id": 1,
-            "descricao": "Ilustração"
+          "id": 8,
+          "nome": "Marina Santos",
+          "idade": 25,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "RJ",
+          "instituicao": null,
+          "disponibilidade": "Freelance",
+          "atuacao": "Grafite"
         },
         {
-            "id": 2,
-            "descricao": "Filmagem"
+          "id": 9,
+          "nome": "Thiago Oliveira",
+          "idade": 25,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "MG",
+          "instituicao": null,
+          "disponibilidade": "Freelance",
+          "atuacao": "Fotografia"
         },
         {
-            "id": 3,
-            "descricao": "Fotografia"
+          "id": 10,
+          "nome": "Amanda Costa",
+          "idade": 25,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "AM",
+          "instituicao": null,
+          "disponibilidade": "Freelance",
+          "atuacao": "Animação"
         },
         {
-            "id": 4,
-            "descricao": "Web Design"
+          "id": 11,
+          "nome": "Carla Santos",
+          "idade": 25,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "MT",
+          "instituicao": null,
+          "disponibilidade": "Freelance",
+          "atuacao": "Pintura"
         },
         {
-            "id": 5,
-            "descricao": "Animação"
+          "id": 12,
+          "nome": "Felipe Souza",
+          "idade": 25,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "SP",
+          "instituicao": null,
+          "disponibilidade": "Integral",
+          "atuacao": "Edição"
         },
         {
-            "id": 6,
-            "descricao": "Design Gráfico"
+          "id": 13,
+          "nome": "Rafael Lima",
+          "idade": 25,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "RS",
+          "instituicao": null,
+          "disponibilidade": "Integral",
+          "atuacao": "Filmagem"
         },
         {
-            "id": 7,
-            "descricao": "Modelagem 3D"
+          "id": 14,
+          "nome": "Camila Fernandes",
+          "idade": 25,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "PR",
+          "instituicao": null,
+          "disponibilidade": "Integral",
+          "atuacao": "Web Design"
         },
         {
-            "id": 8,
-            "descricao": "Grafite"
+          "id": 15,
+          "nome": "Gustavo Rodrigues",
+          "idade": 25,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "SP",
+          "instituicao": null,
+          "disponibilidade": "Freelance",
+          "atuacao": "Fotografia"
         },
         {
-            "id": 9,
-            "descricao": "Pintura"
+          "id": 16,
+          "nome": "Mariana Almeida",
+          "idade": 25,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "SC",
+          "instituicao": null,
+          "disponibilidade": "Integral",
+          "atuacao": "Modelagem 3D"
         },
         {
-            "id": 10,
-            "descricao": "Edição"
-        }
-    ]
+          "id": 17,
+          "nome": "Bruno Oliveira",
+          "idade": 25,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "BA",
+          "instituicao": null,
+          "disponibilidade": "Freelance",
+          "atuacao": "Design Gráfico"
+        },
+        {
+          "id": 18,
+          "nome": "Larissa Silva",
+          "idade": 25,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "SP",
+          "instituicao": null,
+          "disponibilidade": "Freelance",
+          "atuacao": "Design Gráfico"
+        },
+        {
+          "id": 19,
+          "nome": "Renato Santos",
+          "idade": 25,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "RJ",
+          "instituicao": null,
+          "disponibilidade": "Freelance",
+          "atuacao": "Pintura"
+        },
+        {
+          "id": 20,
+          "nome": "Isabela Costa",
+          "idade": 25,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "MG",
+          "instituicao": null,
+          "disponibilidade": "Freelance",
+          "atuacao": "Grafite"
+        },
+        {
+          "id": 21,
+          "nome": "Lucas Pereira",
+          "idade": 28,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "SP",
+          "instituicao": null,
+          "disponibilidade": "Integral",
+          "atuacao": "Fotografia"
+        },
+        {
+          "id": 22,
+          "nome": "Mariana Almeida",
+          "idade": 33,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "RJ",
+          "instituicao": null,
+          "disponibilidade": "Freelance",
+          "atuacao": "Filmagem"
+        },
+        {
+          "id": 23,
+          "nome": "Thiago Oliveira",
+          "idade": 26,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "SP",
+          "instituicao": null,
+          "disponibilidade": "Integral",
+          "atuacao": "Web Design"
+        },
+        {
+          "id": 24,
+          "nome": "Amanda Costa",
+          "idade": 22,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "MG",
+          "instituicao": null,
+          "disponibilidade": "Integral",
+          "atuacao": "Ilustração"
+        },
+        {
+          "id": 25,
+          "nome": "Pedro Almeida",
+          "idade": 31,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "RJ",
+          "instituicao": null,
+          "disponibilidade": "Freelance",
+          "atuacao": "Edição"
+        },
+        {
+          "id": 26,
+          "nome": "Juliana Santos",
+          "idade": 29,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "SP",
+          "instituicao": null,
+          "disponibilidade": "Integral",
+          "atuacao": "Fotografia"
+        },
+        {
+          "id": 27,
+          "nome": "Felipe Souza",
+          "idade": 34,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "SP",
+          "instituicao": null,
+          "disponibilidade": "Integral",
+          "atuacao": "Modelagem 3D"
+        },
+        {
+          "id": 28,
+          "nome": "Carolina Lima",
+          "idade": 23,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "SP",
+          "instituicao": null,
+          "disponibilidade": "Freelance",
+          "atuacao": "Edição"
+        },
+        {
+          "id": 29,
+          "nome": "Bruno Oliveira",
+          "idade": 27,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "RJ",
+          "instituicao": null,
+          "disponibilidade": "Integral",
+          "atuacao": "Design Gráfico"
+        },
+        {
+          "id": 30,
+          "nome": "Camila Fernandes",
+          "idade": 35,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "SP",
+          "instituicao": null,
+          "disponibilidade": "Freelance",
+          "atuacao": "Fotografia"
+        },
+        {
+          "id": 31,
+          "nome": "Gustavo Rodrigues",
+          "idade": 30,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "BA",
+          "instituicao": null,
+          "disponibilidade": "Integral",
+          "atuacao": "Grafite"
+        },
+        {
+          "id": 32,
+          "nome": "Larissa Silva",
+          "idade": 25,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "PE",
+          "instituicao": null,
+          "disponibilidade": "Freelance",
+          "atuacao": "Web Design"
+        },
+        {
+          "id": 33,
+          "nome": "Renato Santos",
+          "idade": 36,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "CE",
+          "instituicao": null,
+          "disponibilidade": "Integral",
+          "atuacao": "Design Gráfico"
+        },
+        {
+          "id": 34,
+          "nome": "Isabela Costa",
+          "idade": 28,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "BA",
+          "instituicao": null,
+          "disponibilidade": "Freelance",
+          "atuacao": "Filmagem"
+        },
+        {
+          "id": 35,
+          "nome": "Thiago Oliveira",
+          "idade": 32,
+          "foto": "assets/img/perfil.jpg",
+          "estado": "PE",
+          "instituicao": null,
+          "disponibilidade": "Freelance",
+          "atuacao": "Ilustração"
+        }        
+  ],
+  "vendas": [
+    {
+      "id": "",
+      "mes": "",
+      "vlr": "",
+      "qtd": ""
+    }
+  ]
 }

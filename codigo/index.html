@@ -1,23 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="app.js"></script>
     <link rel="stylesheet" href="assets/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <title>Explorar</title>
-    <style>
-
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script defer src="filtro.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <title>Document</title>
 
 </head>
-
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
@@ -29,7 +22,7 @@
             </button>
             <div class="collapse navbar-collapse fs-3 " id="navbarTogglerDemo02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-                    <li class="nav-item me-3">
+                    <li class="nav-item me-3 ms-3">
                         <a class="nav-link " aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item me-3">
@@ -40,21 +33,16 @@
                     </li>
                 </ul>
             </div>
-
         </div>
-
     </nav>
     <hr>
-    </hr>
-
-    <div></div>
 
     <aside class="row container-fluid mt-5">
         <div class="col-md-2 ">
           <form class="mb-3">
                 <select id="filtroDisponibilidade" class="form-control me-2 text-center" name="disponilidade" >
                     <option value="">Filtrar Disponilidade</option>
-                    <option value="">Todas</option>
+                    
                     <option value="Integral">Integral</option>
                     <option value="Freelance">Freelance</option>
                 </select>
@@ -64,53 +52,54 @@
             <form class="mb-3">
                 <select id="filtroAtuacao" class="form-control me-2 text-center" name="atuacao" >
                     <option value="">Filtrar Atuação</option>
-                    <option value="">Todas</option>
-                    <option value="1">Ilustração</option>
-                    <option value="2">Filmagem</option>
-                    <option value="3">Fotografia</option>
-                    <option value="4">Web Design</option>
-                    <option value="5">Animação</option>
-                    <option value="6">Design Gráfico</option>
-                    <option value="7">Modelagem 3D</option>
-                    <option value="8">Grafite</option>
-                    <option value="9">Pintura</option>
-                    <option value="10">Edição</option>
-
-
+                    
+                    <option value="Animação">Animação</option>
+                    <option value="Design Gráfico">Design Gráfico</option>
+                    <option value="Edição">Edição</option>
+                    <option value="Filmagem">Filmagem</option>
+                    <option value="Fotografia">Fotografia</option>
+                    <option value="Grafite">Grafite</option>
+                    <option value="Ilustração">Ilustração</option>
+                    <option value="Modelagem 3D">Modelagem 3D</option>
+                    <option value="Pintura">Pintura</option>
+                    <option value="Web Design">Web Design</option>
                 </select>
                 <hr>
                 </hr>
                 <form class=" mb-3">
                     <select id="filtroEstado" class="form-control  me-2 text-center" name="estado" >
                         <option value="">Filtrar Estado</option>
-                        <option value="">Todos</option>
-                        <option value="RJ">RJ</option>
-                        <option value="SP">SP</option>
-                        <option value="MG">MG</option>
-                        <option value="PR">PR</option>
-                        <option value="RS">RS</option>
-                        <option value="MT">MT</option>
+                        
                         <option value="AM">AM</option>
-                        <option value="SC">SC</option>
                         <option value="BA">BA</option>
-                        <option value="PE">PE</option>
                         <option value="CE">CE</option>
+                        <option value="MG">MG</option>
+                        <option value="MT">MT</option>
+                        <option value="PE">PE</option>
+                        <option value="PR">PR</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RS">RS</option>
+                        <option value="SC">SC</option>
+                        <option value="SP">SP</option>
                     </select>
                 </form>
 
-                <button class="btn btn-dark  " id="limpar" type="button">Limpar Filtros</button>
+                <button class="btn btn-dark mb-3 " id="limpar" type="button">Limpar Filtros</button>
 
                 
             
         </div>
-        <div class="card-container fluid col-md-10  ">
-            <div id="tela" class="row text-center "></div>
+            
         </div>
+        </div>
+        <div class="card-container fluid col-md-10  ">
+            <div id="user-list" class="row text-center ">
+                
+            </div>
         </div>
     </aside>
-
-
+    
+        
 
 </body>
-
 </html>
