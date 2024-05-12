@@ -55,10 +55,15 @@ function abrirModal() {
         modal.classList.add('show');
         modal.style.display = 'block';
         document.body.classList.add('modal-open');
-        // Adiciona um fundo escuro com opacidade ao fundo da página
-        var overlay = document.createElement('div');
-        overlay.classList.add('modal-backdrop', 'fade', 'show');
-        document.body.appendChild(overlay);
+
+        // Verificar se a div overlay já existe
+        var overlay = document.querySelector('.modal-backdrop');
+        if (!overlay) {
+            // Se não existir, cria uma nova
+            overlay = document.createElement('div');
+            overlay.classList.add('modal-backdrop', 'fade', 'show');
+            document.body.appendChild(overlay);
+        }
 
         // Recuperar os dados do usuário com o ID fornecido e preencher o formulário
         fetch(`http://localhost:3000/usuarios/${userId}`)
@@ -84,6 +89,7 @@ function abrirModal() {
     }
 }
 
+
 // Função para fechar o modal
 function fecharModal() {
     try {
@@ -94,16 +100,19 @@ function fecharModal() {
         modal.classList.remove('show');
         modal.style.display = 'none';
         document.body.classList.remove('modal-open');
-        // Remove o fundo escuro
+
+        // Remove a classe modal-backdrop fade show
         var overlay = document.querySelector('.modal-backdrop');
-        if (!overlay) {
-            throw new Error('Elemento overlay não encontrado.');
+        if (overlay) {
+            overlay.remove(); // Remove a div existente se houver uma
+        } else {
+            console.warn('Elemento overlay não encontrado.');
         }
-        overlay.parentNode.removeChild(overlay);
     } catch (error) {
         console.error('Erro ao fechar modal:', error);
     }
 }
+
 
 // Função para atualizar os dados do usuário no banco de dados JSON
 function atualizarUsuario(id, dadosAtualizados) {
