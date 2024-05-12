@@ -5,14 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/edit.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-       
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Home</title>
 
 </head>
@@ -23,8 +19,7 @@
         <div class="container-fluid">
             <img src="assets/img/logo.svg" id="logo">
             <!--<a class="navbar-brand" href="#">Artist Finder</a>-->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
-                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse fs-3 " id="navbarTogglerDemo02">
@@ -44,16 +39,29 @@
         </div>
     </nav>
     <main class="main-container">
-        <div id="profile-edit"></div>
-        <div class="services">
+      <div class="profile-edit">
+        <img src="./assets/img/Djamila-Ribeiro.png" alt="" id="profile_pic">
+        <p class="edit-btn" onclick="abrirModal()">Editar</p>
+        <p id="name" class="profile-name"></p>
+        <p id="display-username" class="p-simple-info"></p>
+        <p id="city" class="p-simple-info"></p>
+        <p id="state" class="p-simple-info"></p>
+        <p id="user-id" style="display: none;">1</p>
+    </div>
+        <!-- <div class="services">
             <div class="services-container">
                 <p class="p-simple-info">Tipos de Serviços</p>
                 <p id="basic-service" class="p-service-info">Básico</p>
                 <p id="medium-service" class="p-service-info">Intermediário</p>
                 <p id="premium-service" class="p-service-info">Premium</p></div>        
-            <a id="btn-service" href="" data-bs-target="#personalizar-serv" data-bs-toggle="modal" class="btn-profile">Personalizar</a>
+            <a id="btn-service" href="" class="btn-profile">Personalizar</a>
         </div>
-        <div id="contact-infos"></div>
+        <div class="contact-infos">
+            <p class="edit-btn">Editar</p>
+            <p class="p-simple-info">Informações de Contato</p>
+            <p class="p-contact-info">Número de Telefone:</p>
+            <p class="p-contact-info">E-mail:</p>
+        </div>
         <div class="portfolio">
             <div class="portfolio-img-container">
                 <img id="portfolio_img" src="./assets/img/216803346-statue-kant.jpg" alt="" class="portfolio-img">
@@ -64,181 +72,72 @@
                 <a href="#" class="btn-profile">Enviar</a>
               </form>
         </div>
-        <div id="personal-info"></div>
-     <!--Modal apresentada para solicitar confirmação do usuário quanto à remoção dos dados-->   
-<div class="modal fade" id="modaldelete" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Confirmação de remoção</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                Você realmente deseja remover seus dados <span id="id-dados"></span>?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
-                <button type="button" class="btn btn-primary" id="btn-delete">Sim</button>
-            </div>
-            
-        </div>
+        <div class="personal-info">
+            <p class="edit-btn">Editar</p>
+            <p class="p-simple-info">Informações Pessoais</p>
+            <p class="p-simple-info">Descrição</p>
+            <p class="p-simple-info">Idiomas</p>
+            <p class="p-simple-info">Habilidades</p>
+            <p class="p-simple-info">Educação</p>
+        </div> -->
+
+        <!-- Modal de Editar Perfil-->
+        <!-- Modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Cabeçalho do Modal -->
+      <div class="modal-header">
+        <h4 class="modal-title">Preencha os Campos</h4>
+      </div>
+
+      <!-- Corpo do Modal -->
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="id">ID:</label>
+            <input type="text" class="form-control" id="id" disabled>
+          </div>
+          <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" class="form-control" id="nome">
+          </div>
+          <div class="form-group">
+            <label for="username">Nome de Usuário:</label>
+            <input type="text" class="form-control" id="username">
+          </div>        
+          <div class="form-group">
+            <label for="cidade">Cidade:</label>
+            <input type="text" class="form-control" id="cidade">
+          </div>
+          <div class="form-group">
+            <label for="estado">Estado:</label>
+            <input type="text" class="form-control" id="estado">
+          </div>
+          <div class="form-group mt-2">
+            <label for="foto">Foto de Perfil:</label>
+            <input type="file" class="form-control-file" id="foto" accept="image/*">
+        </div>        
+        </form>
+      </div>
+
+      <!-- Rodapé do Modal -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="fecharModal()">Fechar</button>
+        <button id="btnSalvar" type="button" class="btn btn-primary">Salvar</button>
+      </div>
+
     </div>
+  </div>
 </div>
-
- <!--  Modal apresentada para solicitar os dados para preenchimento do formulário -->
-
- <div class="modal fade" id="usuario-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document" >
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Profile<span id="edit-profile"></span></h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form id="profile-form" method="post" action="">
-                    <div class="form-group">
-                        <label for="nome-id" class="col-form-label">Nome:</label>
-                        <input type="text" class="form-control" id="nome-id">
-                    </div>
-                    <div class="form-group">
-                        <label for="login-id" class="col-form-label">Nome de usuário:</label>
-                        <input type="text" class="form-control" id="login-id">
-                    </div>
-                    <div class="form-group">
-                        <label for="local" class="col-form-label">Cidade:</label>
-                        <input type="text" class="form-control" id="local">
-                    </div>
-                    <div class="form-group">
-                        <label for="localE" class="col-form-label">Estado:</label>
-                        <input type="text" class="form-control" id="localE">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" data-bs-target="edit.html">Salvar</button>
-                        
-
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!--Modal para solicitar dados de preenchimento de campo-->
- <div class="modal fade" id="personalizar-serv" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Tipos de serviços<span id=""></span></h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form id="produto-form" method="post" action="">
-                    <div class="form-group">
-                        <label for="basico-id" class="col-form-label">Básico</label>
-                        <input type="text" class="form-control" id="basico-id" min="1" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="intermediario-id" class="col-form-label">Intermediário</label>
-                        <input type="text" class="form-control" id="intermediario-id" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="premium-id" class="col-form-label">Premium</label>
-                        <input type="text" step="0.01" class="form-control" id="premium-id" required>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Salvar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!--Modal para cadastro de informações de contato-->
-<div class="modal fade" id="contact-info" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Informações de contato<span id=""></span></h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form id="produto-form" method="post" action="">
-                    <div class="form-group">
-                        <label for="tel" class="col-form-label">Numero de Contato:</label>
-                        <input type="text" class="form-control" id="tel-id" min="1" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email-id" class="col-form-label">E-mail</label>
-                        <input type="text" class="form-control" id="email-id" required>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Salvar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!--Cadastro das Informações pessoais-->
-<!--Modal para cadastro de informações de contato-->
-<div class="modal fade" id="info-personal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Informações Pessoais<span id=""></span></h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form id="produto-form" method="post" action="">
-                    <div class="form-group">
-                        <label for="descricao-id" class="col-form-label">Descrição:</label>
-                        <input type="text" class="form-control" id="descricao-id" min="1" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="idiomas-id" class="col-form-label">Idiomas:</label>
-                        <input type="text" class="form-control" id="idiomas-id" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="habilidades-id" class="col-form-label">Habilidades:</label>
-                        <input type="text" step="0.01" class="form-control" id="habilidades-id" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="instituicao-id" class="col-form-label">Instituição:</label>
-                        <input type="text" class="form-control" id="instituicao-id" required>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Salvar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-</script>
-
-
     </main>
+    <script src="./scripts/script.js"></script>
     <footer>
-        
+
     </footer>
-    <script src="scripts/edit.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> 
-    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
 </body>
 
 </html>

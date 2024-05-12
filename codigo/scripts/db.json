@@ -1,60 +1,20 @@
 {
   "usuarios": [
     {
-      "id":1,
-      "nome": "Djamila" ,
-      "login": "djamila_1" ,
-      "cidade": "Santos" ,
-      "estado": "São Paulo" ,
-      "servico": "intermediario" ,
-      "telefone": "(31) 99312-7429" ,
-      "email": "djamila@email.com" ,
-      "descricao": "Djamila Taís Ribeiro dos Santos é uma importante voz contemporânea em defesa dos negros e das mulheres." ,
-      "idiomas": "Português" ,
-      "habilidades": "Dança, Filosofia, cultura" ,
-      "educacao": "Puc Minas" 
+      "nome": "Ana Silva",
+      "nome_usuario": "a_silvae",
+      "cidade": "Belo Horizonte",
+      "estado": "MG",
+      "foto_perfil": "http://127.0.0.1:5501/codigo/assets/img/",
+      "id": "1"
     }
   ],
-  "atuacao": [
+  "vendas": [
     {
-      "id": 1,
-      "descricao": "Ilustração"
-    },
-    {
-      "id": 2,
-      "descricao": "Filmagem"
-    },
-    {
-      "id": 3,
-      "descricao": "Fotografia"
-    },
-    {
-      "id": 4,
-      "descricao": "Web Design"
-    },
-    {
-      "id": 5,
-      "descricao": "Animação"
-    },
-    {
-      "id": 6,
-      "descricao": "Design Gráfico"
-    },
-    {
-      "id": 7,
-      "descricao": "Modelagem 3D"
-    },
-    {
-      "id": 8,
-      "descricao": "Grafite"
-    },
-    {
-      "id": 9,
-      "descricao": "Pintura"
-    },
-    {
-      "id": 10,
-      "descricao": "Edição"
+      "id": "1",
+      "mes": "janeiro",
+      "vlr": "1",
+      "qtd": "1"
     }
   ]
 }

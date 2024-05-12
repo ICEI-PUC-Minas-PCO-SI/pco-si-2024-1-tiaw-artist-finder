@@ -111,7 +111,7 @@ main .profile-edit .edit-btn {
     margin-right: 0.6rem;
 }
 
-main .services {
+/* main .services {
     box-sizing: border-box;
     width: 24.7vw;
     height: 25rem;
@@ -233,7 +233,7 @@ main .personal-info .edit-btn {
     order: -1;
     align-self: flex-end;
     margin-right: 0.6rem;
-}
+} */
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
