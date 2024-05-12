@@ -1,7 +1,5 @@
-// URL da API de dados
 const URL = 'http://localhost:3000/usuarios';
 
-// Função para preencher os cards com os dados dos usuários, de contato e informações pessoais
 function preencherCards() {
     fetch(URL)
         .then(res => {
@@ -66,22 +64,53 @@ function preencherCards() {
                     document.getElementById('localE-id').value = localE;
                 });
             });
+
+            // Evento de envio do formulário de edição de perfil
+            const profileForm = document.getElementById('profile-form');
+
+            profileForm.addEventListener('submit', (e) => {
+                e.preventDefault(); // Impede o envio do formulário por padrão
+
+                // Obtém o nome de perfil
+                const nome = document.getElementById('nome-id').value;
+
+                // Verifica se o nome de perfil é válido
+                if (nome.trim() === '') {
+                    console.error('Nome de perfil inválido');
+                    return;
+                }
+
+                // Obtém os dados do perfil do formulário
+                const profileData = {
+                    login: document.getElementById('login-id').value,
+                    local: document.getElementById('local-id').value,
+                    localE: document.getElementById('localE-id').value
+                };
+
+                // Envia a requisição para atualizar os dados do usuário
+                atualizarUsuario(nome, profileData)
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error('Erro ao atualizar dados do usuário');
+                        }
+                        location.reload(); // Recarrega a página para atualizar os dados exibidos
+                    })
+                    .catch(error => {
+                        console.error('Erro ao atualizar usuário:', error.message);
+                    });
+            });
         })
         .catch(error => {
             console.error('Erro ao preencher os cards:', error.message);
         });
 }
 
-// Chama a função para preencher os cards ao carregar a página
-preencherCards();
-
-// Função para atualizar os dados do usuário no servidor
 function atualizarUsuario(nome, dados) {
     const usuario = {
-        nome: nome,
         ...dados
     };
 
+    // Envia a requisição para atualizar os dados do usuário
     return fetch(`${URL}/${nome}`, {
         method: 'PUT',
         headers: {
@@ -91,37 +120,4 @@ function atualizarUsuario(nome, dados) {
     });
 }
 
-// Evento de envio do formulário de edição de perfil
-const profileForm = document.getElementById('profile-form');
-
-profileForm.addEventListener('submit', (e) => {
-    e.preventDefault(); // Impede o envio do formulário por padrão
-
-    // Obtém o nome de perfil
-    const nome = document.getElementById('nome-id').value;
-
-    // Verifica se o nome de perfil é válido
-    if (nome.trim() === '') {
-        console.error('Nome de perfil inválido');
-        return;
-    }
-
-    // Obtém os dados do perfil do formulário
-    const profileData = {
-        login: document.getElementById('login-id').value,
-        local: document.getElementById('local-id').value,
-        localE: document.getElementById('localE-id').value
-    };
-
-    // Envia a requisição para atualizar os dados do usuário
-    atualizarUsuario(nome, profileData)
-        .then(res => {
-            if (!res.ok) {
-                throw new Error('Erro ao atualizar dados do usuário');
-            }
-            location.reload(); // Recarrega a página para atualizar os dados exibidos
-        })
-        .catch(error => {
-            console.error('Erro ao atualizar usuário:', error.message);
-        });
-});
+preencherCards();
