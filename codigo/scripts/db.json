@@ -1,1 +1,19 @@
-{}
+{
+  "usuarios": [
+    {
+      "nome": "Ana Silva",
+      "nome_usuario": "ana",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "id": "1"
+    }
+  ],
+  "vendas": [
+    {
+      "id": "1",
+      "mes": "janeiro",
+      "vlr": "1",
+      "qtd": "1"
+    }
+  ]
+}
