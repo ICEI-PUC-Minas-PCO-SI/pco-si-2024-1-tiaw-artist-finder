@@ -2,3 +2,80 @@
     width: 80px;
 }
 
+body{
+    background: #ddd;
+}
+
+.profile-area{
+    padding: 20px 0;
+}
+
+.form-group{
+    padding: 20px 0;
+}
+
+hr{
+    
+}
+.form-control{
+    box-shadow: 1px 1px 1px  #7400aa;
+}
+
+.card{
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.img1 img{
+    height: 150px;
+    width: 100%;
+}
+
+.img2 img{
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    margin-top: -80px;
+}
+
+.card:hover .img2 img{
+    border-color: #7400aa;
+    transition: 1s;
+}
+
+.main-text{
+    padding: 30px 0;
+    text-align: center;
+}
+
+.main-text h2{
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 20px;
+    margin: 0 0 20px;
+}
+
+
+.main-text p{
+    font-size: 16px;
+    padding-bottom: 0 35px;
+    
+}
+
+.socials{
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.socials i{
+    font-size: 20px;
+    color: #7400aa;
+    padding: 0 10px;
+}

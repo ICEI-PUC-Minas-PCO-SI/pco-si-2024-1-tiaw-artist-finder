@@ -19,23 +19,26 @@ fetch(URL)
             ((usuarios.atuacao == FILTRO_ATUACAO) || (FILTRO_ATUACAO == "")) &&
             ((usuarios.estado == FILTRO_ESTADO) || (FILTRO_ESTADO == "")))
             {
-                lista_usuarios += `<div class="card col-md-2 mb-4 me-4">
-                <img src="${usuarios.foto}" class="card-img-top" id="foto">
-                <div class="card-body">
-                  <h5 class="card-title">${usuarios.nome}</h5>
-                  <p class="card-text text-secondary"><strong>Área de atuação: </strong> <br> ${usuarios.atuacao}</p>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
-                  </svg>
-                  <p class="card-text text-secondary">${usuarios.estado}</p>
-                  <p class="card-text text-secondary"><strong>Disponibilidade: </strong>${usuarios.disponibilidade}</p>
-                  <div class="row">
-                    <button class="btn btn-primary mb-2" type="button">Perfil</button>
-                    <button class="btn btn-dark" type="button">Contratar</button>
-                  </div>
+                lista_usuarios += `<div class=" col-md-4 mb-5">
+                <div class="card">
+                    <div class="img1"> <img src="assets/img/capa.jpg" alt=""> </div>
+                    <div class="img2"> <img src="${usuarios.foto}" alt=""> </div>
+                    <div class="main-text">
+                        <h2>${usuarios.nome}</h2>
+                        <p><strong> Área de atuação: </strong> ${usuarios.atuacao}</p>
+                        <p class="bi bi-geo-fill"> ${usuarios.estado}</p>
+                        <p><strong> Disponibilidade: </strong>  ${usuarios.disponibilidade}</p>
+                    </div>
+                    <div class="socials">
+                        <i class="bi bi-facebook"></i>
+                        <i class="bi bi-linkedin"></i>
+                        <i class="bi bi-whatsapp"></i>
+                        <i class="bi bi-instagram"></i>
+                    </div>
+
                 </div>
-              </div>
-                    `;
+
+            </div>`;
                     userList.innerHTML = lista_usuarios;
                     
             }
