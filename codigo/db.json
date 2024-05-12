@@ -386,13 +386,6 @@
           "capa": "assets/img/capa35.jpg",
           "atuacao": "Ilustração"
         }        
-  ],
-  "vendas": [
-    {
-      "id": "",
-      "mes": "",
-      "vlr": "",
-      "qtd": ""
-    }
   ]
+  
 }

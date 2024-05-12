@@ -1,4 +1,4 @@
-//navbar menu
+//Descer o site ativa a navbar 
 
 window.addEventListener("scroll", function(){
     let header = document.querySelector('#header')
@@ -17,6 +17,7 @@ let FILTRO_ATUACAO = ""
 let FILTRO_ESTADO = ""
 let FILTRO_DISPONIBILIDADE = ""
 
+//Função onde o evento de opção selecionada no html compara com os usuarios no json server
 function exibeUsuarios (){
 fetch(URL)
     .then(res => res.json())
