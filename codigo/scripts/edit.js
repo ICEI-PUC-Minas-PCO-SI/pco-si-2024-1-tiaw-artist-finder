@@ -50,6 +50,22 @@ function preencherCards() {
             document.getElementById('profile-edit').innerHTML = profileHTML;
             document.getElementById('contact-infos').innerHTML = contactHTML;
             document.getElementById('personal-info').innerHTML = personalHTML;
+
+            // Evento de clicar em "Editar" em um perfil
+            document.querySelectorAll('.edit-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    const nome = button.dataset.nome;
+                    const login = button.dataset.login;
+                    const local = button.dataset.local;
+                    const localE = button.dataset.localE;
+
+                    // Preencher o modal de edição com os dados atuais do usuário
+                    document.getElementById('nome-id').value = nome;
+                    document.getElementById('login-id').value = login;
+                    document.getElementById('local-id').value = local;
+                    document.getElementById('localE-id').value = localE;
+                });
+            });
         })
         .catch(error => {
             console.error('Erro ao preencher os cards:', error.message);
@@ -74,22 +90,6 @@ function atualizarUsuario(nome, dados) {
         body: JSON.stringify(usuario)
     });
 }
-
-// Evento de clicar em "Editar" em um perfil
-document.querySelectorAll('.edit-btn').forEach(button => {
-    button.addEventListener('click', () => {
-        const nome = button.dataset.nome;
-        const login = button.dataset.login;
-        const local = button.dataset.local;
-        const localE = button.dataset.localE;
-
-        // Preencher o modal de edição com os dados atuais do usuário
-        document.getElementById('nome-id').value = nome;
-        document.getElementById('login-id').value = login;
-        document.getElementById('local-id').value = local;
-        document.getElementById('localE-id').value = localE;
-    });
-});
 
 // Evento de envio do formulário de edição de perfil
 const profileForm = document.getElementById('profile-form');
