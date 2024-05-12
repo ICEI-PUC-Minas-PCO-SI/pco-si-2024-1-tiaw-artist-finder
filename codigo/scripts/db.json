@@ -1,10 +1,11 @@
 {
   "usuarios": [
     {
-      "nome": "Ana Silva",
+      "nome": "Ana Sil",
       "nome_usuario": "a_silvae",
       "cidade": "Belo Horizonte",
       "estado": "MG",
+      "foto_perfil": "http://127.0.0.1:5501/codigo/assets/img/",
       "id": "1"
     }
   ],

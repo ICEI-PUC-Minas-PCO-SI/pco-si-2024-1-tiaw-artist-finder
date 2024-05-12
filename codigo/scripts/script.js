@@ -23,11 +23,18 @@ function atualizarPerfilVisual(usuario) {
     document.getElementById('display-username').textContent = usuario.nome_usuario;
     document.getElementById('city').textContent = usuario.cidade;
     document.getElementById('state').textContent = usuario.estado;
+
+    // Preencher a foto de perfil
+    if (usuario.foto_perfil) {
+        document.getElementById('profile_pic').src = usuario.foto_perfil;
+    } else {
+        // Se não houver foto de perfil, exibir uma imagem padrão ou deixar em branco
+        document.getElementById('profile_pic').src = "./assets/img/default_profile_pic.jpg";
+    }
 }
 
 // Chamar a função para carregar os dados do usuário assim que a página carregar
 document.addEventListener('DOMContentLoaded', carregarDadosUsuario);
-
 
 // Função para abrir o modal e carregar os dados do usuário
 function abrirModal() {
@@ -89,7 +96,6 @@ function abrirModal() {
     }
 }
 
-
 // Função para fechar o modal
 function fecharModal() {
     try {
@@ -112,7 +118,6 @@ function fecharModal() {
         console.error('Erro ao fechar modal:', error);
     }
 }
-
 
 // Função para atualizar os dados do usuário no banco de dados JSON
 function atualizarUsuario(id, dadosAtualizados) {
@@ -146,7 +151,8 @@ function atualizarPerfil() {
             nome: document.getElementById('nome').value,
             nome_usuario: document.getElementById('username').value,
             cidade: document.getElementById('cidade').value,
-            estado: document.getElementById('estado').value
+            estado: document.getElementById('estado').value,
+            foto_perfil: document.getElementById('profile_pic').src // Caminho da foto de perfil
         };
 
         // Obter o ID do usuário do elemento HTML
@@ -189,15 +195,6 @@ function atualizarPerfil() {
         // Exibir mensagem de erro ao usuário
         alert('Erro ao atualizar perfil. Por favor, tente novamente mais tarde.');
     }
-}
-
-// Função para atualizar os elementos na página com os dados do usuário
-function atualizarPerfilVisual(dadosAtualizados) {
-    // Atualiza os elementos na página com os dados atualizados
-    document.getElementById('name').textContent = dadosAtualizados.nome;
-    document.getElementById('display-username').textContent = dadosAtualizados.nome_usuario;
-    document.getElementById('city').textContent = dadosAtualizados.cidade;
-    document.getElementById('state').textContent = dadosAtualizados.estado;
 }
 
 // Adiciona event listener para abrir o modal ao clicar no botão de abrir
