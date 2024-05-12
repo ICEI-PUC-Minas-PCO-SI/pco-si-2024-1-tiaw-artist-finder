@@ -1,3 +1,13 @@
+//navbar menu
+
+window.addEventListener("scroll", function(){
+    let header = document.querySelector('#header')
+    header.classList.toggle('rolagem',window.scrollY > 0)
+    
+})
+
+
+
 //URL DA FAKE API DE DADOS USANDO JSON
 URL = 'http://localhost:3000/usuarios'
 
@@ -19,9 +29,9 @@ fetch(URL)
             ((usuarios.atuacao == FILTRO_ATUACAO) || (FILTRO_ATUACAO == "")) &&
             ((usuarios.estado == FILTRO_ESTADO) || (FILTRO_ESTADO == "")))
             {
-                lista_usuarios += `<div class=" col-md-4 mb-5">
+                lista_usuarios += `<div class=" col-md-4 mb-5"> 
                 <div class="card">
-                    <div class="img1"> <img src="assets/img/capa.jpg" alt=""> </div>
+                    <div class="img1"> <img src="${usuarios.capa}" alt=""> </div>
                     <div class="img2"> <img src="${usuarios.foto}" alt=""> </div>
                     <div class="main-text">
                         <h2>${usuarios.nome}</h2>
@@ -38,7 +48,7 @@ fetch(URL)
 
                 </div>
 
-            </div>`;
+            </div> `;
                     userList.innerHTML = lista_usuarios;
                     
             }

@@ -1,10 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+.container-header{
+    max-width: 1280px;
+    margin: auto;
+}
+
+.navbar{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header{
+    width: 100%;
+    padding: 60px 4%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: .5s;
+}
+
+header.rolagem{
+    background-color: #fff;
+    padding: 20px 4%;
+    position: fixed;
+    z-index: 2;
+}
+
+header.rolagem a{
+    color: #7400aa;
+}
+
+
+
+
+header ul{
+    list-style-type: none;
+}
+
+header ul li{
+    display: inline-block;
+    margin: 0 40px;
+}
+
+header ul li a{
+    color:#fff;
+    text-decoration: none;
+}
+
+
+
+.banner{
+    height: 100vh;
+    background-image: url(img/banner.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner h1{
+    font-size: 5em;
+    color: #fff;
+}
+
+.banner h1 span{
+    color: #ffc400;
+}
+
+
+
 #logo{
-    width: 80px;
+    width: 100px;
+    
 }
 
 body{
-    background: #ddd;
+    background: #fff;
 }
+
+
 
 .profile-area{
     padding: 20px 0;
@@ -14,11 +98,25 @@ body{
     padding: 20px 0;
 }
 
-hr{
-    
-}
+
 .form-control{
     box-shadow: 1px 1px 1px  #7400aa;
+}
+
+#limpar {
+    position: relative;
+    padding: 10px 22px;
+    background: #7d2ae8;
+    box-shadow: 2px 2px 2px  #000000;
+    border-radius: 6px;
+    color: #fff;
+    border: none;
+    transition: all 0.2s ease;
+    
+}
+
+#limpar:active {
+    transform: scale(0.96)
 }
 
 .card{
