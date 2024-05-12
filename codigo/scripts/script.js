@@ -1,3 +1,34 @@
+// Função para abrir o modal e carregar os dados do usuário
+function abrirModal() {
+    try {
+        var modal = document.getElementById('myModal');
+        if (!modal) {
+            throw new Error('Elemento modal não encontrado.');
+        }
+
+        // Limpar os valores dos campos do formulário para evitar a exibição de dados antigos
+        document.getElementById('id').value = ''; 
+        document.getElementById('nome').value = '';
+        document.getElementById('username').value = '';
+        document.getElementById('cidade').value = '';
+        document.getElementById('estado').value = '';
+
+        // Obter o ID do usuário do elemento HTML
+        var userIdElement = document.getElementById('user-id');
+        if (!userIdElement) {
+            throw new Error('Elemento user-id não encontrado.');
+        }
+        var userId = parseInt(userIdElement.textContent);
+
+        // Exibir o modal
+        modal.classList.add('show');
+        modal.style.display = 'block';
+        document.body.classList.add('modal-open');
+        // Adiciona um fundo escuro com opacidade ao fundo da página
+        var overlay = document.createElement('div');
+        overlay.classList.add('modal-backdrop', 'fade', 'show');
+        document.body.appendChild(overlay);
+
 // Função para fechar o modal
 function fecharModal() {
     try {
@@ -19,72 +50,7 @@ function fecharModal() {
     }
 }
 
-// Adiciona event listener para fechar o modal ao clicar no botão de fechar do modal
-var fecharBtns = document.querySelectorAll('[data-dismiss="modal"]');
-if (fecharBtns) {
-    fecharBtns.forEach(function (btn) {
-        btn.addEventListener('click', fecharModal);
-    });
-} else {
-    console.error('Botão de fechar modal não encontrado.');
-}
-
-// Função para abrir o modal e carregar os dados do usuário
-function abrirModal() {
-    try {
-        var modal = document.getElementById('myModal');
-        if (!modal) {
-            throw new Error('Elemento modal não encontrado.');
-        }
-
-        // Obter o ID do usuário do elemento HTML
-        var userIdElement = document.getElementById('user-id');
-        if (!userIdElement) {
-            throw new Error('Elemento user-id não encontrado.');
-        }
-        var userId = parseInt(userIdElement.textContent);
-
-        // Exibir o modal
-        modal.classList.add('show');
-        modal.style.display = 'block';
-        document.body.classList.add('modal-open');
-        // Adiciona um fundo escuro com opacidade ao fundo da página
-        var overlay = document.createElement('div');
-        overlay.classList.add('modal-backdrop', 'fade', 'show');
-        document.body.appendChild(overlay);
-
-        // Recuperar os dados do usuário com o ID fornecido
-        fetch(`http://localhost:3000/usuarios/${userId}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Erro ao recuperar dados do usuário');
-                }
-                return response.json();
-            })
-            .then(data => {
-                // Preencher os campos do formulário com os dados do usuário
-                document.getElementById('id').value = userId; // Define o ID travado no campo de ID
-                document.getElementById('nome').value = data.nome;
-                document.getElementById('username').value = data.nome_usuario;
-                document.getElementById('cidade').value = data.cidade;
-                document.getElementById('estado').value = data.estado;
-            })
-            .catch(error => {
-                console.error('Erro ao recuperar dados do usuário:', error);
-            });
-    } catch (error) {
-        console.error('Erro ao abrir modal:', error);
-    }
-}
-
-// Adiciona event listener para abrir o modal ao clicar no botão de abrir
-var abrirBtn = document.querySelector('.edit-btn');
-if (abrirBtn) {
-    abrirBtn.addEventListener('click', abrirModal);
-} else {
-    console.error('Botão de abrir modal não encontrado.');
-}
-
+// Função para atualizar os dados do usuário no banco de dados JSON
 function atualizarUsuario(id, dadosAtualizados) {
     return fetch(`http://localhost:3000/usuarios/${id}`, {
         method: 'PUT',
@@ -109,9 +75,32 @@ function atualizarUsuario(id, dadosAtualizados) {
     });
 }
 
-const modalSalvar = document.getElementById('btnSalvar');
+        // Recuperar os dados do usuário com o ID fornecido e preencher o formulário
+        fetch(`http://localhost:3000/usuarios/${userId}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao recuperar dados do usuário');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Preencher os campos do formulário com os dados do usuário
+                document.getElementById('id').value = userId; // Define o ID travado no campo de ID
+                document.getElementById('nome').value = data.nome;
+                document.getElementById('username').value = data.nome_usuario;
+                document.getElementById('cidade').value = data.cidade;
+                document.getElementById('estado').value = data.estado;
+            })
+            .catch(error => {
+                console.error('Erro ao recuperar dados do usuário:', error);
+            });
+    } catch (error) {
+        console.error('Erro ao abrir modal:', error);
+    }
+}
 
-modalSalvar.addEventListener('click', function() {
+// Função para atualizar os dados do perfil do usuário
+function atualizarPerfil() {
     try {
         const dadosAtualizados = {
             nome: document.getElementById('nome').value,
@@ -119,7 +108,7 @@ modalSalvar.addEventListener('click', function() {
             cidade: document.getElementById('cidade').value,
             estado: document.getElementById('estado').value
         };
-        
+
         // Obter o ID do usuário do elemento HTML
         var userIdElement = document.getElementById('user-id');
         if (!userIdElement) {
@@ -127,6 +116,7 @@ modalSalvar.addEventListener('click', function() {
         }
         var userId = parseInt(userIdElement.textContent);
 
+        // Atualizar os dados do usuário no banco de dados JSON
         atualizarUsuario(userId, dadosAtualizados)
             .then(() => {
                 // Atualizar os dados do usuário no HTML após o salvamento bem-sucedido
@@ -155,16 +145,33 @@ modalSalvar.addEventListener('click', function() {
                 alert('Erro ao atualizar perfil. Por favor, tente novamente mais tarde.');
             });
     } catch (error) {
-        console.error('Erro ao lidar com evento de clique do botão salvar:', error);
+        console.error('Erro ao atualizar perfil:', error);
         // Exibir mensagem de erro ao usuário
         alert('Erro ao atualizar perfil. Por favor, tente novamente mais tarde.');
     }
-});
+}
 
+// Função para atualizar os elementos na página com os dados do usuário
 function atualizarPerfilVisual(dadosAtualizados) {
     // Atualiza os elementos na página com os dados atualizados
     document.getElementById('name').textContent = dadosAtualizados.nome;
-    document.getElementById('username').textContent = dadosAtualizados.nome_usuario;
+    document.getElementById('display-username').textContent = dadosAtualizados.nome_usuario;
     document.getElementById('city').textContent = dadosAtualizados.cidade;
     document.getElementById('state').textContent = dadosAtualizados.estado;
+}
+
+// Adiciona event listener para abrir o modal ao clicar no botão de abrir
+var abrirBtn = document.querySelector('.edit-btn');
+if (abrirBtn) {
+    abrirBtn.addEventListener('click', abrirModal);
+} else {
+    console.error('Botão de abrir modal não encontrado.');
+}
+
+// Adiciona event listener para salvar as alterações no perfil do usuário
+const modalSalvar = document.getElementById('btnSalvar');
+if (modalSalvar) {
+    modalSalvar.addEventListener('click', atualizarPerfil);
+} else {
+    console.error('Botão de salvar não encontrado.');
 }
