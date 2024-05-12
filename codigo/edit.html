@@ -11,7 +11,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>  
+       
 
     <title>Home</title>
 
@@ -90,7 +90,7 @@
  <!--  Modal apresentada para solicitar os dados para preenchimento do formulário -->
 
  <div class="modal fade" id="usuario-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog" role="document" >
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Profile<span id="edit-profile"></span></h5>
@@ -102,23 +102,23 @@
                 <form id="profile-form" method="post" action="">
                     <div class="form-group">
                         <label for="nome-id" class="col-form-label">Nome:</label>
-                        <input type="text" class="form-control" id="nome-id" min="1" required>
+                        <input type="text" class="form-control" id="nome-id">
                     </div>
                     <div class="form-group">
                         <label for="login-id" class="col-form-label">Nome de usuário:</label>
-                        <input type="text" class="form-control" id="login-id" required>
+                        <input type="text" class="form-control" id="login-id">
                     </div>
                     <div class="form-group">
-                        <label for="local-id" class="col-form-label">Cidade:</label>
-                        <input type="text" step="0.01" class="form-control" id="local-id" required>
+                        <label for="local" class="col-form-label">Cidade:</label>
+                        <input type="text" class="form-control" id="local">
                     </div>
                     <div class="form-group">
-                        <label for="local" class="col-form-label">Estado:</label>
-                        <input type="text" class="form-control" id="localE-id" required>
+                        <label for="localE" class="col-form-label">Estado:</label>
+                        <input type="text" class="form-control" id="localE">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Salvar</button>
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" data-bs-target="edit.html">Salvar</button>
                         
 
                     </div>
@@ -132,7 +132,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Tipos de serviços<span id="edit-prod-id"></span></h5>
+                <h5 class="modal-title">Tipos de serviços<span id=""></span></h5>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -140,20 +140,16 @@
             <div class="modal-body">
                 <form id="produto-form" method="post" action="">
                     <div class="form-group">
-                        <label for="produto-id" class="col-form-label">Nome:</label>
-                        <input type="text" class="form-control" id="nome-id" min="1" required>
+                        <label for="basico-id" class="col-form-label">Básico</label>
+                        <input type="text" class="form-control" id="basico-id" min="1" required>
                     </div>
                     <div class="form-group">
-                        <label for="produto-nome" class="col-form-label">Nome de usuário:</label>
-                        <input type="text" class="form-control" id="login-id" required>
+                        <label for="intermediario-id" class="col-form-label">Intermediário</label>
+                        <input type="text" class="form-control" id="intermediario-id" required>
                     </div>
                     <div class="form-group">
-                        <label for="produto-vlr" class="col-form-label">Cidade:</label>
-                        <input type="text" step="0.01" class="form-control" id="local-id" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="produto-qtd" class="col-form-label">Estado:</label>
-                        <input type="text" class="form-control" id="localE-id" required>
+                        <label for="premium-id" class="col-form-label">Premium</label>
+                        <input type="text" step="0.01" class="form-control" id="premium-id" required>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -169,7 +165,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Informações de contato<span id="edit-prod-id"></span></h5>
+                <h5 class="modal-title">Informações de contato<span id=""></span></h5>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -177,20 +173,12 @@
             <div class="modal-body">
                 <form id="produto-form" method="post" action="">
                     <div class="form-group">
-                        <label for="produto-id" class="col-form-label">Nome:</label>
-                        <input type="text" class="form-control" id="nome-id" min="1" required>
+                        <label for="tel" class="col-form-label">Numero de Contato:</label>
+                        <input type="text" class="form-control" id="tel-id" min="1" required>
                     </div>
                     <div class="form-group">
-                        <label for="produto-nome" class="col-form-label">Nome de usuário:</label>
-                        <input type="text" class="form-control" id="login-id" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="produto-vlr" class="col-form-label">Cidade:</label>
-                        <input type="text" step="0.01" class="form-control" id="local-id" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="produto-qtd" class="col-form-label">Estado:</label>
-                        <input type="text" class="form-control" id="localE-id" required>
+                        <label for="email-id" class="col-form-label">E-mail</label>
+                        <input type="text" class="form-control" id="email-id" required>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -207,7 +195,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Informações Pessoais<span id="edit-prod-id"></span></h5>
+                <h5 class="modal-title">Informações Pessoais<span id=""></span></h5>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -215,20 +203,20 @@
             <div class="modal-body">
                 <form id="produto-form" method="post" action="">
                     <div class="form-group">
-                        <label for="produto-id" class="col-form-label">Nome:</label>
-                        <input type="text" class="form-control" id="nome-id" min="1" required>
+                        <label for="descricao-id" class="col-form-label">Descrição:</label>
+                        <input type="text" class="form-control" id="descricao-id" min="1" required>
                     </div>
                     <div class="form-group">
-                        <label for="produto-nome" class="col-form-label">Nome de usuário:</label>
-                        <input type="text" class="form-control" id="login-id" required>
+                        <label for="idiomas-id" class="col-form-label">Idiomas:</label>
+                        <input type="text" class="form-control" id="idiomas-id" required>
                     </div>
                     <div class="form-group">
-                        <label for="produto-vlr" class="col-form-label">Cidade:</label>
-                        <input type="text" step="0.01" class="form-control" id="local-id" required>
+                        <label for="habilidades-id" class="col-form-label">Habilidades:</label>
+                        <input type="text" step="0.01" class="form-control" id="habilidades-id" required>
                     </div>
                     <div class="form-group">
-                        <label for="produto-qtd" class="col-form-label">Estado:</label>
-                        <input type="text" class="form-control" id="localE-id" required>
+                        <label for="instituicao-id" class="col-form-label">Instituição:</label>
+                        <input type="text" class="form-control" id="instituicao-id" required>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -239,7 +227,7 @@
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous">
+
 
 </script>
 
@@ -249,6 +237,8 @@
         
     </footer>
     <script src="scripts/edit.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> 
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
 </body>
 
 </html>
