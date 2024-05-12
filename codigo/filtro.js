@@ -52,6 +52,10 @@ fetch(URL)
             </div> `;
                     userList.innerHTML = lista_usuarios;
                     
+            }else{
+                lista_usuarios += `<div class=" d-none col-md-4 mb-5"></div> `;
+                    userList.innerHTML = lista_usuarios;
+                    
             }
 
         }
