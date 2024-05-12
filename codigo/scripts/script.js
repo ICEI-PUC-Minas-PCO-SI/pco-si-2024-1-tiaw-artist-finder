@@ -1,3 +1,34 @@
+// Função para recuperar os dados do usuário do banco de dados e adicionar ao HTML
+function carregarDadosUsuario() {
+    fetch('http://localhost:3000/usuarios')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao recuperar dados do usuário');
+            }
+            return response.json();
+        })
+        .then(usuarios => {
+            const usuario = usuarios[0]; // Supondo que há apenas um usuário no banco de dados
+            atualizarPerfilVisual(usuario); // Atualiza os elementos HTML com os dados do usuário
+        })
+        .catch(error => {
+            console.error('Erro ao carregar dados do usuário:', error);
+        });
+}
+
+// Função para atualizar os elementos na página com os dados do usuário
+function atualizarPerfilVisual(usuario) {
+    // Atualiza os elementos na página com os dados do usuário
+    document.getElementById('name').textContent = usuario.nome;
+    document.getElementById('display-username').textContent = usuario.nome_usuario;
+    document.getElementById('city').textContent = usuario.cidade;
+    document.getElementById('state').textContent = usuario.estado;
+}
+
+// Chamar a função para carregar os dados do usuário assim que a página carregar
+document.addEventListener('DOMContentLoaded', carregarDadosUsuario);
+
+
 // Função para abrir o modal e carregar os dados do usuário
 function abrirModal() {
     try {
@@ -28,6 +59,30 @@ function abrirModal() {
         var overlay = document.createElement('div');
         overlay.classList.add('modal-backdrop', 'fade', 'show');
         document.body.appendChild(overlay);
+
+        // Recuperar os dados do usuário com o ID fornecido e preencher o formulário
+        fetch(`http://localhost:3000/usuarios/${userId}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao recuperar dados do usuário');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Preencher os campos do formulário com os dados do usuário
+                document.getElementById('id').value = userId; // Define o ID travado no campo de ID
+                document.getElementById('nome').value = data.nome;
+                document.getElementById('username').value = data.nome_usuario;
+                document.getElementById('cidade').value = data.cidade;
+                document.getElementById('estado').value = data.estado;
+            })
+            .catch(error => {
+                console.error('Erro ao recuperar dados do usuário:', error);
+            });
+    } catch (error) {
+        console.error('Erro ao abrir modal:', error);
+    }
+}
 
 // Função para fechar o modal
 function fecharModal() {
@@ -73,30 +128,6 @@ function atualizarUsuario(id, dadosAtualizados) {
         console.error('Erro ao atualizar dados do usuário:', error);
         throw error; // Rejeita a promessa com o erro para que possa ser tratado externamente
     });
-}
-
-        // Recuperar os dados do usuário com o ID fornecido e preencher o formulário
-        fetch(`http://localhost:3000/usuarios/${userId}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Erro ao recuperar dados do usuário');
-                }
-                return response.json();
-            })
-            .then(data => {
-                // Preencher os campos do formulário com os dados do usuário
-                document.getElementById('id').value = userId; // Define o ID travado no campo de ID
-                document.getElementById('nome').value = data.nome;
-                document.getElementById('username').value = data.nome_usuario;
-                document.getElementById('cidade').value = data.cidade;
-                document.getElementById('estado').value = data.estado;
-            })
-            .catch(error => {
-                console.error('Erro ao recuperar dados do usuário:', error);
-            });
-    } catch (error) {
-        console.error('Erro ao abrir modal:', error);
-    }
 }
 
 // Função para atualizar os dados do perfil do usuário
