@@ -29,7 +29,7 @@ if (fecharBtns) {
     console.error('Botão de fechar modal não encontrado.');
 }
 
-// Função para abrir o modal
+// Função para abrir o modal e carregar os dados do usuário
 function abrirModal() {
     try {
         var modal = document.getElementById('myModal');
@@ -112,30 +112,53 @@ function atualizarUsuario(id, dadosAtualizados) {
 const modalSalvar = document.getElementById('btnSalvar');
 
 modalSalvar.addEventListener('click', function() {
-    const dadosAtualizados = {
-        nome: document.getElementById('nome').value,
-        nome_usuario: document.getElementById('username').value,
-        cidade: document.getElementById('cidade').value,
-        estado: document.getElementById('estado').value
-    };
-    
-    // Obter o ID do usuário do elemento HTML
-    var userIdElement = document.getElementById('user-id');
-    if (!userIdElement) {
-        console.error('Elemento user-id não encontrado.');
-        return;
-    }
-    var userId = parseInt(userIdElement.textContent);
+    try {
+        const dadosAtualizados = {
+            nome: document.getElementById('nome').value,
+            nome_usuario: document.getElementById('username').value,
+            cidade: document.getElementById('cidade').value,
+            estado: document.getElementById('estado').value
+        };
+        
+        // Obter o ID do usuário do elemento HTML
+        var userIdElement = document.getElementById('user-id');
+        if (!userIdElement) {
+            throw new Error('Elemento user-id não encontrado.');
+        }
+        var userId = parseInt(userIdElement.textContent);
 
-    atualizarUsuario(userId, dadosAtualizados)
-        .then(() => {
-            // Não fechar o modal imediatamente após a atualização
-            atualizarPerfilVisual(dadosAtualizados); // Atualiza os dados exibidos na página
-        })
-        .catch(error => {
-            console.error('Erro ao salvar alterações:', error);
-            // Aqui você pode adicionar tratamento adicional, como exibir uma mensagem de erro para o usuário
-        });
+        atualizarUsuario(userId, dadosAtualizados)
+            .then(() => {
+                // Atualizar os dados do usuário no HTML após o salvamento bem-sucedido
+                fetch(`http://localhost:3000/usuarios/${userId}`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Erro ao recuperar dados atualizados do usuário');
+                        }
+                        return response.json();
+                    })
+                    .then(updatedData => {
+                        atualizarPerfilVisual(updatedData); // Atualiza os dados exibidos na página
+                    })
+                    .catch(error => {
+                        console.error('Erro ao recuperar dados atualizados do usuário:', error);
+                        // Exibir mensagem de erro ao usuário
+                        alert('Erro ao atualizar perfil. Por favor, tente novamente mais tarde.');
+                    });
+
+                // Fechar o modal após o salvamento bem-sucedido
+                fecharModal();
+            })
+            .catch(error => {
+                console.error('Erro ao salvar alterações:', error);
+                // Exibir mensagem de erro ao usuário
+                alert('Erro ao atualizar perfil. Por favor, tente novamente mais tarde.');
+            });
+    } catch (error) {
+        console.error('Erro ao lidar com evento de clique do botão salvar:', error);
+        // Exibir mensagem de erro ao usuário
+        alert('Erro ao atualizar perfil. Por favor, tente novamente mais tarde.');
+    }
 });
 
 function atualizarPerfilVisual(dadosAtualizados) {
