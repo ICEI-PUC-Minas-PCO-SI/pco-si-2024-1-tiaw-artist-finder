@@ -1,15 +1,15 @@
 // Variável global para armazenar os próximos IDs únicos
 let nextUserId = 1;
-let users = [];
+let usuarios = [];
 
 // Função para carregar os usuários do DB JSON
-async function loadUsers() {
+async function loadusuarios() {
     try {
-        const response = await fetch('http://localhost:3000/users');
+        const response = await fetch('http://localhost:3000/usuarios');
         if (!response.ok) {
             throw new Error('Erro ao carregar usuários.');
         }
-        users = await response.json();
+        usuarios = await response.json();
     } catch (error) {
         console.error('Erro ao carregar usuários:', error);
     }
@@ -18,11 +18,11 @@ async function loadUsers() {
 // Função para obter o próximo ID único
 function getNextUserId() {
     // Se não houver usuários, retorna 1 como o próximo ID
-    if (users.length === 0) {
+    if (usuarios.length === 0) {
         return 1;
     }
     // Obtém o ID do último usuário cadastrado e adiciona 1
-    return users[users.length - 1].id + 1;
+    return usuarios[usuarios.length - 1].id + 1;
 }
 
 // Função para cadastro de novo usuário
@@ -42,7 +42,7 @@ async function signUp() {
         let confirmPassword = document.getElementById("confirmPassword").value;
 
         // Verifica se o email já está cadastrado
-        if (users.some(user => user.email === email)) {
+        if (usuarios.some(user => user.email === email)) {
             alert("Este email já está cadastrado. Por favor, escolha outro.");
             return;
         }
@@ -57,7 +57,7 @@ async function signUp() {
 
         try {
             // Salva os dados no DB JSON usando fetch API
-            const response = await fetch('http://localhost:3000/users', {
+            const response = await fetch('http://localhost:3000/usuarios', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ async function signUp() {
                 throw new Error('Erro ao criar a conta.');
             }
             // Atualiza a lista de usuários após o cadastro bem-sucedido
-            await loadUsers();
+            await loadusuarios();
             console.log('Conta criada com sucesso!');
             alert("Conta criada com sucesso!");
         } catch (error) {
@@ -108,7 +108,7 @@ function login() {
 
         try {
             // Verifica se o email existe na lista de usuários
-            const user = users.find(user => user.email === email);
+            const user = usuarios.find(user => user.email === email);
             if (!user) {
                 alert("Email não encontrado. Por favor, verifique o email.");
                 return;
@@ -142,7 +142,7 @@ document.addEventListener("click", (e) => {
 
 // Chama as funções de cadastro e login ao carregar a página
 document.addEventListener("DOMContentLoaded", async () => {
-    await loadUsers(); // Carrega os usuários do DB JSON antes de iniciar as funções
+    await loadusuarios(); // Carrega os usuários do DB JSON antes de iniciar as funções
     signUp();
     login();
 });

@@ -1,9 +1,13 @@
 {
-  "users": [
+  "usuarios": [
     {
-      "id": 1,
-      "username": "admin",
-      "email": "admin@admin.com",
+      "nome": "Ana Sil",
+      "username": "a_silvae",
+      "cidade": "Belo Horizonte",
+      "estado": "MG",
+      "foto_perfil": "http://127.0.0.1:5501/codigo/assets/img/",
+      "id": "1",
+	    "email": "admin@admin.com",
       "password": "admin123"
     }
   ]
