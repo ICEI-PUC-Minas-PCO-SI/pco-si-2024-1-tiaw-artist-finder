@@ -20,7 +20,7 @@ function carregarDadosUsuario() {
 function atualizarPerfilVisual(usuario) {
     // Atualiza os elementos na página com os dados do usuário
     document.getElementById('name').textContent = usuario.nome;
-    document.getElementById('display-username').textContent = usuario.nome_usuario;
+    document.getElementById('display-username').textContent = usuario.username;
     document.getElementById('city').textContent = usuario.cidade;
     document.getElementById('state').textContent = usuario.estado;
 
@@ -84,7 +84,7 @@ function abrirModal() {
                 // Preencher os campos do formulário com os dados do usuário
                 document.getElementById('id').value = userId; // Define o ID travado no campo de ID
                 document.getElementById('nome').value = data.nome;
-                document.getElementById('username').value = data.nome_usuario;
+                document.getElementById('username').value = data.username;
                 document.getElementById('cidade').value = data.cidade;
                 document.getElementById('estado').value = data.estado;
             })
@@ -149,7 +149,7 @@ function atualizarPerfil() {
     try {
         const dadosAtualizados = {
             nome: document.getElementById('nome').value,
-            nome_usuario: document.getElementById('username').value,
+            username: document.getElementById('username').value,
             cidade: document.getElementById('cidade').value,
             estado: document.getElementById('estado').value,
             foto_perfil: document.getElementById('profile_pic').src // Caminho da foto de perfil
