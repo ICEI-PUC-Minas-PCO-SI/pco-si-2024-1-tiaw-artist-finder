@@ -1,9 +1,34 @@
+// Função para revelar a senha quando o usuário clica no ícone
+document.addEventListener("click", (e) => {
+    try {
+        if (e.target.classList.contains('toggle-password')) {
+            const passwordField = document.getElementById('password');
+            const confirmPasswordField = document.getElementById('confirmPassword');
+
+            if (!passwordField || !confirmPasswordField) {
+                throw new Error('Campos de senha não encontrados.');
+            }
+
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                confirmPasswordField.type = 'text';
+            } else {
+                passwordField.type = 'password';
+                confirmPasswordField.type = 'password';
+            }
+        }
+    } catch (error) {
+        console.error('Erro ao revelar senha:', error.message);
+    }
+});
+
+
 // Variável global para armazenar os próximos IDs únicos
 let nextUserId = 1;
 let usuarios = [];
 
 // Função para carregar os usuários do DB JSON
-async function loadusuarios() {
+async function loadUsuarios() {
     try {
         const response = await fetch('http://localhost:3000/usuarios');
         if (!response.ok) {
@@ -17,12 +42,7 @@ async function loadusuarios() {
 
 // Função para obter o próximo ID único
 function getNextUserId() {
-    // Se não houver usuários, retorna 1 como o próximo ID
-    if (usuarios.length === 0) {
-        return 1;
-    }
-    // Obtém o ID do último usuário cadastrado e adiciona 1
-    return usuarios[usuarios.length - 1].id + 1;
+    return nextUserId++;
 }
 
 // Função para cadastro de novo usuário
@@ -38,18 +58,27 @@ async function signUp() {
 
         let username = document.getElementById("username").value;
         let email = document.getElementById("email").value;
-        let password = document.getElementById("password").value;
+        let confirmEmail = document.getElementById("confirmEmail").value;
         let confirmPassword = document.getElementById("confirmPassword").value;
+
+        // Verifica se o email e o confirmar email são iguais
+        if (email !== confirmEmail) {
+            alert("Os emails não coincidem. Por favor, verifique.");
+            return;
+        }
+
+        let password = document.getElementById("password").value;
+        let confirmPass = document.getElementById("confirmPassword").value;
+
+        // Verifica se a senha e o confirmar senha são iguais
+        if (password !== confirmPass) {
+            alert("A senha e o confirmar senha não coincidem. Por favor, verifique.");
+            return;
+        }
 
         // Verifica se o email já está cadastrado
         if (usuarios.some(user => user.email === email)) {
             alert("Este email já está cadastrado. Por favor, escolha outro.");
-            return;
-        }
-
-        // Verifica se os campos de senha e confirmação de senha são iguais
-        if (password !== confirmPassword) {
-            alert("As senhas não coincidem. Por favor, verifique.");
             return;
         }
 
@@ -73,7 +102,7 @@ async function signUp() {
                 throw new Error('Erro ao criar a conta.');
             }
             // Atualiza a lista de usuários após o cadastro bem-sucedido
-            await loadusuarios();
+            await loadUsuarios();
             console.log('Conta criada com sucesso!');
             alert("Conta criada com sucesso!");
         } catch (error) {
@@ -82,7 +111,6 @@ async function signUp() {
         }
     });
 }
-
 
 // Função para login do usuário
 function login() {
@@ -94,17 +122,9 @@ function login() {
 
     formLogin.addEventListener("submit", async (e) => {
         e.preventDefault();
-        
-        let emailInput = document.getElementById("email");
-        let passwordInput = document.getElementById("password");
 
-        if (!emailInput || !passwordInput) {
-            console.error("Elementos de entrada de e-mail e senha não encontrados.");
-            return;
-        }
-
-        let email = emailInput.value;
-        let password = passwordInput.value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
 
         try {
             // Verifica se o email existe na lista de usuários
@@ -128,21 +148,9 @@ function login() {
     });
 }
 
-// Função para revelar a senha quando o usuário clica no ícone
-document.addEventListener("click", (e) => {
-    if (e.target.classList.contains('toggle-password')) {
-        const passwordField = e.target.parentElement.querySelector('.input__field');
-        if (passwordField.type === 'password') {
-            passwordField.type = 'text';
-        } else {
-            passwordField.type = 'password';
-        }
-    }
-});
-
 // Chama as funções de cadastro e login ao carregar a página
 document.addEventListener("DOMContentLoaded", async () => {
-    await loadusuarios(); // Carrega os usuários do DB JSON antes de iniciar as funções
+    await loadUsuarios(); // Carrega os usuários do DB JSON antes de iniciar as funções
     signUp();
     login();
 });
