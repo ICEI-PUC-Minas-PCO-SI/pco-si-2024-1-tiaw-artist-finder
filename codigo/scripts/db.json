@@ -1,4 +1,25 @@
 {
   "usuarios": [
+    {
+      "id": "1",
+      "username": "lulu",
+      "email": "lulu@123.com",
+      "password": "lulu123456",
+      "loggedIn": true
+    },
+    {
+      "id": "2",
+      "username": "lulu",
+      "email": "lulu@123.com",
+      "password": "lulu123456",
+      "loggedIn": false
+    },
+    {
+      "id": "3",
+      "username": "jao1",
+      "email": "jao@123.com",
+      "password": "jao123456",
+      "loggedIn": false
+    }
   ]
 }
