@@ -1,0 +1,27 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "Ana Silva",
+      "idade": 22,
+      "username": "aSilva22",
+      "email": "asilva22@gmail.com",
+      "password": "123456",
+      "foto": "assets/img/pessoa1.jpg",
+      "estado": "SP",
+      "instituicao": "PUC MINAS",
+      "disponibilidade": "Freelance",
+      "capa": "assets/img/capa1.jpg",
+      "atuacao": "Web Design",
+      "loggedIn": false
+    }
+  ],
+  "vendas": [
+    {
+      "id": "101",
+      "mes": "fevereiro",
+      "vlr": "24",
+      "qtd": "27"
+    }
+  ]
+}
