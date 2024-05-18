@@ -1,5 +1,3 @@
-// Variável global para armazenar os próximos IDs únicos
-let nextUserId = 1;
 let usuarios = [];
 
 // Função para carregar os usuários do DB JSON
@@ -16,8 +14,22 @@ async function loadUsuarios() {
 }
 
 // Função para obter o próximo ID único
-function getNextUserId() {
-    return String(nextUserId++); // Convertendo para string antes de retornar
+async function getNextUserId() {
+    try {
+        const response = await fetch('http://localhost:3000/usuarios');
+        if (!response.ok) {
+            throw new Error('Erro ao carregar usuários.');
+        }
+        const usuarios = await response.json();
+        if (usuarios.length === 0) {
+            return "1"; // Se não houver usuários, retorna 1 como o próximo ID
+        }
+
+        return (parseInt(usuarios[usuarios.length - 1].id) + 1).toString(); // Obtém o ID do último usuário cadastrado e adiciona 1
+    } catch (error) {
+        console.error('Erro ao obter o próximo ID:', error);
+        throw error;
+    }
 }
 
 // Função para revelar a senha quando o usuário clica no ícone
@@ -81,7 +93,14 @@ async function signUp() {
             return;
         }
 
-        let userId = getNextUserId(); // Obtem o próximo ID único
+        let userId;
+        try {
+            userId = await getNextUserId(); // Obtem o próximo ID único
+        } catch (error) {
+            console.error('Erro ao obter o próximo ID:', error);
+            alert("Erro ao obter o próximo ID. Por favor, tente novamente mais tarde.");
+            return;
+        }
 
         try {
             // Salva os dados no DB JSON usando fetch API
@@ -101,11 +120,9 @@ async function signUp() {
             if (!response.ok) {
                 throw new Error('Erro ao criar a conta.');
             }
+            window.location.href = "login.html";
             // Atualiza a lista de usuários após o cadastro bem-sucedido
             await loadUsuarios();
-
-            window.location.href = "login.html";
-            
             console.log('Conta criada com sucesso!');
             alert("Conta criada com sucesso!");
         } catch (error) {
@@ -115,14 +132,9 @@ async function signUp() {
     });
 }
 
-
 // Função para login do usuário
 async function login() {
     let formLogin = document.getElementById('loginForm');
-    if (!formLogin) {
-        console.error("Elemento de formulário de login não encontrado.");
-        return;
-    }
 
     formLogin.addEventListener("submit", async (e) => {
         e.preventDefault();
@@ -134,19 +146,17 @@ async function login() {
             // Verifica se o email existe na lista de usuários
             const user = usuarios.find(user => user.email === email);
             if (!user) {
-                alert("Email não encontrado. Por favor, verifique o email.");
-                return;
+                throw new Error("Email não encontrado. Por favor, verifique o email.");
             }
             // Verifica se a senha está correta
             if (user.password !== password) {
-                alert("Senha incorreta. Por favor, verifique a senha.");
-                return;
+                throw new Error("Senha incorreta. Por favor, verifique a senha.");
             }
 
-            // Atualiza o campo loggedIn para true
+            // Atualiza o campo loggedIn para true apenas se o login for bem-sucedido
             user.loggedIn = true;
 
-            // Atualiza o usuário no JSON Server
+            // Atualiza o usuário no JSON Server apenas se o login for bem-sucedido
             const response = await fetch(`http://localhost:3000/usuarios/${user.id}`, {
                 method: 'PUT',
                 headers: {
@@ -159,15 +169,66 @@ async function login() {
                 throw new Error('Erro ao atualizar usuário.');
             }
 
-            // Redireciona para a página home.html se o login for bem-sucedido
-            window.location.href = "home.html";
+            // Redireciona para a página index.html se o login for bem-sucedido
+            window.location.href = "index.html";
         } catch (error) {
-            console.error('Erro ao fazer login:', error);
+            console.error('Erro ao fazer login:', error.message);
             // Mostra um alerta indicando que houve um erro ao fazer o login
-            alert("Erro ao fazer login. Por favor, tente novamente mais tarde.");
+            alert("Erro ao fazer login. " + error.message);
         }
     });
 }
+
+// Função para logout do usuário
+async function logout() {
+    try {
+        // Encontra o usuário logado
+        const loggedInUser = usuarios.find(user => user.loggedIn === true);
+        if (!loggedInUser) {
+            throw new Error('Nenhum usuário logado.');
+        }
+
+        // Atualiza o campo loggedIn para false
+        loggedInUser.loggedIn = false;
+
+        // Atualiza o usuário no JSON Server
+        const response = await fetch(`http://localhost:3000/usuarios/${loggedInUser.id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(loggedInUser),
+        });
+
+        if (!response.ok) {
+            throw new Error('Erro ao deslogar usuário.');
+        }
+
+        // Redireciona para a página de login após o logout
+        window.location.href = "login.html";
+    } catch (error) {
+        console.error('Erro ao fazer logout:', error);
+        // Mostra um alerta indicando que houve um erro ao fazer o logout
+        alert("Erro ao fazer logout. Por favor, tente novamente mais tarde.");
+    }
+}
+
+// Adiciona um evento de clique no botão de logout
+const logoutButton = document.getElementById('logoutButton');
+if (logoutButton) {
+    logoutButton.addEventListener("click", async () => {
+        await logout();
+    });
+}
+
+// Adiciona um evento antes da descarga da página
+window.addEventListener('beforeunload', async (event) => {
+    // Verifica se a página atual é diferente de signup.html e login.html
+    if (window.location.pathname !== '/signup.html' && window.location.pathname !== '/login.html') {
+        // Faz o logout do usuário
+        await logout();
+    }
+});
 
 document.addEventListener("DOMContentLoaded", async () => {
     await loadUsuarios(); // Carrega os usuários do DB JSON antes de iniciar as funções
