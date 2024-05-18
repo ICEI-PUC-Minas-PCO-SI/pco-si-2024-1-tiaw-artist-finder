@@ -136,48 +136,54 @@ async function signUp() {
 async function login() {
     let formLogin = document.getElementById('loginForm');
 
-    formLogin.addEventListener("submit", async (e) => {
-        e.preventDefault();
+    // Verifica se o formulário de login foi encontrado antes de adicionar o ouvinte de eventos
+    if (formLogin) {
+        formLogin.addEventListener("submit", async (e) => {
+            e.preventDefault();
 
-        let email = document.getElementById("email").value;
-        let password = document.getElementById("password").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
 
-        try {
-            // Verifica se o email existe na lista de usuários
-            const user = usuarios.find(user => user.email === email);
-            if (!user) {
-                throw new Error("Email não encontrado. Por favor, verifique o email.");
+            try {
+                // Verifica se o email existe na lista de usuários
+                const user = usuarios.find(user => user.email === email);
+                if (!user) {
+                    throw new Error("Email não encontrado. Por favor, verifique o email.");
+                }
+                // Verifica se a senha está correta
+                if (user.password !== password) {
+                    throw new Error("Senha incorreta. Por favor, verifique a senha.");
+                }
+
+                // Atualiza o campo loggedIn para true apenas se o login for bem-sucedido
+                user.loggedIn = true;
+
+                // Atualiza o usuário no JSON Server apenas se o login for bem-sucedido
+                const response = await fetch(`http://localhost:3000/usuarios/${user.id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(user),
+                });
+
+                if (!response.ok) {
+                    throw new Error('Erro ao atualizar usuário.');
+                }
+
+                // Redireciona para a página index.html se o login for bem-sucedido
+                window.location.href = "index.html";
+            } catch (error) {
+                console.error('Erro ao fazer login:', error.message);
+                // Mostra um alerta indicando que houve um erro ao fazer o login
+                alert("Erro ao fazer login. " + error.message);
             }
-            // Verifica se a senha está correta
-            if (user.password !== password) {
-                throw new Error("Senha incorreta. Por favor, verifique a senha.");
-            }
-
-            // Atualiza o campo loggedIn para true apenas se o login for bem-sucedido
-            user.loggedIn = true;
-
-            // Atualiza o usuário no JSON Server apenas se o login for bem-sucedido
-            const response = await fetch(`http://localhost:3000/usuarios/${user.id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(user),
-            });
-
-            if (!response.ok) {
-                throw new Error('Erro ao atualizar usuário.');
-            }
-
-            // Redireciona para a página index.html se o login for bem-sucedido
-            window.location.href = "index.html";
-        } catch (error) {
-            console.error('Erro ao fazer login:', error.message);
-            // Mostra um alerta indicando que houve um erro ao fazer o login
-            alert("Erro ao fazer login. " + error.message);
-        }
-    });
+        });
+    } else {
+        console.error("Elemento de formulário de login não encontrado.");
+    }
 }
+
 
 // Função para logout do usuário
 async function logout() {
@@ -235,3 +241,4 @@ document.addEventListener("DOMContentLoaded", async () => {
     signUp();
     login();
 });
+
