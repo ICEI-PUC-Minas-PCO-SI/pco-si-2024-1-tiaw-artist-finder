@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico de Vendas</title>
+    <link rel="stylesheet" href="./assets/graphic.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+    <div class="body-container">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="logo">
+                <a href="./index.html"><img src="./assets/img/logo.svg" alt="" width="100px" id="site_logo"></a>
+            </div>
+            <div id="sidebar_content">
+                <ul id="side_items">
+                    <li class="side-item active">
+                        <a href="#" onclick="getvenda(0)" data-toggle="modal" data-target="#venda-modal">
+                            <i class="fa-solid fa-plus"></i>
+                            <span class="item-description">Adicionar</span>
+                        </a>
+                    </li>
+                    <li class="side-item">
+                        <a href="#stats">
+                            <i class="fa-solid fa-chart-simple"></i>
+                            <span class="item-description">Ver Estatísticas</span>
+                        </a>
+                    </li>
+                    <li class="side-item">
+                        <a href="#table">
+                            <i class="fa-solid fa-database"></i>
+                            <span class="item-description">Ver CRUD</span>
+                        </a>
+                    </li>
+                    <li class="side-item">
+                        <a href="./index.html">
+                            <i class="fa-solid fa-house"></i>
+                            <span class="item-description">Ir para a Home</span>
+                        </a>
+                    </li>
+                </ul>
+                <a id="open_btn">
+                    <i id="open_btn_icon" class="fa-solid fa-chevron-right"></i>
+                </a>
+            </div>
+        </nav>
+        <main class="main-container">
+            <h1>Controle de Vendas</h1>
+            <!-- Gráfico de vendas -->
+            <div class="chart-container">
+                <h2>Gráfico de vendas</h2>
+                <canvas id="myChart"></canvas>
+            </div>
+            <!-- Estatísticas -->
+            <div class="stats-container">
+                <h2>Estatísticas de vendas</h2>
+                <div class="stats-items-container">
+                    <div class="stats-modal" id="stats">
+                        <h3>Vendas totais no ano</h3>
+                        <p id="total-sales">Total de vendas: <span id="total-sales-value">0</span></p>
+                    </div>
+                    <div class="stats-modal">
+                        <h3>Média de vendas por mês</h3>
+                        <p id="avg-sales-per-month">Média de vendas por mês: <span id="avg-sales-value">0</span></p>
+                    </div>
+                </div>
+            </div>
+            <!-- Tabela --> 
+            <div class="h2-table">
+                <h2>Tabela CRUD de vendas</h2>
+            </div>           
+            <div class="table-container">
+                <table class="table" id="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Mês</th>
+                            <th>Valor</th>
+                            <th>Quantidade</th>
+                            <th>Total</th>
+                            <th>Controlar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="venda-list">
+                        <!-- Aqui será preenchido dinamicamente com os dados das vendas -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <!-- Modal apresentada para solicitar confirmação do usuário quanto à remoção dos dados -->
+        <div class="modal fade" id="modal-delete" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Confirmação de remoção</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Você realmente deseja remover a venda <span id="id-venda"></span>?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                        <button type="button" class="btn btn-primary" id="btn-delete">Sim</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  Modal apresentada para solicitar os dados para preenchimento do formulário -->
+        <div class="modal fade" id="venda-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Venda<span id="edit-venda-id"></span></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="venda-form" method="post" action="">
+                            <div class="form-group">
+                                <label for="venda-id" class="col-form-label">Código:</label>
+                                <input type="number" class="form-control" id="venda-id" min="1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="venda-mes" class="col-form-label">Mês:</label>
+                                <select class="form-control" id="venda-mes" required>
+                                    <option value="janeiro">Janeiro</option>
+                                    <option value="fevereiro">Fevereiro</option>
+                                    <option value="março">Março</option>
+                                    <option value="abril">Abril</option>
+                                    <option value="maio">Maio</option>
+                                    <option value="junho">Junho</option>
+                                    <option value="julho">Julho</option>
+                                    <option value="agosto">Agosto</option>
+                                    <option value="setembro">Setembro</option>
+                                    <option value="outubro">Outubro</option>
+                                    <option value="novembro">Novembro</option>
+                                    <option value="dezembro">Dezembro</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="venda-vlr" class="col-form-label">Valor:</label>
+                                <input type="number" step="0.01" class="form-control" id="venda-vlr" min="1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="venda-qtd" class="col-form-label">Quantidade:</label>
+                                <input type="number" class="form-control" id="venda-qtd" min="1" required>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary">Salvar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./scripts/graphic.js"></script>
+</body>
+
+</html>
