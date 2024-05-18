@@ -27,12 +27,9 @@
             
         </div>
         <div class="input__wrapper">
-            <input id="password" type="password" class="input__field" placeholder="Your Password" required>
-            <label for="password" class="input__label">
-                Senha:
-            </label>
-            <svg class="input__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <input id="password" type="password" class="input__field" placeholder="Your Password" title="No mínimo 6 caracteres" minlength="6" required>
+            <label for="password" class="input__label">Senha:</label>
+            <svg id="togglePassword" class="input__icon toggle-password" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                 <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z"></path>
                 <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path>
@@ -45,7 +42,7 @@
         <div class="my-form__actions">
             <div class="my-form__row">
                 <span>Não tem conta?</span>
-                <a href="signup.html" title="Create Account">
+                <a href="index.html" title="Create Account">
                     Cadastre-se
                 </a>
             </div>
