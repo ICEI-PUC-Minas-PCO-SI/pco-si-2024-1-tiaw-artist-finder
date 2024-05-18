@@ -36,25 +36,20 @@ async function getNextUserId() {
 document.addEventListener("click", (e) => {
     try {
         if (e.target.classList.contains('toggle-password')) {
-            const passwordField = document.getElementById('password');
-            const confirmPasswordField = document.getElementById('confirmPassword');
-
-            if (!passwordField || !confirmPasswordField) {
-                throw new Error('Campos de senha não encontrados.');
-            }
-
-            if (passwordField.type === 'password') {
-                passwordField.type = 'text';
-                confirmPasswordField.type = 'text';
-            } else {
-                passwordField.type = 'password';
-                confirmPasswordField.type = 'password';
-            }
+            const passwordFields = document.querySelectorAll('input[type="password"], input[type="text"]');
+            passwordFields.forEach(field => {
+                if (field.type === 'password') {
+                    field.type = 'text';
+                } else {
+                    field.type = 'password';
+                }
+            });
         }
     } catch (error) {
         console.error('Erro ao revelar senha:', error.message);
     }
 });
+
 
 // Função para cadastro de novo usuário
 
