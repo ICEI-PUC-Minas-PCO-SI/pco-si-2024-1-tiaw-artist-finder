@@ -57,6 +57,7 @@ document.addEventListener("click", (e) => {
 });
 
 // Função para cadastro de novo usuário
+
 async function signUp() {
     let formSignUp = document.getElementById('signUpForm');
     if (!formSignUp) {
@@ -144,46 +145,46 @@ async function login() {
             let email = document.getElementById("email").value;
             let password = document.getElementById("password").value;
 
-            try {
-                // Verifica se o email existe na lista de usuários
-                const user = usuarios.find(user => user.email === email);
-                if (!user) {
-                    throw new Error("Email não encontrado. Por favor, verifique o email.");
-                }
-                // Verifica se a senha está correta
-                if (user.password !== password) {
-                    throw new Error("Senha incorreta. Por favor, verifique a senha.");
-                }
-
-                // Atualiza o campo loggedIn para true apenas se o login for bem-sucedido
-                user.loggedIn = true;
-
-                // Atualiza o usuário no JSON Server apenas se o login for bem-sucedido
-                const response = await fetch(`http://localhost:3000/usuarios/${user.id}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(user),
-                });
-
-                if (!response.ok) {
-                    throw new Error('Erro ao atualizar usuário.');
-                }
-
-                // Redireciona para a página index.html se o login for bem-sucedido
-                window.location.href = "index.html";
-            } catch (error) {
-                console.error('Erro ao fazer login:', error.message);
-                // Mostra um alerta indicando que houve um erro ao fazer o login
-                alert("Erro ao fazer login. " + error.message);
+            // Verifica se o email existe na lista de usuários
+            const user = usuarios.find(user => user.email === email);
+            if (!user) {
+                console.error("Email não encontrado. Por favor, verifique o email.");
+                alert("Email não encontrado. Por favor, verifique o email.");
+                return;
             }
+
+            // Verifica se a senha está correta
+            if (user.password !== password) {
+                console.error("Senha incorreta. Por favor, verifique a senha.");
+                alert("Senha incorreta. Por favor, verifique a senha.");
+                return;
+            }
+
+            // Atualiza o campo loggedIn para true apenas se o login for bem-sucedido
+            user.loggedIn = true;
+
+            // Atualiza o usuário no JSON Server apenas se o login for bem-sucedido
+            const response = await fetch(`http://localhost:3000/usuarios/${user.id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(user),
+            });
+
+            if (!response.ok) {
+                console.error('Erro ao atualizar usuário.');
+                alert('Erro ao atualizar usuário.');
+                return;
+            }
+
+            // Redireciona para a página home.html se o login for bem-sucedido
+            window.location.href = "home.html";
         });
     } else {
         console.error("Elemento de formulário de login não encontrado.");
     }
 }
-
 
 // Função para logout do usuário
 async function logout() {
@@ -227,18 +228,14 @@ if (logoutButton) {
     });
 }
 
-// Adiciona um evento antes da descarga da página
-window.addEventListener('beforeunload', async (event) => {
-    // Verifica se a página atual é diferente de signup.html e login.html
-    if (window.location.pathname !== '/signup.html' && window.location.pathname !== '/login.html') {
-        // Faz o logout do usuário
-        await logout();
-    }
-});
-
 document.addEventListener("DOMContentLoaded", async () => {
     await loadUsuarios(); // Carrega os usuários do DB JSON antes de iniciar as funções
-    signUp();
+
+    // Verifica se a página atual é a página de cadastro antes de chamar a função signUp
+    if (window.location.pathname === '/signup.html') {
+        signUp();
+    }
+
     login();
 });
 

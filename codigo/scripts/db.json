@@ -6,13 +6,6 @@
       "email": "l@1.com",
       "password": "123456",
       "loggedIn": false
-    },
-    {
-      "id": "2",
-      "username": "lucasdas",
-      "email": "admindsd@admin.com",
-      "password": "lucas200",
-      "loggedIn": false
     }
   ]
 }
