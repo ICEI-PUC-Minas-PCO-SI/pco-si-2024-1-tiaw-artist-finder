@@ -6,7 +6,7 @@ html {
 }
 
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
@@ -18,7 +18,8 @@ body {
 .chat-container {
     display: flex;
     width: 100%;
-    height: calc(100vh - 6rem); /* Ajuste para a altura da navbar */
+    height: calc(100vh - 6rem);
+    /* Ajuste para a altura da navbar */
 }
 
 .chat-sidebar {
@@ -33,7 +34,6 @@ body {
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-
 .chat-sidebar h2 {
     text-align: center;
     margin-top: 0;
@@ -45,27 +45,31 @@ body {
     flex-grow: 1;
 }
 
-.chat-contact, .chat-sidebar-user {
+.chat-contact,
+.chat-sidebar-user {
     display: flex;
     align-items: center;
     padding: 0.5rem;
     cursor: pointer;
 }
 
-.chat-contact img, .chat-sidebar-user-photo {
+.chat-contact img,
+.chat-sidebar-user-photo {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     margin-right: 1rem;
 }
 
-.chat-contact span, .chat-sidebar-user-name {
+.chat-contact span,
+.chat-sidebar-user-name {
     font-size: 1rem;
     font-weight: 500;
     color: white;
 }
 
-.chat-contact:hover, .chat-sidebar-user:hover {
+.chat-contact:hover,
+.chat-sidebar-user:hover {
     background: #5926b6;
 }
 
@@ -102,7 +106,7 @@ body {
     background: #fff;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
-}
+}  
 
 .chat-input-container {
     display: flex;
@@ -153,9 +157,16 @@ body {
 .chat-message.me {
     align-self: flex-end;
     background: #3e1983;
-}
-
-/* Novo CSS para contatos gerados dinamicamente */
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 0.5rem; 
+    width: fit-content;
+    max-width: 70%;
+    word-wrap: break-word;
+    text-align: right;
+  }
+  
 .chat-sidebar-user {
     display: flex;
     align-items: center;
@@ -194,5 +205,6 @@ body {
     background-color: #fff;
     border-radius: 50%;
     padding: 3px 5px;
-    color: black; /* Cor preta para o ícone */
+    color: black;
+    /* Cor preta para o ícone */
 }

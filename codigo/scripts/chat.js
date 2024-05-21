@@ -29,7 +29,7 @@ async function fetchAndDisplayUsers() {
             userDiv.addEventListener('click', () => {
                 console.log("Usuário selecionado:", usuario.nome);
                 console.log("Foto do usuário:", usuario.foto);
-                // Aqui você pode adicionar a lógica para atualizar o chat header com os dados do usuário selecionado
+                updateChatHeader(usuario.nome, usuario.foto);
             });
         });
     } catch (error) {
@@ -37,4 +37,77 @@ async function fetchAndDisplayUsers() {
     }
 }
 
+function updateChatHeader(nome, foto) {
+    const chatUserPhoto = document.getElementById('chat-user-photo');
+    const chatUserName = document.getElementById('chat-user-name');
+
+    chatUserPhoto.src = foto;
+    chatUserName.textContent = nome;
+}
+
 window.addEventListener('load', fetchAndDisplayUsers);
+
+// Função para enviar uma mensagem
+function sendMessage() {
+    // Obter o conteúdo da mensagem do input
+    const messageInput = document.getElementById('chat-message-input');
+    const messageContent = messageInput.value.trim();
+
+    // Verificar se a mensagem não está vazia
+    if (messageContent === '') {
+        alert('Por favor, digite uma mensagem.');
+        return;
+    }
+
+    // Criar um objeto com os dados da mensagem
+    const message = {
+        content: messageContent,
+        timestamp: new Date().toISOString()
+    };
+
+    // Armazenar a mensagem no localStorage
+    let messages = JSON.parse(localStorage.getItem('chatMessages')) || [];
+    messages.push(message);
+    localStorage.setItem('chatMessages', JSON.stringify(messages));
+
+    // Adicionar a nova mensagem à div #chat-messages
+    appendMessage(message);
+
+    // Limpar o input de mensagem após o envio
+    messageInput.value = '';
+
+    // Rolagem automática para a última mensagem
+    const chatMessages = document.getElementById('chat-messages');
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+// Função para adicionar uma mensagem à div #chat-messages
+function appendMessage(message) {
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('chat-message', 'me');
+    messageElement.textContent = message.content;
+
+    const chatMessages = document.getElementById('chat-messages');
+    chatMessages.appendChild(messageElement);
+}
+
+// Carregar as mensagens do localStorage ao carregar a página
+document.addEventListener('DOMContentLoaded', function() {
+    const messages = JSON.parse(localStorage.getItem('chatMessages')) || [];
+    messages.forEach(message => {
+        appendMessage(message);
+    });
+});
+
+// Adicionar evento de clique ao botão de enviar
+const sendButton = document.getElementById('chat-send-button');
+sendButton.addEventListener('click', sendMessage);
+
+// Permitir o envio de mensagem ao pressionar Enter
+const messageInput = document.getElementById('chat-message-input');
+messageInput.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        sendMessage();
+    }
+});
