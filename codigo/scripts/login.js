@@ -176,8 +176,6 @@ async function login() {
             // Redireciona para a página home.html se o login for bem-sucedido
             window.location.href = "home.html";
         });
-    } else {
-        console.error("Elemento de formulário de login não encontrado.");
     }
 }
 

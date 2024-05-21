@@ -33,61 +33,11 @@ async function fetchAndDisplayUsers() {
 
 window.addEventListener('load', fetchAndDisplayUsers);
 
-document.addEventListener("DOMContentLoaded", function() {
-    const userDivs = document.querySelectorAll('.chat-sidebar-user');
 
-    userDivs.forEach(userDiv => {
-        userDiv.addEventListener('click', function() {
-            updateChatHeader(userDiv);
-        });
-    });
-});
 
-document.addEventListener("DOMContentLoaded", function() {
-    addEventListenersToUserDivs();
-});
 
-function addEventListenersToUserDivs() {
-    const userDivs = document.querySelectorAll('.chat-sidebar-user');
 
-    userDivs.forEach(userDiv => {
-        userDiv.addEventListener('click', function() {
-            updateChatHeader(userDiv);
-        });
-    });
-}
 
-function updateChatHeader(selectedUser) {
-    const userNameElementInUser = selectedUser.querySelector('.chat-sidebar-user-name');
-    const userPhotoElementInUser = selectedUser.querySelector('.chat-sidebar-user-photo');
-
-    if (!userNameElementInUser || !userPhotoElementInUser) {
-        console.error("Erro: Elementos do usuário selecionado não encontrados.");
-        return;
-    }
-
-    const userName = userNameElementInUser.textContent;
-    const userPhoto = userPhotoElementInUser.src;
-
-    if (!userName || !userPhoto) {
-        console.error("Erro: Dados do usuário não encontrados.");
-        return;
-    }
-
-    const userNameElement = document.getElementById('chat-user-name');
-    const userPhotoElement = document.getElementById('chat-user-photo');
-
-    if (!userNameElement || !userPhotoElement) {
-        console.error("Erro: Elementos do cabeçalho do chat não encontrados.");
-        return;
-    }
-
-    userNameElement.textContent = userName;
-    userPhotoElement.src = userPhoto;
-
-    console.log("Nome do usuário selecionado:", userName);
-    console.log("Caminho da foto do usuário selecionado:", userPhoto);
-}
 
 
 
