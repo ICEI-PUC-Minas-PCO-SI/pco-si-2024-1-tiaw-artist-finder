@@ -1,5 +1,21 @@
 const URL = "http://localhost:3000/usuarios";
 
+// Função para obter o usuário logado
+async function getLoggedInUser() {
+    try {
+        const response = await fetch(URL);
+        if (!response.ok) {
+            throw new Error('Erro na rede');
+        }
+        const data = await response.json();
+        const loggedInUser = data.find(user => user.loggedIn);
+        return loggedInUser;
+    } catch (error) {
+        console.error('Erro ao buscar usuário logado:', error);
+    }
+}
+
+// Função para exibir usuários na sidebar
 async function fetchAndDisplayUsers() {
     try {
         const response = await fetch(URL);
@@ -34,11 +50,18 @@ async function fetchAndDisplayUsers() {
                 displayMessages(usuario.nome);
             });
         });
+
+        // Atualiza o header com o usuário logado
+        const loggedInUser = data.find(user => user.loggedIn);
+        if (loggedInUser) {
+            updateChatHeader(loggedInUser.nome, loggedInUser.foto);
+        }
     } catch (error) {
         console.error('Erro ao buscar usuários:', error);
     }
 }
 
+// Função para atualizar o cabeçalho do chat
 function updateChatHeader(nome, foto) {
     const chatUserPhoto = document.getElementById('chat-user-photo');
     const chatUserName = document.getElementById('chat-user-name');
@@ -47,10 +70,11 @@ function updateChatHeader(nome, foto) {
     chatUserName.textContent = nome;
 }
 
+// Carregar os usuários ao carregar a página
 window.addEventListener('load', fetchAndDisplayUsers);
 
 // Função para enviar uma mensagem
-function sendMessage() {
+async function sendMessage() {
     // Obter o conteúdo da mensagem do input
     const messageInput = document.getElementById('chat-message-input');
     const messageContent = messageInput.value.trim();
@@ -61,22 +85,30 @@ function sendMessage() {
         return;
     }
 
-    // Obter o usuário atual
-    const currentUser = document.getElementById('chat-user-name').textContent;
+    // Obter o usuário logado e o destinatário da mensagem
+    const loggedInUser = await getLoggedInUser();
+    const recipientUser = document.getElementById('chat-user-name').textContent;
+
+    if (!loggedInUser || !recipientUser) {
+        alert('Erro ao identificar usuários.');
+        return;
+    }
 
     // Criar um objeto com os dados da mensagem
     const message = {
+        sender: loggedInUser.nome,
+        recipient: recipientUser,
         content: messageContent,
         timestamp: new Date().toISOString()
     };
 
-    // Armazenar a mensagem no localStorage associado ao usuário
-    let userMessages = JSON.parse(localStorage.getItem(currentUser)) || [];
-    userMessages.push(message);
-    localStorage.setItem(currentUser, JSON.stringify(userMessages));
+    // Armazenar a mensagem no localStorage associado ao destinatário
+    let recipientMessages = JSON.parse(localStorage.getItem(recipientUser)) || [];
+    recipientMessages.push(message);
+    localStorage.setItem(recipientUser, JSON.stringify(recipientMessages));
 
     // Adicionar a nova mensagem à div #chat-messages
-    appendMessage(message);
+    appendMessage(message, loggedInUser.nome);
 
     // Limpar o input de mensagem após o envio
     messageInput.value = '';
@@ -87,27 +119,47 @@ function sendMessage() {
 }
 
 // Função para adicionar uma mensagem à div #chat-messages
-function appendMessage(message) {
+function appendMessage(message, currentUser) {
     const messageElement = document.createElement('div');
-    messageElement.classList.add('chat-message', 'me');
-    messageElement.textContent = message.content;
+    messageElement.classList.add('chat-message');
 
+    // Verifica se a mensagem foi enviada pelo usuário atual
+    if (message.sender === currentUser) {
+        messageElement.classList.add('me');
+    } else {
+        messageElement.classList.add('received');
+    }
+
+    messageElement.textContent = message.content;
     const chatMessages = document.getElementById('chat-messages');
     chatMessages.appendChild(messageElement);
 }
 
 // Função para exibir as mensagens do usuário atual
-function displayMessages(userName) {
+async function displayMessages(selectedUser) {
     // Limpa as mensagens anteriores
     const chatMessages = document.getElementById('chat-messages');
     chatMessages.innerHTML = '';
 
+    // Obtém o nome do usuário atualmente logado
+    const loggedInUser = await getLoggedInUser();
+    if (!loggedInUser) {
+        alert('Erro ao identificar usuário logado.');
+        return;
+    }
+
     // Obtém as mensagens associadas ao usuário do localStorage
-    const userMessages = JSON.parse(localStorage.getItem(userName)) || [];
+    const allMessages = JSON.parse(localStorage.getItem(loggedInUser.nome)) || [];
+
+    // Filtra as mensagens que são do usuário atual e do destinatário selecionado
+    const userMessages = allMessages.filter(message =>
+        (message.sender === loggedInUser.nome && message.recipient === selectedUser) ||
+        (message.sender === selectedUser && message.recipient === loggedInUser.nome)
+    );
 
     // Exibe cada mensagem no chat
     userMessages.forEach(message => {
-        appendMessage(message);
+        appendMessage(message, loggedInUser.nome);
     });
 
     // Rolagem automática para a última mensagem
@@ -115,9 +167,11 @@ function displayMessages(userName) {
 }
 
 // Carregar as mensagens do usuário atual ao carregar a página
-document.addEventListener('DOMContentLoaded', function() {
-    const currentUser = document.getElementById('chat-user-name').textContent;
-    displayMessages(currentUser);
+document.addEventListener('DOMContentLoaded', async function() {
+    const loggedInUser = await getLoggedInUser();
+    if (loggedInUser) {
+        displayMessages(loggedInUser.nome);
+    }
 });
 
 // Adicionar evento de clique ao botão de enviar

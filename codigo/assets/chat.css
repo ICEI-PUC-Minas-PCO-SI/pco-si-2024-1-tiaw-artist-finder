@@ -161,6 +161,18 @@ body {
     text-align: right;
 }
 
+.chat-message.received {
+    align-self: flex-start;
+    background: #5926b6;
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    width: fit-content;
+    max-width: 70%;
+    word-wrap: break-word;
+    text-align: left;
+}
   
 .chat-sidebar-user {
     display: flex;
