@@ -23,8 +23,17 @@ async function fetchAndDisplayUsers() {
             userDiv.innerHTML = `
                 <img src="${usuario.foto}" alt="${usuario.nome}" class="chat-sidebar-user-photo">
                 <span class="chat-sidebar-user-name">${usuario.nome}</span>
+                <button id="sidebar-contact-btn" class="sidebar-contact-btn"><i class="fas fa-arrow-right"></i></button>
             `;
             contactsContainer.appendChild(userDiv);
+
+            const sidebarContactBtn = userDiv.querySelector('.sidebar-contact-btn');
+            sidebarContactBtn.addEventListener('click', (event) => {
+                event.stopPropagation();
+                console.log("Usuário selecionado:", usuario.nome);
+                console.log("Foto do usuário:", usuario.foto);
+                // Aqui você pode adicionar a lógica para atualizar o chat header com os dados do usuário selecionado
+            });
         });
     } catch (error) {
         console.error('Erro ao buscar usuários:', error);
@@ -32,13 +41,3 @@ async function fetchAndDisplayUsers() {
 }
 
 window.addEventListener('load', fetchAndDisplayUsers);
-
-
-
-
-
-
-
-
-
-
