@@ -143,15 +143,9 @@ body {
     font-size: 1.2rem;
 }
 
-.chat-message {
-    background: #5926b6;
-    color: white;
-    padding: 1rem;
-    border-radius: 10px;
-    margin-bottom: 0.5rem;
-    width: fit-content;
-    max-width: 70%;
-    word-wrap: break-word;
+#chat-messages {
+    display: flex !important;
+    flex-direction: column;
 }
 
 .chat-message.me {
@@ -160,12 +154,13 @@ body {
     color: white;
     padding: 1rem;
     border-radius: 10px;
-    margin-bottom: 0.5rem; 
+    margin-bottom: 0.5rem;
     width: fit-content;
     max-width: 70%;
     word-wrap: break-word;
     text-align: right;
-  }
+}
+
   
 .chat-sidebar-user {
     display: flex;

@@ -30,6 +30,8 @@ async function fetchAndDisplayUsers() {
                 console.log("Usuário selecionado:", usuario.nome);
                 console.log("Foto do usuário:", usuario.foto);
                 updateChatHeader(usuario.nome, usuario.foto);
+                // Atualiza o chat com as mensagens do usuário selecionado
+                displayMessages(usuario.nome);
             });
         });
     } catch (error) {
@@ -59,16 +61,19 @@ function sendMessage() {
         return;
     }
 
+    // Obter o usuário atual
+    const currentUser = document.getElementById('chat-user-name').textContent;
+
     // Criar um objeto com os dados da mensagem
     const message = {
         content: messageContent,
         timestamp: new Date().toISOString()
     };
 
-    // Armazenar a mensagem no localStorage
-    let messages = JSON.parse(localStorage.getItem('chatMessages')) || [];
-    messages.push(message);
-    localStorage.setItem('chatMessages', JSON.stringify(messages));
+    // Armazenar a mensagem no localStorage associado ao usuário
+    let userMessages = JSON.parse(localStorage.getItem(currentUser)) || [];
+    userMessages.push(message);
+    localStorage.setItem(currentUser, JSON.stringify(userMessages));
 
     // Adicionar a nova mensagem à div #chat-messages
     appendMessage(message);
@@ -91,12 +96,28 @@ function appendMessage(message) {
     chatMessages.appendChild(messageElement);
 }
 
-// Carregar as mensagens do localStorage ao carregar a página
-document.addEventListener('DOMContentLoaded', function() {
-    const messages = JSON.parse(localStorage.getItem('chatMessages')) || [];
-    messages.forEach(message => {
+// Função para exibir as mensagens do usuário atual
+function displayMessages(userName) {
+    // Limpa as mensagens anteriores
+    const chatMessages = document.getElementById('chat-messages');
+    chatMessages.innerHTML = '';
+
+    // Obtém as mensagens associadas ao usuário do localStorage
+    const userMessages = JSON.parse(localStorage.getItem(userName)) || [];
+
+    // Exibe cada mensagem no chat
+    userMessages.forEach(message => {
         appendMessage(message);
     });
+
+    // Rolagem automática para a última mensagem
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+// Carregar as mensagens do usuário atual ao carregar a página
+document.addEventListener('DOMContentLoaded', function() {
+    const currentUser = document.getElementById('chat-user-name').textContent;
+    displayMessages(currentUser);
 });
 
 // Adicionar evento de clique ao botão de enviar
