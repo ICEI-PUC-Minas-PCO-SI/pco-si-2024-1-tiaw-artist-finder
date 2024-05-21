@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+html {
+    height: 100vh;
+    width: 100vw;
+}
 
 body {
     font-family: 'Lato', sans-serif;
@@ -12,44 +18,54 @@ body {
 .chat-container {
     display: flex;
     width: 100%;
-    height: calc(100vh - 56px); /* Ajuste para a altura da navbar */
+    height: calc(100vh - 6rem); /* Ajuste para a altura da navbar */
 }
 
 .chat-sidebar {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     width: 27vw;
+    max-height: 100vh;
+    overflow-y: auto;
     background: #3e1983;
     color: white;
     padding: 1rem;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    overflow-y: scroll;
 }
 
+
 .chat-sidebar h2 {
+    text-align: center;
     margin-top: 0;
     height: 3rem;
 }
 
 #chat-contacts {
     margin-top: 1rem;
+    flex-grow: 1;
 }
 
-.chat-contact {
+.chat-contact, .chat-sidebar-user {
     display: flex;
     align-items: center;
     padding: 0.5rem;
     cursor: pointer;
 }
 
-.chat-contact img {
+.chat-contact img, .chat-sidebar-user-photo {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     margin-right: 1rem;
 }
 
-.chat-contact:hover {
+.chat-contact span, .chat-sidebar-user-name {
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+}
+
+.chat-contact:hover, .chat-sidebar-user:hover {
     background: #5926b6;
 }
 
@@ -137,4 +153,29 @@ body {
 .chat-message.me {
     align-self: flex-end;
     background: #3e1983;
+}
+
+/* Novo CSS para contatos gerados dinamicamente */
+.chat-sidebar-user {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.chat-sidebar-user:hover {
+    background-color: #5926b6;
+}
+
+.chat-sidebar-user-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.chat-sidebar-user-name {
+    font-size: 1rem;
+    color: white;
 }
