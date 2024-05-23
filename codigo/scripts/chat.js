@@ -130,6 +130,11 @@ async function sendMessage() {
     recipientMessages.push(message);
     localStorage.setItem(recipientUser, JSON.stringify(recipientMessages));
 
+    // Armazenar a mensagem no localStorage associado ao remetente
+    let senderMessages = JSON.parse(localStorage.getItem(loggedInUser.nome)) || [];
+    senderMessages.push(message);
+    localStorage.setItem(loggedInUser.nome, JSON.stringify(senderMessages));
+
     // Adicionar a nova mensagem à div #chat-messages
     appendMessage(message, loggedInUser.nome);
 
@@ -153,9 +158,19 @@ function appendMessage(message, currentUser) {
         messageElement.classList.add('received');
     }
 
+    // Adiciona um ID exclusivo ao elemento de mensagem para evitar duplicação
+    messageElement.id = message.timestamp;
+
+    // Adiciona o conteúdo da mensagem
     messageElement.textContent = message.content;
+
+    // Adiciona a mensagem ao contêiner de mensagens
     const chatMessages = document.getElementById('chat-messages');
-    chatMessages.appendChild(messageElement);
+
+    // Verifica se a mensagem já existe no contêiner
+    if (!document.getElementById(message.timestamp)) {
+        chatMessages.appendChild(messageElement);
+    }
 }
 
 // Função para exibir as mensagens do usuário atual
@@ -171,17 +186,21 @@ async function displayMessages(selectedUser) {
         return;
     }
 
-    // Obtém as mensagens associadas ao usuário do localStorage
-    const allMessages = JSON.parse(localStorage.getItem(loggedInUser.nome)) || [];
+    // Obtém as mensagens associadas ao usuário logado e ao usuário selecionado
+    const loggedInUserMessages = JSON.parse(localStorage.getItem(loggedInUser.nome)) || [];
+    const selectedUserMessages = JSON.parse(localStorage.getItem(selectedUser)) || [];
 
-    // Filtra as mensagens que são do usuário atual e do destinatário selecionado
-    const userMessages = allMessages.filter(message =>
+    // Combina e ordena as mensagens de ambos os usuários
+    const allMessages = loggedInUserMessages.concat(selectedUserMessages).filter(message =>
         (message.sender === loggedInUser.nome && message.recipient === selectedUser) ||
         (message.sender === selectedUser && message.recipient === loggedInUser.nome)
     );
 
+    // Ordena as mensagens por timestamp
+    allMessages.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+
     // Exibe cada mensagem no chat
-    userMessages.forEach(message => {
+    allMessages.forEach(message => {
         appendMessage(message, loggedInUser.nome);
     });
 
