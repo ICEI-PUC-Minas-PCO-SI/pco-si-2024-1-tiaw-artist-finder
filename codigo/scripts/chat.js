@@ -32,6 +32,8 @@ async function fetchAndDisplayUsers() {
         const contactsContainer = document.getElementById('chat-contacts');
         contactsContainer.innerHTML = ''; // Limpa os contatos existentes
 
+        const loggedInUser = await getLoggedInUser();
+
         const usuarios = data.filter(user => !user.loggedIn);
         usuarios.forEach(usuario => {
             const userDiv = document.createElement('div');
@@ -45,17 +47,13 @@ async function fetchAndDisplayUsers() {
             userDiv.addEventListener('click', () => {
                 console.log("Usuário selecionado:", usuario.nome);
                 console.log("Foto do usuário:", usuario.foto);
+                showChatMainContent();
                 updateChatHeader(usuario.nome, usuario.foto);
                 // Atualiza o chat com as mensagens do usuário selecionado
                 displayMessages(usuario.nome);
             });
         });
 
-        // Atualiza o header com o usuário logado
-        const loggedInUser = data.find(user => user.loggedIn);
-        if (loggedInUser) {
-            updateChatHeader(loggedInUser.nome, loggedInUser.foto);
-        }
     } catch (error) {
         console.error('Erro ao buscar usuários:', error);
     }
@@ -69,6 +67,31 @@ function updateChatHeader(nome, foto) {
     chatUserPhoto.src = foto;
     chatUserName.textContent = nome;
 }
+
+// Função para mostrar o chat principal e ocultar a mensagem inicial
+function showChatMainContent() {
+    const initialMessage = document.getElementById('initial-message');
+    const chatMainContent = document.querySelector('.chat-main-content');
+
+    initialMessage.style.display = 'none';
+    chatMainContent.style.display = 'flex'; // ou o valor apropriado para exibição
+}
+
+// Função para mostrar a tela inicial e ocultar o chat principal
+function showInitialMessage() {
+    const initialMessage = document.getElementById('initial-message');
+    const chatMainContent = document.querySelector('.chat-main-content');
+
+    initialMessage.style.display = 'flex'; // ou o valor apropriado para exibição
+    chatMainContent.style.display = 'none';
+}
+
+// Evento de pressionar tecla
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        showInitialMessage();
+    }
+});
 
 // Carregar os usuários ao carregar a página
 window.addEventListener('load', fetchAndDisplayUsers);
@@ -89,7 +112,7 @@ async function sendMessage() {
     const loggedInUser = await getLoggedInUser();
     const recipientUser = document.getElementById('chat-user-name').textContent;
 
-    if (!loggedInUser || !recipientUser) {
+    if (!loggedInUser || !recipientUser || recipientUser === loggedInUser.nome) {
         alert('Erro ao identificar usuários.');
         return;
     }
@@ -165,14 +188,6 @@ async function displayMessages(selectedUser) {
     // Rolagem automática para a última mensagem
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
-
-// Carregar as mensagens do usuário atual ao carregar a página
-document.addEventListener('DOMContentLoaded', async function() {
-    const loggedInUser = await getLoggedInUser();
-    if (loggedInUser) {
-        displayMessages(loggedInUser.nome);
-    }
-});
 
 // Adicionar evento de clique ao botão de enviar
 const sendButton = document.getElementById('chat-send-button');

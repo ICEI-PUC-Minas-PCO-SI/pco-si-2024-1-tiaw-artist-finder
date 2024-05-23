@@ -54,7 +54,10 @@
             <h2>Contatos</h2>
             <div id="chat-contacts"></div>
         </div>
-        <div class="chat-main-content">
+        <div id="initial-message" class="initial-message">
+            <p>Selecione um contato para começar a conversar.</p>
+        </div>
+        <div class="chat-main-content" style="display: none;">
             <div class="chat-header">
                 <img id="chat-user-photo" src="./assets/img/user-profile-icon.svg" alt="Foto de Perfil">
                 <span id="chat-user-name">Nome do Usuário</span>
@@ -65,7 +68,7 @@
                 <button id="chat-send-button"><i class="fas fa-paper-plane"></i></button>
             </div>
         </div>
-    </div>
+    </div>    
     <script src="./scripts/login.js"></script>
     <script src="./scripts/chat.js"></script>
 </body>
