@@ -34,15 +34,43 @@ async function fetchAndDisplayUsers() {
 
         const loggedInUser = await getLoggedInUser();
 
+        // Ordena os usuários com base nas mensagens não lidas e na última mensagem
         const usuarios = data.filter(user => !user.loggedIn);
-        usuarios.forEach(usuario => {
+        const sortedUsuarios = usuarios.sort((a, b) => {
+            const aMessages = JSON.parse(localStorage.getItem(a.nome)) || [];
+            const bMessages = JSON.parse(localStorage.getItem(b.nome)) || [];
+            const aLastMessage = aMessages[aMessages.length - 1];
+            const bLastMessage = bMessages[bMessages.length - 1];
+
+            // Ordena com base na existência de mensagens não lidas e na data da última mensagem
+            if (aMessages.some(m => m.sender === a.nome && !m.read)) return -1;
+            if (bMessages.some(m => m.sender === b.nome && !m.read)) return 1;
+            if (aLastMessage && bLastMessage) {
+                return new Date(bLastMessage.timestamp) - new Date(aLastMessage.timestamp);
+            }
+            return 0;
+        });
+
+        sortedUsuarios.forEach(usuario => {
             const userDiv = document.createElement('div');
             userDiv.classList.add('chat-sidebar-user');
             userDiv.innerHTML = `
                 <img src="${usuario.foto}" alt="${usuario.nome}" class="chat-sidebar-user-photo">
                 <span class="chat-sidebar-user-name">${usuario.nome}</span>
+                <i class="fas fa-circle new-message-indicator"></i>
             `;
             contactsContainer.appendChild(userDiv);
+
+            const userMessages = JSON.parse(localStorage.getItem(usuario.nome)) || [];
+            const hasUnreadMessages = userMessages.some(m => m.sender === usuario.nome && !m.read);
+            const newMessageIndicator = userDiv.querySelector('.new-message-indicator');
+            newMessageIndicator.style.marginLeft = '0.2rem'; // Adiciona a margem esquerda
+            if (hasUnreadMessages) {
+                newMessageIndicator.style.color = 'red';
+                newMessageIndicator.style.display = 'inline';
+            } else {
+                newMessageIndicator.style.display = 'none';
+            }
 
             userDiv.addEventListener('click', () => {
                 console.log("Usuário selecionado:", usuario.nome);
@@ -51,6 +79,15 @@ async function fetchAndDisplayUsers() {
                 updateChatHeader(usuario.nome, usuario.foto);
                 // Atualiza o chat com as mensagens do usuário selecionado
                 displayMessages(usuario.nome);
+
+                // Marca as mensagens como lidas
+                userMessages.forEach(m => {
+                    if (m.sender === usuario.nome) {
+                        m.read = true;
+                    }
+                });
+                localStorage.setItem(usuario.nome, JSON.stringify(userMessages));
+                newMessageIndicator.style.display = 'none';
             });
         });
 
@@ -58,6 +95,7 @@ async function fetchAndDisplayUsers() {
         console.error('Erro ao buscar usuários:', error);
     }
 }
+
 
 // Função para atualizar o cabeçalho do chat
 function updateChatHeader(nome, foto) {
@@ -122,7 +160,8 @@ async function sendMessage() {
         sender: loggedInUser.nome,
         recipient: recipientUser,
         content: messageContent,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        read: false
     };
 
     // Armazenar a mensagem no localStorage associado ao destinatário
@@ -144,6 +183,9 @@ async function sendMessage() {
     // Rolagem automática para a última mensagem
     const chatMessages = document.getElementById('chat-messages');
     chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    // Atualiza os contatos
+    fetchAndDisplayUsers();
 }
 
 // Função para adicionar uma mensagem à div #chat-messages
