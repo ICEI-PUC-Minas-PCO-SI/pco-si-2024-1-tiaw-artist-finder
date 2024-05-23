@@ -64,7 +64,7 @@ async function fetchAndDisplayUsers() {
             const userMessages = JSON.parse(localStorage.getItem(usuario.nome)) || [];
             const hasUnreadMessages = userMessages.some(m => m.sender === usuario.nome && !m.read);
             const newMessageIndicator = userDiv.querySelector('.new-message-indicator');
-            newMessageIndicator.style.marginLeft = '0.2rem'; // Adiciona a margem esquerda
+            newMessageIndicator.style.marginLeft = '0.2rem';
             if (hasUnreadMessages) {
                 newMessageIndicator.style.color = 'red';
                 newMessageIndicator.style.display = 'inline';
