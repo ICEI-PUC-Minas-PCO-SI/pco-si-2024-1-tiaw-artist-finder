@@ -262,3 +262,44 @@ messageInput.addEventListener('keydown', function(event) {
         sendMessage();
     }
 });
+
+function setupMobileChatInteraction() {
+    const chatSidebar = document.querySelector('.chat-sidebar');
+    const chatMainContent = document.querySelector('.chat-main-content');
+    const chatSidebarUsers = document.querySelectorAll('.chat-sidebar-user');
+
+    // Função para esconder a sidebar e exibir o conteúdo principal do chat
+    function showSelectedChatContent() {
+        chatSidebar.style.display = 'none';
+        chatMainContent.style.display = 'block';
+    }
+
+    // Função para exibir a sidebar e ocultar o conteúdo principal do chat
+    function showChatSidebar() {
+        chatSidebar.style.display = 'block';
+        chatMainContent.style.display = 'none';
+    }
+
+    // Adiciona um event listener para cada usuário na sidebar
+    chatSidebarUsers.forEach(user => {
+        user.addEventListener('click', () => {
+            // Verifica se a largura da tela é igual ou inferior a 663px
+            if (window.innerWidth <= 663) {
+                showSelectedChatContent();
+            }
+        });
+    });
+
+    // Adiciona um event listener para o pressionar da tecla "Escape"
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            // Verifica se a largura da tela é igual ou inferior a 663px
+            if (window.innerWidth <= 663) {
+                showChatSidebar();
+            }
+        }
+    });
+}
+
+// Chama a função para configurar a interação do chat em dispositivos móveis
+setupMobileChatInteraction();

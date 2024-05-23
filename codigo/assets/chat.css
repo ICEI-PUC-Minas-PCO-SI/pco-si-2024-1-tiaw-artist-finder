@@ -23,7 +23,6 @@ body {
 }
 
 .initial-message p {
-    font-family: Lato, sans-serif;
     font-size: 2rem;
     text-align: center;
 }
@@ -39,7 +38,6 @@ body {
     flex-direction: column;
     width: 27vw;
     max-height: 100vh;
-    overflow-y: auto;
     background: #f9f9f9;
     color: #333;
     padding: 1rem;
@@ -54,6 +52,7 @@ body {
 }
 
 #chat-contacts {
+    overflow-y: auto;
     margin-top: 1rem;
     flex-grow: 1;
 }
@@ -229,44 +228,26 @@ body {
 }
 
 @media (max-width: 663px) {
+
     .chat-container {
-        flex-direction: column;
+        flex-direction: column-reverse;
+    }
+
+    .chat-main-content, .chat-sidebar {
+        width: 100vw;
     }
 
     .chat-main-content {
-        width: 100vw;
-        order: 1;
-    }
+        height: calc(100vh - 96px);
+    }    
 
-    .chat-sidebar {
-        order: 2;
-        width: 100vw;
-        overflow-y: visible;
-    }
-
-    .chat-sidebar h2 {
-        margin: 0;
-        height: inherit;
+    #chat-messages {
     }
 
     #chat-contacts {
         display: flex;
-        flex-wrap: nowrap;
+        flex-direction: row;
         overflow-x: auto;
-    }
-
-    #chat-messages {
-        min-height: calc(100vh - 7rem) !important;
-    }
-
-    .chat-sidebar-user {
-        flex-shrink: 0;
-        flex-direction: column;
-        place-items: center;
-    }
-
-    .chat-sidebar-user-photo {
-        margin-left: 1rem;
     }
 }
 
