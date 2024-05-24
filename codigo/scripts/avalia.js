@@ -1,8 +1,4 @@
-const ratingSystem = document.querySelector('.rating-system');
-const stars = document.querySelectorAll('.stars i');
-const reviewCountElement = document.querySelector('.review-count');
-const averageRatingElement = document.querySelector('.average-rating');
-const statsBar = document.querySelector('.stats-bar');
+
 //SISTEMA DE ESTRELAS - Está totalmente Funcional
 const ratingStars = [...document.getElementsByClassName("rating__star")];
 const ratingResult = document.querySelector(".rating__result");
@@ -61,31 +57,4 @@ function updateRatingSystem(rating) {
    }
    window.addEventListener('load', ContaReviews())
   
-  
-
-  // Atualizar a barra de Estatisticas
-  const stats = rating.stats;
-  statsBar.innerHTML = '';
-  Object.keys(stats).forEach(key => {
-    const statElement = document.createElement('div');
-    statElement.className = 'stat';
-    statElement.innerHTML = `
-      <span>${key} Estrelas</span>
-      <div class="bar">
-        <div class="filled" style="width: ${stats[key]}%;"></div>
-      </div>
-      <span>${stats[key]}%</span>
-    `;
-    statsBar.appendChild(statElement);
-  });
-
-  // Update stars
-  const averageRating = rating.averageRating;
-  stars.forEach((star, index) => {
-    if (index < averageRating) {
-      star.classList.add('active');
-    } else {
-      star.classList.remove('active');
-    }
-  });
 }

@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rating System</title>
+    <title></title>
+    <!--Font Awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <!--Link para CSS-->
     <link rel="stylesheet" href="assets/avalia.css">
 </head>
 <body>
-    <div class="rating-system">
-        <div class="rating">
+
+    <div class="rating-system"><!--Sistema de avaliações-->
+        <div class="rating"><!--Estrelas-->
           <span class="rating__result"></span>
             <i class="rating__star fas fa-star"></i>
             <i class="rating__star fas fa-star"></i>
@@ -17,48 +20,83 @@
             <i class="rating__star fas fa-star"></i>
             <i class="rating__star fas fa-star"></i>
         </div>
-        <div class="review-count"></div>
-        <div class="average-rating"></div>
+        <div class="review-count"></div><!--Contagem de Avaliações-->
+        <div class="average-rating"></div><!--Media das avaliações-->
         <div class="stats-bar">
-            <div class="stat">
-                <span>5 Estrelas</span>
-                <div class="bar">
-                    <div class="filled" style="width: 0%;"></div>
-                </div>
-                <span>80%</span>
-            </div>
-            <div class="stat">
-                <span>4 Estrelas</span>
-                <div class="bar">
-                    <div class="filled" style="width: 0%;"></div>
-                </div>
-                <span>10%</span>
-            </div>
-            <div class="stat">
-                <span>3 Estrelas</span>
-                <div class="bar">
-                    <div class="filled" style="width: 0%;"></div>
-                </div>
-                <span>5%</span>
-            </div>
-            <div class="stat">
-                <span>2 Estrelas</span>
-                <div class="bar">
-                    <div class="filled" style="width: 0%;"></div>
-                </div>
-                <span>3%</span>
-            </div>
-            <div class="stat">
-                <span>1 Estrela</span>
-                <div class="bar">
-                    <div class="filled" style="width: 0%;"></div>
-                </div>
-                <span>2%</span>
-            </div>
+          <canvas id="stats-bar-chart"></canvas>
         </div>
-        <button class="review-button">Avaliar</button>
+        <button class="review-button">Avaliar</button><!--Botão para enviar a avaliação-->
     </div>
-
-    <script src="scripts/avalia.js"></script>
+    
+    
+    <!--Link para a biblioteca de gráficos-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      const ctx = document.getElementById('stats-bar-chart').getContext('2d');
+      const chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['5 Estrelas', '4 Estrelas', '3 Estrelas', '2 Estrelas', '1 Estrela'],
+          datasets: [{
+            label: 'Quantidade de Avaliações',
+            data: [80, 60, 40, 20, 10],
+            backgroundColor: [
+              'rgba(62, 25, 131)', // 5 Estrelas
+              'rgba(62, 25, 131)', // 4 Estrelas
+              'rgba(62, 25, 131)', // 3 Estrelas
+              'rgba(62, 25, 131)', // 2 Estrelas
+              'rgba(62, 25, 131)' // 1 Estrela
+            ],
+            borderColor: [
+              'rgba(62, 25, 131)', // 5 Estrelas
+              'rgba(62, 25, 131)', // 4 Estrelas
+              'rgba(62, 25, 131)', // 3 Estrelas
+              'rgba(62, 25, 131)', // 2 Estrelas
+              'rgba(62, 25, 131)' // 1 Estrela
+            ],
+            borderWidth: 1 ,
+            borderRadius: 5 //Deixar as barras redondas
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          scales: {
+            x: {
+              grid: {
+                  display: false
+              },
+              ticks: {
+                display: false
+              },
+              border: {
+                display: false
+              }
+            },
+            y: {
+              grid: {
+        display: false
+      },
+      ticks: {
+        display: true,
+        padding: 10
+      },
+      border: {
+        display: false
+      } ,
+              beginAtZero: true,
+              ticks: {
+                
+              }
+            }
+          },
+          plugins: {
+            legend: {
+              display: true
+            }
+          }
+        }
+      });
+    </script>
+    <script src="scripts/avalia.js"></script><!--Link para o JavaScript-->
 </body>
 </html>

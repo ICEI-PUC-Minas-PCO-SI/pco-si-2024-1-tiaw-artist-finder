@@ -63,9 +63,17 @@
   
   /* Estatisticas - INICIO  */
   .stats-bar {
-    margin-top: 20px;
+    width: 300px;
+    height: 200px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
   }
   
+  .stats-bar canvas {
+    width: 100%;
+    height: 100%;
+  }
   .stat {
     display: flex;
     align-items: center;
@@ -88,7 +96,7 @@
   
   .stat .filled {
     height: 100%;
-    background-color: #3e1983;
+    background-color: rgb(62, 25, 131);
     border-radius: 5px;
   }
   
