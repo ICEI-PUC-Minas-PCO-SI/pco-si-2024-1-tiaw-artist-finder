@@ -53,10 +53,11 @@
   
   
   /* Media de Avaliações - INICIO */
-  .average-rating {
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 10px;
+  #media {
+    color: gold;
+  }
+  #media p {
+    color:black
   }
   /* Media de Avaliações - FIM  */
   
@@ -64,10 +65,11 @@
   /* Estatisticas - INICIO  */
   .stats-bar {
     width: 300px;
-    height: 200px;
+    height: 250px;
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 20px;
+    
   }  
   /* ESTATISTICAS - FIM */
   
