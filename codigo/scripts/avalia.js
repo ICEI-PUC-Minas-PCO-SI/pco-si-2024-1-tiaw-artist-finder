@@ -3,14 +3,46 @@ const stars = document.querySelectorAll('.stars i');
 const reviewCountElement = document.querySelector('.review-count');
 const averageRatingElement = document.querySelector('.average-rating');
 const statsBar = document.querySelector('.stats-bar');
+//SISTEMA DE ESTRELAS - Está totalmente Funcional
+const ratingStars = [...document.getElementsByClassName("rating__star")];
+const ratingResult = document.querySelector(".rating__result");
 
-fetch('http://localhost:3000/ratings/1')
+printRatingResult(ratingResult); //Talvez isso seja desnecessário mas não tenho certeza 
+//Função para marcar as estrelas conforme o click for feito
+function executeRating(stars, result) {
+   const starClassActive = "rating__star fas fa-star";
+   const starClassUnactive = "rating__star far fa-star";
+   const starsLength = stars.length;
+   let i;
+   stars.map((star) => {
+      star.onclick = () => {
+         i = stars.indexOf(star);
+
+         if (star.className.indexOf(starClassUnactive) !== -1) {
+            printRatingResult(result, i + 1);
+            for (i; i >= 0; --i) stars[i].className = starClassActive;
+         } else {
+            printRatingResult(result, i);
+            for (i; i < starsLength; ++i) stars[i].className = starClassUnactive;
+         }
+      };
+   });
+}
+//Função para escrever o Resultado da avaliação
+function printRatingResult(result, num = 0) {
+   result.textContent = `${num}/5`;
+}
+
+executeRating(ratingStars, ratingResult); //Execução das funções criadas acima
+
+
+fetch('http://localhost:3000/ratings/1') //url da API
   .then(response => response.json())
   .then(data => {
     const rating = data.ratings[0];
     updateRatingSystem(rating);
   });
-
+//Pelos Testes que fiz essa função não está trabalhando por algum motivo
 function updateRatingSystem(rating) {
   // Atualizar avaliação media
   averageRatingElement.textContent = rating.averageRating;
@@ -27,11 +59,11 @@ function updateRatingSystem(rating) {
     }
     reviewCountElement.textContent = `${rating.reviewCount} Avaliações`;  
    }
-  
+   window.addEventListener('load', ContaReviews())
   
   
 
-  // Update stats bar
+  // Atualizar a barra de Estatisticas
   const stats = rating.stats;
   statsBar.innerHTML = '';
   Object.keys(stats).forEach(key => {
