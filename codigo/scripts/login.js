@@ -1,3 +1,5 @@
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
 let usuarios = [];
 
 // Função para carregar os usuários do DB JSON
@@ -13,6 +15,8 @@ async function loadUsuarios() {
     }
 }
 
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
 // Função para obter o próximo ID único
 async function getNextUserId() {
     try {
@@ -22,15 +26,18 @@ async function getNextUserId() {
         }
         const usuarios = await response.json();
         if (usuarios.length === 0) {
-            return "1"; // Se não houver usuários, retorna 1 como o próximo ID
+            return "1";
         }
 
-        return (parseInt(usuarios[usuarios.length - 1].id) + 1).toString(); // Obtém o ID do último usuário cadastrado e adiciona 1
+        return (parseInt(usuarios[usuarios.length - 1].id) + 1).toString();
+        
     } catch (error) {
         console.error('Erro ao obter o próximo ID:', error);
         throw error;
     }
 }
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
 
 // Função para revelar a senha quando o usuário clica no ícone
 document.addEventListener("click", (e) => {
@@ -50,6 +57,7 @@ document.addEventListener("click", (e) => {
     }
 });
 
+/*--------------------------------------------------------------------------------------------------------------------------*/
 
 // Função para cadastro de novo usuário
 
@@ -68,7 +76,6 @@ async function signUp() {
         let confirmEmail = document.getElementById("confirmEmail").value;
         let confirmPassword = document.getElementById("confirmPassword").value;
 
-        // Verifica se o email e o confirmar email são iguais
         if (email !== confirmEmail) {
             alert("Os emails não coincidem. Por favor, verifique.");
             return;
@@ -77,13 +84,11 @@ async function signUp() {
         let password = document.getElementById("password").value;
         let confirmPass = document.getElementById("confirmPassword").value;
 
-        // Verifica se a senha e o confirmar senha são iguais
         if (password !== confirmPass) {
             alert("A senha e o confirmar senha não coincidem. Por favor, verifique.");
             return;
         }
 
-        // Verifica se o email já está cadastrado
         if (usuarios.some(user => user.email === email)) {
             alert("Este email já está cadastrado. Por favor, escolha outro.");
             return;
@@ -91,7 +96,7 @@ async function signUp() {
 
         let userId;
         try {
-            userId = await getNextUserId(); // Obtem o próximo ID único
+            userId = await getNextUserId();
         } catch (error) {
             console.error('Erro ao obter o próximo ID:', error);
             alert("Erro ao obter o próximo ID. Por favor, tente novamente mais tarde.");
@@ -99,7 +104,7 @@ async function signUp() {
         }
 
         try {
-            // Salva os dados no DB JSON usando fetch API
+
             const response = await fetch('http://localhost:3000/usuarios', {
                 method: 'POST',
                 headers: {
@@ -110,14 +115,14 @@ async function signUp() {
                     username: username,
                     email: email,
                     password: password,
-                    loggedIn: false // Define o atributo para indicar se o usuário está logado
+                    loggedIn: false
                 }),
             });
             if (!response.ok) {
                 throw new Error('Erro ao criar a conta.');
             }
             window.location.href = "login.html";
-            // Atualiza a lista de usuários após o cadastro bem-sucedido
+
             await loadUsuarios();
             console.log('Conta criada com sucesso!');
             alert("Conta criada com sucesso!");
@@ -128,11 +133,12 @@ async function signUp() {
     });
 }
 
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
 // Função para login do usuário
 async function login() {
     let formLogin = document.getElementById('loginForm');
 
-    // Verifica se o formulário de login foi encontrado antes de adicionar o ouvinte de eventos
     if (formLogin) {
         formLogin.addEventListener("submit", async (e) => {
             e.preventDefault();
@@ -140,7 +146,6 @@ async function login() {
             let email = document.getElementById("email").value;
             let password = document.getElementById("password").value;
 
-            // Verifica se o email existe na lista de usuários
             const user = usuarios.find(user => user.email === email);
             if (!user) {
                 console.error("Email não encontrado. Por favor, verifique o email.");
@@ -148,17 +153,14 @@ async function login() {
                 return;
             }
 
-            // Verifica se a senha está correta
             if (user.password !== password) {
                 console.error("Senha incorreta. Por favor, verifique a senha.");
                 alert("Senha incorreta. Por favor, verifique a senha.");
                 return;
             }
 
-            // Atualiza o campo loggedIn para true apenas se o login for bem-sucedido
             user.loggedIn = true;
 
-            // Atualiza o usuário no JSON Server apenas se o login for bem-sucedido
             const response = await fetch(`http://localhost:3000/usuarios/${user.id}`, {
                 method: 'PUT',
                 headers: {
@@ -173,25 +175,26 @@ async function login() {
                 return;
             }
 
-            // Redireciona para a página home.html se o login for bem-sucedido
             window.location.href = "home.html";
         });
     }
 }
 
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
 // Função para logout do usuário
 async function logout() {
     try {
-        // Encontra o usuário logado
+
         const loggedInUser = usuarios.find(user => user.loggedIn === true);
         if (!loggedInUser) {
             throw new Error('Nenhum usuário logado.');
         }
 
-        // Atualiza o campo loggedIn para false
+
         loggedInUser.loggedIn = false;
 
-        // Atualiza o usuário no JSON Server
+
         const response = await fetch(`http://localhost:3000/usuarios/${loggedInUser.id}`, {
             method: 'PUT',
             headers: {
@@ -204,14 +207,16 @@ async function logout() {
             throw new Error('Erro ao deslogar usuário.');
         }
 
-        // Redireciona para a página de login após o logout
+
         window.location.href = "login.html";
     } catch (error) {
         console.error('Erro ao fazer logout:', error);
-        // Mostra um alerta indicando que houve um erro ao fazer o logout
+
         alert("Erro ao fazer logout. Por favor, tente novamente mais tarde.");
     }
 }
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
 
 // Adiciona um evento de clique no botão de logout
 const logoutButton = document.getElementById('logoutButton');
@@ -221,10 +226,12 @@ if (logoutButton) {
     });
 }
 
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
 document.addEventListener("DOMContentLoaded", async () => {
     await loadUsuarios(); // Carrega os usuários do DB JSON antes de iniciar as funções
 
-    // Verifica se a página atual é a página de cadastro antes de chamar a função signUp
+
     if (window.location.pathname === '/signup.html') {
         signUp();
     }
@@ -232,3 +239,4 @@ document.addEventListener("DOMContentLoaded", async () => {
     login();
 });
 
+/*--------------------------------------------------------------------------------------------------------------------------*/

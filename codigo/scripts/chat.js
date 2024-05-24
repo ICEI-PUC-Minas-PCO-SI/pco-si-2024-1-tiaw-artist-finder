@@ -1,3 +1,5 @@
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
 const URL = "http://localhost:3000/usuarios";
 
 // Função para obter o usuário logado
@@ -15,6 +17,8 @@ async function getLoggedInUser() {
     }
 }
 
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
 // Função para exibir usuários na sidebar
 async function fetchAndDisplayUsers() {
     try {
@@ -30,11 +34,10 @@ async function fetchAndDisplayUsers() {
         }
 
         const contactsContainer = document.getElementById('chat-contacts');
-        contactsContainer.innerHTML = ''; // Limpa os contatos existentes
+        contactsContainer.innerHTML = '';
 
         const loggedInUser = await getLoggedInUser();
 
-        // Ordena os usuários com base nas mensagens não lidas e na última mensagem
         const usuarios = data.filter(user => !user.loggedIn);
         const sortedUsuarios = usuarios.sort((a, b) => {
             const aMessages = JSON.parse(localStorage.getItem(a.nome)) || [];
@@ -42,7 +45,6 @@ async function fetchAndDisplayUsers() {
             const aLastMessage = aMessages[aMessages.length - 1];
             const bLastMessage = bMessages[bMessages.length - 1];
 
-            // Ordena com base na existência de mensagens não lidas e na data da última mensagem
             if (aMessages.some(m => m.sender === a.nome && !m.read)) return -1;
             if (bMessages.some(m => m.sender === b.nome && !m.read)) return 1;
             if (aLastMessage && bLastMessage) {
@@ -77,10 +79,10 @@ async function fetchAndDisplayUsers() {
                 console.log("Foto do usuário:", usuario.foto);
                 showChatMainContent();
                 updateChatHeader(usuario.nome, usuario.foto);
-                // Atualiza o chat com as mensagens do usuário selecionado
+
                 displayMessages(usuario.nome);
 
-                // Marca as mensagens como lidas
+
                 userMessages.forEach(m => {
                     if (m.sender === usuario.nome) {
                         m.read = true;
@@ -96,6 +98,7 @@ async function fetchAndDisplayUsers() {
     }
 }
 
+/*--------------------------------------------------------------------------------------------------------------------------*/
 
 // Função para atualizar o cabeçalho do chat
 function updateChatHeader(nome, foto) {
@@ -106,23 +109,27 @@ function updateChatHeader(nome, foto) {
     chatUserName.textContent = nome;
 }
 
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
 // Função para mostrar o chat principal e ocultar a mensagem inicial
+
 function showChatMainContent() {
     const initialMessage = document.getElementById('initial-message');
     const chatMainContent = document.querySelector('.chat-main-content');
 
     initialMessage.style.display = 'none';
-    chatMainContent.style.display = 'flex'; // ou o valor apropriado para exibição
+    chatMainContent.style.display = 'flex';
 }
 
-// Função para mostrar a tela inicial e ocultar o chat principal
 function showInitialMessage() {
     const initialMessage = document.getElementById('initial-message');
     const chatMainContent = document.querySelector('.chat-main-content');
 
-    initialMessage.style.display = 'flex'; // ou o valor apropriado para exibição
+    initialMessage.style.display = 'flex';
     chatMainContent.style.display = 'none';
 }
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
 
 // Evento de pressionar tecla
 document.addEventListener('keydown', function(event) {
@@ -131,22 +138,24 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
 // Carregar os usuários ao carregar a página
 window.addEventListener('load', fetchAndDisplayUsers);
 
-// Função para enviar uma mensagem
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+// Funções para enviar uma mensagem
 async function sendMessage() {
-    // Obter o conteúdo da mensagem do input
+
     const messageInput = document.getElementById('chat-message-input');
     const messageContent = messageInput.value.trim();
 
-    // Verificar se a mensagem não está vazia
     if (messageContent === '') {
         alert('Por favor, digite uma mensagem.');
         return;
     }
 
-    // Obter o usuário logado e o destinatário da mensagem
     const loggedInUser = await getLoggedInUser();
     const recipientUser = document.getElementById('chat-user-name').textContent;
 
@@ -155,7 +164,6 @@ async function sendMessage() {
         return;
     }
 
-    // Criar um objeto com os dados da mensagem
     const message = {
         sender: loggedInUser.nome,
         recipient: recipientUser,
@@ -164,97 +172,81 @@ async function sendMessage() {
         read: false
     };
 
-    // Armazenar a mensagem no localStorage associado ao destinatário
     let recipientMessages = JSON.parse(localStorage.getItem(recipientUser)) || [];
     recipientMessages.push(message);
     localStorage.setItem(recipientUser, JSON.stringify(recipientMessages));
 
-    // Armazenar a mensagem no localStorage associado ao remetente
     let senderMessages = JSON.parse(localStorage.getItem(loggedInUser.nome)) || [];
     senderMessages.push(message);
     localStorage.setItem(loggedInUser.nome, JSON.stringify(senderMessages));
 
-    // Adicionar a nova mensagem à div #chat-messages
     appendMessage(message, loggedInUser.nome);
 
-    // Limpar o input de mensagem após o envio
     messageInput.value = '';
 
-    // Rolagem automática para a última mensagem
     const chatMessages = document.getElementById('chat-messages');
     chatMessages.scrollTop = chatMessages.scrollHeight;
 
-    // Atualiza os contatos
     fetchAndDisplayUsers();
 }
 
-// Função para adicionar uma mensagem à div #chat-messages
+
 function appendMessage(message, currentUser) {
     const messageElement = document.createElement('div');
     messageElement.classList.add('chat-message');
 
-    // Verifica se a mensagem foi enviada pelo usuário atual
     if (message.sender === currentUser) {
         messageElement.classList.add('me');
     } else {
         messageElement.classList.add('received');
     }
 
-    // Adiciona um ID exclusivo ao elemento de mensagem para evitar duplicação
     messageElement.id = message.timestamp;
 
-    // Adiciona o conteúdo da mensagem
     messageElement.textContent = message.content;
 
-    // Adiciona a mensagem ao contêiner de mensagens
     const chatMessages = document.getElementById('chat-messages');
 
-    // Verifica se a mensagem já existe no contêiner
     if (!document.getElementById(message.timestamp)) {
         chatMessages.appendChild(messageElement);
     }
 }
 
-// Função para exibir as mensagens do usuário atual
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+// Função para exibir uma mensagem
+
 async function displayMessages(selectedUser) {
-    // Limpa as mensagens anteriores
+
     const chatMessages = document.getElementById('chat-messages');
     chatMessages.innerHTML = '';
 
-    // Obtém o nome do usuário atualmente logado
     const loggedInUser = await getLoggedInUser();
     if (!loggedInUser) {
         alert('Erro ao identificar usuário logado.');
         return;
     }
 
-    // Obtém as mensagens associadas ao usuário logado e ao usuário selecionado
     const loggedInUserMessages = JSON.parse(localStorage.getItem(loggedInUser.nome)) || [];
     const selectedUserMessages = JSON.parse(localStorage.getItem(selectedUser)) || [];
 
-    // Combina e ordena as mensagens de ambos os usuários
     const allMessages = loggedInUserMessages.concat(selectedUserMessages).filter(message =>
         (message.sender === loggedInUser.nome && message.recipient === selectedUser) ||
         (message.sender === selectedUser && message.recipient === loggedInUser.nome)
     );
 
-    // Ordena as mensagens por timestamp
     allMessages.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
 
-    // Exibe cada mensagem no chat
     allMessages.forEach(message => {
         appendMessage(message, loggedInUser.nome);
     });
 
-    // Rolagem automática para a última mensagem
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
-// Adicionar evento de clique ao botão de enviar
 const sendButton = document.getElementById('chat-send-button');
 sendButton.addEventListener('click', sendMessage);
 
-// Permitir o envio de mensagem ao pressionar Enter
 const messageInput = document.getElementById('chat-message-input');
 messageInput.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
@@ -262,6 +254,10 @@ messageInput.addEventListener('keydown', function(event) {
         sendMessage();
     }
 });
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+// Função alterna barra lateral e conteúdo principal do chat.
 
 function setupMobileChatInteraction() {
     const chatSidebar = document.querySelector('.chat-sidebar');
@@ -301,5 +297,9 @@ function setupMobileChatInteraction() {
     });
 }
 
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
 // Chama a função para configurar a interação do chat em dispositivos móveis
 setupMobileChatInteraction();
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
