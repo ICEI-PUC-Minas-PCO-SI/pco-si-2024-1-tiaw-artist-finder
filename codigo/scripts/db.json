@@ -16,5 +16,19 @@
       "loggedIn": false
     }
   ],
-  "vendas": []
+  "vendas": [],
+  "ratings": [
+    {
+      "id": 1,
+      "averageRating": 4.5,
+      "reviewCount": 10,
+      "stats": {
+        "5stars": 80,
+        "4stars": 10,
+        "3stars": 5,
+        "2stars": 3,
+        "1star": 2
+      }
+    }
+  ]
 }

@@ -1,0 +1,84 @@
+.rating-system {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px;
+  }
+  
+  .stars {
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+  }
+  
+  .stars i {
+    color: #ccc; /* gray color for unfilled stars */
+  }
+  
+  .stars i:hover {
+    color: #ffd700; /* yellow color for stars on hover */
+  }
+  
+  .stars i.active {
+    color: #ffd700; /* yellow color for filled stars */
+  }
+  
+  .review-count {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+  }
+  
+  .average-rating {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .stats-bar {
+    margin-top: 20px;
+  }
+  
+  .stat {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .stat span:first-child {
+    width: 100px;
+    text-align: right;
+    margin-right: 10px;
+  }
+  
+  .stat .bar {
+    width: 200px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .stat .filled {
+    height: 100%;
+    background-color: #4CAF50;
+    border-radius: 5px;
+  }
+  
+  .stat span:last-child {
+    width: 50px;
+    text-align: left;
+  }
+  
+  .review-button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .review-button:hover {
+    background-color: #3e8e41;
+  }
