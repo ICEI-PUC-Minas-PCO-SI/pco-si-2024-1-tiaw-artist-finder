@@ -16,7 +16,20 @@ function updateRatingSystem(rating) {
   averageRatingElement.textContent = rating.averageRating;
 
   // Atualizar contagem de reviews
-  reviewCountElement.textContent = `${rating.reviewCount} Avaliações`;
+  function ContaReviews() {
+    let qtd = 0;
+    for(let i=1; i <= rating; i++) {
+        
+        if(rating.id == i) {
+            qtd++
+        }
+        reviewCountElement=qtd;
+    }
+    reviewCountElement.textContent = `${rating.reviewCount} Avaliações`;  
+   }
+  
+  
+  
 
   // Update stats bar
   const stats = rating.stats;
