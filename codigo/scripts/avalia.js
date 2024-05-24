@@ -4,6 +4,71 @@ const ratingStars = [...document.getElementsByClassName("rating__star")];
 const ratingResult = document.querySelector(".rating__result");
 
 printRatingResult(ratingResult); //Talvez isso seja desnecessário mas não tenho certeza 
+const ctx = document.getElementById('stats-bar-chart').getContext('2d');
+      const chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['5 Estrelas', '4 Estrelas', '3 Estrelas', '2 Estrelas', '1 Estrela'],
+          datasets: [{
+            label: 'Quantidade de Avaliações',
+            data: [80, 60, 40, 20, 10],
+            backgroundColor: [
+              'rgba(62, 25, 131)', // 5 Estrelas
+              'rgba(62, 25, 131)', // 4 Estrelas
+              'rgba(62, 25, 131)', // 3 Estrelas
+              'rgba(62, 25, 131)', // 2 Estrelas
+              'rgba(62, 25, 131)' // 1 Estrela
+            ],
+            borderColor: [
+              'rgba(62, 25, 131)', // 5 Estrelas
+              'rgba(62, 25, 131)', // 4 Estrelas
+              'rgba(62, 25, 131)', // 3 Estrelas
+              'rgba(62, 25, 131)', // 2 Estrelas
+              'rgba(62, 25, 131)' // 1 Estrela
+            ],
+            borderWidth: 1 ,
+            borderRadius: 5 //Deixar as barras redondas
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          scales: {
+            x: {
+              grid: {
+                  display: false
+              },
+              ticks: {
+                display: false
+              },
+              border: {
+                display: false
+              }
+            },
+            y: {
+              grid: {
+        display: false
+      },
+      ticks: {
+        display: true,
+        padding: 10
+      },
+      border: {
+        display: false
+      } ,
+              beginAtZero: true,
+              ticks: {
+                
+              }
+            }
+          },
+          plugins: {
+            legend: {
+              display: true
+            }
+          }
+        }
+      });
+
 //Função para marcar as estrelas conforme o click for feito
 function executeRating(stars, result) {
    const starClassActive = "rating__star fas fa-star";
