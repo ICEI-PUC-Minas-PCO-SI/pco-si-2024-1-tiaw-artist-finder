@@ -1,3 +1,5 @@
+/*--------------------------------------------------------------------------------------------------------------------------*/
+/* Variáveis Raiz */
 :root {
     --primary: #605DFF;
     --primary-dark: #4a00e0;
@@ -10,6 +12,8 @@
     --violet: #8e2de2;
 }
 
+/*--------------------------------------------------------------------------------------------------------------------------*/
+/* Estilos Globais */
 * {
     margin: 0;
     padding: 0;
@@ -22,16 +26,15 @@ body {
     height: 100vh;
     padding: 1rem;
     display: flex;
-    height: 100vh;
     justify-content: center;
     align-items: center;
     background: var(--violet);
-    background: -webkit-linear-gradient(to right, var(--violet),
-            var(--primary-dark));
-    background: linear-gradient(to right, var(--violet),
-            var(--primary-dark));
+    background: -webkit-linear-gradient(to right, var(--violet), var(--primary-dark));
+    background: linear-gradient(to right, var(--violet), var(--primary-dark));
 }
 
+/*--------------------------------------------------------------------------------------------------------------------------*/
+/* Linha de Boas-Vindas no Login */
 .login-welcome-row {
     margin-bottom: 1rem;
     text-align: center;
@@ -46,6 +49,8 @@ body {
     margin: 0 auto;
 }
 
+/*--------------------------------------------------------------------------------------------------------------------------*/
+/* Estilos do Formulário */
 .my-form {
     display: flex;
     flex-direction: column;
@@ -87,7 +92,6 @@ body {
     background-color: var(--primary-dark);
 }
 
-/*? input wrapper */
 .input__wrapper {
     position: relative;
     padding: 0.9375rem 0 0;
@@ -115,7 +119,6 @@ body {
 .input__field::placeholder {
     color: transparent;
 }
-
 
 .input__label {
     user-select: none;
@@ -166,8 +169,8 @@ body {
     border-radius: 50%;
 }
 
-/* my form actions */
-
+/*--------------------------------------------------------------------------------------------------------------------------*/
+/* Ações do Formulário */
 .my-form__actions {
     display: flex;
     flex-direction: column;

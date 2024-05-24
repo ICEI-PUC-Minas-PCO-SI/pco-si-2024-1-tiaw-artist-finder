@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+/* Estilos Globais */
 html {
     height: 100vh;
     width: 100vw;
@@ -15,6 +18,10 @@ body {
     background: #f4f4f4;
 }
 
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+/* Mensagem Inicial */
+
 .initial-message {
     display: flex;
     justify-content: center;
@@ -27,12 +34,18 @@ body {
     text-align: center;
 }
 
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+/* Contêiner do Chat */
 .chat-container {
     display: flex;
     width: 100%;
     height: calc(100vh - 6rem);
 }
 
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+/* Barra Lateral do Chat */
 .chat-sidebar {
     display: flex;
     flex-direction: column;
@@ -85,6 +98,10 @@ body {
     background: #e6e6e6;
 }
 
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+/* Conteúdo Principal do Chat */
+
 .chat-main-content {
     width: calc(100% - 27vw);
     display: flex;
@@ -118,7 +135,13 @@ body {
     background: #fff;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
-}  
+    display: flex !important;
+    flex-direction: column;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+/* Contêiner de Entrada de Mensagem */
 
 .chat-input-container {
     display: flex;
@@ -155,10 +178,9 @@ body {
     font-size: 1.2rem;
 }
 
-#chat-messages {
-    display: flex !important;
-    flex-direction: column;
-}
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+/* Mensagens do Chat */
 
 .chat-message.me {
     align-self: flex-end;
@@ -185,7 +207,11 @@ body {
     word-wrap: break-word;
     text-align: left;
 }
-  
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+/* Usuários da Barra Lateral do Chat */
+
 .chat-sidebar-user {
     display: flex;
     align-items: center;
@@ -227,10 +253,15 @@ body {
     color: black;
 }
 
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+/* Estilos Responsivos */
+
 @media (max-width: 663px) {
 
     .chat-container {
         flex-direction: column-reverse;
+        overflow-y: auto;
     }
 
     .chat-main-content, .chat-sidebar {
@@ -241,13 +272,16 @@ body {
         height: calc(100vh - 96px);
     }    
 
-    #chat-messages {
-    }
-
     #chat-contacts {
         display: flex;
         flex-direction: row;
         overflow-x: auto;
     }
+
+    .chat-message.me, .chat-message.received {
+        max-width: 50%;
+    }
+
 }
 
+/*--------------------------------------------------------------------------------------------------------------------------*/
