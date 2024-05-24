@@ -1,17 +1,22 @@
+const urlApi = 'http://localhost:3000/stats';
 
-//SISTEMA DE ESTRELAS - Está totalmente Funcional
-const ratingStars = [...document.getElementsByClassName("rating__star")];
-const ratingResult = document.querySelector(".rating__result");
+//tentativa de puxar os dados do json
+fetch(urlApi)
+  .then(Response => Response.json())
+  .then(data => {
+    const labels = data.map(item => item.label);
+    const values = data.map(item => item.value); 
 
 printRatingResult(ratingResult); //Talvez isso seja desnecessário mas não tenho certeza 
+//GRÁFICO CHART.JS FUNCIONANDO
 const ctx = document.getElementById('stats-bar-chart').getContext('2d');
       const chart = new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: ['5 Estrelas', '4 Estrelas', '3 Estrelas', '2 Estrelas', '1 Estrela'],
+          labels: labels,
           datasets: [{
             label: 'Quantidade de Avaliações',
-            data: [80, 60, 40, 20, 10],
+            data: values,
             backgroundColor: [
               'rgba(62, 25, 131)', // 5 Estrelas
               'rgba(62, 25, 131)', // 4 Estrelas
@@ -68,8 +73,12 @@ const ctx = document.getElementById('stats-bar-chart').getContext('2d');
           }
         }
       });
-
+    })
+    .catch(error => console.error(error));
+    //SISTEMA DE ESTRELAS - INICIO
 //Função para marcar as estrelas conforme o click for feito
+const ratingStars = [...document.getElementsByClassName("rating__star")];
+const ratingResult = document.querySelector(".rating__result");
 function executeRating(stars, result) {
    const starClassActive = "rating__star fas fa-star";
    const starClassUnactive = "rating__star far fa-star";
@@ -95,8 +104,9 @@ function printRatingResult(result, num = 0) {
 }
 
 executeRating(ratingStars, ratingResult); //Execução das funções criadas acima
+//SISTEMA DE ESTRELAS - FIM
 
-
+//RESGATE DE INFORMAÇÕES DO JSON
 fetch('http://localhost:3000/ratings/1') //url da API
   .then(response => response.json())
   .then(data => {

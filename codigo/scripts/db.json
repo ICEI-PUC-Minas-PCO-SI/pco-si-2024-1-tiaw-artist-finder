@@ -17,18 +17,27 @@
     }
   ],
   "vendas": [],
-  "ratings": [
-    {
-      "id": 1,
-      "averageRating": 4.5,
-      "reviewCount": 1,
-      "stats": {
-        "5stars": 80,
-        "4stars": 10,
-        "3stars": 5,
-        "2stars": 3,
-        "1star": 2
+  
+  "stats": [
+      {
+        "label": "5 Estrelas",
+        "value": 80
+      },
+      {
+        "label": "4 Estrelas",
+        "value": 170
+      },
+      {
+        "label": "3 Estrelas",
+        "value": 40
+      },
+      {
+        "label": "2 Estrelas",
+        "value": 20
+      },
+      {
+        "label": "1 Estrela",
+        "value": 10
       }
-    }
-  ]
-}
+    ]
+  }

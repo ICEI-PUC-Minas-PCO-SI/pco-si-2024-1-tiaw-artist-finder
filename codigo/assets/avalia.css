@@ -68,42 +68,7 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 20px;
-  }
-  
-  .stats-bar canvas {
-    width: 100%;
-    height: 100%;
-  }
-  .stat {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .stat span:first-child {
-    width: 100px;
-    text-align: right;
-    margin-right: 10px;
-  }
-  
-  .stat .bar {
-    width: 200px;
-    height: 10px;
-    background-color: #ccc;
-    border-radius: 5px;
-    margin-right: 10px;
-  }
-  
-  .stat .filled {
-    height: 100%;
-    background-color: rgb(62, 25, 131);
-    border-radius: 5px;
-  }
-  
-  .stat span:last-child {
-    width: 50px;
-    text-align: left;
-  }
+  }  
   /* ESTATISTICAS - FIM */
   
   /* Botão de Review - INICIO */
@@ -119,5 +84,6 @@
   
   .review-button:hover {
     background-color: #301464;
+    
   }
   /* Botão de Review - FIM  */
