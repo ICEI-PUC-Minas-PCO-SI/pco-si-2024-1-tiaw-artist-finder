@@ -9,6 +9,16 @@ fetch(urlApi)
     //Calculando a Média
     const soma = values.reduce((acc, current) => acc + current, 0);
     const media =  soma / values.length;
+    //Calculando a quantidade de avaliações
+    function QtdA() {
+      let Qtd = 0;
+      for (let i = 0; i < values.length; i++) {
+        Qtd+=values[i];
+      }
+      return Qtd;
+    }
+
+    
 //GRÁFICO CHART.JS FUNCIONANDO
 const ctx = document.getElementById('stats-bar-chart').getContext('2d');
       const chart = new Chart(ctx, {
@@ -79,10 +89,14 @@ const ctx = document.getElementById('stats-bar-chart').getContext('2d');
       const mediaElement = document.getElementById('media');
       mediaElement.textContent = `${media.toFixed(2)}`;
       mediaElement.className = `fas fa-star`
+      //Display para a Quantidade total de avaliações apareça na tela
+      const QTDElement = document.getElementById('qtdA')
+      QTDElement.textContent = `Quantidade de avaliações: ${QtdA()}`
     })
     .catch(error => console.error(error));
-    //SISTEMA DE ESTRELAS - INICIO
-//Função para marcar as estrelas conforme o click for feito
+/*------------------------------------------------------------------------------------------- */  
+  //SISTEMA DE ESTRELAS - INICIO
+//Função para marcar as estrelas
 const ratingStars = [...document.getElementsByClassName("rating__star")];
 const ratingResult = document.querySelector(".rating__result");
 function executeRating(stars, result) {
