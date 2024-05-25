@@ -272,6 +272,11 @@ body {
         height: calc(100vh - 96px);
     }    
 
+    .initial-message {
+        width: 100vw;
+        text-align: center;
+    }
+
     #chat-contacts {
         display: flex;
         flex-direction: row;
