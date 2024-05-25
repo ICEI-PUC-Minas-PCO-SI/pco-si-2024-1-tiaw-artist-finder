@@ -1,5 +1,5 @@
 const urlApi = 'http://localhost:3000/stats';
-
+//INICIALIZE O JSON-SERVER PARA O GRAFICO APARECER
 //tentativa de puxar os dados do json
 fetch(urlApi)
   .then(Response => Response.json())
@@ -8,7 +8,7 @@ fetch(urlApi)
     const values = data.map(item => item.value); 
     //Calculando a Média
     const soma = values.reduce((acc, current) => acc + current, 0);
-    const media =  soma / values.length;
+    const media =  soma / values.length; //Trocar media por um calculo de media ponderada
     //Calculando a quantidade de avaliações
     function QtdA() {
       let Qtd = 0;
@@ -87,11 +87,10 @@ const ctx = document.getElementById('stats-bar-chart').getContext('2d');
 
       //Display para a Média aparecer na tela
       const mediaElement = document.getElementById('media');
-      mediaElement.textContent = `${media.toFixed(2)}`;
-      mediaElement.className = `fas fa-star`
+      mediaElement.textContent = `${media.toFixed(1)}`;
       //Display para a Quantidade total de avaliações apareça na tela
       const QTDElement = document.getElementById('qtdA')
-      QTDElement.textContent = `Quantidade de avaliações: ${QtdA()}`
+      QTDElement.textContent = `${QtdA()} Avaliações`
     })
     .catch(error => console.error(error));
 /*------------------------------------------------------------------------------------------- */  
@@ -122,6 +121,49 @@ function executeRating(stars, result) {
 function printRatingResult(result, num = 0) {
    result.textContent = `${num}/5`;
 }
-
 executeRating(ratingStars, ratingResult); //Execução das funções criadas acima
-//SISTEMA DE ESTRELAS - FIM  
+/*-----------------------------------------------------------------------------------------------*/
+// Sistema para adicionar avaliações ao json server
+/*
+const saveButton = document.querySelector('.btn-success');
+saveButton.addEventListener('click', () => {
+  // Chame a função para enviar os dados para o servidor e atualizar o gráfico
+  sendDataAndUpdateChart();
+});
+
+function sendDataAndUpdateChart() {
+  // Obtenha a avaliação do usuário
+  const ratingValue = parseInt(document.querySelector('.rating__result').textContent.split('/')[0]);
+
+  // Atualize o valor correspondente à estrela no arquivo JSON
+  fetch(urlApi)
+    .then(response => response.json())
+    .then(data => {
+      const stats = data.stats;
+      const starIndex = stats.findIndex(stat => stat.label == `${ratingValue} Estrelas`); // Use the loose equality operator instead of the strict equality operator
+      if (starIndex !== -1) {
+        stats[starIndex].value++;
+      }
+
+      // Atualize o gráfico
+      const chartData = chart.data.datasets[0].data;
+      chartData[starIndex] = stats[starIndex].value;
+      chart.update();
+
+      // Feche o modal
+      const modal = document.querySelector('#staticBackdrop');
+      modal.classList.remove('show');
+
+      // Atualize o arquivo JSON
+      fetch(urlApi, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      .catch(error => console.error(error));
+    })
+    .catch(error => console.error(error));
+}*/
+//ERRO ESTÁ COMENTADO ACIMA

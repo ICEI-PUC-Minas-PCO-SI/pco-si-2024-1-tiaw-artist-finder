@@ -53,11 +53,14 @@
   
   
   /* Media de Avaliações - INICIO */
-  #media {
+  #estrelamedia {
     color: gold;
+    display: inline-flex;
+    padding: 1px;
   }
-  #media p {
-    color:black
+  #media {
+    color: black;
+    padding: 1px;
   }
   /* Media de Avaliações - FIM  */
   
