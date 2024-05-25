@@ -1,5 +1,3 @@
-/*--------------------------------------------------------------------------------------------------------------------------*/
-
 const URL = "http://localhost:3000/usuarios";
 
 // Função para obter o usuário logado
@@ -19,6 +17,7 @@ async function getLoggedInUser() {
 
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
+// Função para exibir usuários na sidebar
 // Função para exibir usuários na sidebar
 async function fetchAndDisplayUsers() {
     try {
@@ -42,11 +41,16 @@ async function fetchAndDisplayUsers() {
         const sortedUsuarios = usuarios.sort((a, b) => {
             const aMessages = JSON.parse(localStorage.getItem(a.nome)) || [];
             const bMessages = JSON.parse(localStorage.getItem(b.nome)) || [];
+
+            const aHasUnreadMessages = aMessages.some(m => m.recipient === loggedInUser.nome && !m.read);
+            const bHasUnreadMessages = bMessages.some(m => m.recipient === loggedInUser.nome && !m.read);
+
+            if (aHasUnreadMessages && !bHasUnreadMessages) return -1;
+            if (!aHasUnreadMessages && bHasUnreadMessages) return 1;
+
             const aLastMessage = aMessages[aMessages.length - 1];
             const bLastMessage = bMessages[bMessages.length - 1];
 
-            if (aMessages.some(m => m.sender === a.nome && !m.read)) return -1;
-            if (bMessages.some(m => m.sender === b.nome && !m.read)) return 1;
             if (aLastMessage && bLastMessage) {
                 return new Date(bLastMessage.timestamp) - new Date(aLastMessage.timestamp);
             }
@@ -66,9 +70,9 @@ async function fetchAndDisplayUsers() {
             const userMessages = JSON.parse(localStorage.getItem(usuario.nome)) || [];
             const hasUnreadMessages = userMessages.some(m => m.sender === usuario.nome && !m.read);
             const newMessageIndicator = userDiv.querySelector('.new-message-indicator');
-            newMessageIndicator.style.marginLeft = '0.2rem';
+            
+            // Verifica se há mensagens não lidas e atualiza a exibição da bolinha vermelha de notificação
             if (hasUnreadMessages) {
-                newMessageIndicator.style.color = 'red';
                 newMessageIndicator.style.display = 'inline';
             } else {
                 newMessageIndicator.style.display = 'none';
@@ -81,7 +85,6 @@ async function fetchAndDisplayUsers() {
                 updateChatHeader(usuario.nome, usuario.foto);
 
                 displayMessages(usuario.nome);
-
 
                 userMessages.forEach(m => {
                     if (m.sender === usuario.nome) {
@@ -175,10 +178,6 @@ async function sendMessage() {
     let recipientMessages = JSON.parse(localStorage.getItem(recipientUser)) || [];
     recipientMessages.push(message);
     localStorage.setItem(recipientUser, JSON.stringify(recipientMessages));
-
-    let senderMessages = JSON.parse(localStorage.getItem(loggedInUser.nome)) || [];
-    senderMessages.push(message);
-    localStorage.setItem(loggedInUser.nome, JSON.stringify(senderMessages));
 
     appendMessage(message, loggedInUser.nome);
 
