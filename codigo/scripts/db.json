@@ -16,37 +16,44 @@
       "loggedIn": false
     }
   ],
-  "vendas": [],
+  "vendas": [
+    {
+      "id": "1",
+      "mes": "julho",
+      "vlr": "1",
+      "qtd": "2"
+    }
+  ],
   "stats": [
     {
-      "estrelas": "5 estrelas" ,
+      "estrelas": "5 estrelas",
       "label": 5,
-      "value": 100,
-      "id": 1
+      "value": 1,
+      "id": "1"
     },
     {
-      "estrelas": "4 estrelas" ,
+      "estrelas": "4 estrelas",
       "label": 4,
-      "value": 123,
-      "id": 2
+      "value": 2,
+      "id": "2"
     },
     {
-      "estrelas": "3 estrelas" ,
+      "estrelas": "3 estrelas",
       "label": 3,
       "value": 1,
-      "id": 3
+      "id": "3"
     },
     {
-      "estrelas": "2 estrelas" ,
+      "estrelas": "2 estrelas",
       "label": 2,
-      "value": 2,
-      "id": 4
+      "value": 12,
+      "id": "4"
     },
     {
-      "estrelas": "1 estrelas" ,
+      "estrelas": "1 estrelas",
       "label": 1,
-      "value": 123,
-      "id": 5
+      "value": 10,
+      "id": "5"
     }
   ]
 }

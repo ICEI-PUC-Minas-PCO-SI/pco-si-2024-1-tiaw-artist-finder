@@ -1,4 +1,5 @@
 const urlApi = 'http://localhost:3000/stats';
+
 //INICIALIZE O JSON-SERVER PARA O GRAFICO APARECER
 //tentativa de puxar os dados do json
 fetch(urlApi)
@@ -101,6 +102,7 @@ const ctx = document.getElementById('stats-bar-chart').getContext('2d');
       QTDElement.textContent = `${QtdA()} Avaliações`
     })
     .catch(error => console.error(error));
+
 /*------------------------------------------------------------------------------------------- */  
   //SISTEMA DE ESTRELAS - INICIO
 //Função para marcar as estrelas
@@ -122,56 +124,48 @@ function executeRating(stars, result) {
             printRatingResult(result, i);
             for (i; i < starsLength; ++i) stars[i].className = starClassUnactive;
          }
-      };
-   });
-}
-//Função para escrever o Resultado da avaliação
-function printRatingResult(result, num = 0) {
-   result.textContent = `${num}/5`;
-}
-executeRating(ratingStars, ratingResult); //Execução das funções criadas acima
-/*-----------------------------------------------------------------------------------------------*/
-// Sistema para adicionar avaliações ao json server
-/*
-const saveButton = document.querySelector('.btn-success');
-saveButton.addEventListener('click', () => {
-  // Chame a função para enviar os dados para o servidor e atualizar o gráfico
-  sendDataAndUpdateChart();
-});
+                 // Salvar a avaliação do usuário
+                 saveRating(i + 1);
+                };
+             });
+          }
+          //Função para escrever o Resultado da avaliação
+          function printRatingResult(result, num = 0) {
+             result.textContent = `${num}/5`;
+          }
+          executeRating(ratingStars, ratingResult); //Execução das funções criadas acima
+   // Função para salvar a avaliação do usuário
+  function saveRating(rating) {
+    const urlApi = 'http://localhost:3000/stats';
+    fetch(urlApi)
+      .then(response => response.json())
+      .then(data => {
+      // Verificar se o rating existe no array data
+      const ratingExists = data.some(item => item.label === rating.toString());
 
-function sendDataAndUpdateChart() {
-  // Obtenha a avaliação do usuário
-  const ratingValue = parseInt(document.querySelector('.rating__result').textContent.split('/')[0]);
+      if (ratingExists) {
+        // Encontrar o item que corresponde ao rating
+        const item = data.find(item => item.label === rating.toString());
 
-  // Atualize o valor correspondente à estrela no arquivo JSON
-  fetch(urlApi)
-    .then(response => response.json())
-    .then(data => {
-      const stats = data.stats;
-      const starIndex = stats.findIndex(stat => stat.label == `${ratingValue} Estrelas`); // Use the loose equality operator instead of the strict equality operator
-      if (starIndex !== -1) {
-        stats[starIndex].value++;
+        // Atualizar o valor do item
+        const newValue = item.value + 1;
+        fetch(`${urlApi}/${item.id}`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ value: newValue })
+        })
+        .then(response => {
+          if (response.ok) {
+            console.log('Avaliação salva com sucesso!');
+          } else {
+            throw new Error('Erro ao salvar avaliação');
+          }
+        })
+        .catch(error => console.error(error));
+      } else {
+        console.error('Avaliação não encontrada!');
       }
-
-      // Atualize o gráfico
-      const chartData = chart.data.datasets[0].data;
-      chartData[starIndex] = stats[starIndex].value;
-      chart.update();
-
-      // Feche o modal
-      const modal = document.querySelector('#staticBackdrop');
-      modal.classList.remove('show');
-
-      // Atualize o arquivo JSON
-      fetch(urlApi, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-      .catch(error => console.error(error));
     })
-    .catch(error => console.error(error));
-}*/
-//ERRO ESTÁ COMENTADO ACIMA
+    .catch(error => console.error('Erro ao buscar dados:', error));
+}
+
