@@ -19,28 +19,33 @@
   "vendas": [],
   "stats": [
     {
-      "label": "5 Estrelas",
-      "value": 8,
+      "estrelas": "5 estrelas" ,
+      "label": 5,
+      "value": 100,
       "id": 1
     },
     {
-      "label": "4 Estrelas",
-      "value": 1,
+      "estrelas": "4 estrelas" ,
+      "label": 4,
+      "value": 123,
       "id": 2
     },
     {
-      "label": "3 Estrelas",
+      "estrelas": "3 estrelas" ,
+      "label": 3,
       "value": 1,
       "id": 3
     },
     {
-      "label": "2 Estrelas",
-      "value": 0,
+      "estrelas": "2 estrelas" ,
+      "label": 2,
+      "value": 2,
       "id": 4
     },
     {
-      "label": "1 Estrelas",
-      "value": 0,
+      "estrelas": "1 estrelas" ,
+      "label": 1,
+      "value": 123,
       "id": 5
     }
   ]
