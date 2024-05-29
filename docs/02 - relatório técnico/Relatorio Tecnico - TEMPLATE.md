@@ -124,21 +124,26 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|------|
-|RF-001| Chat interativo                         | ALTA | 
-|RF-002| Feed de destaques                       | ALTA |
-|RF-003| Portfólio personalizado                 | ALTA |
-|RF-004| Avaliação de desempenho                 | ALTA |
-|RF-005| Plano de conta free ou premium          | MÉDIA |
-|RF-006| Sugestão de categorias relevantes       | MÉDIA |
+|RF-001| Carossel                                | MÉDIA | 
+|RF-002| Barra de Pesquisa                       | MÉDIA |
+|RF-003| Editar Perfil                           | ALTA |
+|RF-004| Gráfico de Vendas                       | BAIXA |
+|RF-005| Filtros                                 | MÉDIA |
+|RF-006| Redes Sociais do Artista                | MÉDIA |
+|RF-007| Comentários                             | MÉDIA | 
+|RF-008| Informações do Usuário                  | ALTA |
+|RF-009| Favoritos                               | BAIXA |
+|RF-0010| Avaliação por Estrelas                 | ALTA |
+|RF-0011| Chat Interativo                        | MÉDIA |
+|RF-0012| Portfólio                              | ALTA |
 
 
 ### Requisitos não Funcionais
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|-----------------------------|
-|RNF-001| Autenticação simplificada com google ou apple | BAIXA | 
-|RNF-002| Design responsivo                             | BAIXA | 
-|RNF-003| Integração com redes sociais do profissional  | BAIXA | 
+|RNF-001| Design responsivo                             | MÉDIA | 
+|RNF-002| Integração com redes sociais do profissional  | BAIXA | 
 
 ## Restrições
 
@@ -159,7 +164,7 @@ Principais requisitos que compõe a aplicação:
 
 Facilita a comunicação direta entre clientes e freelancers, permitindo a discussão de projetos e esclarecimento de dúvidas de forma rápida e eficiente.
 
-- Feed de Destaques:
+- Carossel:
 
 Destaca obras de destaque na página principal, proporcionando aos clientes uma visão rápida e inspiradora do talento disponível na plataforma.
 
@@ -169,15 +174,7 @@ Permite que os freelancers exibam seus trabalhos anteriores de forma detalhada, 
 
 - Avaliações Transparentes:
 
-Oferece um sistema de avaliação transparente, permitindo que os clientes forneçam feedback detalhado sobre a experiência com os freelancers.
-
-- Planos de Conta Flexíveis:
-
-Oferece opções de conta gratuitas e premium, permitindo que os usuários escolham o nível de funcionalidades que melhor atenda às suas necessidades e orçamento.
-
-- Categorias Relevantes em Destaque:
-
-Destaca as categorias mais buscadas na plataforma, simplificando a busca por profissionais e projetos específicos.
+Oferece um sistema de avaliação transparente, através de comentários e estrelas, permitindo que os clientes forneçam feedback detalhado sobre a experiência com os freelancers.
 
 A elaboração dos requisitos teve como ponto de partida as pesquisas com os profissionais freelancer, a partir daí, com as necessidades em mente, conseguimos pensar em funcionalidades que atendam esses profissionais, tornando assim, a plataforma fácil e útil. Os requisitos não funcionais tiveram como base heurísticas que já existem em sites nesse segmento, sendo assim, torna-se necessário a adição desses requisitos para correta adaptação no mercado.
 

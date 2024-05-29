@@ -3,20 +3,22 @@
     padding: 0;
     box-sizing: border-box;
     
+    
 }
 
-.container-header{
+.menu .container-header{
     max-width: 1280px;
     margin: auto;
 }
 
-.navbar{
+
+.menu .navbar{
     display:flex;
     align-items: center;
     justify-content: space-between;
 }
 
-header{
+.menu header{
     width: 100%;
     padding: 60px 4%;
     position: fixed;
@@ -25,39 +27,39 @@ header{
     transition: .5s;
 }
 
-header.rolagem{
+.menu header.rolagem{
     background-color: #fff;
     padding: 20px 4%;
     position: fixed;
     z-index: 2;
 }
 
-header.rolagem a{
+.menu header.rolagem a{
     color: #7400aa;
 }
 
 
 
 
-header ul{
+.menu header ul{
     list-style-type: none;
 }
 
-header ul li{
+.menu header ul li{
     display: inline-block;
     margin: 0 40px;
 }
 
-header ul li a{
+.menu header ul li a{
     color:#fff;
     text-decoration: none;
 }
 
 
 
-.banner{
+ .banner{
     height: 100vh;
-    background-image: url(img/banner.png);
+    background-image: url(img/banner.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -68,7 +70,7 @@ header ul li a{
     justify-content: center;
 }
 
-.banner h1{
+ .banner h1{
     font-size: 5em;
     color: #fff;
 }
@@ -80,8 +82,9 @@ header ul li a{
 
 
 #logo{
-    width: 100px;
-    
+    width: 80px;
+    height: 80px;
+    margin-right: 50px;
 }
 
 body{
@@ -123,11 +126,13 @@ body{
     box-shadow: 0 0 30px rgba(0,0,0,0.5);
     overflow: hidden;
     border-radius: 15px;
+    
 }
 
 .img1 img{
     height: 150px;
     width: 100%;
+    object-fit: cover;
 }
 
 .img2 img{
@@ -141,6 +146,7 @@ body{
     border-radius: 50%;
     border: 6px solid #fff;
     margin-top: -80px;
+    object-fit: cover;
 }
 
 .card:hover .img2 img{
