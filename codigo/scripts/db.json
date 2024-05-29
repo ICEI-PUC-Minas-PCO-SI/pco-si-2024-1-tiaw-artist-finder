@@ -28,7 +28,7 @@
     {
       "estrelas": "5 estrelas",
       "label": 5,
-      "value": 1,
+      "value": 3,
       "id": "1"
     },
     {
@@ -46,13 +46,13 @@
     {
       "estrelas": "2 estrelas",
       "label": 2,
-      "value": 12,
+      "value": 1,
       "id": "4"
     },
     {
       "estrelas": "1 estrelas",
       "label": 1,
-      "value": 10,
+      "value": 3,
       "id": "5"
     }
   ]
