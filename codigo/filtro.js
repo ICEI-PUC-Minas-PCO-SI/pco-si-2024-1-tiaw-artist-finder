@@ -7,14 +7,14 @@ window.addEventListener("scroll", function () {
 // URL DA FAKE API DE DADOS USANDO JSON
 const URL = 'http://localhost:3000/usuarios';
 
-let db = JSON.parse(localStorage.getItem('dbUsers'))
+let db = JSON.parse(localStorage.getItem('dbNovo'))
 
 if(!db){
 fetch(URL)
     .then(res => res.json())
     .then(usuariosData => {
     db = usuariosData.usuarios;
-    localStorage.setItem('dbUsers', JSON.stringify(db));
+    localStorage.setItem('dbNovo', JSON.stringify(db));
     })
 }
 
@@ -142,7 +142,7 @@ function alterarImagem (id, imageURI) {
     let userIndex = db.findIndex(usuario => usuario.id == id);      
     if (userIndex != -1) {  
         db[userIndex].galeria1 = imageURI;
-        localStorage.setItem('dbUsers', JSON.stringify (db));
+        localStorage.setItem('dbNovo', JSON.stringify (db));
     }    
 }
 
