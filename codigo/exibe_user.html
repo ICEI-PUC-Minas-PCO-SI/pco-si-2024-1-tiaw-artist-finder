@@ -14,7 +14,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <title>Home</title>
-
+   
 </head>
 
 <body>
@@ -43,7 +43,7 @@
         </header>
     </div>
     <div id="tela">
-
+        
     </div>
 
     <div class="form">
@@ -80,28 +80,11 @@
     
     <script src="filtro.js"></script>
     <script>
-
+        
         const urlParams = new URLSearchParams(location.search);
-        let idUser = parseInt(urlParams.get('id'));
-        exibeUser(idUser);
-
-        function previewFile() {
-            const preview = document.querySelector("#galeria1");
-            const file = document.querySelector("input[type=file]").files[0];
-            const reader = new FileReader();
-        if(file.size < 2000000){
-            reader.addEventListener("load", () => {
-                    preview.src = reader.result;
-                    alterarImagem(idUser, reader.result);
-                },
-                false,
-    );
-
-        if (file) {
-            reader.readAsDataURL(file);
-        }
-    }
-
+        let idUser = parseInt(urlParams.get('id'))
+        exibeUser(idUser)
+        
     </script>
 </body>
 

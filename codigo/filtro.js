@@ -7,17 +7,6 @@ window.addEventListener("scroll", function () {
 // URL DA FAKE API DE DADOS USANDO JSON
 const URL = 'http://localhost:3000/usuarios';
 
-let db = JSON.parse(localStorage.getItem('dbNovo'))
-
-if(!db){
-fetch(URL)
-    .then(res => res.json())
-    .then(usuariosData => {
-    db = usuariosData.usuarios;
-    localStorage.setItem('dbNovo', JSON.stringify(db));
-    })
-}
-
 const userList = document.getElementById('user-list');
 const mostrarUser = document.getElementById('tela');
 
@@ -65,84 +54,79 @@ function exibeUsuarios() {
 }
 
 function exibeUser(id) {
-    let user = db.find(usuario => usuario.id == id);
-    if (user) {
-        let listar_usuarios = `
-        <div class="main">
-            <div class="header_wrapper">
-                <header class="capa" id="capa"></header>
-                <div class="cols_container">
-                    <div class="left_col">
-                        <div class="img_container">
-                            <img src="${user.foto}" alt="">
-                            <span></span>
-                        </div>
-                        <h2>${user.nome}</h2>
-                        <p>${user.atuacao}</p>
-                        <p>${user.disponibilidade}</p>
-                        <p class="bi bi-geo-fill">${user.estado}</p>
-                        <p>${user.email}</p>
-
-                        <ul class="about">
-                            <li><span>4,000</span>Followers</li>
-                            <li><span>333</span>Following</li>
-                            <li><span>200,300</span>Attractions</li>
-                        </ul>
-
-                        <div class="content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, soluta, totam dolor aliquam placeat vel, facere possimus officia voluptates nam ut dolores est dolore sed dicta tenetur reiciendis aliquid eius.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, soluta, totam dolor aliquam placeat vel, facere possimus officia voluptates nam ut dolores est dolore sed dicta tenetur reiciendis aliquid eius.</p>
-
-                            <ul>
-                                <li><i class="fab fa-twitter"></i></li>
-                                <li><i class="fab fa-instagram"></i></li>
-                                <li><i class="fab fa-facebook"></i></li>
-                                <li><i class="fab fa-dribbble"></i></li>
-                            </ul>
+    fetch(URL)
+        .then(res => res.json())
+        .then(usuariosData => {
+            let user = usuariosData.find(usuario => usuario.id == id);
+            
+            if (user) {
+                let listar_usuarios = `
+                <div class="main">
+                    <div class="header_wrapper">
+                        <header class="capa" id="capa"></header>
+                        <div class="cols_container">
+                            <div class="left_col">
+                                <div class="img_container">
+                                    <img src="${user.foto}" alt="">
+                                    <span></span>
+                                </div>
+                                <h2>${user.nome}</h2>
+                                <p>${user.atuacao}</p>
+                                <p>${user.disponibilidade}</p>
+                                <p class="bi bi-geo-fill">${user.estado}</p>
+                                <p>${user.email}</p>
+        
+                                <ul class="about">
+                                    <li><span>4,000</span>Followers</li>
+                                    <li><span>333</span>Following</li>
+                                    <li><span>200,300</span>Attractions</li>
+                                </ul>
+        
+                                <div class="content">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, soluta, totam dolor aliquam placeat vel, facere possimus officia voluptates nam ut dolores est dolore sed dicta tenetur reiciendis aliquid eius.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, soluta, totam dolor aliquam placeat vel, facere possimus officia voluptates nam ut dolores est dolore sed dicta tenetur reiciendis aliquid eius.</p>
+        
+                                    <ul>
+                                        <li><i class="fab fa-twitter"></i></li>
+                                        <li><i class="fab fa-instagram"></i></li>
+                                        <li><i class="fab fa-facebook"></i></li>
+                                        <li><i class="fab fa-dribbble"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+        
+                            <div class="right_col">
+                                <nav>
+                                    <ul>
+                                        <li><a href="#">Galeria</a></li>
+                                        <li><a href="#">Grupos</a></li>
+                                        <li><a href="#">Sobre</a></li>
+                                    </ul>
+                                    <button>Follow</button>
+                                </nav>
+                                <div class="photos">
+                                    <img src="${user.capa}" alt="Photo">
+                                    <img src="${user.capa}" alt="Photo">
+                                    <img src="${user.capa}" alt="Photo">
+                                    <img src="${user.capa}" alt="Photo">
+                                    <img src="${user.capa}" alt="Photo">
+                                    <img src="${user.capa}" alt="Photo">
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="right_col">
-                        <nav>
-                            <ul>
-                                <li><a href="#">Galeria</a></li>
-                                <li><a href="#">Grupos</a></li>
-                                <li><a href="#">Sobre</a></li>
-                            </ul>
-                            <button>Follow</button>
-                        </nav>
-                        <div class="photos">
-                            <img id="galeria1" src="${user.galeria1}" alt="Photo">
-                            <input type="file" onchange="previewFile()" /><br />
-                            <img id="galeria2" src="${user.galeria2}" alt="Photo">
-                            <img src="${user.galeria3}" alt="Photo">
-                            <img src="${user.galeria4}" alt="Photo">
-                            <img src="${user.galeria5}" alt="Photo">
-                            <img src="${user.galeria6}" alt="Photo">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <style>
-                .main .header_wrapper header {
-                    width: 100%;
-                    background: url(${user.capa}) no-repeat 50% 20% / cover;
-                    min-height: calc(100px + 15vw);
-                }
-            </style>
-        </div>`;
-        mostrarUser.innerHTML = listar_usuarios;
-    } else {
-        mostrarUser.innerHTML = `<h1>Usuário não encontrado</h1>`;
-    }
+                    <style>
+                        .main .header_wrapper header {
+                            width: 100%;
+                            background: url(${user.capa}) no-repeat 50% 20% / cover;
+                            min-height: calc(100px + 15vw);
+                        }
+                    </style>
+                </div>`;
+                mostrarUser.innerHTML = listar_usuarios;
+            } else {
+                listar_usuarios = `<h1>Usuario não encontrado</h1>`;
+            }
+            
+        });
 }
-
-
-function alterarImagem (id, imageURI) {
-    let userIndex = db.findIndex(usuario => usuario.id == id);      
-    if (userIndex != -1) {  
-        db[userIndex].galeria1 = imageURI;
-        localStorage.setItem('dbNovo', JSON.stringify (db));
-    }    
-}
-
