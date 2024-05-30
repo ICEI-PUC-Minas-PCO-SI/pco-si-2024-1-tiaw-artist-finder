@@ -45,6 +45,39 @@
     <div id="tela">
 
     </div>
+
+    <div class="form">
+        <div class="grid">
+            <div class="form-element">
+                <input type="file" id="file-1" accept="image/*">
+                <label for="file-1" id="file-1-preview">
+                    <img id="galeria1" src="${user.galeria1}" alt="">
+                    <div>
+                        <span>+</span>
+                    </div>
+                </label>
+            </div>
+            <div class="form-element">
+                <input type="file" id="file-2" accept="image/*">
+                <label for="file-2" id="file-2-preview">
+                    <img id="galeria2" src="${user.galeria2}" alt="">
+                    <div>
+                        <span>+</span>
+                    </div>
+                </label>
+            </div>
+            <div class="form-element">
+                <input type="file" id="file-3" accept="image/*">
+                <label for="file-3" id="file-3-preview">
+                    <img id="galeria3" src="${user.galeria3}" alt="">
+                    <div>
+                        <span>+</span>
+                    </div>
+                </label>
+            </div>
+        </div>
+    </div>
+    
     <script src="filtro.js"></script>
     <script>
 
@@ -57,9 +90,7 @@
             const file = document.querySelector("input[type=file]").files[0];
             const reader = new FileReader();
         if(file.size < 2000000){
-            reader.addEventListener(
-                "load",
-                () => {
+            reader.addEventListener("load", () => {
                     preview.src = reader.result;
                     alterarImagem(idUser, reader.result);
                 },
