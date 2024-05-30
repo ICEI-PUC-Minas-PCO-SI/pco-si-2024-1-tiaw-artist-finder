@@ -105,12 +105,12 @@ function exibeUser(id) {
                                     <button>Follow</button>
                                 </nav>
                                 <div class="photos">
-                                    <img src="${user.capa}" alt="Photo">
-                                    <img src="${user.capa}" alt="Photo">
-                                    <img src="${user.capa}" alt="Photo">
-                                    <img src="${user.capa}" alt="Photo">
-                                    <img src="${user.capa}" alt="Photo">
-                                    <img src="${user.capa}" alt="Photo">
+                                    <img src="${user.gallery1}" alt="Photo">
+                                    <img src="${user.gallery2}" alt="Photo">
+                                    <img src="${user.gallery3}" alt="Photo">
+                                    <img src="${user.gallery4}" alt="Photo">
+                                    <img src="${user.gallery5}" alt="Photo">
+                                    <img src="${user.gallery6}" alt="Photo">
                                 </div>
                             </div>
                         </div>
