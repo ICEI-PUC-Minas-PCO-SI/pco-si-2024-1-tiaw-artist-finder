@@ -95,15 +95,13 @@
                     alterarImagem(idUser, reader.result);
                 },
                 false,
-            );
+    );
 
-                if (file) {
-                    reader.readAsDataURL(file);
-                }
-            }else{
-                alert("Image size more than 2mb")
-            }
+        if (file) {
+            reader.readAsDataURL(file);
         }
+    }
+
     </script>
 </body>
 
