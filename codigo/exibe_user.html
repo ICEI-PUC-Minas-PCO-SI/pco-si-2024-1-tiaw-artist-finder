@@ -56,7 +56,7 @@
             const preview = document.querySelector("#galeria1");
             const file = document.querySelector("input[type=file]").files[0];
             const reader = new FileReader();
-
+        if(file.size < 2000000){
             reader.addEventListener(
                 "load",
                 () => {
@@ -64,13 +64,15 @@
                     alterarImagem(idUser, reader.result);
                 },
                 false,
-    );
+            );
 
-        if (file) {
-            reader.readAsDataURL(file);
+                if (file) {
+                    reader.readAsDataURL(file);
+                }
+            }else{
+                alert("Image size more than 2mb")
+            }
         }
-    }
-
     </script>
 </body>
 
