@@ -117,6 +117,10 @@ function exibeUser(id) {
                                 <img id="galeria1" src="${user.galeria1}" alt="Photo">
                                 <input type="file" accept="image/*" onchange="previewFile()"  id="picture_input"  /><br />
                             </label>
+                            <label class="picture2"  for="picture_input2" >
+                                <img id="galeria2" src="${user.galeria2}" alt="Photo">
+                                <input type="file" accept="image/*" onchange="previewFile2()"  id="picture_input2"  /><br />
+                            </label>
                             <!--<img id="galeria2" src="${user.galeria2}" alt="Photo">
                             <input type="file" class="button-input" onchange="previewFile2()" /><br />
                             <img id="galeria3" src="${user.galeria3}" alt="Photo">
@@ -144,6 +148,14 @@ function alterarImagem (id, imageURI) {
     let userIndex = db.findIndex(usuario => usuario.id == id);      
     if (userIndex != -1) {  
         db[userIndex].galeria1 = imageURI;
+        localStorage.setItem('dbUsers', JSON.stringify (db));
+    }    
+}
+
+function alterarImagem2 (id, imageURI) {
+    let userIndex = db.findIndex(usuario => usuario.id == id);      
+    if (userIndex != -1) {  
+        db[userIndex].galeria2 = imageURI;
         localStorage.setItem('dbUsers', JSON.stringify (db));
     }    
 }

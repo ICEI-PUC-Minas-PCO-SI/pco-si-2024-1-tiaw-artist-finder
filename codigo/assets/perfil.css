@@ -189,6 +189,31 @@ body{
     background: #ccc;
 }
 
+.main .header_wrapper .cols_container .right_col .photos  #picture_input2{
+    display: none;
+}
+
+.main .header_wrapper .cols_container .right_col .photos .picture2{
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    border: 2px dashed currentcolor;
+    cursor: pointer;
+    background: #ddd;
+    font-family: sans-serif;
+    transition: color 300ms ease-in-out, background 300ms ease-in-out;
+}
+
+
+
+.main .header_wrapper .cols_container .right_col .photos  .picture:hover2{
+    color: #7400aa;
+    background: #ccc;
+}
+
 
 
 
