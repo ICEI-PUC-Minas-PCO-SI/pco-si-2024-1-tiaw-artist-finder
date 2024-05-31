@@ -52,27 +52,36 @@
         let idUser = parseInt(urlParams.get('id'));
         exibeUser(idUser);
 
+
+       
+
         function previewFile() {
             const preview = document.querySelector("#galeria1");
             const file = document.querySelector("input[type=file]").files[0];
             const reader = new FileReader();
-        if(file.size < 2000000){
-            reader.addEventListener(
-                "load",
-                () => {
-                    preview.src = reader.result;
-                    alterarImagem(idUser, reader.result);
-                },
-                false,
-            );
-
-                if (file) {
-                    reader.readAsDataURL(file);
+            console.log(file)
+            if(file.size < 2000000){
+                    reader.addEventListener(
+                        "load",
+                        () => {
+                            preview.src = reader.result;
+                            
+                            alterarImagem(idUser, reader.result);
+                        },
+                        false,
+                    );
+                        if (file) {
+                            reader.readAsDataURL(file);
+                        }
+                    }else{
+                        alert("O tamanho da imagem deve ser inferior a 2MB")
+                    }
                 }
-            }else{
-                alert("Image size more than 2mb")
-            }
-        }
+
+            
+
+           
+            
     </script>
 </body>
 

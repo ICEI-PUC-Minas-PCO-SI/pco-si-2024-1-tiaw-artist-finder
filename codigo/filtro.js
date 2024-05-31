@@ -113,13 +113,14 @@ function exibeUser(id) {
                             <button>Follow</button>
                         </nav>
                         <div class="photos">
-                            <img id="galeria1" src="${user.galeria1}" alt="Photo">
-                            <input type="file" onchange="previewFile()" /><br />
-                            <img id="galeria2" src="${user.galeria2}" alt="Photo">
-                            <img src="${user.galeria3}" alt="Photo">
-                            <img src="${user.galeria4}" alt="Photo">
-                            <img src="${user.galeria5}" alt="Photo">
-                            <img src="${user.galeria6}" alt="Photo">
+                            <label class="picture"  for="picture_input" >
+                                <img id="galeria1" src="${user.galeria1}" alt="Photo">
+                                <input type="file" accept="image/*" onchange="previewFile()"  id="picture_input"  /><br />
+                            </label>
+                            <!--<img id="galeria2" src="${user.galeria2}" alt="Photo">
+                            <input type="file" class="button-input" onchange="previewFile2()" /><br />
+                            <img id="galeria3" src="${user.galeria3}" alt="Photo">
+                            <input type="file" class="button-input" onchange="previewFile()" /><br />-->
                         </div>
                     </div>
                 </div>
@@ -146,3 +147,8 @@ function alterarImagem (id, imageURI) {
         localStorage.setItem('dbUsers', JSON.stringify (db));
     }    
 }
+
+
+
+
+
