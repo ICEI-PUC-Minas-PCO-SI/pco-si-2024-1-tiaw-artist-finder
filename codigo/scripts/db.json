@@ -13,6 +13,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa1.jpg",
       "atuacao": "Web Design",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -28,6 +29,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa2.jpg",
       "atuacao": "Fotografia",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -43,6 +45,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa3.jpg",
       "atuacao": "Ilustração",
+      "vendas": [],
       "loggedIn": true
     },
     {
@@ -58,6 +61,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa4.jpg",
       "atuacao": "Web Design",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -73,6 +77,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa5.jpg",
       "atuacao": "Edição",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -88,6 +93,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa6.jpg",
       "atuacao": "Grafite",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -103,6 +109,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa7.jpg",
       "atuacao": "Modelagem 3D",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -118,6 +125,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa8.jpg",
       "atuacao": "Grafite",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -133,6 +141,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa9.jpg",
       "atuacao": "Fotografia",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -148,6 +157,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa10.jpg",
       "atuacao": "Animação",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -163,6 +173,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa11.jpg",
       "atuacao": "Pintura",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -178,6 +189,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa12.jpg",
       "atuacao": "Edição",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -193,6 +205,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa13.jpg",
       "atuacao": "Filmagem",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -208,6 +221,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa14.jpg",
       "atuacao": "Web Design",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -223,6 +237,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa15.jpg",
       "atuacao": "Fotografia",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -238,6 +253,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa16.jpg",
       "atuacao": "Modelagem 3D",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -253,6 +269,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa17.jpg",
       "atuacao": "Design Gráfico",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -268,6 +285,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa18.jpg",
       "atuacao": "Design Gráfico",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -283,6 +301,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa19.jpg",
       "atuacao": "Pintura",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -298,6 +317,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa20.jpg",
       "atuacao": "Grafite",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -313,6 +333,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa21.jpg",
       "atuacao": "Fotografia",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -328,6 +349,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa22.jpg",
       "atuacao": "Filmagem",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -343,6 +365,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa23.jpg",
       "atuacao": "Web Design",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -358,6 +381,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa24.jpg",
       "atuacao": "Ilustração",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -373,6 +397,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa25.jpg",
       "atuacao": "Edição",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -388,6 +413,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa26.jpg",
       "atuacao": "Fotografia",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -403,6 +429,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa27.jpg",
       "atuacao": "Modelagem 3D",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -418,6 +445,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa28.jpg",
       "atuacao": "Edição",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -433,6 +461,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa29.jpg",
       "atuacao": "Design Gráfico",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -448,6 +477,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa30.jpg",
       "atuacao": "Fotografia",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -463,6 +493,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa31.jpg",
       "atuacao": "Grafite",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -478,6 +509,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa32.jpg",
       "atuacao": "Web Design",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -493,6 +525,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa33.jpg",
       "atuacao": "Design Gráfico",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -508,6 +541,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa34.jpg",
       "atuacao": "Filmagem",
+      "vendas": [],
       "loggedIn": false
     },
     {
@@ -523,8 +557,8 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa35.jpg",
       "atuacao": "Ilustração",
+      "vendas": [],
       "loggedIn": false
     }
-  ],
-  "vendas": []
+  ]
 }
