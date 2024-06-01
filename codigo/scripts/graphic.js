@@ -43,30 +43,16 @@ applyStyleOnHover();
 
 // URL da API de dados
 
-// Função para obter a URL base da API
-function getURL() {
-    return "http://localhost:3000/usuarios";
-}
+const URL = "http://localhost:3000/vendas";
+let vendas;
 
-// Função para configurar a URL com o ID do usuário logado
-async function configureURL(baseURL) {
-    try {
-        const loggedInUser = await getLoggedInUser(baseURL);
-        if (loggedInUser) {
-            const userID = loggedInUser.id;
-            return `${baseURL}/${userID}/`;
-        } else {
-            throw new Error('Nenhum usuário está logado');
-        }
-    } catch (error) {
-        console.error('Erro ao configurar a URL:', error);
-    }
-}
+/*--------------------------------------------------------------------------------------------------------------------------*/
 
-// Função para obter o usuário logado
-async function getLoggedInUser(baseURL) {
+// Função para identificar o usuário logado
+
+async function getLoggedInUser() {
     try {
-        const response = await fetch(baseURL);
+        const response = await fetch(URL);
         if (!response.ok) {
             throw new Error('Erro na rede');
         }
@@ -78,17 +64,7 @@ async function getLoggedInUser(baseURL) {
     }
 }
 
-// Chamada da função para configurar a URL
-(async () => {
-    const baseURL = getURL();
-    const configuredURL = await configureURL(baseURL);
-    console.log('URL configurada:', configuredURL);
-})();
-
-let vendas;
-
 /*--------------------------------------------------------------------------------------------------------------------------*/
-
 // GET - Recupera todos as vendas e adiciona na tabela
 
 // Esta função realiza uma requisição GET para recuperar os dados de vendas da API e adiciona na tabela.
@@ -211,30 +187,36 @@ function getvenda(id) {
 
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
+// Esta função cria ou edita uma venda, dependendo se o ID é fornecido ou não.
 // CREATE or UPDATE - Procedimento para criar ou editar uma venda
 
-// Esta função cria ou edita uma venda, dependendo se o ID é fornecido ou não.
-
 const vendaForm = document.getElementById("venda-form");
+vendaForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-vendaForm.addEventListener("submit", (e) => {
-    e.preventDefault(); // Impede o comportamento padrão do envio do formulário
+    // Obter o usuário logado
+    const usuarioLogado = await getLoggedInUser();
 
-    // RECUPERA O ID DO venda
+    if (!usuarioLogado) {
+        console.error("Nenhum usuário logado encontrado.");
+        return;
+    }
 
+    const usuarioLogadoId = usuarioLogado.id;
+
+    // RECUPERA O ID DO VENDA
     let id = parseInt($("#edit-venda-id").text());
 
-    // RECUPERA OS DADOS DO venda
-
+    // RECUPERA OS DADOS DO VENDA
     const venda = {
         id: document.getElementById("venda-id").value,
         mes: document.getElementById("venda-mes").value,
         vlr: document.getElementById("venda-vlr").value,
         qtd: document.getElementById("venda-qtd").value,
+        usuarioCriador: usuarioLogadoId, // Adiciona o ID do usuário logado
     };
 
     // Verificar se o ID da venda começa com "0" ou está vazio
-
     if (venda.id.startsWith("0") || venda.id === "") {
         alert("O ID da venda não pode começar com 0 ou estar vazio.");
         return;
@@ -251,7 +233,7 @@ vendaForm.addEventListener("submit", (e) => {
             .then((res) => res.json())
             .then(() => {
                 createChart();
-                updateSalesStatistics(); // Atualiza as estatísticas após a criação ou edição da venda
+                updateSalesStatistics();
             });
     } else {
         fetch(URL, {
@@ -264,7 +246,7 @@ vendaForm.addEventListener("submit", (e) => {
             .then((res) => res.json())
             .then(() => {
                 createChart();
-                updateSalesStatistics(); // Atualiza as estatísticas após a criação ou edição da venda
+                updateSalesStatistics();
             });
     }
 });
