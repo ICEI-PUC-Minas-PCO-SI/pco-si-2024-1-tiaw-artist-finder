@@ -44,10 +44,29 @@ applyStyleOnHover();
 // URL da API de dados
 
 const URL = "http://localhost:3000/vendas";
+const usersURL = "http://localhost:3000/usuarios";
 let vendas;
 
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
+// Função para identificar o usuário logado
+
+async function getLoggedInUser() {
+    try {
+        const response = await fetch(usersURL);
+        if (!response.ok) {
+            throw new Error('Erro na rede');
+        }
+        const data = await response.json();
+        const loggedInUser = data.find(user => user.loggedIn);
+        return loggedInUser;
+    } catch (error) {
+        console.error('Erro ao buscar usuário logado:', error);
+        return null;
+    }
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
 // GET - Recupera todos as vendas e adiciona na tabela
 
 // Esta função realiza uma requisição GET para recuperar os dados de vendas da API e adiciona na tabela.
@@ -72,35 +91,73 @@ fetch(URL)
             return mesesOrdem.indexOf(mesMesA) - mesesOrdem.indexOf(mesMesB);
         });
 
-        let lista_vendas = "";
-        vendas.forEach((venda) => {
-            const vlt_total = venda.qtd * venda.vlr;
-            lista_vendas += `
-            <tr>
-                <th>${venda.id}</th>
-                <td>${venda.mes}</td>
-                <td>R$${parseFloat(venda.vlr).toFixed(2)}</td>
-                <td>${venda.qtd}</td>
-                <td>R$${parseFloat(vlt_total).toFixed(2)}</td>
-                <td>
-                    <a onclick="getvenda(${venda.id});" 
-                    class="btn btn-warning btn-sm" 
-                    data-toggle="modal" data-target="#venda-modal">
-                    <i class="fa fa-edit"></i>  Editar
-                    </a>
+        populateVendaTable();
+    })
+    .catch(error => console.error('Erro ao recuperar dados de vendas:', error));
 
-                    <a onclick="$('#id-venda').text(${venda.id
-                });" class="btn btn-danger btn-sm" 
-                    data-toggle="modal" data-target="#modal-delete">
-                    <i class="fa fa-trash"></i> Remover
-                    </a>
-                </td>
-            </tr>
+// GET - Recupera todos as vendas e adiciona na tabela
+
+async function populateVendaTable() {
+    try {
+        // Obter o usuário logado
+        const usuarioLogado = await getLoggedInUser();
+
+        if (!usuarioLogado) {
+            console.error("Nenhum usuário logado encontrado.");
+            return;
+        }
+
+        const usuarioLogadoId = usuarioLogado.id;
+
+        // Recuperar todas as vendas
+        const response = await fetch(URL);
+        if (!response.ok) {
+            throw new Error('Erro ao recuperar dados de vendas');
+        }
+        const vendas = await response.json();
+
+        // Filtrar vendas pertencentes ao usuário logado
+        const vendasUsuarioLogado = vendas.filter(venda => venda.usuarioCriador === usuarioLogadoId);
+
+        // Limpar a tabela antes de adicionar novos dados
+        vendaList.innerHTML = '';
+
+        // Adicionar as vendas do usuário logado na tabela
+        vendasUsuarioLogado.forEach((venda) => {
+            const vlt_total = venda.qtd * venda.vlr;
+            const vendaRow = `
+                <tr>
+                    <th>${venda.id}</th>
+                    <td>${venda.mes}</td>
+                    <td>R$${parseFloat(venda.vlr).toFixed(2)}</td>
+                    <td>${venda.qtd}</td>
+                    <td>R$${parseFloat(vlt_total).toFixed(2)}</td>
+                    <td>
+                        <a onclick="getvenda(${venda.id});" 
+                            class="btn btn-warning btn-sm" 
+                            data-toggle="modal" data-target="#venda-modal">
+                            <i class="fa fa-edit"></i>  Editar
+                        </a>
+                        <a onclick="$('#id-venda').text(${venda.id});" 
+                            class="btn btn-danger btn-sm" 
+                            data-toggle="modal" data-target="#modal-delete">
+                            <i class="fa fa-trash"></i> Remover
+                        </a>
+                    </td>
+                </tr>
             `;
+            vendaList.insertAdjacentHTML('beforeend', vendaRow);
         });
 
-        vendaList.innerHTML = lista_vendas;
-    });
+        // Atualizar estatísticas de vendas
+        updateSalesStatistics(vendasUsuarioLogado);
+
+        // Gerar gráfico apenas com as vendas do usuário logado
+        generateChart(vendasUsuarioLogado);
+    } catch (error) {
+        console.error('Erro ao recuperar dados de vendas:', error);
+    }
+}
 
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
@@ -137,7 +194,7 @@ vendaDelete.addEventListener("click", (e) => {
             return res.json();
         })
         .then(() => {
-            createChart();
+            generateChart();
         })
         .catch((error) => console.error("Erro ao excluir a venda:", error));
 });
@@ -163,37 +220,43 @@ function getvenda(id) {
                 $("#venda-id").val(data.id);
                 $("#venda-mes").val(data.mes);
                 $("#venda-vlr").val(data.vlr);
-                $("#venda-qtd").val(data.qtd);
+                $("#venda-vlr").val(data.qtd);
             });
     }
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
+// Esta função cria ou edita uma venda, dependendo se o ID é fornecido ou não.
 // CREATE or UPDATE - Procedimento para criar ou editar uma venda
 
-// Esta função cria ou edita uma venda, dependendo se o ID é fornecido ou não.
-
 const vendaForm = document.getElementById("venda-form");
+vendaForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-vendaForm.addEventListener("submit", (e) => {
-    e.preventDefault(); // Impede o comportamento padrão do envio do formulário
+    // Obter o usuário logado
+    const usuarioLogado = await getLoggedInUser();
 
-    // RECUPERA O ID DO venda
+    if (!usuarioLogado) {
+        console.error("Nenhum usuário logado encontrado.");
+        return;
+    }
 
+    const usuarioLogadoId = usuarioLogado.id;
+
+    // RECUPERA O ID DO VENDA
     let id = parseInt($("#edit-venda-id").text());
 
-    // RECUPERA OS DADOS DO venda
-
+    // RECUPERA OS DADOS DO VENDA
     const venda = {
         id: document.getElementById("venda-id").value,
         mes: document.getElementById("venda-mes").value,
         vlr: document.getElementById("venda-vlr").value,
         qtd: document.getElementById("venda-qtd").value,
+        usuarioCriador: usuarioLogadoId, // Adiciona o ID do usuário logado
     };
 
     // Verificar se o ID da venda começa com "0" ou está vazio
-
     if (venda.id.startsWith("0") || venda.id === "") {
         alert("O ID da venda não pode começar com 0 ou estar vazio.");
         return;
@@ -209,8 +272,8 @@ vendaForm.addEventListener("submit", (e) => {
         })
             .then((res) => res.json())
             .then(() => {
-                createChart();
-                updateSalesStatistics(); // Atualiza as estatísticas após a criação ou edição da venda
+                generateChart();
+                updateSalesStatistics();
             });
     } else {
         fetch(URL, {
@@ -222,8 +285,8 @@ vendaForm.addEventListener("submit", (e) => {
         })
             .then((res) => res.json())
             .then(() => {
-                createChart();
-                updateSalesStatistics(); // Atualiza as estatísticas após a criação ou edição da venda
+                generateChart();
+                updateSalesStatistics();
             });
     }
 });
@@ -269,12 +332,28 @@ fetch(URL)
             valoresOrdenados.push(vendasPorMes[mes]);
         });
 
-        createChart(meses, valoresOrdenados);
+        generateChart(meses, valoresOrdenados);
     });
 
 // Esta função cria um gráfico de barras para visualizar os dados de vendas.
 
-function createChart(meses, valores) {
+function generateChart(vendas) {
+    const vendasPorMes = {};
+
+    vendas.forEach((venda) => {
+        const mes = venda.mes.toLowerCase();
+        const valorTotal = parseFloat(venda.vlr) * parseFloat(venda.qtd);
+
+        if (vendasPorMes[mes]) {
+            vendasPorMes[mes] += valorTotal;
+        } else {
+            vendasPorMes[mes] = valorTotal;
+        }
+    });
+
+    const meses = Object.keys(vendasPorMes);
+    const valores = Object.values(vendasPorMes);
+
     const ctx = document.getElementById("myChart");
 
     new Chart(ctx, {
