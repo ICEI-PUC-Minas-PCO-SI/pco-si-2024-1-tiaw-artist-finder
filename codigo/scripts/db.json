@@ -28,7 +28,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa2.jpg",
       "atuacao": "Fotografia",
-      "loggedIn": false
+      "loggedIn": true
     },
     {
       "id": "3",
@@ -43,7 +43,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa3.jpg",
       "atuacao": "Ilustração",
-      "loggedIn": true
+      "loggedIn": false
     },
     {
       "id": "4",
@@ -526,5 +526,13 @@
       "loggedIn": false
     }
   ],
-  "vendas": []
+  "vendas": [
+    {
+      "id": "2",
+      "mes": "março",
+      "vlr": "2",
+      "qtd": "7",
+      "usuarioCriador": "1"
+    }
+  ]
 }

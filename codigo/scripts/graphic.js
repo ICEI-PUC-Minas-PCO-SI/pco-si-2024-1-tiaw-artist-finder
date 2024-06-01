@@ -44,6 +44,7 @@ applyStyleOnHover();
 // URL da API de dados
 
 const URL = "http://localhost:3000/vendas";
+const usersUrl = "http://localhost:3000/usuarios";
 let vendas;
 
 /*--------------------------------------------------------------------------------------------------------------------------*/
@@ -52,7 +53,7 @@ let vendas;
 
 async function getLoggedInUser() {
     try {
-        const response = await fetch(URL);
+        const response = await fetch(usersUrl);
         if (!response.ok) {
             throw new Error('Erro na rede');
         }
@@ -61,6 +62,7 @@ async function getLoggedInUser() {
         return loggedInUser;
     } catch (error) {
         console.error('Erro ao buscar usuário logado:', error);
+        return null;
     }
 }
 
