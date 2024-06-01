@@ -1,33 +1,23 @@
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
 // Função para abrir a sidebar
-
 document.getElementById("open_btn").addEventListener("click", function () {
     document.getElementById("sidebar").classList.toggle("open-sidebar");
 });
 
-/*--------------------------------------------------------------------------------------------------------------------------*/
-
 // Função para aplicar estilo ao elemento 'a' filho quando 'li.side-item' é hover
-
 function applyStyleOnHover() {
-    
     const sideItems = document.querySelectorAll('li.side-item');
 
-    
     sideItems.forEach((item) => {
-        
         item.addEventListener('mouseenter', function() {
-            
             const link = this.querySelector('a');
             if (link) {
                 link.style.color = '#fff';
             }
         });
 
-        
         item.addEventListener('mouseleave', function() {
-            
             const link = this.querySelector('a');
             if (link) {
                 link.style.color = '';
@@ -42,18 +32,16 @@ applyStyleOnHover();
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
 // URL da API de dados
-
 const URL = "http://localhost:3000/vendas";
-const usersUrl = "http://localhost:3000/usuarios";
+const usersURL = "http://localhost:3000/usuarios";
 let vendas;
 
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
 // Função para identificar o usuário logado
-
 async function getLoggedInUser() {
     try {
-        const response = await fetch(usersUrl);
+        const response = await fetch(usersURL);
         if (!response.ok) {
             throw new Error('Erro na rede');
         }
@@ -67,19 +55,30 @@ async function getLoggedInUser() {
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------*/
+
 // GET - Recupera todos as vendas e adiciona na tabela
+async function populateVendaTable() {
+    try {
+        // Obtém o usuário logado
+        const loggedInUser = await getLoggedInUser();
 
-// Esta função realiza uma requisição GET para recuperar os dados de vendas da API e adiciona na tabela.
+        if (!loggedInUser) {
+            console.error("Nenhum usuário logado encontrado.");
+            return;
+        }
 
-const vendaList = document.getElementById("venda-list");
+        const userId = loggedInUser.id;
 
-fetch(URL)
-    .then((res) => res.json())
-    .then((vendasData) => {
+        // Realiza a requisição GET para recuperar os dados de vendas do usuário logado
+        const response = await fetch(`${URL}?usuarioCriador=${userId}`);
+        
+        if (!response.ok) {
+            throw new Error('Erro ao recuperar dados de vendas');
+        }
+
+        const vendas = await response.json();
+
         // Atribuir os dados da API à variável "vendas"
-        vendas = vendasData;
-
-        // Ordenar as vendas por mês
         vendas.sort((a, b) => {
             const mesMesA = a.mes.toLowerCase();
             const mesMesB = b.mes.toLowerCase();
@@ -102,24 +101,31 @@ fetch(URL)
                 <td>${venda.qtd}</td>
                 <td>R$${parseFloat(vlt_total).toFixed(2)}</td>
                 <td>
-                    <a onclick="getvenda(${venda.id});" 
-                    class="btn btn-warning btn-sm" 
-                    data-toggle="modal" data-target="#venda-modal">
-                    <i class="fa fa-edit"></i>  Editar
-                    </a>
+                    ${userId === venda.usuarioCriador ? 
+                        `<a onclick="getvenda(${venda.id});" 
+                        class="btn btn-warning btn-sm" 
+                        data-toggle="modal" data-target="#venda-modal">
+                        <i class="fa fa-edit"></i>  Editar
+                        </a>
 
-                    <a onclick="$('#id-venda').text(${venda.id
-                });" class="btn btn-danger btn-sm" 
-                    data-toggle="modal" data-target="#modal-delete">
-                    <i class="fa fa-trash"></i> Remover
-                    </a>
+                        <a onclick="$('#id-venda').text(${venda.id
+                    });" class="btn btn-danger btn-sm" 
+                        data-toggle="modal" data-target="#modal-delete">
+                        <i class="fa fa-trash"></i> Remover
+                        </a>` : ''}
                 </td>
             </tr>
             `;
         });
 
         vendaList.innerHTML = lista_vendas;
-    });
+    } catch (error) {
+        console.error('Erro ao recuperar dados de vendas:', error);
+    }
+}
+
+// Chama a função para popular a tabela quando a página carregar
+populateVendaTable();
 
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
@@ -164,7 +170,6 @@ vendaDelete.addEventListener("click", (e) => {
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
 // Procedimento para recuperação dos dados de venda da API
-
 function getvenda(id) {
     if (id == 0) {
         $("#edit-venda-id").text("");
@@ -178,7 +183,14 @@ function getvenda(id) {
         fetch(`${URL}/${id}`)
             .then((res) => res.json())
             .then((data) => {
-                $("#venda-id").prop("disabled", true);
+                // Verifica se o usuário logado é o criador da venda
+                const usuarioLogado = getLoggedInUser();
+                if (usuarioLogado && data.usuarioCriador === usuarioLogado.id) {
+                    $("#venda-id").prop("disabled", true);
+                } else {
+                    $("#venda-id").prop("disabled", false);
+                }
+
                 $("#venda-id").val(data.id);
                 $("#venda-mes").val(data.mes);
                 $("#venda-vlr").val(data.vlr);
@@ -256,16 +268,31 @@ vendaForm.addEventListener("submit", async (e) => {
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
 // Gráfico
+async function generateChart() {
+    try {
+        const usuarioLogado = await getLoggedInUser();
+        if (!usuarioLogado) {
+            console.error("Nenhum usuário logado encontrado.");
+            return;
+        }
+        
+        const usuarioLogadoId = usuarioLogado.id;
 
-let meses = [];
-let valores = [];
+        const response = await fetch(URL);
+        if (!response.ok) {
+            throw new Error('Erro ao buscar vendas');
+        }
+        
+        const vendas = await response.json();
 
-fetch(URL)
-    .then((res) => res.json())
-    .then((vendas) => {
+        let vendasUsuarioLogado = vendas.filter((venda) => venda.usuarioCriador === usuarioLogadoId);
+        
+        let meses = [];
+        let valores = [];
+        
         const vendasPorMes = {};
 
-        vendas.forEach((venda) => {
+        vendasUsuarioLogado.forEach((venda) => {
             const mes = venda.mes.toLowerCase();
             const valorTotal = parseFloat(venda.vlr) * parseFloat(venda.qtd);
 
@@ -295,41 +322,14 @@ fetch(URL)
         });
 
         createChart(meses, valoresOrdenados);
-    });
-
-// Esta função cria um gráfico de barras para visualizar os dados de vendas.
-
-function createChart(meses, valores) {
-    const ctx = document.getElementById("myChart");
-
-    new Chart(ctx, {
-        type: "bar",
-        data: {
-            labels: meses,
-            datasets: [
-                {
-                    label: "Valor total das vendas",
-                    borderColor: "#3e1983",
-                    backgroundColor: "#7132e6",
-                    data: valores,
-                    borderWidth: 1,
-                },
-            ],
-        },
-        options: {
-            animation: {
-                duration: 2000,
-                easing: "easeInOutQuad",
-            },
-
-            scales: {
-                y: {
-                    beginAtZero: true,
-                },
-            },
-        },
-    });
+    } catch (error) {
+        console.error('Erro ao gerar gráfico:', error);
+    }
 }
+
+// Chama a função para gerar o gráfico quando a página carregar
+generateChart();
+
 
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
@@ -344,34 +344,47 @@ fetch(URL)
     });
 
 // Esta função calcula as estatísticas de venda, como o total de vendas e a média de vendas por mês.
-
-function updateSalesStatistics(vendas) {
-    let totalSales = 0;
-    let totalMonths = 0;
-
-    vendas.forEach((venda) => {
-        const valorTotal = parseFloat(venda.vlr) * parseFloat(venda.qtd);
-        totalSales += valorTotal;
-        totalMonths += 1; // Incrementa o total de meses para cada venda
-    });
-
-    // Inicializa a média de vendas por mês com 0
-
-    let avgSalesPerMonth = 0;
-
-    // Verifica se há vendas antes de calcular a média de vendas por mês
-
-    if (totalMonths > 0) {
-
-        // Calcula a média de vendas por mês com base no total de vendas e no total de meses
+async function updateSalesStatistics() {
+    try {
+        const usuarioLogado = await getLoggedInUser();
+        if (!usuarioLogado) {
+            console.error("Nenhum usuário logado encontrado.");
+            return;
+        }
         
-        avgSalesPerMonth = totalSales / totalMonths;
-    }
+        const usuarioLogadoId = usuarioLogado.id;
 
-    document.getElementById("total-sales-value").textContent =
-        totalSales.toFixed(2);
-    document.getElementById("avg-sales-value").textContent =
-        avgSalesPerMonth.toFixed(2);
+        const response = await fetch(URL);
+        if (!response.ok) {
+            throw new Error('Erro ao buscar vendas');
+        }
+        
+        const vendas = await response.json();
+        
+        let totalSales = 0;
+        let totalMonths = 0;
+
+        vendas.forEach((venda) => {
+            if (venda.usuarioCriador === usuarioLogadoId) {
+                const valorTotal = parseFloat(venda.vlr) * parseFloat(venda.qtd);
+                totalSales += valorTotal;
+                totalMonths += 1;
+            }
+        });
+
+        let avgSalesPerMonth = 0;
+
+        if (totalMonths > 0) {
+            avgSalesPerMonth = totalSales / totalMonths;
+        }
+
+        document.getElementById("total-sales-value").textContent =
+            totalSales.toFixed(2);
+        document.getElementById("avg-sales-value").textContent =
+            avgSalesPerMonth.toFixed(2);
+    } catch (error) {
+        console.error('Erro ao atualizar estatísticas de vendas:', error);
+    }
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------*/

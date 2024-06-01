@@ -533,6 +533,13 @@
       "vlr": "2",
       "qtd": "7",
       "usuarioCriador": "1"
+    },
+    {
+      "id": "1",
+      "mes": "abril",
+      "vlr": "2",
+      "qtd": "4",
+      "usuarioCriador": "2"
     }
   ]
 }
