@@ -43,10 +43,30 @@ applyStyleOnHover();
 
 // URL da API de dados
 
-// Função para obter o usuário logado
-async function getLoggedInUser() {
+// Função para obter a URL base da API
+function getURL() {
+    return "http://localhost:3000/usuarios";
+}
+
+// Função para configurar a URL com o ID do usuário logado
+async function configureURL(baseURL) {
     try {
-        const response = await fetch(URL);
+        const loggedInUser = await getLoggedInUser(baseURL);
+        if (loggedInUser) {
+            const userID = loggedInUser.id;
+            return `${baseURL}/${userID}/`;
+        } else {
+            throw new Error('Nenhum usuário está logado');
+        }
+    } catch (error) {
+        console.error('Erro ao configurar a URL:', error);
+    }
+}
+
+// Função para obter o usuário logado
+async function getLoggedInUser(baseURL) {
+    try {
+        const response = await fetch(baseURL);
         if (!response.ok) {
             throw new Error('Erro na rede');
         }
@@ -58,28 +78,12 @@ async function getLoggedInUser() {
     }
 }
 
-// URL base
-const baseURL = "http://localhost:3000/";
-
-// Função para configurar a URL com o ID do usuário logado
-async function configureURL() {
-    try {
-        const loggedInUser = await getLoggedInUser();
-        if (loggedInUser) {
-            const userID = loggedInUser.id;
-            return `${baseURL}usuarios/${userID}/vendas`;
-        } else {
-            throw new Error('Nenhum usuário está logado');
-        }
-    } catch (error) {
-        console.error('Erro ao configurar a URL:', error);
-    }
-}
-
 // Chamada da função para configurar a URL
-configureURL().then((URL) => {
-    console.log('URL configurada:', URL);
-});
+(async () => {
+    const baseURL = getURL();
+    const configuredURL = await configureURL(baseURL);
+    console.log('URL configurada:', configuredURL);
+})();
 
 let vendas;
 
