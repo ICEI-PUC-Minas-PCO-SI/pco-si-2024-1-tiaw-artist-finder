@@ -9,7 +9,15 @@ const URL = 'http://localhost:3000/usuarios';
 
 
 
-let db = JSON.parse(localStorage.getItem('dbUsers'))
+let db = null;
+try {
+    db = JSON.parse(localStorage.getItem('dbUsers'))
+}
+catch (e){
+    console.log(e);
+    db = null;
+}
+
 
 if(!db){
     fetch(URL)

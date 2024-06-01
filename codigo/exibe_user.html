@@ -80,7 +80,7 @@
 
                 function previewFile2() {
                     const preview = document.querySelector("#galeria2");
-                    const file2 = document.querySelector("input[type=file]").files[0];
+                    const file2 = document.querySelector("input[id=picture_input2]").files[0];
                     const reader = new FileReader();
                     console.log(file2)
                     if(file2.size < 2000000){
