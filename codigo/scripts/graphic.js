@@ -330,7 +330,6 @@ function updateSalesStatistics(vendas) {
         totalMonths += 1; // Incrementa o total de meses para cada venda
     });
 
-    // Inicializa a média de vendas por mês com 0
 
     let avgSalesPerMonth = 0;
 
