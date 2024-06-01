@@ -131,10 +131,10 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-005| Filtros                                 | MÉDIA |
 |RF-006| Redes Sociais do Artista                | MÉDIA |
 |RF-007| Comentários                             | MÉDIA | 
-|RF-008| Informações do Usuário                  | ALTA |
+|RF-008| Calendário                              | BAIXA |
 |RF-009| Favoritos                               | BAIXA |
 |RF-0010| Avaliação por Estrelas                 | ALTA |
-|RF-0011| Chat Interativo                        | MÉDIA |
+|RF-0011| Chat Interativo                        | ALTA |
 |RF-0012| Portfólio                              | ALTA |
 
 
@@ -143,7 +143,6 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|-----------------------------|
 |RNF-001| Design responsivo                             | MÉDIA | 
-|RNF-002| Integração com redes sociais do profissional  | BAIXA | 
 
 ## Restrições
 
