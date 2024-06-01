@@ -1,23 +1,33 @@
-/*---------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------*/
 
-// Adiciona um evento ao botão com o id "open_btn" para alternar a classe "open-sidebar" do elemento com o id "sidebar".
+// Função para abrir a sidebar
+
 document.getElementById("open_btn").addEventListener("click", function () {
     document.getElementById("sidebar").classList.toggle("open-sidebar");
 });
 
-/*---------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------*/
 
-// Função para aplicar estilo ao passar o mouse sobre os itens da barra lateral.
+// Função para aplicar estilo ao elemento 'a' filho quando 'li.side-item' é hover
+
 function applyStyleOnHover() {
+    
     const sideItems = document.querySelectorAll('li.side-item');
+
+    
     sideItems.forEach((item) => {
+        
         item.addEventListener('mouseenter', function() {
+            
             const link = this.querySelector('a');
             if (link) {
                 link.style.color = '#fff';
             }
         });
+
+        
         item.addEventListener('mouseleave', function() {
+            
             const link = this.querySelector('a');
             if (link) {
                 link.style.color = '';
@@ -25,56 +35,67 @@ function applyStyleOnHover() {
         });
     });
 }
+
+// Chama a função para aplicar o estilo quando a página carregar
 applyStyleOnHover();
 
-/*---------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------*/
 
-// Define a URL base para a API.
-const baseURL = "http://localhost:3000"; // Substitua pela sua URL base da API
+function fetchDataAndConfigureURL() {
+    // Faz uma requisição para obter os dados do db.json
+    fetch('http://localhost:3000/db')
+        .then((res) => res.json())
+        .then((data) => {
 
-// Função assíncrona para obter o ID do usuário logado.
-async function getLoggedInUserId() {
-    try {
-        const res = await fetch(`${baseURL}/usuarios`);
-        const users = await res.json();
-        const loggedInUser = users.usuarios.find(user => user.loggedIn === true);
-        return loggedInUser ? loggedInUser.id : null;
-    } catch (error) {
-        console.error("Erro ao buscar o usuário logado:", error);
-        return null;
-    }
+            const loggedInUser = data.usuarios.find((user) => user.loggedIn);
+
+            if (loggedInUser) {
+
+                const userId = loggedInUser.id;
+
+
+                const URL = `http://localhost:3000/usuarios/${userId}/vendas`;
+
+                // Restante do seu código que faz uso da URL configurada...
+                console.log('URL configurada:', URL);
+            } else {
+                console.log('Nenhum usuário está logado.');
+            }
+        })
+        .catch((error) => {
+            console.error('Erro ao recuperar dados do servidor:', error);
+        });
 }
 
-/*---------------------------------------------------------------------------------------------------------------------------------------------*/
+// Chamada da função para buscar dados e configurar a URL
+fetchDataAndConfigureURL();
 
-// Executa o código quando o DOM estiver completamente carregado.
-document.addEventListener("DOMContentLoaded", async function() {
-    const userId = await getLoggedInUserId();
-    if (!userId) {
-        console.error("Nenhum usuário logado encontrado.");
-        return;
-    }
+let vendas;
 
-    const URL = `${baseURL}/usuarios/${userId}/vendas`; // Endpoint das vendas do usuário
+/*--------------------------------------------------------------------------------------------------------------------------*/
 
-    const vendaList = document.getElementById("venda-list");
+// GET - Recupera todos as vendas e adiciona na tabela
 
-    try {
-        const res = await fetch(URL);
-        if (!res.ok) {
-            throw new Error(`Erro ao buscar vendas: ${res.statusText}`);
-        }
-        const vendas = await res.json();
+// Esta função realiza uma requisição GET para recuperar os dados de vendas da API e adiciona na tabela.
 
-        // Ordena as vendas por mês.
+const vendaList = document.getElementById("venda-list");
+
+fetch(URL)
+    .then((res) => res.json())
+    .then((vendasData) => {
+        // Atribuir os dados da API à variável "vendas"
+        vendas = vendasData;
+
+        // Ordenar as vendas por mês
         vendas.sort((a, b) => {
-            const mesA = a.mes.toLowerCase();
-            const mesB = b.mes.toLowerCase();
+            const mesMesA = a.mes.toLowerCase();
+            const mesMesB = b.mes.toLowerCase();
             const mesesOrdem = [
                 "janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho",
                 "agosto", "setembro", "outubro", "novembro", "dezembro"
             ];
-            return mesesOrdem.indexOf(mesA) - mesesOrdem.indexOf(mesB);
+
+            return mesesOrdem.indexOf(mesMesA) - mesesOrdem.indexOf(mesMesB);
         });
 
         let lista_vendas = "";
@@ -88,125 +109,270 @@ document.addEventListener("DOMContentLoaded", async function() {
                 <td>${venda.qtd}</td>
                 <td>R$${parseFloat(vlt_total).toFixed(2)}</td>
                 <td>
-                    <button class="btn-edit" data-id="${venda.id}">Editar</button>
-                    <button class="btn-delete" data-id="${venda.id}">Excluir</button>
+                    <a onclick="getvenda(${venda.id});" 
+                    class="btn btn-warning btn-sm" 
+                    data-toggle="modal" data-target="#venda-modal">
+                    <i class="fa fa-edit"></i>  Editar
+                    </a>
+
+                    <a onclick="$('#id-venda').text(${venda.id
+                });" class="btn btn-danger btn-sm" 
+                    data-toggle="modal" data-target="#modal-delete">
+                    <i class="fa fa-trash"></i> Remover
+                    </a>
                 </td>
             </tr>
             `;
         });
+
         vendaList.innerHTML = lista_vendas;
-
-        // Adiciona evento de clique para editar uma venda.
-        document.querySelectorAll('.btn-edit').forEach((btn) => {
-            btn.addEventListener('click', async function() {
-                const vendaId = this.getAttribute('data-id');
-                const venda = vendas.find((venda) => venda.id === parseInt(vendaId));
-                if (venda) {
-                    const vendaForm = document.getElementById("venda-form");
-                    vendaForm.elements["id"].value = venda.id;
-                    vendaForm.elements["mes"].value = venda.mes;
-                    vendaForm.elements["vlr"].value = venda.vlr;
-                    vendaForm.elements["qtd"].value = venda.qtd;
-                    vendaForm.elements["submit"].value = "Editar Venda";
-                }
-            });
-        });
-
-        // Adiciona evento de clique para excluir uma venda.
-        document.querySelectorAll('.btn-delete').forEach((btn) => {
-            btn.addEventListener('click', async function() {
-                const vendaId = this.getAttribute('data-id');
-                try {
-                    const res = await fetch(`${URL}/${vendaId}`, {
-                        method: 'DELETE'
-                    });
-                    if (!res.ok) {
-                        throw new Error(`Erro ao excluir venda: ${res.statusText}`);
-                    }
-                    console.log("Venda excluída com sucesso!");
-                    location.reload(); // Recarrega a página para atualizar a lista de vendas.
-                } catch (error) {
-                    console.error("Erro ao excluir venda:", error);
-                }
-            });
-        });
-
-        // Cria o gráfico com as vendas.
-        const ctx = document.getElementById('vendas-chart').getContext('2d');
-        const vendasChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: vendas.map((venda) => venda.mes),
-                datasets: [{
-                    label: 'Vendas',
-                    data: vendas.map((venda) => venda.qtd * venda.vlr),
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-
-    } catch (error) {
-        console.error("Erro ao buscar vendas do usuário:", error);
-    }
-    // Adiciona evento de submit para criar ou editar uma venda.
-    document.getElementById("venda-form").addEventListener("submit", async function(event) {
-        event.preventDefault();
-        const formData = new FormData(this);
-        const vendaId = formData.get("id");
-        const vendaMes = formData.get("mes");
-        const vendaVlr = formData.get("vlr");
-        const vendaQtd = formData.get("qtd");
-
-        try {
-            if (vendaId) {
-                // Edita uma venda existente.
-                const res = await fetch(`${URL}/${vendaId}`, {
-                    method: 'PUT',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ mes: vendaMes, vlr: vendaVlr, qtd: vendaQtd })
-                });
-                if (!res.ok) {
-                    throw new Error(`Erro ao editar venda: ${res.statusText}`);
-                }
-                console.log("Venda editada com sucesso!");
-            } else {
-                // Cria uma nova venda.
-                const res = await fetch(URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ mes: vendaMes, vlr: vendaVlr, qtd: vendaQtd })
-                });
-                if (!res.ok){
-                    throw new Error(`Erro ao criar venda: ${res.statusText}`);
-                }
-                console.log("Venda criada com sucesso!");
-            }
-            location.reload(); // Recarrega a página para atualizar a lista de vendas.
-        } catch (error) {
-            console.error("Erro ao criar ou editar venda:", error);
-        }
     });
-}); 
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+// DELETE - Procedimento de exclusão de venda
+const vendaDelete = document.getElementById("btn-delete");
+
+vendaDelete.addEventListener("click", (e) => {
+
+    // Verificar se a variável vendas está definida
+
+    if (!vendas) {
+        console.error("Erro: Dados de vendas não estão disponíveis.");
+        return;
+    }
+
+    let id = $("#id-venda").text();
+
+    // Verificar se a venda com o ID especificado existe nos dados
+
+    if (!vendas.some((venda) => venda.id === id)) {
+        console.error(
+            "Venda não encontrada. O ID especificado pode estar incorreto."
+        );
+        return;
+    }
+
+    fetch(`${URL}/${id}`, {
+        method: "DELETE",
+    })
+        .then((res) => {
+            if (!res.ok) {
+                throw new Error("Erro ao excluir a venda");
+            }
+            return res.json();
+        })
+        .then(() => {
+            createChart();
+        })
+        .catch((error) => console.error("Erro ao excluir a venda:", error));
+});
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+// Procedimento para recuperação dos dados de venda da API
+
+function getvenda(id) {
+    if (id == 0) {
+        $("#edit-venda-id").text("");
+        $("#venda-id").prop("disabled", false);
+        $("#venda-id").val("");
+        $("#venda-mes").val("");
+        $("#venda-vlr").val("");
+        $("#venda-qtd").val("");
+    } else {
+        $("#edit-venda-id").text(id);
+        fetch(`${URL}/${id}`)
+            .then((res) => res.json())
+            .then((data) => {
+                $("#venda-id").prop("disabled", true);
+                $("#venda-id").val(data.id);
+                $("#venda-mes").val(data.mes);
+                $("#venda-vlr").val(data.vlr);
+                $("#venda-qtd").val(data.qtd);
+            });
+    }
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+// CREATE or UPDATE - Procedimento para criar ou editar uma venda
+
+// Esta função cria ou edita uma venda, dependendo se o ID é fornecido ou não.
+
+const vendaForm = document.getElementById("venda-form");
+
+vendaForm.addEventListener("submit", (e) => {
+    e.preventDefault(); // Impede o comportamento padrão do envio do formulário
+
+    // RECUPERA O ID DO venda
+
+    let id = parseInt($("#edit-venda-id").text());
+
+    // RECUPERA OS DADOS DO venda
+
+    const venda = {
+        id: document.getElementById("venda-id").value,
+        mes: document.getElementById("venda-mes").value,
+        vlr: document.getElementById("venda-vlr").value,
+        qtd: document.getElementById("venda-qtd").value,
+    };
+
+    // Verificar se o ID da venda começa com "0" ou está vazio
+
+    if (venda.id.startsWith("0") || venda.id === "") {
+        alert("O ID da venda não pode começar com 0 ou estar vazio.");
+        return;
+    }
+
+    if (id >= 0) {
+        fetch(`${URL}/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(venda),
+        })
+            .then((res) => res.json())
+            .then(() => {
+                createChart();
+                updateSalesStatistics(); // Atualiza as estatísticas após a criação ou edição da venda
+            });
+    } else {
+        fetch(URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(venda),
+        })
+            .then((res) => res.json())
+            .then(() => {
+                createChart();
+                updateSalesStatistics(); // Atualiza as estatísticas após a criação ou edição da venda
+            });
+    }
+});
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+// Gráfico
+
+let meses = [];
+let valores = [];
+
+fetch(URL)
+    .then((res) => res.json())
+    .then((vendas) => {
+        const vendasPorMes = {};
+
+        vendas.forEach((venda) => {
+            const mes = venda.mes.toLowerCase();
+            const valorTotal = parseFloat(venda.vlr) * parseFloat(venda.qtd);
+
+            if (vendasPorMes[mes]) {
+                vendasPorMes[mes] += valorTotal;
+            } else {
+                vendasPorMes[mes] = valorTotal;
+            }
+        });
+
+        Object.keys(vendasPorMes).forEach((mes) => {
+            meses.push(mes);
+            valores.push(vendasPorMes[mes]);
+        });
+
+        meses.sort((a, b) => {
+            const mesesOrdem = [
+                "janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho",
+                "agosto", "setembro", "outubro", "novembro", "dezembro"
+            ];
+            return mesesOrdem.indexOf(a) - mesesOrdem.indexOf(b);
+        });
+
+        const valoresOrdenados = [];
+        meses.forEach((mes) => {
+            valoresOrdenados.push(vendasPorMes[mes]);
+        });
+
+        createChart(meses, valoresOrdenados);
+    });
+
+// Esta função cria um gráfico de barras para visualizar os dados de vendas.
+
+function createChart(meses, valores) {
+    const ctx = document.getElementById("myChart");
+
+    new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: meses,
+            datasets: [
+                {
+                    label: "Valor total das vendas",
+                    borderColor: "#3e1983",
+                    backgroundColor: "#7132e6",
+                    data: valores,
+                    borderWidth: 1,
+                },
+            ],
+        },
+        options: {
+            animation: {
+                duration: 2000,
+                easing: "easeInOutQuad",
+            },
+
+            scales: {
+                y: {
+                    beginAtZero: true,
+                },
+            },
+        },
+    });
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
+// Estatística de venda
+
+// Esta função calcula as estatísticas de venda, como o total de vendas e a média de vendas por mês.
+
+fetch(URL)
+    .then((res) => res.json())
+    .then((vendas) => {
+        updateSalesStatistics(vendas);
+    });
+
+// Esta função calcula as estatísticas de venda, como o total de vendas e a média de vendas por mês.
+
+function updateSalesStatistics(vendas) {
+    let totalSales = 0;
+    let totalMonths = 0;
+
+    vendas.forEach((venda) => {
+        const valorTotal = parseFloat(venda.vlr) * parseFloat(venda.qtd);
+        totalSales += valorTotal;
+        totalMonths += 1; // Incrementa o total de meses para cada venda
+    });
+
+    // Inicializa a média de vendas por mês com 0
+
+    let avgSalesPerMonth = 0;
+
+    // Verifica se há vendas antes de calcular a média de vendas por mês
+
+    if (totalMonths > 0) {
+
+        // Calcula a média de vendas por mês com base no total de vendas e no total de meses
+        
+        avgSalesPerMonth = totalSales / totalMonths;
+    }
+
+    document.getElementById("total-sales-value").textContent =
+        totalSales.toFixed(2);
+    document.getElementById("avg-sales-value").textContent =
+        avgSalesPerMonth.toFixed(2);
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
