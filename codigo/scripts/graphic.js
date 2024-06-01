@@ -8,6 +8,24 @@ document.getElementById("open_btn").addEventListener("click", function () {
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------*/
 
+// Função para identifica qual usuário está logado
+
+function getLoggedInUserId() {
+    const baseURL = "http://localhost:3000/usuarios";
+    return fetch(baseURL)
+        .then(res => res.json())
+        .then(users => {
+            const loggedInUser = users.find(user => user.loggedIn === true);
+            return loggedInUser ? loggedInUser.id : null;
+        })
+        .catch(error => {
+            console.error("Erro ao buscar o usuário logado:", error);
+            return null;
+        });
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------*/
+
 // Função para aplicar estilo ao elemento 'a' filho quando 'li.side-item' é hover
 
 function applyStyleOnHover() {
