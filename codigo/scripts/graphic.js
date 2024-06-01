@@ -41,34 +41,45 @@ applyStyleOnHover();
 
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
-function fetchDataAndConfigureURL() {
-    // Faz uma requisição para obter os dados do db.json
-    fetch('http://localhost:3000/db')
-        .then((res) => res.json())
-        .then((data) => {
+// URL da API de dados
 
-            const loggedInUser = data.usuarios.find((user) => user.loggedIn);
-
-            if (loggedInUser) {
-
-                const userId = loggedInUser.id;
-
-
-                const URL = `http://localhost:3000/usuarios/${userId}/vendas`;
-
-                // Restante do seu código que faz uso da URL configurada...
-                console.log('URL configurada:', URL);
-            } else {
-                console.log('Nenhum usuário está logado.');
-            }
-        })
-        .catch((error) => {
-            console.error('Erro ao recuperar dados do servidor:', error);
-        });
+// Função para obter o usuário logado
+async function getLoggedInUser() {
+    try {
+        const response = await fetch(URL);
+        if (!response.ok) {
+            throw new Error('Erro na rede');
+        }
+        const data = await response.json();
+        const loggedInUser = data.find(user => user.loggedIn);
+        return loggedInUser;
+    } catch (error) {
+        console.error('Erro ao buscar usuário logado:', error);
+    }
 }
 
-// Chamada da função para buscar dados e configurar a URL
-fetchDataAndConfigureURL();
+// URL base
+const baseURL = "http://localhost:3000/";
+
+// Função para configurar a URL com o ID do usuário logado
+async function configureURL() {
+    try {
+        const loggedInUser = await getLoggedInUser();
+        if (loggedInUser) {
+            const userID = loggedInUser.id;
+            return `${baseURL}usuarios/${userID}/vendas`;
+        } else {
+            throw new Error('Nenhum usuário está logado');
+        }
+    } catch (error) {
+        console.error('Erro ao configurar a URL:', error);
+    }
+}
+
+// Chamada da função para configurar a URL
+configureURL().then((URL) => {
+    console.log('URL configurada:', URL);
+});
 
 let vendas;
 
