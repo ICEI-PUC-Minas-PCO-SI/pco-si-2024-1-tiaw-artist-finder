@@ -80,10 +80,10 @@
 
                 function previewFile2() {
                     const preview = document.querySelector("#galeria2");
-                    const file2 = document.querySelector("input[id=picture_input2]").files[0];
+                    const file = document.querySelector("input[id=picture_input2]").files[0];
                     const reader = new FileReader();
-                    console.log(file2)
-                    if(file2.size < 2000000){
+                    console.log(file)
+                    if(file.size < 2000000){
                             reader.addEventListener(
                                 "load",
                                 () => {
@@ -93,8 +93,31 @@
                                 },
                                 false,
                             );
-                                if (file2) {
-                                    reader.readAsDataURL(file2);
+                                if (file) {
+                                    reader.readAsDataURL(file);
+                                }
+                            }else{
+                                alert("O tamanho da imagem deve ser inferior a 2MB")
+                            }
+                }
+
+                function previewFile3() {
+                    const preview = document.querySelector("#galeria3");
+                    const file = document.querySelector("input[id=picture_input3]").files[0];
+                    const reader = new FileReader();
+                    console.log(file)
+                    if(file.size < 2000000){
+                            reader.addEventListener(
+                                "load",
+                                () => {
+                                    preview.src = reader.result;
+                                    
+                                    alterarImagem3(idUser, reader.result);
+                                },
+                                false,
+                            );
+                                if (file) {
+                                    reader.readAsDataURL(file);
                                 }
                             }else{
                                 alert("O tamanho da imagem deve ser inferior a 2MB")

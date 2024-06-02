@@ -120,19 +120,22 @@ function exibeUser(id) {
                             </ul>
                             <button>Follow</button>
                         </nav>
+                        <p> Selecione a foto para upload <p>
                         <div class="photos">
-                            <label class="picture"  for="picture_input" >
+                        
+                            <label for="picture_input" >
                                 <img id="galeria1" src="${user.galeria1}" alt="Photo">
                                 <input type="file" accept="image/*" onchange="previewFile()"  id="picture_input"  /><br />
                             </label>
-                            <label class="picture2"  for="picture_input2" >
+                            <label for="picture_input2"  >
                                 <img id="galeria2" src="${user.galeria2}" alt="Photo">
-                                <input type="file" accept="image/*" onchange="previewFile2()"  id="picture_input2"  /><br />
+                                <input type="file" class accept="image/*" onchange="previewFile2()"  id="picture_input2"  /><br />
                             </label>
-                            <!--<img id="galeria2" src="${user.galeria2}" alt="Photo">
-                            <input type="file" class="button-input" onchange="previewFile2()" /><br />
-                            <img id="galeria3" src="${user.galeria3}" alt="Photo">
-                            <input type="file" class="button-input" onchange="previewFile()" /><br />-->
+                            <label for="picture_input3"  >
+                                <img id="galeria3" src="${user.galeria3}" alt="Photo">
+                                <input type="file" class accept="image/*" onchange="previewFile3()"  id="picture_input3"  /><br />
+                            </label>
+                            
                         </div>
                     </div>
                 </div>
@@ -168,6 +171,13 @@ function alterarImagem2 (id, imageURI) {
     }    
 }
 
+function alterarImagem3 (id, imageURI) {
+    let userIndex = db.findIndex(usuario => usuario.id == id);      
+    if (userIndex != -1) {  
+        db[userIndex].galeria3 = imageURI;
+        localStorage.setItem('dbUsers', JSON.stringify (db));
+    }    
+}
 
 
 
