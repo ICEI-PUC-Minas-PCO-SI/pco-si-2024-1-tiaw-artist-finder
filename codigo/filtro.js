@@ -120,7 +120,7 @@ function exibeUser(id) {
                             </ul>
                             <button>Follow</button>
                         </nav>
-                        <p> Selecione a foto para upload <p>
+                        <p> Selecione uma foto para upload <p>
                         <div class="photos">
                         
                             <label for="picture_input" >

@@ -173,6 +173,10 @@ body{
     
 }
 
+.profile-area a{
+    text-decoration: none;
+}
+
 .socials{
     text-align: center;
     padding-bottom: 20px;
