@@ -60,7 +60,6 @@ document.addEventListener("click", (e) => {
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
 // Função para cadastro de novo usuário
-
 async function signUp() {
     let formSignUp = document.getElementById('signUpForm');
     if (!formSignUp) {
