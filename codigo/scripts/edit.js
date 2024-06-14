@@ -37,6 +37,7 @@ function atualizarPerfilVisual(usuario) {
 document.addEventListener('DOMContentLoaded', carregarDadosUsuario);
 
 // Função para abrir o modal e carregar os dados do usuário
+
 function abrirModal() {
     try {
         var modal = document.getElementById('myModal');
@@ -97,7 +98,9 @@ function abrirModal() {
 }
 
 // Função para fechar o modal
-function fecharModal() {
+var fecharModal = document.getElementById('fecharmodal');
+
+fecharModal.addEventListener('click', function fecharModal(){
     try {
         var modal = document.getElementById('myModal');
         if (!modal) {
@@ -117,7 +120,7 @@ function fecharModal() {
     } catch (error) {
         console.error('Erro ao fechar modal:', error);
     }
-}
+});
 
 // Função para atualizar os dados do usuário no banco de dados JSON
 function atualizarUsuario(id, dadosAtualizados) {

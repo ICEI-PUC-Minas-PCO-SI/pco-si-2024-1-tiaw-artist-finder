@@ -58,7 +58,7 @@
     <main class="main-container">
         <div class="profile-edit">
             <img src="./assets/img/Djamila-Ribeiro.png" alt="" id="profile_pic">
-            <p class="edit-btn" onclick="abrirModal()">Editar</p>
+            <p class="edit-btn" id="abrirmodal">Editar</p>
             <p id="name" class="profile-name"></p>
             <p id="display-username" class="p-simple-info"></p>
             <p id="city" class="p-simple-info"></p>
@@ -140,7 +140,7 @@
                 </div>
                 <!-- Rodapé do Modal -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="fecharModal()">Fechar</button>
+                    <button type="button" id="fecharmodal" class="btn btn-secondary" data-dismiss="modal" >Fechar</button>
                     <button id="btnSalvar" type="button" class="btn btn-primary">Salvar</button>
                 </div>
             </div>
