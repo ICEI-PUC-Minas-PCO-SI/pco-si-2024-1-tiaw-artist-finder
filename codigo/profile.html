@@ -23,7 +23,7 @@
     <!--  navbar simples com bootstrap q sera refinada -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <img src="assets/img/logo.svg" id="logo">
+            <img src="assets/img/logo.svg" alt="logo" id="logo">
             <!--<a class="navbar-brand" href="#">Artist Finder</a>-->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
                 aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,50 +57,17 @@
     <!--Editar perfil-->
     <main class="main-container">
         <div class="profile-edit">
-            <img src="" alt="" id="profile_pic">
+            <img src="" alt="user-photo" id="profile_pic">
             <p class="edit-btn" id="abrirmodal">Editar</p>
             <p id="name" class="profile-name"></p>
             <p id="display-username" class="p-simple-info"></p>
-            <p id="city" class="p-simple-info"></p>
+            <p id="cidade" class="p-simple-info"></p>
             <p id="state" class="p-simple-info"></p>
             <p id="user-id" style="display: none;">1</p>
         </div>
     </main>
-        <!-- <div class="services">
-            <div class="services-container">
-                <p class="p-simple-info">Tipos de Serviços</p>
-                <p id="basic-service" class="p-service-info">Básico</p>
-                <p id="medium-service" class="p-service-info">Intermediário</p>
-                <p id="premium-service" class="p-service-info">Premium</p></div>        
-            <a id="btn-service" href="" class="btn-profile">Personalizar</a>
-        </div>
-        <div class="contact-infos">
-            <p class="edit-btn">Editar</p>
-            <p class="p-simple-info">Informações de Contato</p>
-            <p class="p-contact-info">Número de Telefone:</p>
-            <p class="p-contact-info">E-mail:</p>
-        </div>
-        <div class="portfolio">
-            <div class="portfolio-img-container">
-                <img id="portfolio_img" src="./assets/img/216803346-statue-kant.jpg" alt="" class="portfolio-img">
-            </div>        
-            <form action="/upload" method="post" enctype="multipart/form-data">
-                <label for="imagem">Poste seu porfólio:</label>
-                <input type="file" id="imagem" name="imagem" accept="image/*">
-                <a href="#" class="btn-profile">Enviar</a>
-              </form>
-        </div>
-        <div class="personal-info">
-            <p class="edit-btn">Editar</p>
-            <p class="p-simple-info">Informações Pessoais</p>
-            <p class="p-simple-info">Descrição</p>
-            <p class="p-simple-info">Idiomas</p>
-            <p class="p-simple-info">Habilidades</p>
-            <p class="p-simple-info">Educação</p>
-        </div> -->
-
         <!-- Modal de Editar Perfil-->
-    <div class="modal fade" id="myModal">
+    <div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
 
@@ -112,6 +79,7 @@
                 <!-- Corpo do Modal -->
                 <div class="modal-body">
                     <form>
+                        <!--Setar o display do Id do usuario como none ou deletar ele do modal-->
                         <div class="form-group">
                             <label for="id">ID:</label>
                             <input type="text" class="form-control" id="id" disabled>
@@ -125,8 +93,8 @@
                             <input type="text" class="form-control" id="username">
                         </div>        
                         <div class="form-group">
-                             <label for="instituicao">Instituição:</label>
-                            <input type="text" class="form-control" id="instituicao">
+                             <label for="cidade">Cidade:</label>
+                            <input type="text" class="form-control" id="cidade">
                         </div>
                         <div class="form-group">
                             <label for="estado">Estado:</label>

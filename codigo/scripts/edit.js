@@ -1,27 +1,28 @@
 // Função para recuperar os dados do usuário do banco de dados e adicionar ao HTML
-function carregarDadosUsuario() {
+function carregarDadosUsuarioLogado() {
     fetch('http://localhost:3000/usuarios')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erro ao recuperar dados do usuário');
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(usuarios => {
-            const usuario = usuarios[0]; // Supondo que há apenas um usuário no banco de dados
-            atualizarPerfilVisual(usuario); // Atualiza os elementos HTML com os dados do usuário
+            const user = usuarios.find(u => u.loggedIn);
+            if (user) {
+                atualizarPerfilVisual(user); // Atualiza os elementos HTML com os dados do usuário
+            } else {
+                console.error('Nenhum usuário logado encontrado.');
+            }
         })
-        .catch(error => {
-            console.error('Erro ao carregar dados do usuário:', error);
-        });
+        .catch(error => console.error('Erro ao carregar dados do usuário:', error));
 }
+
+// Exemplo de uso da função
+carregarDadosUsuarioLogado();
+
 
 // Função para atualizar os elementos na página com os dados do usuário
 function atualizarPerfilVisual(usuario) {
     // Atualiza os elementos na página com os dados do usuário
     document.getElementById('name').textContent = usuario.nome;
     document.getElementById('display-username').textContent = usuario.username;
-    document.getElementById('city').textContent = usuario.instituicao;
+    document.getElementById('cidade').textContent = usuario.cidade;
     document.getElementById('state').textContent = usuario.estado;
 
     // Preencher a foto de perfil
@@ -34,7 +35,7 @@ function atualizarPerfilVisual(usuario) {
 }
 
 // Chamar a função para carregar os dados do usuário assim que a página carregar
-document.addEventListener('DOMContentLoaded', carregarDadosUsuario);
+document.addEventListener('DOMContentLoaded', carregarDadosUsuarioLogado);
 
 // Função para abrir o modal e carregar os dados do usuário
 
@@ -49,7 +50,7 @@ function abrirModal() {
         document.getElementById('id').value = ''; 
         document.getElementById('nome').value = '';
         document.getElementById('username').value = '';
-        document.getElementById('instituicao').value = '';
+        document.getElementById('cidade').value = '';
         document.getElementById('estado').value = '';
 
         // Obter o ID do usuário do elemento HTML
@@ -86,7 +87,7 @@ function abrirModal() {
                 document.getElementById('id').value = userId; // Define o ID travado no campo de ID
                 document.getElementById('nome').value = data.nome;
                 document.getElementById('username').value = data.username;
-                document.getElementById('instituicao').value = data.instituicao;
+                document.getElementById('cidade').value = data.cidade;
                 document.getElementById('estado').value = data.estado;
             })
             .catch(error => {
@@ -154,7 +155,7 @@ function atualizarPerfil() {
         const dadosAtualizados = {
             nome: document.getElementById('nome').value,
             username: document.getElementById('username').value,
-            instituicao: document.getElementById('instituicao').value,
+            cidade: document.getElementById('cidade').value,
             estado: document.getElementById('estado').value,
             foto: document.getElementById('foto').src // Caminho da foto de perfil
         };
