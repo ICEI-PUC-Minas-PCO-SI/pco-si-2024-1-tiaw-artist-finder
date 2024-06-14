@@ -30,6 +30,8 @@ if(!db){
 const userList = document.getElementById('user-list');
 const mostrarUser = document.getElementById('tela');
 
+
+
 let FILTRO_ATUACAO = "";
 let FILTRO_ESTADO = "";
 let FILTRO_DISPONIBILIDADE = "";

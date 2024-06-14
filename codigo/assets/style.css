@@ -91,7 +91,16 @@ body{
     background: #fff;
 }
 
+.divSearch{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
 
+input{
+    padding: 5px;
+    outline: none;
+}
 
 .profile-area{
     padding: 20px 0;
