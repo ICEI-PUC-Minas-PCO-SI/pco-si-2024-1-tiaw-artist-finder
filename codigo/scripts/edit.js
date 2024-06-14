@@ -33,7 +33,10 @@ function atualizarPerfilVisual(usuario) {
 }
 
 // Chamar a função para carregar os dados do usuário assim que a página carregar
-document.addEventListener('DOMContentLoaded', carregarDadosUsuarioLogado);
+document.addEventListener('DOMContentLoaded', () =>{
+    displayStoredImage();
+    carregarDadosUsuarioLogado();
+});
 
 // Função para abrir o modal e carregar os dados do usuário
 function abrirModal() {
@@ -163,11 +166,53 @@ if (abrirBtn) {
 } else {
     console.error('Botão de abrir modal não encontrado.');
 }
+// Função para converter arquivo em base64
+function toBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+    });
+}
+
+// Função para salvar a imagem no localStorage
+async function saveImage() {
+    const input = document.getElementById('foto');
+    const file = input.files[0];
+
+    if (file) {
+        try {
+            const base64Image = await toBase64(file);
+            localStorage.setItem('storedImage', base64Image);
+            alert('Imagem salva com sucesso!');
+            displayStoredImage();
+        } catch (error) {
+            console.error('Erro ao converter a imagem:', error);
+        }
+    } else {
+        alert('Por favor, selecione uma imagem.');
+    }
+}
+
+// Função para exibir a imagem armazenada
+function displayStoredImage() {
+    const storedImage = localStorage.getItem('storedImage');
+    if (storedImage) {
+        const imgElement = document.getElementById('profile_pic');
+        imgElement.src = storedImage;
+    }
+}
+
+// Carregar a imagem armazenada ao carregar a página
+window.addEventListener('load', displayStoredImage);
 
 // Adiciona event listener para salvar as alterações no perfil do usuário
 const modalSalvar = document.getElementById('btnSalvar');
 if (modalSalvar) {
-    modalSalvar.addEventListener('click', salvarDados);
+    modalSalvar.addEventListener('click', saveImage, salvarDados);
+
 } else {
     console.error('Botão de salvar não encontrado.');
 }
+window.onload = displayStoredImage;

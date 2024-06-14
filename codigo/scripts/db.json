@@ -529,8 +529,8 @@
       "id": "36",
       "nome": "Carlos Teste",
       "idade": "",
-      "username": "teste1",
-      "email": "teste.1@example.com",
+      "username": "testefoto1",
+      "email": "teste.1@localstorage.com",
       "password": "admin1",
       "foto": "",
       "estado": "São Paulo",
@@ -538,7 +538,7 @@
       "disponibilidade": "Freelance",
       "capa": "",
       "atuacao": "Programador Front-End",
-      "loggedIn": false
+      "loggedIn": true
     }
   ],
   "vendas": [],
