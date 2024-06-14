@@ -20,8 +20,8 @@ function atualizarPerfilVisual(usuario) {
     // Atualiza os elementos na página com os dados do usuário
     document.getElementById('name').textContent = usuario.nome;
     document.getElementById('display-username').textContent = usuario.username;
-    document.getElementById('cidade').textContent = usuario.cidade;
-    document.getElementById('state').textContent = usuario.estado;
+    document.getElementById('atuacao').textContent = usuario.atuacao;
+    document.getElementById('estado').textContent = usuario.estado;
 
     // Preencher a foto de perfil
     if (usuario.foto) {
@@ -70,18 +70,22 @@ function preencherFormulario() {
         .then(usuarios => {
             const user = usuarios.find(u => u.loggedIn);
             if (user) {
-                // Preencher os campos do formulário com os dados do usuário
-                document.getElementById('id').value = user.id;
-                document.getElementById('nome').value = user.nome;
-                document.getElementById('username').value = user.username;
-                document.getElementById('cidade').value = user.cidade; // Adicione uma verificação adicional aqui
-                document.getElementById('estado').value = user.estado;
-                
+                dadoseditaveis(user);
             } else {
                 console.error('Nenhum usuário logado encontrado.');
             }
         })
         .catch(error => console.error('Erro ao carregar os dados do usuário:', error));
+}
+preencherFormulario();
+function dadoseditaveis (usuario){
+    // Preencher os campos do formulário com os dados do usuário
+    document.getElementById('id').value = usuario.id;
+    document.getElementById('nome').value = usuario.nome;
+    document.getElementById('username').value = usuario.username;
+    document.getElementById('atuacaoP').value = usuario.atuacao;
+    document.getElementById('state').value = usuario.estado;
+    
 }
 
 function fecharModal() {
@@ -103,15 +107,15 @@ function salvarDados() {
         .then(user => {
             var nome = document.getElementById('nome').value;
             var username = document.getElementById('username').value;
-            var cidade = document.getElementById('cidade').value;
-            var estado = document.getElementById('estado').value;
+            var atuacao = document.getElementById('atuacaoP').value;
+            var estado = document.getElementById('state').value;
 
             var fotoPerfil = document.getElementById('foto').files[0];
 
             var userData = {};
             if (nome !== user.nome) userData.nome = nome;
             if (username !== user.username) userData.username = username;
-            if (cidade !== user.cidade) userData.cidade = cidade;
+            if (atuacao !== user.atuacao) userData.atuacao = atuacao;
             if (estado !== user.estado) userData.estado = estado;
 
 
