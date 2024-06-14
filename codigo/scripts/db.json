@@ -13,7 +13,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa1.jpg",
       "atuacao": "Web Design",
-      "loggedIn": true
+      "loggedIn": false
     },
     {
       "id": "2",
@@ -28,7 +28,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa2.jpg",
       "atuacao": "Fotografia",
-      "loggedIn": false
+      "loggedIn": true
     },
     {
       "id": "3",
@@ -555,7 +555,7 @@
     {
       "estrelas": "1 estrelas",
       "label": 1,
-      "value": 6,
+      "value": 7,
       "id": "5"
     }
   ]
