@@ -7,6 +7,7 @@
     <!--Links para CSS-->
     <link rel="stylesheet" href="./assets/style.css">
     <link rel="stylesheet" href="./assets/avalia.css">
+    <link rel="stylesheet" href="./assets/edit.css">
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <!--Link para bootstrap-->
@@ -53,9 +54,102 @@
             </div>
         </div>
     </nav>
-    <!--Avaliações-->
-<body>
+    <!--Editar perfil-->
+    <main class="main-container">
+        <div class="profile-edit">
+            <img src="./assets/img/Djamila-Ribeiro.png" alt="" id="profile_pic">
+            <p class="edit-btn" onclick="abrirModal()">Editar</p>
+            <p id="name" class="profile-name"></p>
+            <p id="display-username" class="p-simple-info"></p>
+            <p id="city" class="p-simple-info"></p>
+            <p id="state" class="p-simple-info"></p>
+            <p id="user-id" style="display: none;">1</p>
+        </div>
+    </main>
+        <!-- <div class="services">
+            <div class="services-container">
+                <p class="p-simple-info">Tipos de Serviços</p>
+                <p id="basic-service" class="p-service-info">Básico</p>
+                <p id="medium-service" class="p-service-info">Intermediário</p>
+                <p id="premium-service" class="p-service-info">Premium</p></div>        
+            <a id="btn-service" href="" class="btn-profile">Personalizar</a>
+        </div>
+        <div class="contact-infos">
+            <p class="edit-btn">Editar</p>
+            <p class="p-simple-info">Informações de Contato</p>
+            <p class="p-contact-info">Número de Telefone:</p>
+            <p class="p-contact-info">E-mail:</p>
+        </div>
+        <div class="portfolio">
+            <div class="portfolio-img-container">
+                <img id="portfolio_img" src="./assets/img/216803346-statue-kant.jpg" alt="" class="portfolio-img">
+            </div>        
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <label for="imagem">Poste seu porfólio:</label>
+                <input type="file" id="imagem" name="imagem" accept="image/*">
+                <a href="#" class="btn-profile">Enviar</a>
+              </form>
+        </div>
+        <div class="personal-info">
+            <p class="edit-btn">Editar</p>
+            <p class="p-simple-info">Informações Pessoais</p>
+            <p class="p-simple-info">Descrição</p>
+            <p class="p-simple-info">Idiomas</p>
+            <p class="p-simple-info">Habilidades</p>
+            <p class="p-simple-info">Educação</p>
+        </div> -->
 
+        <!-- Modal de Editar Perfil-->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Cabeçalho do Modal -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Preencha os Campos</h4>
+                </div>
+
+                <!-- Corpo do Modal -->
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="id">ID:</label>
+                            <input type="text" class="form-control" id="id" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="nome">Nome:</label>
+                            <input type="text" class="form-control" id="nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Nome de Usuário:</label>
+                            <input type="text" class="form-control" id="username">
+                        </div>        
+                        <div class="form-group">
+                             <label for="instituicao">Instituição:</label>
+                            <input type="text" class="form-control" id="instituicao">
+                        </div>
+                        <div class="form-group">
+                            <label for="estado">Estado:</label>
+                            <input type="text" class="form-control" id="estado">
+                        </div>
+                        <div class="form-group mt-2">
+                            <label for="foto">Foto de Perfil:</label>
+                            <input type="file" class="form-control-file" id="foto" accept="image/*">
+                        </div>        
+                    </form>
+                </div>
+                <!-- Rodapé do Modal -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="fecharModal()">Fechar</button>
+                    <button id="btnSalvar" type="button" class="btn btn-primary">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Avaliações-->
+<aside>
     <div class="rating-system"><!--Sistema de avaliações-->  
       <h5 id="qtdA"></h5><!--Contagem de Avaliações-->
         <div class="stats-bar">
@@ -64,8 +158,8 @@
          <button class="review-button" data-bs-target="#staticBackdrop" data-bs-toggle="modal">Avaliar</button><!--Botão para abrir o modal de avaliação-->
       </div>
     </div>
-
-<!-- Modal de Avaliação-->
+</aside>
+    <!-- Modal de Avaliação- INICIO -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -91,10 +185,14 @@
     </div>
   </div>
 </div>
-      
+    <!-- Modal de Avaliação - FIM -->
+    
+    
     <!--Link para bootstrap JavaScript-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     
+    <!--Link para o JavaScript de Editar perfil-->
+    <script src="./scripts/edit.js"></script>
     <!--Link para o JavaScript de avaliações-->
     <script src="./scripts/avalia.js"></script>
     <!--Link para o JavaScript funcionalidade de login-->

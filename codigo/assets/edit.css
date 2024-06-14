@@ -1,0 +1,310 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+#logo {
+    width: 80px;
+    height: 80px;
+    margin-right: 50px;
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*Edições de classes gerais*/
+
+a {
+    text-decoration: none;
+}
+
+.btn-profile {
+    width: 7.5rem;
+    height: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 10px;
+    background: linear-gradient(180deg, #9e6edc 0%, #875dbd 100%);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    text-decoration: none;
+    color: #090139;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.profile-name {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 2.5rem;
+    color: #290f71;
+}
+
+.edit-btn {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #290f71;
+    cursor: pointer;
+}
+
+.p-simple-info {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 24px;
+    color: #290f71;
+}
+
+.profile-edit img {
+    width: 9rem;
+    height: 9rem;
+    border: 3px solid #290f71;
+    border-radius: 50%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*Edição das divs*/
+
+main {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.main-container {
+    margin-top: 6rem;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 5rem;
+    grid-row-gap: 1rem;
+    grid-template-rows: auto auto auto;
+}
+
+main .profile-edit {
+    box-sizing: border-box;
+    width: 24.7vw;
+    height: 25rem;
+    background: #fefcff;
+    border: 3px solid #290f71;
+    border-radius: 5px;
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 6px;
+}
+
+main .profile-edit .edit-btn {
+    order: -1;
+    align-self: flex-end;
+    margin-right: 0.6rem;
+}
+
+/* main .services {
+    box-sizing: border-box;
+    width: 24.7vw;
+    height: 25rem;
+    background: #fefcff;
+    border: 3px solid #290f71;
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    gap: 6px;
+    padding-bottom: 8px;
+}
+
+main .services .services-container {
+    text-align: center;
+}
+
+.p-service-info, .p-contact-info {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #4b464b;
+}
+
+main .contact-infos {
+    box-sizing: border-box;
+    width: 24.7vw;
+    height: 24rem;
+    background: #fefcff;
+    border: 3px solid #290f71;
+    grid-column: 1;
+    grid-row: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 6px;
+}
+
+main .contact-infos .edit-btn {
+    order: -1;
+    align-self: flex-end;
+    margin-right: 0.6rem; 
+}
+
+main .portfolio {
+    display: flex;
+    width: 44.5vw;
+    height: 25rem;
+    box-sizing: border-box;
+    background: #fefcff;
+    border: 3px solid #290f71;
+    grid-column: 2;
+    grid-row: 1;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    padding-top: 2rem;
+    gap: 6px;
+}
+
+main .portfolio .portfolio-img-container {
+    overflow-x: auto;
+    display: flex;
+    height: auto;
+    width: auto;
+    flex-direction: row;
+}
+
+main .portfolio form {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center !important;
+}
+
+main .portfolio form a {
+    margin-top: 8px;
+    align-self: center;
+}
+
+main .portfolio img {
+    width: 13rem;
+    height: 13rem;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+main .portfolio a {
+    align-self: baseline;
+}
+
+main .personal-info {
+    width: 44.5vw;
+    height: 25rem;
+    box-sizing: border-box;
+    background: #fefcff;
+    border: 3px solid #290f71;
+    grid-column: 2;
+    grid-row: 2;
+}
+
+main .personal-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 6px;
+}
+
+main .personal-info .edit-btn {
+    order: -1;
+    align-self: flex-end;
+    margin-right: 0.6rem;
+} */
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*Responsividade*/
+
+@media (max-width: 768px) {
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .profile-edit {
+        width: 24rem !important;
+        order: 1;
+    }
+
+    .portfolio {
+        width: 24rem !important;
+        order: 2;
+    }
+
+    .personal-info {
+        width: 24rem !important;
+        order: 3;
+    }
+    .contact-infos {
+        width: 24rem !important;
+        order: 4;
+    }
+    .services {
+        width: 24rem !important;
+        order: 5;
+    }
+
+}
+
+@media (max-width: 450px) {
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .profile-edit {
+        width: 18rem !important;
+        order: 1;
+    }
+
+    .portfolio {
+        width: 18rem !important;
+        order: 2;
+    }
+
+    .personal-info {
+        width: 18rem !important;
+        order: 3;
+    }
+    .contact-infos {
+        width: 18rem !important;
+        order: 4;
+    }
+    .services {
+        width: 18rem !important;
+        order: 5;
+    }
+
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------*/
