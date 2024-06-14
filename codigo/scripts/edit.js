@@ -28,7 +28,7 @@ function atualizarPerfilVisual(usuario) {
         document.getElementById('profile_pic').src = usuario.foto;
     } else {
         // Se não houver foto de perfil, exibir uma imagem padrão ou deixar em branco
-        document.getElementById('profile_pic').src = "./assets/img/default_profile_pic.jpg";
+        document.getElementById('profile_pic').src = "./assets/img/user-profile-icon.svg";
     }
 }
 
@@ -71,11 +71,12 @@ function preencherFormulario() {
             const user = usuarios.find(u => u.loggedIn);
             if (user) {
                 // Preencher os campos do formulário com os dados do usuário
-                document.getElementById('id').value = user.id; // Define o ID travado no campo de ID
+                document.getElementById('id').value = user.id;
                 document.getElementById('nome').value = user.nome;
                 document.getElementById('username').value = user.username;
-                document.getElementById('cidade').value = user.cidade;
+                document.getElementById('cidade').value = user.cidade; // Adicione uma verificação adicional aqui
                 document.getElementById('estado').value = user.estado;
+                
             } else {
                 console.error('Nenhum usuário logado encontrado.');
             }
@@ -105,11 +106,14 @@ function salvarDados() {
             var cidade = document.getElementById('cidade').value;
             var estado = document.getElementById('estado').value;
 
+            var fotoPerfil = document.getElementById('foto').files[0];
+
             var userData = {};
             if (nome !== user.nome) userData.nome = nome;
             if (username !== user.username) userData.username = username;
             if (cidade !== user.cidade) userData.cidade = cidade;
             if (estado !== user.estado) userData.estado = estado;
+
 
             if (Object.keys(userData).length > 0) {
                 fetch(`http://localhost:3000/usuarios/${userId}`, {
