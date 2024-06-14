@@ -25,8 +25,8 @@ function atualizarPerfilVisual(usuario) {
     document.getElementById('state').textContent = usuario.estado;
 
     // Preencher a foto de perfil
-    if (usuario.foto_perfil) {
-        document.getElementById('profile_pic').src = usuario.foto_perfil;
+    if (usuario.foto) {
+        document.getElementById('profile_pic').src = usuario.foto;
     } else {
         // Se não houver foto de perfil, exibir uma imagem padrão ou deixar em branco
         document.getElementById('profile_pic').src = "./assets/img/default_profile_pic.jpg";
@@ -98,9 +98,9 @@ function abrirModal() {
 }
 
 // Função para fechar o modal
-var fecharModal = document.getElementById('fecharmodal');
+var fecharbtn = document.getElementById('fecharmodal');
 
-fecharModal.addEventListener('click', function fecharModal(){
+function fecharModal(event){
     try {
         var modal = document.getElementById('myModal');
         if (!modal) {
@@ -120,7 +120,8 @@ fecharModal.addEventListener('click', function fecharModal(){
     } catch (error) {
         console.error('Erro ao fechar modal:', error);
     }
-});
+};
+fecharbtn.addEventListener('click', fecharModal);
 
 // Função para atualizar os dados do usuário no banco de dados JSON
 function atualizarUsuario(id, dadosAtualizados) {
@@ -155,7 +156,7 @@ function atualizarPerfil() {
             username: document.getElementById('username').value,
             instituicao: document.getElementById('instituicao').value,
             estado: document.getElementById('estado').value,
-            foto_perfil: document.getElementById('profile_pic').src // Caminho da foto de perfil
+            foto: document.getElementById('foto').src // Caminho da foto de perfil
         };
 
         // Obter o ID do usuário do elemento HTML
