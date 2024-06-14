@@ -16,41 +16,146 @@
 </head>
 
 <body>
+    <div class="menu">
+        <header id="header">
+            <div class="container-header ">
+                <div class="navbar navbar-expand-lg  text-center ">
+                    <a href="home.html"><img src="assets/img/logo.svg" id="logo"> </a>
+                    <button id="expandir" class="navbar-toggler " type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse fs-3 " id="navbarTogglerDemo02">
+                        <nav>
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                                <li class="nav-item me-3">
+                                    <a class="nav-link active " aria-current="page" href="home.html">Home</a>
+                                </li>
+                                <li class="nav-item me-3">
+                                    <a class="nav-link " href="explore.html">Explorar</a>
+                                </li>
+                                <li class="nav-item me-3">
+                                    <a class="nav-link " href="profile.html">Perfil</a>
+                                </li>
+                                <li class="nav-item me-3">
+                                    <a class="nav-link " href="graphic.html">Vendas</a>
+                                </li>
+                                <li class="nav-item me-3">
+                                    <a class="nav-link " href="chat.html">Chat</a>
+                                </li>
+                                <li class="nav-item me-3">
+                                    <a class="nav-link " href="#" id="logoutButton">Logout</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
 
-    <!--  navbar simples com bootstrap q sera refinada -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <img src="assets/img/logo.svg" id="logo">
-            <!--<a class="navbar-brand" href="#">Artist Finder</a>-->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
-                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse fs-3 " id="navbarTogglerDemo02">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-                    <li class="nav-item me-3">
-                        <!--o active dentro de classe vai deixar a pagina que voce esta no menu-->
-                        <a class="nav-link active " aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item me-3">
-                        <a class="nav-link " href="explore.html">Explorar</a>
-                    </li>
-                    <li class="nav-item me-3">
-                        <a class="nav-link " href="profile.html">Perfil</a>
-                    </li>
-                    <li class="nav-item me-3">
-                        <a class="nav-link " href="graphic.html">Vendas</a>
-                    </li>
-                    <li class="nav-item me-3">
-                        <a class="nav-link " href="chat.html">Chat</a>
-                    </li>
-                    <li class="nav-item me-3">
-                        <a class="nav-link " href="#" id="logoutButton">Logout</a>
-                    </li>
-                </ul>
+                </div>
+            </div>
+        </header>
+    </div>
+    <section class="banner">
+        <h1>ENCONTRE QUEM VOCE <span>PRECISA</span></h1>
+    </section>
+
+
+    <main class="row container-fluid ">
+        <div class="col-md-2 form-group">
+
+            <div class="mb-3">
+                <select id="filtroAtuacao" class="form-control me-2 text-center" name="atuacao">
+                    <option value="">Filtrar Atuação</option>
+                    <option value="Animação">Animação</option>
+                    <option value="Design Gráfico">Design Gráfico</option>
+                    <option value="Edição">Edição</option>
+                    <option value="Filmagem">Filmagem</option>
+                    <option value="Fotografia">Fotografia</option>
+                    <option value="Grafite">Grafite</option>
+                    <option value="Ilustração">Ilustração</option>
+                    <option value="Modelagem 3D">Modelagem 3D</option>
+                    <option value="Pintura">Pintura</option>
+                    <option value="Web Design">Web Design</option>
+                    <option value="">Todos</option>
+                </select>
+            </div>
+            <hr>
+            </hr>
+            <div class=" mb-3">
+                <select id="filtroEstado" class="form-control  me-2 text-center" name="estado">
+                    <option value="">Filtrar Estado</option>
+                    <option value="AM">AM</option>
+                    <option value="BA">BA</option>
+                    <option value="CE">CE</option>
+                    <option value="MG">MG</option>
+                    <option value="MT">MT</option>
+                    <option value="PE">PE</option>
+                    <option value="PR">PR</option>
+                    <option value="RJ">RJ</option>
+                    <option value="RS">RS</option>
+                    <option value="SC">SC</option>
+                    <option value="SP">SP</option>
+                    <option value="">Todos</option>
+                </select>
+            </div>
+            <hr>
+            <div class="mb-3">
+                <select id="filtroDisponibilidade" class="form-control me-2 text-center" name="disponilidade">
+                    <option value="">Filtrar Disponilidade</option>
+                    <option value="Integral">Integral</option>
+                    <option value="Freelance">Freelance</option>
+                    <option value="">Todos</option>
+                </select>
+            </div>
+            <hr>
+            <button class="mb-3" id="limpar" type="button">Limpar Filtros</button>
+        </div>
+        <div class="profile-area col-md-10 ">
+            <div class="container fluid">
+                <div class="row" id="user-list"></div>
             </div>
         </div>
-    </nav>
+        </div>
+    </main>
+    <script  src="scripts/filtro.js"></script>
+    <script>
+        document.body.onload = () => {
+
+            let filtroAtuacao = document.querySelector('#filtroAtuacao')
+            filtroAtuacao.addEventListener('change', () => {
+                FILTRO_ATUACAO = filtroAtuacao.value
+                exibeUsuarios();
+            })
+            let filtroEstado = document.querySelector('#filtroEstado')
+            filtroEstado.addEventListener('change', () => {
+                FILTRO_ESTADO = filtroEstado.value
+                exibeUsuarios();
+            })
+            let filtroDisponibilidade = document.querySelector('#filtroDisponibilidade')
+            filtroDisponibilidade.addEventListener('change', () => {
+                FILTRO_DISPONIBILIDADE = filtroDisponibilidade.value
+                exibeUsuarios();
+            })
+            let limpar = document.querySelector('#limpar')
+            limpar.addEventListener('click', () => {
+                FILTRO_DISPONIBILIDADE = ""
+                filtroDisponibilidade.value = ""
+                FILTRO_ESTADO = ""
+                filtroEstado.value = ""
+                FILTRO_ATUACAO = ""
+                filtroAtuacao.value = ""
+                exibeUsuarios();
+            })
+
+            exibeUsuarios();
+
+        }
+    </script>
+
+
+</body>
+
+</html>
     <script src="./scripts/login.js"></script>
 </body>
 
