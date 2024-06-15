@@ -24,7 +24,11 @@ function atualizarPerfilVisual(usuario) {
     document.getElementById('estado').textContent = usuario.estado;
 
     // Preencher a foto de perfil
-    if (usuario.foto) {
+    // Verifique se há uma imagem armazenada no localStorage
+    const storedImage = localStorage.getItem('storedImage');
+    if (storedImage) {
+        document.getElementById('profile_pic').src = storedImage;
+    } else if (usuario.foto) {
         document.getElementById('profile_pic').src = usuario.foto;
     } else {
         // Se não houver foto de perfil, exibir uma imagem padrão ou deixar em branco
@@ -170,9 +174,9 @@ if (abrirBtn) {
 function toBase64(file) {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
-        reader.onloadend = () => resolve(reader.result);
-        reader.onerror = reject;
         reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
     });
 }
 
@@ -189,6 +193,7 @@ async function saveImage() {
             displayStoredImage();
         } catch (error) {
             console.error('Erro ao converter a imagem:', error);
+            alert('Erro ao salvar a imagem. Verifique o console para mais detalhes.');
         }
     } else {
         alert('Por favor, selecione uma imagem.');
@@ -201,8 +206,59 @@ function displayStoredImage() {
     if (storedImage) {
         const imgElement = document.getElementById('profile_pic');
         imgElement.src = storedImage;
+    } else {
+        console.error('Nenhuma imagem encontrada no localStorage.');
     }
 }
+
+// Garantir que displayStoredImage seja chamada ao carregar a página
+document.addEventListener('DOMContentLoaded', () => {
+    displayStoredImage();
+});// Função para converter arquivo em base64
+function toBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+    });
+}
+
+// Função para salvar a imagem no localStorage
+async function saveImage() {
+    const input = document.getElementById('foto');
+    const file = input.files[0];
+
+    if (file) {
+        try {
+            const base64Image = await toBase64(file);
+            localStorage.setItem('storedImage', base64Image);
+            alert('Imagem salva com sucesso!');
+            displayStoredImage();
+        } catch (error) {
+            console.error('Erro ao converter a imagem:', error);
+            alert('Erro ao salvar a imagem. Verifique o console para mais detalhes.');
+        }
+    } else {
+        alert('Por favor, selecione uma imagem.');
+    }
+}
+
+// Função para exibir a imagem armazenada
+function displayStoredImage() {
+    const storedImage = localStorage.getItem('storedImage');
+    if (storedImage) {
+        const imgElement = document.getElementById('profile_pic');
+        imgElement.src = storedImage;
+    } else {
+        console.error('Nenhuma imagem encontrada no localStorage.');
+    }
+}
+
+// Garantir que displayStoredImage seja chamada ao carregar a página
+document.addEventListener('DOMContentLoaded', () => {
+    displayStoredImage();
+});
 
 // Carregar a imagem armazenada ao carregar a página
 window.addEventListener('load', displayStoredImage);
