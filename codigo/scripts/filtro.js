@@ -15,6 +15,9 @@ const searchBar = document.getElementById('searchBar');
 /* Barra de pesquisa ---------------------------------------------------------------------------- */
 
 let afUsers = []; 
+let FILTRO_ATUACAO = "";
+let FILTRO_ESTADO = "";
+let FILTRO_DISPONIBILIDADE = "";
 
 searchBar.addEventListener("keyup", (e)=> {
     const searchString = e.target.value.toLowerCase();
@@ -22,7 +25,13 @@ searchBar.addEventListener("keyup", (e)=> {
     const filtredUsers = afUsers.filter(usuario => {
         return usuario.nome.toLowerCase().includes(searchString)
     });
-    displayUsers(filtredUsers);
+    if( (filtredUsers.disponibilidade === FILTRO_DISPONIBILIDADE) || (FILTRO_DISPONIBILIDADE === "") &&
+        ((filtredUsers.atuacao === FILTRO_ATUACAO) || (FILTRO_ATUACAO === "")) &&
+        ((filtredUsers.estado === FILTRO_ESTADO) || (FILTRO_ESTADO === ""))){
+            displayUsers(filtredUsers);
+    }else{
+
+    }
 });
 
 const loadUsers = async () => {
@@ -93,48 +102,46 @@ if(!db){
 
 
 
-let FILTRO_ATUACAO = "";
-let FILTRO_ESTADO = "";
-let FILTRO_DISPONIBILIDADE = "";
+
 
 // Função onde o evento de opção selecionada no HTML compara com os usuários no JSON server
-/*function exibeUsuarios() {
-    fetch(URL)
-        .then(res => res.json())
-        .then(usuariosData => {
-            let lista_usuarios = '';
-            for (let i = 0; i < usuariosData.length; i++) {
-                let usuario = usuariosData[i];
-                if (((usuario.disponibilidade === FILTRO_DISPONIBILIDADE) || (FILTRO_DISPONIBILIDADE === "")) &&
-                    ((usuario.atuacao === FILTRO_ATUACAO) || (FILTRO_ATUACAO === "")) &&
-                    ((usuario.estado === FILTRO_ESTADO) || (FILTRO_ESTADO === ""))) {
+// function exibeUsuarios() {
+//     fetch(URL)
+//         .then(res => res.json())
+//         .then(usuariosData => {
+//             let lista_usuarios = '';
+//             for (let i = 0; i < usuariosData.length; i++) {
+//                 let usuario = usuariosData[i];
+//                 if (((usuario.disponibilidade === FILTRO_DISPONIBILIDADE) || (FILTRO_DISPONIBILIDADE === "")) &&
+//                     ((usuario.atuacao === FILTRO_ATUACAO) || (FILTRO_ATUACAO === "")) &&
+//                     ((usuario.estado === FILTRO_ESTADO) || (FILTRO_ESTADO === ""))) {
                     
-                    lista_usuarios += `
-                    <div class="col-md-4 mb-5">
-                        <a href="exibe_user.html?id=${usuario.id}">
-                            <div class="card">
-                                <div class="img1"><img src="${usuario.capa}" alt=""></div>
-                                <div class="img2"><img src="${usuario.foto}" alt=""></div>
-                                <div class="main-text">
-                                    <h2>${usuario.nome}</h2>
-                                    <p><strong>Área de atuação:</strong> ${usuario.atuacao}</p>
-                                    <p class="bi bi-geo-fill"> ${usuario.estado}</p>
-                                    <p><strong>Disponibilidade:</strong> ${usuario.disponibilidade}</p>
-                                </div>
-                                <div class="socials">
-                                    <i class="bi bi-facebook"></i>
-                                    <i class="bi bi-linkedin"></i>
-                                    <i class="bi bi-whatsapp"></i>
-                                    <i class="bi bi-instagram"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </div>`;
-                }
-            }
-            userList.innerHTML = lista_usuarios;
-        });
-}*/
+//                     lista_usuarios += `
+//                     <div class="col-md-4 mb-5">
+//                         <a href="exibe_user.html?id=${usuario.id}">
+//                             <div class="card">
+//                                 <div class="img1"><img src="${usuario.capa}" alt=""></div>
+//                                 <div class="img2"><img src="${usuario.foto}" alt=""></div>
+//                                 <div class="main-text">
+//                                     <h2>${usuario.nome}</h2>
+//                                     <p><strong>Área de atuação:</strong> ${usuario.atuacao}</p>
+//                                     <p class="bi bi-geo-fill"> ${usuario.estado}</p>
+//                                     <p><strong>Disponibilidade:</strong> ${usuario.disponibilidade}</p>
+//                                 </div>
+//                                 <div class="socials">
+//                                     <i class="bi bi-facebook"></i>
+//                                     <i class="bi bi-linkedin"></i>
+//                                     <i class="bi bi-whatsapp"></i>
+//                                     <i class="bi bi-instagram"></i>
+//                                 </div>
+//                             </div>
+//                         </a>
+//                     </div>`;
+//                 }
+//             }
+//             userList.innerHTML = lista_usuarios;
+//         });
+// }
 /*------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*Função onde busca o id do usuario selecionado e cria a pagina de perfil a partir dele*/
