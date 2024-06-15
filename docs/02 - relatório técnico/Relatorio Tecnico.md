@@ -19,12 +19,12 @@ Trabalho Interdisciplinar: Aplicações Web
 
 Os membros do grupo são:
 
+- Diego Romero Ribeiro Chaves
 - Filipe Augusto dos Santos Silva
 - Pablo Marques Cordeiro
-- Lucas Fernandes Nascimento
-- João Gabriel Soares Da Silva Franco
-- Diego Romero Ribeiro Chaves
 - Alfredo Rodrigues Simões Macedo Campos
+- João Gabriel Soares Da Silva Franco
+- Lucas Fernandes Nascimento
 
 # Estrutura do Documento
 
@@ -63,15 +63,15 @@ Os membros do grupo são:
 
 # Introdução
 
-Bem-vindo ao Artist Finder, a plataforma online projetada para conectar artistas talentosos a clientes em busca de talento criativo. Com uma interface intuitiva e poderosas funcionalidades de busca, o Artist Finder facilita a descoberta e contratação de artistas para uma variedade de projetos. Explore nossa comunidade de artistas e descubra o talento certo para transformar suas ideias em realidade.
+Bem-vindo ao Artist Finder, a plataforma online projetada para conectar artistas talentosos a clientes em busca de talento criativo. Com uma interface intuitiva e poderosas o Artist Finder facilita a descoberta e contratação de artistas para uma variedade de projetos. Explore nossa comunidade de artistas e descubra o talento certo para transformar suas ideias em realidade.
 
 ## Problema
 
-Os artistas em geral hoje enfrentam uma luta constante para encontrar oportunidades que correspondam às suas habilidades e paixões, devido à escassez de conexões e à dificuldade em divulgar seus portfólios. Enquanto isso, os clientes em busca de talentos qualificados muitas vezes se veem perdidos em um mar de opções dispersas, sem uma plataforma centralizada e confiável para encontrar e avaliar profissionais freelancer como artistas e músicos no geral. Essa lacuna na conexão entre ambos os grupos cria desafios significativos, apesar de haver a existência de apps como Linkedin ou Fiverr, ainda sim é complicado para os artistas e possíveis clientes, limitando as opções disponíveis para ambos os lados e dificultando o crescimento profissional e financeiro dos artistas e profissionais da criatividade, ao mesmo tempo em que prejudica os clientes na busca por soluções adequadas para seus projetos.
+Os artistas em geral hoje enfrentam uma luta constante para encontrar oportunidades que correspondam às suas habilidades e paixões, devido à escassez de conexões e à dificuldade em divulgar seus portfólios. Enquanto isso, os clientes em busca de talentos qualificados muitas vezes se veem perdidos em um mar de opções dispersas, sem uma plataforma centralizada e confiável para encontrar e avaliar profissionais artistas freelancer. Essa lacuna na conexão entre ambos os grupos cria desafios significativos, limitando as opções disponíveis para ambos os lados e dificultando o crescimento profissional e financeiro dos artistas e profissionais da criatividade. Ao mesmo tempo em que prejudica os clientes na busca por soluções adequadas para seus projetos.
 
 ## Objetivos
 
-Nosso principal objetivo é aproximar os dois mundos; tanto os contratantes/clientes quanto os artistas freelancers, fornecendo um espaço para adicionarem seus portfólios, e apresentarem sua arte. Queremos a partir deste objetivo, abrir espaços para colocarem seu estilo de arte seja ele música, design, desenho, pintura, fotografia, web design etc. Teremos também várias categorias para cada tipo específico de trabalho para facilitar para os clientes acharem o que precisam, ferramentas de busca e alguns filtros de pesquisa serão incrementados também.
+Nosso principal objetivo é aproximar os dois mundos; tanto os clientes quanto os artistas freelancers, fornecendo um espaço para adicionarem seus portfólios, e apresentarem sua arte. Queremos a partir deste objetivo, abrir espaços para colocarem seu estilo de arte único.
 
 ## Justificativa
 
@@ -129,13 +129,12 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-003| Editar Perfil                           | ALTA |
 |RF-004| Gráfico de Vendas                       | BAIXA |
 |RF-005| Filtros                                 | MÉDIA |
-|RF-006| Redes Sociais do Artista                | MÉDIA |
-|RF-007| Comentários                             | MÉDIA | 
-|RF-008| Calendário                              | BAIXA |
-|RF-009| Favoritos                               | BAIXA |
-|RF-0010| Avaliação por Estrelas                 | ALTA |
-|RF-0011| Chat Interativo                        | ALTA |
-|RF-0012| Portfólio                              | ALTA |
+|RF-006| Comentários                             | MÉDIA | 
+|RF-007| Calendário                              | BAIXA |
+|RF-008| Favoritos                               | BAIXA |
+|RF-009| Avaliação por Estrelas                  | ALTA |
+|RF-0010| Chat Interativo                        | ALTA |
+|RF-0011| Portfólio                              | ALTA |
 
 
 ### Requisitos não Funcionais
@@ -224,7 +223,6 @@ Contratar um freelancer:
 
 A página de contato com o freelancer servirá quando o cliente visualizar um perfil específico e selecioná-lo de acordo com suas preferências, a partir daí, ele poderá selecionar dentre os planos que o artista oferece, do mais barato, intermediário, ao mais caro, e assim mandar uma mensagem para ele combinando o projeto a ser desenvolvido.
 
-
 Chat:
 
 ![Wireframe](imaages/../images/wireframe_chat.jpg)
@@ -289,19 +287,16 @@ Na primeira sprint, houve apenas commits para criação de documentação, logo 
 O projeto segue a seguinte convenção para o nome de branchs: 
 
 - `master`: versão estável já testada do software
-- `unstable`: versão já testada do software, porém instável
-- `testing`: versão em testes do software
 - `dev`: versão de desenvolvimento do software
 
 Quanto à gerência de issues, o projeto adota a seguinte convenção para
 etiquetas:
 
 - `bugfix`: uma funcionalidade encontra-se com problemas
-- `enhancement`: uma funcionalidade precisa ser melhorada
 - `feature`: uma nova funcionalidade precisa ser introduzida
+- `merge`: preparação e adequação do código para sofrer merge de features
 
 # **############## SPRINT 1 ACABA AQUI #############**
-
 
 # Projeto da Solução
 

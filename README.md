@@ -19,7 +19,6 @@ O Artist Finder é uma plataforma online dedicada a simplificar o processo de co
 * Amália Soares Vieira de Vasconcelos
 * Leonardo Vilela Cardoso
 
-
 ## Instruções de utilização
 
 Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
