@@ -13,7 +13,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa1.jpg",
       "atuacao": "Web Design",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 3,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 35,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "2",
@@ -28,7 +60,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa2.jpg",
       "atuacao": "Fotografia",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 22,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "3",
@@ -43,7 +107,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa3.jpg",
       "atuacao": "Ilustração",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "4",
@@ -58,7 +154,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa4.jpg",
       "atuacao": "Web Design",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "5",
@@ -73,7 +201,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa5.jpg",
       "atuacao": "Edição",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "6",
@@ -88,7 +248,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa6.jpg",
       "atuacao": "Edição",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "7",
@@ -103,7 +295,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa7.jpg",
       "atuacao": "Modelagem 3D",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "8",
@@ -118,7 +342,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa8.jpg",
       "atuacao": "Grafite",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "9",
@@ -133,7 +389,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa9.jpg",
       "atuacao": "Fotografia",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "10",
@@ -148,7 +436,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa10.jpg",
       "atuacao": "Animação",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "11",
@@ -163,7 +483,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa11.jpg",
       "atuacao": "Pintura",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "12",
@@ -178,7 +530,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa12.jpg",
       "atuacao": "Edição",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "13",
@@ -193,7 +577,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa13.jpg",
       "atuacao": "Filmagem",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "14",
@@ -208,7 +624,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa14.jpg",
       "atuacao": "Web Design",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "15",
@@ -223,7 +671,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa15.jpg",
       "atuacao": "Fotografia",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "16",
@@ -238,7 +718,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa16.jpg",
       "atuacao": "Modelagem 3D",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "17",
@@ -253,7 +765,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa17.jpg",
       "atuacao": "Design Gráfico",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "18",
@@ -268,7 +812,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa18.jpg",
       "atuacao": "Design Gráfico",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "19",
@@ -283,7 +859,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa19.jpg",
       "atuacao": "Pintura",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "20",
@@ -298,7 +906,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa20.jpg",
       "atuacao": "Grafite",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "21",
@@ -313,7 +953,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa21.jpg",
       "atuacao": "Design Gráfico",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "22",
@@ -328,7 +1000,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa27.jpg",
       "atuacao": "Filmagem",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "23",
@@ -343,7 +1047,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa23.jpg",
       "atuacao": "Modelagem 3D",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "24",
@@ -358,7 +1094,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa24.jpg",
       "atuacao": "Ilustração",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "25",
@@ -373,7 +1141,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa25.jpg",
       "atuacao": "Edição",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "26",
@@ -388,7 +1188,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa26.jpg",
       "atuacao": "Fotografia",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "27",
@@ -403,7 +1235,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa27.jpg",
       "atuacao": "Design Gráfico",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "28",
@@ -418,7 +1282,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa28.jpg",
       "atuacao": "Edição",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "29",
@@ -433,7 +1329,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa29.jpg",
       "atuacao": "Design Gráfico",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "30",
@@ -448,7 +1376,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa30.jpg",
       "atuacao": "Fotografia",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "31",
@@ -463,7 +1423,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa31.jpg",
       "atuacao": "Pintura",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "32",
@@ -478,7 +1470,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa32.jpg",
       "atuacao": "Web Design",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "33",
@@ -493,7 +1517,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa33.jpg",
       "atuacao": "Design Gráfico",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "34",
@@ -508,7 +1564,39 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa34.jpg",
       "atuacao": "Filmagem",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "35",
@@ -523,11 +1611,43 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa35.jpg",
       "atuacao": "Ilustração",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 1,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 2,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "36",
-      "nome": "Carlos Teste",
+      "nome": "Carlos teste",
       "idade": "",
       "username": "testefoto12",
       "email": "teste.1@localstorage.com",
@@ -538,40 +1658,40 @@
       "disponibilidade": "Freelance",
       "capa": "",
       "atuacao": "Programador Front-End",
-      "loggedIn": true
+      "loggedIn": true,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     }
   ],
-  "vendas": [],
-  "stats": [
-    {
-      "estrelas": "5 estrelas",
-      "label": 5,
-      "value": 5,
-      "id": "1"
-    },
-    {
-      "estrelas": "4 estrelas",
-      "label": 4,
-      "value": 2,
-      "id": "2"
-    },
-    {
-      "estrelas": "3 estrelas",
-      "label": 3,
-      "value": 3,
-      "id": "3"
-    },
-    {
-      "estrelas": "2 estrelas",
-      "label": 2,
-      "value": 1,
-      "id": "4"
-    },
-    {
-      "estrelas": "1 estrelas",
-      "label": 1,
-      "value": 8,
-      "id": "5"
-    }
-  ]
+  "vendas": []
 }

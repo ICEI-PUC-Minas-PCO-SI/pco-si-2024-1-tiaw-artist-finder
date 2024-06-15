@@ -150,9 +150,6 @@ function salvarDados() {
             } else {
                if (fotoPerfil) {
                 fecharModal();
-               } else
-               {
-                alert('nenhuma alteração feita');
                }
                
             }
