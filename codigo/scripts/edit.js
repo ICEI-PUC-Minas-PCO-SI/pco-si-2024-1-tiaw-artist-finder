@@ -148,8 +148,13 @@ function salvarDados() {
                     console.error('Erro ao salvar os dados do usuário:', error);
                 });
             } else {
-                alert('Nenhuma alteração foi feita.');
+               if (fotoPerfil) {
                 fecharModal();
+               } else
+               {
+                alert('nenhuma alteração feita');
+               }
+               
             }
         })
         .catch(error => console.error('Erro ao carregar dados do usuário:', error));
@@ -195,9 +200,7 @@ async function saveImage() {
             console.error('Erro ao converter a imagem:', error);
             alert('Erro ao salvar a imagem. Verifique o console para mais detalhes.');
         }
-    } else {
-        alert('Por favor, selecione uma imagem.');
-    }
+    } 
 }
 
 // Função para exibir a imagem armazenada
@@ -239,8 +242,6 @@ async function saveImage() {
             console.error('Erro ao converter a imagem:', error);
             alert('Erro ao salvar a imagem. Verifique o console para mais detalhes.');
         }
-    } else {
-        alert('Por favor, selecione uma imagem.');
     }
 }
 
@@ -266,7 +267,10 @@ window.addEventListener('load', displayStoredImage);
 // Adiciona event listener para salvar as alterações no perfil do usuário
 const modalSalvar = document.getElementById('btnSalvar');
 if (modalSalvar) {
-    modalSalvar.addEventListener('click', saveImage, salvarDados);
+    modalSalvar.addEventListener('click', () =>{
+        saveImage();
+        salvarDados();  
+    });
 
 } else {
     console.error('Botão de salvar não encontrado.');

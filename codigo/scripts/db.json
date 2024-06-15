@@ -529,7 +529,7 @@
       "id": "36",
       "nome": "Carlos Teste",
       "idade": "",
-      "username": "testefoto1",
+      "username": "testefoto12",
       "email": "teste.1@localstorage.com",
       "password": "admin1",
       "foto": "",
@@ -546,19 +546,19 @@
     {
       "estrelas": "5 estrelas",
       "label": 5,
-      "value": 4,
+      "value": 5,
       "id": "1"
     },
     {
       "estrelas": "4 estrelas",
       "label": 4,
-      "value": 3,
+      "value": 2,
       "id": "2"
     },
     {
       "estrelas": "3 estrelas",
       "label": 3,
-      "value": 1,
+      "value": 3,
       "id": "3"
     },
     {
@@ -570,7 +570,7 @@
     {
       "estrelas": "1 estrelas",
       "label": 1,
-      "value": 7,
+      "value": 8,
       "id": "5"
     }
   ]
