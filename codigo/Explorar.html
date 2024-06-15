@@ -52,10 +52,11 @@
 
 
     <main class="row container-fluid ">
+        
         <div class="col-md-2 form-group">
-            <div class="divSearch">
+            <div class="search-wrapper">
                 <label for="search">Buscar artistas</label>
-                <input type="search">
+                <input type="search" id="search" data-search>
             </div>
             <hr>
             </hr>
@@ -108,7 +109,30 @@
         </div>
         <div class="profile-area col-md-10 ">
             <div class="container fluid">
-                <div class="row" id="user-list"></div>
+                <div class="row" data-user-cards-container id="user-list"></div>
+                
+                <template data-user-template>
+                    <div class="col-md-4 mb-5">
+                        <a href="exibe_user.html?id=$">
+                            <div class="card">
+                                <div class="img1" data-img1><img src="" alt=""></div>
+                                <div class="img2" data-img1><img src="" alt=""></div>
+                                <div class="main-text">
+                                    <h2 data-nome></h2>
+                                    <p><strong data-area>Área de atuação:</strong> </p>
+                                    <p class="bi bi-geo-fill" data-loc> </p>
+                                    <p><strong data-disp>Disponibilidade:</strong> </p>
+                                </div>
+                                <div class="socials">
+                                    <i class="bi bi-facebook"></i>
+                                    <i class="bi bi-linkedin"></i>
+                                    <i class="bi bi-whatsapp"></i>
+                                    <i class="bi bi-instagram"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </template>
             </div>
         </div>
         </div>

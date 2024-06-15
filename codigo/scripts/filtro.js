@@ -7,6 +7,13 @@ window.addEventListener("scroll", function () {
 // URL DA FAKE API DE DADOS USANDO JSON
 const URL = 'http://localhost:3000/usuarios';
 
+/* Barra de pesquisa ---------------------------------------------------------------------------- */
+
+const userCardTemplate = document.querySelector("[data-user-template]")
+const userCardConteiner = document.querySelector("[data-user-cards-container]")
+const searchInput = document.querySelector("[data-search]")
+
+
 
 
 let db = null;

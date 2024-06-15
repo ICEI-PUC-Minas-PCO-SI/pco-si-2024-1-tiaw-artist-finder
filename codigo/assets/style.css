@@ -91,15 +91,14 @@ body{
     background: #fff;
 }
 
-.divSearch{
+.search-wrapper{
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: .25rem;
 }
 
 input{
-    padding: 5px;
-    outline: none;
+    font-size: 1rem;
 }
 
 .profile-area{
