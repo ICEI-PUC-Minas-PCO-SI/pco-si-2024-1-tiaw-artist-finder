@@ -6,16 +6,71 @@ window.addEventListener("scroll", function () {
 
 // URL DA FAKE API DE DADOS USANDO JSON
 const URL = 'http://localhost:3000/usuarios';
+
+// Pegando os elementos do html atraves de seu id e colocando dentro de uma variavel para trabalhar no JS
 const userList = document.getElementById('user-list');
 const mostrarUser = document.getElementById('tela');
+const searchBar = document.getElementById('searchBar');
 
 /* Barra de pesquisa ---------------------------------------------------------------------------- */
 
+let afUsers = []; 
+
+searchBar.addEventListener("keyup", (e)=> {
+    const searchString = e.target.value.toLowerCase();
+    console.log(searchString)
+    const filtredUsers = afUsers.filter(usuario => {
+        return usuario.nome.toLowerCase().includes(searchString)
+    });
+    displayUsers(filtredUsers);
+});
+
+const loadUsers = async () => {
+    try {
+        const res = await fetch('http://localhost:3000/usuarios');
+        afUsers = await res.json();
+        displayUsers(afUsers);
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+const displayUsers = (users) => {
+    const user_list = users
+        .map((usuario) => {
+            return `
+            <div class="col-md-4 mb-5">
+                        <a href="exibe_user.html?id=${usuario.id}">
+                            <div class="card">
+                                <div class="img1"><img src="${usuario.capa}" alt=""></div>
+                                <div class="img2"><img src="${usuario.foto}" alt=""></div>
+                                <div class="main-text">
+                                    <h2>${usuario.nome}</h2>
+                                    <p><strong>Área de atuação:</strong> ${usuario.atuacao}</p>
+                                    <p class="bi bi-geo-fill"> ${usuario.estado}</p>
+                                    <p><strong>Disponibilidade:</strong> ${usuario.disponibilidade}</p>
+                                </div>
+                                <div class="socials">
+                                    <i class="bi bi-facebook"></i>
+                                    <i class="bi bi-linkedin"></i>
+                                    <i class="bi bi-whatsapp"></i>
+                                    <i class="bi bi-instagram"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+        `;
+        })
+        .join('');
+    userList.innerHTML = user_list;
+};
+
+loadUsers();
 
 
 
 
-/* Barra de pesquisa ---------------------------------------------------------------------------- */
+/* Fim da Barra de pesquisa ---------------------------------------------------------------------------- */
 let db = null;
 try {
     db = JSON.parse(localStorage.getItem('dbUsers'))
@@ -43,7 +98,7 @@ let FILTRO_ESTADO = "";
 let FILTRO_DISPONIBILIDADE = "";
 
 // Função onde o evento de opção selecionada no HTML compara com os usuários no JSON server
-function exibeUsuarios() {
+/*function exibeUsuarios() {
     fetch(URL)
         .then(res => res.json())
         .then(usuariosData => {
@@ -79,7 +134,7 @@ function exibeUsuarios() {
             }
             userList.innerHTML = lista_usuarios;
         });
-}
+}*/
 /*------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*Função onde busca o id do usuario selecionado e cria a pagina de perfil a partir dele*/
@@ -124,8 +179,8 @@ function exibeUser(id) {
                     <div class="right_col">
                         <nav>
                             <ul>
-                                <li><a href="#">Galeria</a></li>
-                                <li><a href="#">Grupos</a></li>
+                            <li><a href="#">Galeria</a></li>
+                            <li><a href="#">Grupos</a></li>
                                 <li><a href="#">Sobre</a></li>
                             </ul>
                             <button>Follow</button>
