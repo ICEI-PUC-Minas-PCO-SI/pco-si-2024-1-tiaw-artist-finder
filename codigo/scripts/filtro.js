@@ -6,16 +6,16 @@ window.addEventListener("scroll", function () {
 
 // URL DA FAKE API DE DADOS USANDO JSON
 const URL = 'http://localhost:3000/usuarios';
+const userList = document.getElementById('user-list');
+const mostrarUser = document.getElementById('tela');
 
 /* Barra de pesquisa ---------------------------------------------------------------------------- */
 
-const userCardTemplate = document.querySelector("[data-user-template]")
-const userCardConteiner = document.querySelector("[data-user-cards-container]")
-const searchInput = document.querySelector("[data-search]")
 
 
 
 
+/* Barra de pesquisa ---------------------------------------------------------------------------- */
 let db = null;
 try {
     db = JSON.parse(localStorage.getItem('dbUsers'))
@@ -34,8 +34,7 @@ if(!db){
     })
 }
 
-const userList = document.getElementById('user-list');
-const mostrarUser = document.getElementById('tela');
+
 
 
 
