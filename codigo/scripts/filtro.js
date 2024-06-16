@@ -1,8 +1,12 @@
+
+/*INICIO DA NAVBAR========================================================*/
+
 // Descer o site ativa a navbar 
 window.addEventListener("scroll", function () {
     let header = document.querySelector('#header');
     header.classList.toggle('rolagem', window.scrollY > 0);
 });
+/*FIM DA NAVBAR ==========================================================*/
 
 // URL DA FAKE API DE DADOS USANDO JSON
 const URL = 'http://localhost:3000/usuarios';
@@ -14,29 +18,21 @@ const searchBar = document.getElementById('searchBar');
 
 /* Barra de pesquisa ---------------------------------------------------------------------------- */
 
-let afUsers = []; 
-let FILTRO_ATUACAO = "";
-let FILTRO_ESTADO = "";
-let FILTRO_DISPONIBILIDADE = "";
+//Definindo um array vazil para os usuarios
+let afUsers = [];
 
-searchBar.addEventListener("keyup", (e)=> {
-    const searchString = e.target.value.toLowerCase();
-    console.log(searchString)
-    const filtredUsers = afUsers.filter(usuario => {
-        return usuario.nome.toLowerCase().includes(searchString)
-    });
-    if( (filtredUsers.disponibilidade === FILTRO_DISPONIBILIDADE) || (FILTRO_DISPONIBILIDADE === "") &&
-        ((filtredUsers.atuacao === FILTRO_ATUACAO) || (FILTRO_ATUACAO === "")) &&
-        ((filtredUsers.estado === FILTRO_ESTADO) || (FILTRO_ESTADO === ""))){
-            displayUsers(filtredUsers);
-    }else{
+ let FILTRO_ATUACAO = "";
+ let FILTRO_ESTADO = "";
+ let FILTRO_DISPONIBILIDADE = "";
 
-    }
-});
+//Defininco o metodo de input capturado na searchbar e usando o includes para pegar o "valor" digitado e criar um novo array chamado filtred users
+//apenas com o array dos usuarios que tem o "valor" digitado na search bar no nome.
+
+
 
 const loadUsers = async () => {
     try {
-        const res = await fetch('http://localhost:3000/usuarios');
+        const res = await fetch(URL);
         afUsers = await res.json();
         displayUsers(afUsers);
     } catch (err) {
@@ -44,6 +40,7 @@ const loadUsers = async () => {
     }
 };
 
+//Usando função map para passar por todos usuarios do json array e imprimir os mesmos no html
 const displayUsers = (users) => {
     const user_list = users
         .map((usuario) => {
@@ -76,26 +73,23 @@ const displayUsers = (users) => {
 
 loadUsers();
 
-
-
-
 /* Fim da Barra de pesquisa ---------------------------------------------------------------------------- */
 let db = null;
 try {
     db = JSON.parse(localStorage.getItem('dbUsers'))
 }
-catch (e){
+catch (e) {
     console.log(e);
     db = null;
 }
 
 
-if(!db){
+if (!db) {
     fetch(URL)
-    .then(res => res.json())
-    .then(usuariosData => {
-    localStorage.setItem('dbUsers', JSON.stringify(usuariosData));
-    })
+        .then(res => res.json())
+        .then(usuariosData => {
+            localStorage.setItem('dbUsers', JSON.stringify(usuariosData));
+        })
 }
 
 
@@ -105,43 +99,43 @@ if(!db){
 
 
 // Função onde o evento de opção selecionada no HTML compara com os usuários no JSON server
-// function exibeUsuarios() {
-//     fetch(URL)
-//         .then(res => res.json())
-//         .then(usuariosData => {
-//             let lista_usuarios = '';
-//             for (let i = 0; i < usuariosData.length; i++) {
-//                 let usuario = usuariosData[i];
-//                 if (((usuario.disponibilidade === FILTRO_DISPONIBILIDADE) || (FILTRO_DISPONIBILIDADE === "")) &&
-//                     ((usuario.atuacao === FILTRO_ATUACAO) || (FILTRO_ATUACAO === "")) &&
-//                     ((usuario.estado === FILTRO_ESTADO) || (FILTRO_ESTADO === ""))) {
-                    
-//                     lista_usuarios += `
-//                     <div class="col-md-4 mb-5">
-//                         <a href="exibe_user.html?id=${usuario.id}">
-//                             <div class="card">
-//                                 <div class="img1"><img src="${usuario.capa}" alt=""></div>
-//                                 <div class="img2"><img src="${usuario.foto}" alt=""></div>
-//                                 <div class="main-text">
-//                                     <h2>${usuario.nome}</h2>
-//                                     <p><strong>Área de atuação:</strong> ${usuario.atuacao}</p>
-//                                     <p class="bi bi-geo-fill"> ${usuario.estado}</p>
-//                                     <p><strong>Disponibilidade:</strong> ${usuario.disponibilidade}</p>
-//                                 </div>
-//                                 <div class="socials">
-//                                     <i class="bi bi-facebook"></i>
-//                                     <i class="bi bi-linkedin"></i>
-//                                     <i class="bi bi-whatsapp"></i>
-//                                     <i class="bi bi-instagram"></i>
-//                                 </div>
-//                             </div>
-//                         </a>
-//                     </div>`;
-//                 }
-//             }
-//             userList.innerHTML = lista_usuarios;
-//         });
-// }
+function exibeUsuarios() {
+    fetch(URL)
+        .then(res => res.json())
+        .then(usuariosData => {
+            let lista_usuarios = '';
+            for (let i = 0; i < usuariosData.length; i++) {
+                let usuario = usuariosData[i];
+                if (((usuario.disponibilidade === FILTRO_DISPONIBILIDADE) || (FILTRO_DISPONIBILIDADE === "")) &&
+                    ((usuario.atuacao === FILTRO_ATUACAO) || (FILTRO_ATUACAO === "")) &&
+                    ((usuario.estado === FILTRO_ESTADO) || (FILTRO_ESTADO === ""))) {
+
+                    lista_usuarios += `
+                    <div class="col-md-4 mb-5">
+                        <a href="exibe_user.html?id=${usuario.id}">
+                            <div class="card">
+                                <div class="img1"><img src="${usuario.capa}" alt=""></div>
+                                <div class="img2"><img src="${usuario.foto}" alt=""></div>
+                                <div class="main-text">
+                                    <h2>${usuario.nome}</h2>
+                                    <p><strong>Área de atuação:</strong> ${usuario.atuacao}</p>
+                                    <p class="bi bi-geo-fill"> ${usuario.estado}</p>
+                                    <p><strong>Disponibilidade:</strong> ${usuario.disponibilidade}</p>
+                                </div>
+                                <div class="socials">
+                                    <i class="bi bi-facebook"></i>
+                                    <i class="bi bi-linkedin"></i>
+                                    <i class="bi bi-whatsapp"></i>
+                                    <i class="bi bi-instagram"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>`;
+                }
+            }
+            userList.innerHTML = lista_usuarios;
+        });
+}
 /*------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*Função onde busca o id do usuario selecionado e cria a pagina de perfil a partir dele*/
@@ -227,28 +221,28 @@ function exibeUser(id) {
 }
 
 // Funções que alteram a imagem no local storage a partir do perfil selicionado
-function alterarImagem (id, imageURI) {
-    let userIndex = db.findIndex(usuario => usuario.id == id);      
-    if (userIndex != -1) {  
+function alterarImagem(id, imageURI) {
+    let userIndex = db.findIndex(usuario => usuario.id == id);
+    if (userIndex != -1) {
         db[userIndex].galeria1 = imageURI;
-        localStorage.setItem('dbUsers', JSON.stringify (db));
-    }    
+        localStorage.setItem('dbUsers', JSON.stringify(db));
+    }
 }
 
-function alterarImagem2 (id, imageURI) {
-    let userIndex = db.findIndex(usuario => usuario.id == id);      
-    if (userIndex != -1) {  
+function alterarImagem2(id, imageURI) {
+    let userIndex = db.findIndex(usuario => usuario.id == id);
+    if (userIndex != -1) {
         db[userIndex].galeria2 = imageURI;
-        localStorage.setItem('dbUsers', JSON.stringify (db));
-    }    
+        localStorage.setItem('dbUsers', JSON.stringify(db));
+    }
 }
 
-function alterarImagem3 (id, imageURI) {
-    let userIndex = db.findIndex(usuario => usuario.id == id);      
-    if (userIndex != -1) {  
+function alterarImagem3(id, imageURI) {
+    let userIndex = db.findIndex(usuario => usuario.id == id);
+    if (userIndex != -1) {
         db[userIndex].galeria3 = imageURI;
-        localStorage.setItem('dbUsers', JSON.stringify (db));
-    }    
+        localStorage.setItem('dbUsers', JSON.stringify(db));
+    }
 }
 
 
