@@ -19,7 +19,7 @@ function obterUsuarioLogado() {
         });
 }
 
-// Função para carregar e atualizar os dados do usuário no formulário e no perfil HTML
+// Carregar e atualizar os dados do usuário no formulário e no perfil HTML
 function carregarDadosUsuario() {
     obterUsuarioLogado()
         .then(usuarioLogado => {
@@ -32,6 +32,18 @@ function carregarDadosUsuario() {
             document.getElementById('editAvailability').value = usuarioLogado.disponibilidade;
             document.getElementById('editDescription').value = usuarioLogado.descricao;
 
+            const userPhoto = document.getElementById('user-photo');
+            if (usuarioLogado.foto) {
+                userPhoto.src = usuarioLogado.foto;
+            } else {
+                const fotoLocalStorage = localStorage.getItem('userPhoto');
+                if (fotoLocalStorage) {
+                    userPhoto.src = fotoLocalStorage;
+                } else {
+                    userPhoto.src = 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
+                }
+            }
+
             document.getElementById('user-name').textContent = usuarioLogado.nome;
             document.getElementById('user-age').textContent = `${usuarioLogado.idade} anos`;
             document.getElementById('username').textContent = usuarioLogado.username;
@@ -40,11 +52,19 @@ function carregarDadosUsuario() {
             document.getElementById('user-institution').textContent = usuarioLogado.instituicao;
             document.getElementById('user-availability').textContent = usuarioLogado.disponibilidade;
             document.getElementById('user-description').textContent = usuarioLogado.descricao;
+
+            // Verifica se o ID do usuário é menor que 36 para ocultar a seção de foto
+            if (idUserLogged < 36) {
+                const editPic = document.getElementById('edit-pic');
+                if (editPic) {
+                    editPic.style.display = 'none';
+                }
+            }
         })
-        .catch(error => console.error('Erro ao carregar dados do usuário:', error));
+        .catch(error => console.error('Erro ao carregar dados do usuário:', error.message));
 }
 
-// Função para salvar mudanças no usuário
+// Salvar mudanças no usuário
 function salvarMudancasUsuario() {
     var nome = document.getElementById('editName').value;
     var idade = document.getElementById('editAge').value;
@@ -90,13 +110,28 @@ function salvarMudancasUsuario() {
             var bootstrapModal = new bootstrap.Modal(modal);
             bootstrapModal.hide();
         })
-        .catch(error => console.error('Erro ao salvar dados:', error));
+        .catch(error => console.error('Erro ao salvar dados:', error.message));
 }
 
 document.addEventListener('DOMContentLoaded', function() {
     carregarDadosUsuario();
-});
 
-document.getElementById('saveChangesButton').addEventListener('click', function() {
-    salvarMudancasUsuario();
+    // Adicionar listener para salvar mudanças
+    document.getElementById('saveChangesButton').addEventListener('click', function() {
+        salvarMudancasUsuario();
+    });
+
+    // Adicionar listener para alterar a foto de perfil
+    document.getElementById('editPhoto').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const userPhoto = document.getElementById('user-photo');
+                userPhoto.src = event.target.result;
+                localStorage.setItem('userPhoto', event.target.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    });
 });
