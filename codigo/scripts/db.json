@@ -28,7 +28,7 @@
       "email": "jalves29@example.com",
       "password": "admin1",
       "foto": "assets/img/pessoa1.jpeg",
-      "avaliacao": "4.2",
+      "avaliacao": "4.3",
       "estado": "SP",
       "instituicao": null,
       "disponibilidade": "Freelance",
@@ -732,6 +732,11 @@
     {
       "id": "fiVfjb",
       "estrelas": 1,
+      "idAvaliado": "2"
+    },
+    {
+      "id": "P6NW54",
+      "estrelas": 5,
       "idAvaliado": "2"
     }
   ]

@@ -222,7 +222,7 @@ function calcularEModificarMediaAvaliacoes() {
         });
 }
 
-
+// Para otimização, necessário corrigir para um único evento de DOM
 
 
 
