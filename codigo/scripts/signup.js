@@ -59,17 +59,11 @@ async function signUp() {
                 avaliacao: 0,
                 descricao: "edite sua descrição!"
             };
-
-            // Salvar usuário
             await createUser(newUser);
             alert("Conta criada com sucesso!");
-
-            // Salvar foto no localStorage dentro de userPicData
             const userPicData = JSON.parse(localStorage.getItem('userPicData')) || {};
             userPicData[userId] = 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
             localStorage.setItem('userPicData', JSON.stringify(userPicData));
-
-            // Redirecionar para página de login
             window.location.href = "login.html";
 
         } catch (error) {

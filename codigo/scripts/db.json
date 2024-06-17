@@ -28,7 +28,7 @@
       "email": "jalves29@example.com",
       "password": "admin1",
       "foto": "assets/img/pessoa1.jpeg",
-      "avaliacao": 0,
+      "avaliacao": "4.2",
       "estado": "SP",
       "instituicao": null,
       "disponibilidade": "Freelance",
@@ -38,7 +38,8 @@
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "Faço uns bico aí né",
       "atuacao": "Fotografia",
-      "loggedIn": true
+      "loggedIn": true,
+      "avaliacoes": 0
     },
     {
       "id": "3",
@@ -704,17 +705,32 @@
   "vendas": [],
   "avaliacoes": [
     {
-      "id": "mr8DVS",
-      "estrelas": 1,
+      "id": "CB85gL",
+      "estrelas": 5,
       "idAvaliado": "2"
     },
     {
-      "id": "ASyVDl",
-      "estrelas": 1,
+      "id": "04dXuI",
+      "estrelas": 5,
       "idAvaliado": "2"
     },
     {
-      "id": "u2Fm4U",
+      "id": "U3I6PH",
+      "estrelas": 4,
+      "idAvaliado": "2"
+    },
+    {
+      "id": "prjzuB",
+      "estrelas": 5,
+      "idAvaliado": "2"
+    },
+    {
+      "id": "egpaFI",
+      "estrelas": 5,
+      "idAvaliado": "2"
+    },
+    {
+      "id": "fiVfjb",
       "estrelas": 1,
       "idAvaliado": "2"
     }

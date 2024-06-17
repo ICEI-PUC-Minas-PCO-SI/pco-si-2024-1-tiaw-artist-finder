@@ -71,7 +71,7 @@ function createChart(ctx) {
     return new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['5 Estrelas', '4 Estrelas', '3 Estrelas', '2 Estrelas', '1 Estrela'],
+            labels: ['1 Estrelas', '2 Estrelas', '3 Estrelas', '4 Estrelas', '5 Estrela'],
             datasets: [{
                 label: 'Avaliações',
                 data: [0, 0, 0, 0, 0],
@@ -111,8 +111,8 @@ function createChart(ctx) {
     });
 }
 
-
 document.addEventListener('DOMContentLoaded', function () {
+    calcularEModificarMediaAvaliacoes();
     const stars = document.querySelectorAll('.star');
     const submitButton = document.getElementById('submitAvaliacao');
 
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
-            for (let i = index; i >= 0; i--) {
+            for (let i = index; i >= 0; i++) {
                 if (!stars[i].classList.contains('selected')) {
                     stars[i].classList.add('selected');
                 }
@@ -175,30 +175,53 @@ function generateRandomId(length) {
     return result;
 }
 
-async function atualizarAvaliacaoUsuario() {
-    try {
-        const responseAvaliacoes = await fetch('http://localhost:3000/avaliacoes');
-        const avaliacoes = await responseAvaliacoes.json();
-        const userAvaliacoes = avaliacoes.filter(avaliacao => avaliacao.idAvaliado === idQueryString);
-        const totalEstrelas = userAvaliacoes.reduce((acc, { estrelas }) => acc + estrelas, 0);
-        const mediaAvaliacoes = totalEstrelas / userAvaliacoes.length;
-        const responseUsuario = await fetch(`http://localhost:3000/usuarios/${idQueryString}`);
-        const userData = await responseUsuario.json();
-
-        userData.avaliacao = mediaAvaliacoes;
-
-        await fetch(`http://localhost:3000/usuarios/${idQueryString}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(userData)
+function calcularEModificarMediaAvaliacoes() {
+    const urlParams = new URLSearchParams(window.location.search);
+    idQueryString = urlParams.get('id');
+    fetch(`http://localhost:3000/avaliacoes`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Erro ao buscar avaliações: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(avaliacoes => {
+            const avaliacoesUsuario = avaliacoes.filter(avaliacao => avaliacao.idAvaliado === idQueryString.toString());
+            const somaAvaliacoes = avaliacoesUsuario.reduce((acc, curr) => acc + curr.estrelas, 0);
+            const mediaAvaliacoes = avaliacoesUsuario.length > 0 ? (somaAvaliacoes / avaliacoesUsuario.length).toFixed(1) : 0;
+            return fetch(`http://localhost:3000/usuarios/${idQueryString}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Erro ao buscar usuário: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(usuario => {
+                    if (usuario.avaliacao !== mediaAvaliacoes) {
+                        const usuarioAtualizado = { ...usuario, avaliacao: mediaAvaliacoes };
+                        return fetch(`http://localhost:3000/usuarios/${idQueryString}`, {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(usuarioAtualizado)
+                        })
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error(`Erro ao atualizar avaliação do usuário: ${response.status}`);
+                                }
+                                console.log('Avaliação do usuário atualizada com sucesso');
+                            });
+                    } else {
+                        console.log('A avaliação do usuário já está atualizada');
+                    }
+                });
+        })
+        .catch(error => {
+            console.error('Erro ao calcular ou modificar a média de avaliações:', error.message);
         });
-
-    } catch (error) {
-        console.error('Erro ao atualizar a avaliação do usuário:', error.message);
-    }
 }
+
 
 
 
