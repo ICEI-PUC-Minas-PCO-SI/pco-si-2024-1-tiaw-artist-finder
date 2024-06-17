@@ -1751,7 +1751,7 @@
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
       "atuacao": "Ilustração",
-      "loggedIn": false,
+      "loggedIn": true,
       "stats": [
         {
           "estrelas": "5 estrelas",
