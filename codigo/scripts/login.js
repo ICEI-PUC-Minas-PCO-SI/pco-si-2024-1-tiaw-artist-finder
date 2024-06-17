@@ -1,4 +1,3 @@
-/*--------------------------------------------------------------------------------------------------------------------------*/
 
 let usuarios = [];
 
@@ -132,7 +131,6 @@ if (logoutButton) {
 
 document.addEventListener("DOMContentLoaded", async () => {
     await loadUsuarios(); // Carrega os usuários do DB JSON antes de iniciar as funções
-
 
     if (window.location.pathname === '/signup.html') {
         signUp();
