@@ -28,7 +28,7 @@
       "email": "jalves29@example.com",
       "password": "admin1",
       "foto": "assets/img/pessoa1.jpeg",
-      "avaliacao": "4.3",
+      "avaliacao": 0,
       "estado": "SP",
       "instituicao": null,
       "disponibilidade": "Freelance",
@@ -38,7 +38,7 @@
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "Faço uns bico aí né",
       "atuacao": "Fotografia",
-      "loggedIn": true,
+      "loggedIn": false,
       "avaliacoes": 0
     },
     {
@@ -699,45 +699,9 @@
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
       "atuacao": "Ilustração",
-      "loggedIn": true
+      "loggedIn": false
     }
   ],
   "vendas": [],
-  "avaliacoes": [
-    {
-      "id": "CB85gL",
-      "estrelas": 5,
-      "idAvaliado": "2"
-    },
-    {
-      "id": "04dXuI",
-      "estrelas": 5,
-      "idAvaliado": "2"
-    },
-    {
-      "id": "U3I6PH",
-      "estrelas": 4,
-      "idAvaliado": "2"
-    },
-    {
-      "id": "prjzuB",
-      "estrelas": 5,
-      "idAvaliado": "2"
-    },
-    {
-      "id": "egpaFI",
-      "estrelas": 5,
-      "idAvaliado": "2"
-    },
-    {
-      "id": "fiVfjb",
-      "estrelas": 1,
-      "idAvaliado": "2"
-    },
-    {
-      "id": "P6NW54",
-      "estrelas": 5,
-      "idAvaliado": "2"
-    }
-  ]
+  "avaliacoes": []
 }
