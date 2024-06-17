@@ -12,8 +12,43 @@
       "instituicao": "PUC MG",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa1.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Web Design",
-      "loggedIn": false
+      "loggedIn": true,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "2",
@@ -27,8 +62,43 @@
       "instituicao": null,
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa2.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Fotografia",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "3",
@@ -42,8 +112,43 @@
       "instituicao": "UFRJ",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa3.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Ilustração",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "4",
@@ -57,8 +162,43 @@
       "instituicao": null,
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa4.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Web Design",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "5",
@@ -72,8 +212,43 @@
       "instituicao": null,
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa5.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Edição",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "6",
@@ -87,8 +262,43 @@
       "instituicao": "USP",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa6.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Edição",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "7",
@@ -102,8 +312,43 @@
       "instituicao": null,
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa7.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Modelagem 3D",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "8",
@@ -117,8 +362,43 @@
       "instituicao": null,
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa8.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Grafite",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]      
     },
     {
       "id": "9",
@@ -132,8 +412,43 @@
       "instituicao": null,
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa9.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Fotografia",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "10",
@@ -147,8 +462,43 @@
       "instituicao": "UFMG",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa10.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Animação",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "11",
@@ -162,8 +512,43 @@
       "instituicao": "PUC MG",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa11.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Pintura",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "12",
@@ -177,8 +562,43 @@
       "instituicao": "UNICAMP",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa12.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Edição",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "13",
@@ -192,8 +612,43 @@
       "instituicao": "PUC RS",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa13.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Filmagem",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "14",
@@ -207,8 +662,43 @@
       "instituicao": "UFPR",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa14.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Web Design",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "15",
@@ -222,8 +712,43 @@
       "instituicao": null,
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa15.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Fotografia",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "16",
@@ -237,8 +762,43 @@
       "instituicao": null,
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa16.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Modelagem 3D",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "17",
@@ -252,8 +812,43 @@
       "instituicao": "UFC",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa17.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Design Gráfico",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "18",
@@ -267,8 +862,43 @@
       "instituicao": "USP",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa18.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Design Gráfico",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "19",
@@ -282,8 +912,43 @@
       "instituicao": "UFF",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa19.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Pintura",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "20",
@@ -297,8 +962,43 @@
       "instituicao": "UFMG",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa20.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Grafite",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "21",
@@ -312,8 +1012,43 @@
       "instituicao": null,
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa21.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Design Gráfico",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "22",
@@ -327,8 +1062,43 @@
       "instituicao": null,
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa27.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Filmagem",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "23",
@@ -342,8 +1112,43 @@
       "instituicao": "PUC RS",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa23.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Modelagem 3D",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "24",
@@ -357,8 +1162,43 @@
       "instituicao": "UFMG",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa24.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Ilustração",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "25",
@@ -372,8 +1212,43 @@
       "instituicao": "UFF",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa25.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Edição",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "26",
@@ -387,8 +1262,43 @@
       "instituicao": "USP",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa26.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Fotografia",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "27",
@@ -402,8 +1312,43 @@
       "instituicao": "UFPI",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa27.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Design Gráfico",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "28",
@@ -417,8 +1362,43 @@
       "instituicao": null,
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa28.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Edição",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "29",
@@ -432,8 +1412,43 @@
       "instituicao": null,
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa29.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Design Gráfico",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "30",
@@ -447,8 +1462,43 @@
       "instituicao": "USP",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa30.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Fotografia",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "31",
@@ -462,8 +1512,43 @@
       "instituicao": "UFMG",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa31.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Pintura",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "32",
@@ -477,8 +1562,43 @@
       "instituicao": "UFPE",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa32.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Web Design",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "33",
@@ -492,8 +1612,43 @@
       "instituicao": "UFC",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa33.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Design Gráfico",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "34",
@@ -507,8 +1662,43 @@
       "instituicao": "UFBA",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa34.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Filmagem",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     },
     {
       "id": "35",
@@ -522,8 +1712,43 @@
       "instituicao": "UFPE",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa35.jpg",
+      "galeria1": "assets/img/gallery.jpg",
+      "galeria2": "assets/img/gallery.jpg",
+      "galeria3": "assets/img/gallery.jpg",
       "atuacao": "Ilustração",
-      "loggedIn": false
+      "loggedIn": false,
+      "stats": [
+        {
+          "estrelas": "5 estrelas",
+          "label": 5,
+          "value": 5,
+          "id": "1"
+        },
+        {
+          "estrelas": "4 estrelas",
+          "label": 4,
+          "value": 2,
+          "id": "2"
+        },
+        {
+          "estrelas": "3 estrelas",
+          "label": 3,
+          "value": 3,
+          "id": "3"
+        },
+        {
+          "estrelas": "2 estrelas",
+          "label": 2,
+          "value": 1,
+          "id": "4"
+        },
+        {
+          "estrelas": "1 estrelas",
+          "label": 1,
+          "value": 9,
+          "id": "5"
+        }
+      ]
     }
   ],
   "vendas": []
