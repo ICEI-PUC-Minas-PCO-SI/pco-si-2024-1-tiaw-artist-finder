@@ -65,15 +65,15 @@
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
+    font-size: 2em;
+    color: #ddd;
 }
 
 .star-rating input[type=radio] {
     display: none;
 }
 
-.star-rating label {
-    font-size: 2em;
-    color: #FFD700;
+.star-rating .star {
     cursor: pointer;
     transition: color 0.2s;
 }
@@ -82,10 +82,7 @@
     color: #FFD700;
 }
 
-.star-rating input[type=radio]:not(:checked) ~ label {
-    color: #ddd;
-}
-
-.star-rating label:hover, .star-rating label:hover ~ label {
+.star-rating .hovered,
+.star-rating input[type=radio]:hover ~ label {
     color: #FFD700;
 }

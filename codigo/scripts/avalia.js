@@ -41,10 +41,16 @@ document.addEventListener('DOMContentLoaded', function () {
     construirDadosGrafico();
 });
 
-// Código de avaliação
+
+// Gráfico e processo de avaliação
+
 document.addEventListener('DOMContentLoaded', function() {
     const ctx = document.getElementById('avaliacoesChart').getContext('2d');
-    const chart = new Chart(ctx, {
+    const chart = createChart(ctx);
+});
+
+function createChart(ctx) {
+    return new Chart(ctx, {
         type: 'bar',
         data: {
             labels: ['1 Estrela', '2 Estrelas', '3 Estrelas', '4 Estrelas', '5 Estrelas'],
@@ -76,4 +82,34 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const starRating = document.querySelector('.star-rating');
+    const stars = starRating.querySelectorAll('.star');
+    const submitButton = document.getElementById('submitAvaliacao');
+
+    stars.forEach(star => {
+        star.addEventListener('click', () => {
+            updateSelectedStars();
+        });
+    });
+
+    submitButton.addEventListener('click', () => {
+        const selectedStars = document.querySelectorAll('.star-rating input[type=radio]:checked').length;
+        console.log(`Estrelas selecionadas: ${selectedStars}`);
+    });
 });
+
+function updateSelectedStars() {
+    const stars = document.querySelectorAll('.star-rating .star');
+    stars.forEach(star => {
+        const input = star.previousElementSibling;
+        if (input.checked) {
+            star.classList.add('selected');
+        } else {
+            star.classList.remove('selected');
+        }
+    });
+}
+
