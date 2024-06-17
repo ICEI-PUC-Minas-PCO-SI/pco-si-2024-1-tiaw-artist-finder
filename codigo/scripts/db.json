@@ -1802,7 +1802,7 @@
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "num sei",
       "atuacao": "Seila ze",
-      "loggedIn": true,
+      "loggedIn": false,
       "stats": [
         {
           "estrelas": "5 estrelas",

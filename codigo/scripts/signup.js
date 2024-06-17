@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", function () {
+    signUp();
+});
+
 // Função para cadastro de novo usuário
 async function signUp() {
     let formSignUp = document.getElementById('signUpForm');
@@ -88,10 +92,6 @@ async function signUp() {
             };
 
             await createUser(newUser);
-            
-            const defaultPhotoSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#B197FC" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>`;
-            localStorage.setItem('userProfilePic', defaultPhotoSVG);
-
             window.location.href = "login.html";
             alert("Conta criada com sucesso!");
 
@@ -100,4 +100,40 @@ async function signUp() {
             alert("Erro ao criar a conta. Por favor, tente novamente mais tarde.");
         }
     });
+}
+
+// Função para carregar os usuários
+async function fetchUsuarios() {
+    try {
+        const response = await fetch('http://localhost:3000/usuarios');
+        if (!response.ok) {
+            throw new Error('Erro ao carregar usuários.');
+        }
+        return await response.json();
+    } catch (error) {
+        console.error('Erro ao carregar usuários:', error);
+        throw error;
+    }
+}
+
+// Função para criar um novo usuário
+async function createUser(user) {
+    try {
+        const response = await fetch('http://localhost:3000/usuarios', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(user),
+        });
+
+        if (!response.ok) {
+            throw new Error('Erro ao criar a conta.');
+        }
+
+        await response.json();
+    } catch (error) {
+        console.error('Erro ao criar a conta:', error);
+        throw error;
+    }
 }
