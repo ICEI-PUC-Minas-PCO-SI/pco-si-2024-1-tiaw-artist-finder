@@ -85,31 +85,25 @@ function createChart(ctx) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const starRating = document.querySelector('.star-rating');
-    const stars = starRating.querySelectorAll('.star');
+    const stars = document.querySelectorAll('.star-rating .star');
     const submitButton = document.getElementById('submitAvaliacao');
 
-    stars.forEach(star => {
+    stars.forEach((star, index) => {
         star.addEventListener('click', () => {
-            updateSelectedStars();
+            for (let i = 0; i <= index; i++) {
+                stars[i].classList.add('selected');
+            }
+            
+            for (let i = index + 1; i < stars.length; i++) {
+                stars[i].classList.remove('selected');
+            }
         });
     });
 
     submitButton.addEventListener('click', () => {
-        const selectedStars = document.querySelectorAll('.star-rating input[type=radio]:checked').length;
+        const selectedStars = document.querySelectorAll('.star-rating .star.selected').length;
         console.log(`Estrelas selecionadas: ${selectedStars}`);
     });
 });
 
-function updateSelectedStars() {
-    const stars = document.querySelectorAll('.star-rating .star');
-    stars.forEach(star => {
-        const input = star.previousElementSibling;
-        if (input.checked) {
-            star.classList.add('selected');
-        } else {
-            star.classList.remove('selected');
-        }
-    });
-}
 

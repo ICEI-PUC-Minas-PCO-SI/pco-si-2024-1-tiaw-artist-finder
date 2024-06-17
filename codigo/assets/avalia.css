@@ -1,8 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
-.exibiUsuario {
+.exibeUsuario {
     flex-direction: row !important;
     gap: 4rem;
+}
+
+@media (max-width: 1020px) {
+    .exibeUsuario {
+        flex-direction: column !important;
+        gap: 4rem;
+    }    
 }
 
 .title-av {
