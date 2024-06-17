@@ -63,49 +63,48 @@
                 reiciendis?
             </p>
         </div>
-    </main>
-    <div class="container">
-        <h1>Avaliação de Perfil</h1>
-
-        <div class="stats-container">
-            <h2>Estatísticas de Avaliação</h2>
-            <canvas id="avaliacoes-chart"></canvas>
-            <p>Média de avaliações: <span id="media-avaliacoes"></span></p>
+    <div class="container mt-5" id="avaliacaoPerfil">
+        <h1 class="text-center">Avaliação de Perfil</h1>
+        <div class="text-center mt-4">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#avaliacaoModal">Avaliar</button>
+            <button class="btn btn-secondary" id="viewGraph">Ver Gráfico</button>
         </div>
-
-        <div class="avaliar-container">
-            <h2>Avalie:</h2>
-            <button type="button" class="btn btn-primary" id="avaliar-btn" data-toggle="modal" data-target="#modalAvaliacao">
-                Avaliar
-            </button>
+        <div class="mt-5">
+            <canvas id="avaliacoesChart" width="400" height="200"></canvas>
         </div>
     </div>
-    <div class="modal fade" id="modalAvaliacao" tabindex="-1" role="dialog" aria-labelledby="modalAvaliacaoLabel" aria-hidden="true">
+    </main>
+    <div class="modal fade" id="avaliacaoModal" tabindex="-1" role="dialog" aria-labelledby="avaliacaoModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalAvaliacaoLabel">
-                        Avaliação de Usuário
-                    </h5>
+                    <h5 class="modal-title" id="avaliacaoModalLabel">Avaliação</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Selecione a quantidade de estrelas:</p>
-                    <div id="star-rating"></div>
+                    <div class="star-rating">
+                        <input type="radio" id="5-stars" name="rating" value="5" />
+                        <label for="5-stars" class="star">&#9733;</label>
+                        <input type="radio" id="4-stars" name="rating" value="4" />
+                        <label for="4-stars" class="star">&#9733;</label>
+                        <input type="radio" id="3-stars" name="rating" value="3" />
+                        <label for="3-stars" class="star">&#9733;</label>
+                        <input type="radio" id="2-stars" name="rating" value="2" />
+                        <label for="2-stars" class="star">&#9733;</label>
+                        <input type="radio" id="1-star" name="rating" value="1" />
+                        <label for="1-star" class="star">&#9733;</label>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                        Cancelar
-                    </button>
-                    <button type="button" class="btn btn-primary" id="salvar-avaliacao-btn">
-                        Salvar Avaliação
-                    </button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" id="submitAvaliacao">Enviar</button>
                 </div>
             </div>
         </div>
     </div>
+
     <script>
         $(document).ready(function () {
             $("#star-rating").starRating({
@@ -126,9 +125,14 @@
     </script>
     <script src="./scripts/avalia.js"></script>
     <script src="./scripts/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.getElementById('viewGraph').addEventListener('click', function() {
+        });
+    </script>
 </body>
 
 </html>
