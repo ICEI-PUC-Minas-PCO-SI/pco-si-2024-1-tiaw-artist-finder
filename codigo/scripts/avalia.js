@@ -1,4 +1,5 @@
 // Essa função de carregar dados está mockada apenas...
+// http://127.0.0.1:5501/codigo/mockAvaliacao.html?id=1
 
 let idQueryString = 0;
 
@@ -85,25 +86,69 @@ function createChart(ctx) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const stars = document.querySelectorAll('.star-rating .star');
+    const stars = document.querySelectorAll('.star');
     const submitButton = document.getElementById('submitAvaliacao');
 
     stars.forEach((star, index) => {
         star.addEventListener('click', () => {
-            for (let i = 0; i <= index; i++) {
-                stars[i].classList.add('selected');
-            }
-            
-            for (let i = index + 1; i < stars.length; i++) {
-                stars[i].classList.remove('selected');
+            stars.forEach(s => {
+                if (s.classList.contains('selected')) {
+                    s.classList.remove('selected');
+                }
+            });
+
+            for (let i = index; i >= 0; i++) {
+                if (!stars[i].classList.contains('selected')) {
+                    stars[i].classList.add('selected');
+                }
             }
         });
     });
 
     submitButton.addEventListener('click', () => {
-        const selectedStars = document.querySelectorAll('.star-rating .star.selected').length;
-        console.log(`Estrelas selecionadas: ${selectedStars}`);
+        const selectedStars = document.querySelectorAll('.star.selected').length;
+        const avaliacao = {
+            id: generateRandomId(6),
+            estrelas: selectedStars,
+            idAvaliado: idQueryString
+        };
+
+        enviarAvaliacao(avaliacao);
     });
 });
+
+function enviarAvaliacao(avaliacao) {
+    fetch('http://localhost:3000/avaliacoes', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(avaliacao)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao enviar avaliação');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Avaliação enviada com sucesso:', data);
+    })
+    .catch(error => {
+        console.error('Erro ao enviar avaliação:', error);
+    });
+}
+
+function generateRandomId(length) {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return result;
+}
+
+
+
 
 

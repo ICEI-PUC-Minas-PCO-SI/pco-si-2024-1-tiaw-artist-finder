@@ -93,3 +93,7 @@
 .star-rating input[type=radio]:hover ~ label {
     color: #FFD700;
 }
+
+.selected {
+    display: block;
+}
