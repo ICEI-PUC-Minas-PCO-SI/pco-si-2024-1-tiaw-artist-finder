@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+body {
+    font-family: "Lato", sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+#logo {
+    width: 80px;
+    height: 80px;
+    margin-right: 50px;
+}
+
+/* Estilo do card */
+.card {
+    width: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background-color: #ffffff; /* branco */
+    color: #4a154b; /* roxo */
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+.card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.edit-button {
+    background-color: #4a154b; /* roxo */
+    color: #ffffff; /* branco */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+/* Estilo da modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 50rem;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+.modal-content {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    margin: 15% auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    color: #6a1b9a; /* roxo */
+    text-align: center;
+}
+.modal-header, .modal-footer {
+    border-bottom: none;
+    border-top: none;
+    text-align: center;
+}
+.modal-title {
+    color: #6a1b9a;
+}
+.form-group label {
+    color: #6a1b9a;
+}
+.form-control, .form-control-file, .form-control select {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+.form-control-file {
+    padding: 5px;
+}
+.btn-secondary {
+    background-color: #ccc;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-primary {
+    background-color: #6a1b9a;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-primary:hover {
+    background-color: #4a148c;
+}
+
+/* Responsividade */
+
+@media (max-width: 768px) {
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .profile-edit {
+        width: 90%;
+        margin-top: 20px;
+    }
+
+    .modal-dialog {
+        width: 100%;
+        margin: 0;
+    }
+
+    .modal-content {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 450px) {
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 10px;
+    }
+
+    .profile-edit {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .modal-content {
+        padding: 10px;
+    }
+}

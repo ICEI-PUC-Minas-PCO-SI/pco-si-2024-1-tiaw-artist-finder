@@ -3,13 +3,13 @@
     {
       "id": "1",
       "nome": "Ana Silva",
-      "idade": 22,
+      "idade": "22",
       "username": "aSilva22",
       "email": "asilva22@gmail.com",
       "password": "admin1",
       "foto": "assets/img/pessoa2.jpeg",
       "estado": "SP",
-      "instituicao": "PUC MG",
+      "instituicao": "PUC",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa1.jpg",
       "galeria1": "assets/img/gallery.jpg",
@@ -398,7 +398,7 @@
           "value": 9,
           "id": "5"
         }
-      ]      
+      ]
     },
     {
       "id": "9",
