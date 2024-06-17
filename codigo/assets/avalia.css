@@ -1,5 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
+.exibiUsuario {
+    flex-direction: row !important;
+    gap: 4rem;
+}
+
+.title-av {
+    margin-top: .8rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.graphic-container {
+    width: 90%;
+    height: fit-content;
+}
+
+#avaliacoesChart {
+    margin-top: .8rem;
+}
+
 #avaliacaoPerfil {
     text-align: center;
     margin-top: 50px;

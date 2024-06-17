@@ -46,7 +46,7 @@
             </div>
         </div>
     </nav>
-    <main class="main-container">
+    <main class="main-container exibiUsuario">
         <div class="card" id="user-profile">
             <img src="https://picsum.photos/seed/picsum/1200/1200" alt="Foto de Perfil" id="user-photo" />
             <h2 id="user-name">Nome do Usuário</h2>
@@ -63,16 +63,14 @@
                 reiciendis?
             </p>
         </div>
-    <div class="container mt-5" id="avaliacaoPerfil">
-        <h1 class="text-center">Avaliação de Perfil</h1>
-        <div class="text-center mt-4">
+        <div class="card">
+            <p class="title-av">Avaliação de Perfil:</p>
             <button class="btn btn-primary" data-toggle="modal" data-target="#avaliacaoModal">Avaliar</button>
-            <button class="btn btn-secondary" id="viewGraph">Ver Gráfico</button>
+            <div class="graphic-container">
+                <canvas id="avaliacoesChart" width="200" height="193"></canvas>
+            </div>
         </div>
-        <div class="mt-5">
-            <canvas id="avaliacoesChart" width="400" height="200"></canvas>
-        </div>
-    </div>
+
     </main>
     <div class="modal fade" id="avaliacaoModal" tabindex="-1" role="dialog" aria-labelledby="avaliacaoModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -105,34 +103,12 @@
         </div>
     </div>
 
-    <script>
-        $(document).ready(function () {
-            $("#star-rating").starRating({
-                starSize: 25,
-                callback: function (currentRating) {
-                    console.log("Estrelas selecionadas:", currentRating);
-                },
-            });
-
-            // Função para salvar a avaliação
-            $("#salvar-avaliacao-btn").click(function () {
-                const estrelas = $("#star-rating").starRating("getRating");
-                const usuarioAvaliado = "35";
-                adicionarAvaliacao(estrelas, usuarioAvaliado);
-                $("#modalAvaliacao").modal("hide");
-            });
-        });
-    </script>
     <script src="./scripts/avalia.js"></script>
     <script src="./scripts/login.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        document.getElementById('viewGraph').addEventListener('click', function() {
-        });
-    </script>
 </body>
 
 </html>
