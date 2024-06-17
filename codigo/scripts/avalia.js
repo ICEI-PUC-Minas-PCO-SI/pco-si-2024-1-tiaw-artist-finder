@@ -42,7 +42,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Código de avaliação
-
 document.addEventListener('DOMContentLoaded', function() {
     const ctx = document.getElementById('avaliacoesChart').getContext('2d');
     const chart = new Chart(ctx, {
