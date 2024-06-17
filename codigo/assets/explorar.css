@@ -91,14 +91,40 @@ body{
     background: #fff;
 }
 
-.search-wrapper{
+
+.search {
+    --padding: 14px;
+
+    
     display: flex;
-    flex-direction: column;
-    gap: .25rem;
+    align-items: center;
+    padding: var(--padding);
+    border-radius: 28px;
+    background: #f6f6f6;
+    box-shadow: 0 0 2px  rgba(0, 0, 0, 0.75);
+    transition: box-shadow 0.25s;
 }
 
-input{
-    font-size: 1rem;
+.search:focus-within{
+    box-shadow: 0 0 2px #7d2ae8;
+}
+
+.search-input{
+    font-size: 16px;
+    font-family: 'Lexend', sans-serif;
+    color: #333333;
+    margin-left: var(--padding);
+    outline: none;
+    border: none;
+    background: transparent;
+    width: 300px;
+}
+
+
+
+.search-input::placeholder,
+.search-icon{
+    color: rgba(0, 0, 0, 0.5);
 }
 
 .profile-area{
