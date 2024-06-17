@@ -48,6 +48,22 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function() {
     const ctx = document.getElementById('avaliacoesChart').getContext('2d');
     const chart = createChart(ctx);
+
+    fetch(`http://localhost:3000/avaliacoes`)
+        .then(response => response.json())
+        .then(data => {
+            const userId = Number(idQueryString);
+            const userReviews = data.filter(review => review.idAvaliado == userId);
+            const starCounts = [0, 0, 0, 0, 0];
+            userReviews.forEach(review => {
+                if (review.estrelas >= 1 && review.estrelas <= 5) {
+                    starCounts[review.estrelas - 1]++;
+                }
+            });
+            chart.data.datasets[0].data = starCounts;
+            chart.update();
+        })
+        .catch(error => console.error('Erro ao buscar avaliações:', error));
 });
 
 function createChart(ctx) {

@@ -22,7 +22,7 @@
     {
       "id": "2",
       "nome": "Jorge Alves",
-      "idade": 29,
+      "idade": "29",
       "username": "jAlves29",
       "email": "jalves29@example.com",
       "password": "admin1",
@@ -34,9 +34,9 @@
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Faço uns bico aí",
       "atuacao": "Fotografia",
-      "loggedIn": false
+      "loggedIn": true
     },
     {
       "id": "3",
@@ -667,5 +667,21 @@
     }
   ],
   "vendas": [],
-  "avaliacoes": []
+  "avaliacoes": [
+    {
+      "id": "ZYfXwf",
+      "estrelas": 4,
+      "idAvaliado": "1"
+    },
+    {
+      "id": "w5tzSL",
+      "estrelas": 3,
+      "idAvaliado": "1"
+    },
+    {
+      "id": "VBrA5y",
+      "estrelas": 5,
+      "idAvaliado": "4"
+  }
+  ]
 }
