@@ -2,20 +2,20 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/brands.min.css">
-    <link rel="stylesheet" href="./assets/avalia.css">
-    <link rel="stylesheet" href="./assets/edit.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/brands.min.css" />
+    <link rel="stylesheet" href="./assets/avalia.css" />
+    <link rel="stylesheet" href="./assets/edit.css" />
     <title>Perfil</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <img src="assets/img/logo.svg" id="logo">
+            <img src="assets/img/logo.svg" id="logo" />
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -48,7 +48,7 @@
     </nav>
     <main class="main-container">
         <div class="card" id="user-profile">
-            <img src="https://picsum.photos/seed/picsum/1200/1200" alt="Foto de Perfil" id="user-photo">
+            <img src="https://picsum.photos/seed/picsum/1200/1200" alt="Foto de Perfil" id="user-photo" />
             <h2 id="user-name">Nome do Usuário</h2>
             <p id="user-age">25 anos</p>
             <p id="username">usuario123</p>
@@ -56,14 +56,79 @@
             <p id="user-state">São Paulo</p>
             <p id="user-institution">Universidade XYZ</p>
             <p id="user-availability">Tempo integral</p>
-            <p id="user-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?</p>
+            <p id="user-description">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis
+                possimus rerum iste tenetur error soluta earum quod, aliquid suscipit,
+                tempore quas minus sed quaerat, eius nesciunt impedit eaque autem
+                reiciendis?
+            </p>
         </div>
     </main>
+    <div class="container">
+        <h1>Avaliação de Perfil</h1>
+
+        <div class="stats-container">
+            <h2>Estatísticas de Avaliação</h2>
+            <canvas id="avaliacoes-chart"></canvas>
+            <p>Média de avaliações: <span id="media-avaliacoes"></span></p>
+        </div>
+
+        <div class="avaliar-container">
+            <h2>Avalie:</h2>
+            <button type="button" class="btn btn-primary" id="avaliar-btn" data-toggle="modal" data-target="#modalAvaliacao">
+                Avaliar
+            </button>
+        </div>
+    </div>
+    <div class="modal fade" id="modalAvaliacao" tabindex="-1" role="dialog" aria-labelledby="modalAvaliacaoLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalAvaliacaoLabel">
+                        Avaliação de Usuário
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Selecione a quantidade de estrelas:</p>
+                    <div id="star-rating"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Cancelar
+                    </button>
+                    <button type="button" class="btn btn-primary" id="salvar-avaliacao-btn">
+                        Salvar Avaliação
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#star-rating").starRating({
+                starSize: 25,
+                callback: function (currentRating) {
+                    console.log("Estrelas selecionadas:", currentRating);
+                },
+            });
+
+            // Função para salvar a avaliação
+            $("#salvar-avaliacao-btn").click(function () {
+                const estrelas = $("#star-rating").starRating("getRating");
+                const usuarioAvaliado = "35";
+                adicionarAvaliacao(estrelas, usuarioAvaliado);
+                $("#modalAvaliacao").modal("hide");
+            });
+        });
+    </script>
     <script src="./scripts/avalia.js"></script>
-    <script src="./scripts/login.js"></script>
     <script src="./scripts/login.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 
 </html>

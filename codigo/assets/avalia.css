@@ -1,94 +1,49 @@
-.rating-system {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 40px;
-  }
-  /* Sistema de estrelas - INICIO */
- .rating__star {
-    font-size: 1.3em;
-    cursor: pointer;
-    color: #dabd18b2;
-    transition: filter linear .3s;
- }
- 
- .rating__star:hover {
-    filter: drop-shadow(1px 1px 4px gold);
- }
- .rating {
-    position: relative;
-    width: 180px;
-    background: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: .3em;
-    padding: 5px;
-    overflow: hidden;
-    border-radius: 20px;
-    box-shadow: 0 0 2px #b3acac;
- }
- 
- .rating__result {
-    position: absolute;
-    display: none; /* Está como none apenas para teste visual */
-    top: 0;
-    left: 0;
-    transform: translateY(-10px) translateX(-5px);
-    z-index: -9;
-    font: 3em Arial, Helvetica, sans-serif;
-    color: #ebebeb8e;
-    pointer-events: none;
- }
- /* Sistema de Estrelas - FIM */
- 
- 
- /* Contagem de Avaliações - INICIO */
-.review-count {
-    font-size: 14px;
-    color: #666;
-    margin-top: 10px;
-  }
-  /*Contagem de Avaliações - FIM */
-  
-  
-  /* Media de Avaliações - INICIO */
-  #estrelamedia {
-    color: gold;
-    display: inline-flex;
-    padding: 1px;
-  }
-  #media {
-    color: black;
-    padding: 1px;
-  }
-  /* Media de Avaliações - FIM  */
-  
-  
-  /* Estatisticas - INICIO  */
-  .stats-bar {
-    width: 300px;
-    height: 250px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
     padding: 20px;
-    
-  }  
-  /* ESTATISTICAS - FIM */
-  
-  /* Botão de Review - INICIO */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-  .review-button {
-    background-color: #3e1983;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
+.stats-container {
+    margin-bottom: 20px;
+}
+
+.avaliar-container {
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+canvas {
+    max-width: 100%;
+    margin: 20px 0;
+}
+
+.stars {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.star {
+    font-size: 24px;
     cursor: pointer;
-  }
-  
-  .review-button:hover {
-    background-color: #301464;
-    
-  }
-  /* Botão de Review - FIM  */
+}
+
+.star:hover {
+    color: gold;
+}
+
+#avaliar-btn {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
