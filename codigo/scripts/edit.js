@@ -37,8 +37,8 @@ function carregarDadosUsuario() {
                 userPhoto.src = usuarioLogado.foto;
             } else {
                 const userPicData = JSON.parse(localStorage.getItem('userPicData'));
-                if (userPicData && userPicData.userId === idUserLogged && userPicData.userProfilePic) {
-                    userPhoto.src = userPicData.userProfilePic;
+                if (userPicData && userPicData[idUserLogged]) {
+                    userPhoto.src = userPicData[idUserLogged];
                 }
             }
 
@@ -122,7 +122,7 @@ function convertImageToBase64(file, callback) {
 // Função para salvar a imagem codificada em Base64 no localStorage
 function saveImageToLocalStorage(imageBase64) {
     let userPicData = JSON.parse(localStorage.getItem('userPicData')) || {};
-    userPicData[userPicData.userId] = imageBase64;
+    userPicData[idUserLogged] = imageBase64;
     localStorage.setItem('userPicData', JSON.stringify(userPicData));
     console.log('Imagem salva no localStorage.');
 }
@@ -130,12 +130,10 @@ function saveImageToLocalStorage(imageBase64) {
 document.addEventListener('DOMContentLoaded', function() {
     carregarDadosUsuario();
 
-    // Adicionar listener para salvar mudanças
     document.getElementById('saveChangesButton').addEventListener('click', function() {
         salvarMudancasUsuario();
     });
 
-    // Adicionar listener para alterar a foto de perfil
     document.getElementById('editPhoto').addEventListener('change', function(event) {
         const file = event.target.files[0];
         if (file) {

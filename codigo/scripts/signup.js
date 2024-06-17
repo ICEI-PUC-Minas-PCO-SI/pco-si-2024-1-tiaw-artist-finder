@@ -91,15 +91,16 @@ async function signUp() {
                 ]
             };
 
+            // Salvar usuário
             await createUser(newUser);
             alert("Conta criada com sucesso!");
 
-            const userPicData = {
-                userId: userId,
-                userProfilePic: 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png'
-            };
+            // Salvar foto no localStorage dentro de userPicData
+            const userPicData = JSON.parse(localStorage.getItem('userPicData')) || {};
+            userPicData[userId] = 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
             localStorage.setItem('userPicData', JSON.stringify(userPicData));
 
+            // Redirecionar para página de login
             window.location.href = "login.html";
 
         } catch (error) {
