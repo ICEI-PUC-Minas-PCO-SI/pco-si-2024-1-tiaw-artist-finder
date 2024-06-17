@@ -30,8 +30,8 @@ function carregarDadosUsuario() {
             document.getElementById('editState').value = usuarioLogado.estado;
             document.getElementById('editInstitution').value = usuarioLogado.instituicao;
             document.getElementById('editAvailability').value = usuarioLogado.disponibilidade;
+            document.getElementById('editDescription').value = usuarioLogado.descricao;
 
-            // Atualiza os dados no perfil do usuário no HTML
             document.getElementById('user-name').textContent = usuarioLogado.nome;
             document.getElementById('user-age').textContent = `${usuarioLogado.idade} anos`;
             document.getElementById('username').textContent = usuarioLogado.username;
@@ -39,8 +39,7 @@ function carregarDadosUsuario() {
             document.getElementById('user-state').textContent = usuarioLogado.estado;
             document.getElementById('user-institution').textContent = usuarioLogado.instituicao;
             document.getElementById('user-availability').textContent = usuarioLogado.disponibilidade;
-            // Pode adicionar a atualização da foto de perfil também, se houver um atributo para isso
-            // document.getElementById('user-photo').src = usuarioLogado.foto;
+            document.getElementById('user-description').textContent = usuarioLogado.descricao;
         })
         .catch(error => console.error('Erro ao carregar dados do usuário:', error));
 }
@@ -54,6 +53,7 @@ function salvarMudancasUsuario() {
     var estado = document.getElementById('editState').value;
     var instituicao = document.getElementById('editInstitution').value;
     var disponibilidade = document.getElementById('editAvailability').value;
+    var descricao = document.getElementById('editDescription').value;
 
     obterUsuarioLogado()
         .then(usuarioLogado => {
@@ -65,7 +65,8 @@ function salvarMudancasUsuario() {
                 atuacao: profissao || usuarioLogado.atuacao,
                 estado: estado || usuarioLogado.estado,
                 instituicao: instituicao || usuarioLogado.instituicao,
-                disponibilidade: disponibilidade || usuarioLogado.disponibilidade
+                disponibilidade: disponibilidade || usuarioLogado.disponibilidade,
+                descricao: descricao || usuarioLogado.descricao
             };
 
             return fetch(`http://localhost:3000/usuarios/${idUserLogged}`, {
@@ -84,7 +85,6 @@ function salvarMudancasUsuario() {
         })
         .then(data => {
             console.log('Dados atualizados com sucesso:', data);
-            // Atualiza os dados exibidos no perfil após o salvamento
             carregarDadosUsuario();
             var modal = document.getElementById('editModal');
             var bootstrapModal = new bootstrap.Modal(modal);
