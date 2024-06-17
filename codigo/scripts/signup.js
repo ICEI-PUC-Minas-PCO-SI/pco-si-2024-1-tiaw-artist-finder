@@ -92,8 +92,15 @@ async function signUp() {
             };
 
             await createUser(newUser);
-            window.location.href = "login.html";
             alert("Conta criada com sucesso!");
+
+            const userPicData = {
+                userId: userId,
+                userProfilePic: 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png'
+            };
+            localStorage.setItem('userPicData', JSON.stringify(userPicData));
+
+            window.location.href = "login.html";
 
         } catch (error) {
             console.error('Erro ao criar a conta:', error);

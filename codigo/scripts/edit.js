@@ -19,7 +19,7 @@ function obterUsuarioLogado() {
         });
 }
 
-// Carregar e atualizar os dados do usuário no formulário e no perfil HTML
+// Função para carregar e atualizar os dados do usuário no formulário e no perfil HTML
 function carregarDadosUsuario() {
     obterUsuarioLogado()
         .then(usuarioLogado => {
@@ -36,11 +36,9 @@ function carregarDadosUsuario() {
             if (usuarioLogado.foto) {
                 userPhoto.src = usuarioLogado.foto;
             } else {
-                const fotoLocalStorage = localStorage.getItem('userPhoto');
-                if (fotoLocalStorage) {
-                    userPhoto.src = fotoLocalStorage;
-                } else {
-                    userPhoto.src = 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
+                const userPicData = JSON.parse(localStorage.getItem('userPicData'));
+                if (userPicData && userPicData.userId === idUserLogged && userPicData.userProfilePic) {
+                    userPhoto.src = userPicData.userProfilePic;
                 }
             }
 
@@ -53,7 +51,6 @@ function carregarDadosUsuario() {
             document.getElementById('user-availability').textContent = usuarioLogado.disponibilidade;
             document.getElementById('user-description').textContent = usuarioLogado.descricao;
 
-            // Verifica se o ID do usuário é menor que 36 para ocultar a seção de foto
             if (idUserLogged < 36) {
                 const editPic = document.getElementById('edit-pic');
                 if (editPic) {
@@ -64,7 +61,7 @@ function carregarDadosUsuario() {
         .catch(error => console.error('Erro ao carregar dados do usuário:', error.message));
 }
 
-// Salvar mudanças no usuário
+// Função para salvar mudanças no usuário
 function salvarMudancasUsuario() {
     var nome = document.getElementById('editName').value;
     var idade = document.getElementById('editAge').value;
@@ -113,6 +110,23 @@ function salvarMudancasUsuario() {
         .catch(error => console.error('Erro ao salvar dados:', error.message));
 }
 
+// Função para converter uma imagem para Base64
+function convertImageToBase64(file, callback) {
+    const reader = new FileReader();
+    reader.onload = function(event) {
+        callback(event.target.result);
+    };
+    reader.readAsDataURL(file);
+}
+
+// Função para salvar a imagem codificada em Base64 no localStorage
+function saveImageToLocalStorage(imageBase64) {
+    let userPicData = JSON.parse(localStorage.getItem('userPicData')) || {};
+    userPicData[userPicData.userId] = imageBase64;
+    localStorage.setItem('userPicData', JSON.stringify(userPicData));
+    console.log('Imagem salva no localStorage.');
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     carregarDadosUsuario();
 
@@ -125,13 +139,9 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('editPhoto').addEventListener('change', function(event) {
         const file = event.target.files[0];
         if (file) {
-            const reader = new FileReader();
-            reader.onload = function(event) {
-                const userPhoto = document.getElementById('user-photo');
-                userPhoto.src = event.target.result;
-                localStorage.setItem('userPhoto', event.target.result);
-            };
-            reader.readAsDataURL(file);
+            convertImageToBase64(file, function(base64) {
+                saveImageToLocalStorage(base64);
+            });
         }
     });
 });
