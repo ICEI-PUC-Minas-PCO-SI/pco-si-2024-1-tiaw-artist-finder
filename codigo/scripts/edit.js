@@ -50,6 +50,7 @@ function carregarDadosUsuario() {
             document.getElementById('user-institution').textContent = usuarioLogado.instituicao;
             document.getElementById('user-availability').textContent = usuarioLogado.disponibilidade;
             document.getElementById('user-description').textContent = usuarioLogado.descricao;
+            document.getElementById('user-rating').textContent = usuarioLogado.avaliacao;
 
             if (idUserLogged < 36) {
                 const editPic = document.getElementById('edit-pic');
@@ -113,7 +114,7 @@ function salvarMudancasUsuario() {
 // Função para converter uma imagem para Base64
 function convertImageToBase64(file, callback) {
     const reader = new FileReader();
-    reader.onload = function(event) {
+    reader.onload = function (event) {
         callback(event.target.result);
     };
     reader.readAsDataURL(file);
@@ -127,17 +128,17 @@ function saveImageToLocalStorage(imageBase64) {
     console.log('Imagem salva no localStorage.');
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     carregarDadosUsuario();
 
-    document.getElementById('saveChangesButton').addEventListener('click', function() {
+    document.getElementById('saveChangesButton').addEventListener('click', function () {
         salvarMudancasUsuario();
     });
 
-    document.getElementById('editPhoto').addEventListener('change', function(event) {
+    document.getElementById('editPhoto').addEventListener('change', function (event) {
         const file = event.target.files[0];
         if (file) {
-            convertImageToBase64(file, function(base64) {
+            convertImageToBase64(file, function (base64) {
                 saveImageToLocalStorage(base64);
             });
         }

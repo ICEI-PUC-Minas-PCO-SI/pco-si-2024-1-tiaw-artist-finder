@@ -56,7 +56,8 @@ async function signUp() {
                 galeria1: "",
                 galeria2: "",
                 galeria3: "",
-                descricao: "edite sua descrição!" // Falta de vírgula talvez dê erro, sei lá
+                avaliacao: 0,
+                descricao: "edite sua descrição!"
             };
 
             // Salvar usuário

@@ -33,6 +33,7 @@ function carregarDadosUsuario() {
             document.getElementById('user-institution').textContent = usuario.instituicao;
             document.getElementById('user-availability').textContent = usuario.disponibilidade;
             document.getElementById('user-description').textContent = usuario.descricao;
+            document.getElementById('user-rating').textContent = usuario.avaliacao;
         })
         .catch(error => console.error('Erro ao carregar dados do usuário:', error.message));
 }
@@ -45,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Gráfico e processo de avaliação
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const ctx = document.getElementById('avaliacoesChart').getContext('2d');
     const chart = createChart(ctx);
 
@@ -100,7 +101,7 @@ function createChart(ctx) {
                 },
                 tooltip: {
                     callbacks: {
-                        label: function(tooltipItem) {
+                        label: function (tooltipItem) {
                             return `${tooltipItem.raw} avaliações`;
                         }
                     }
@@ -111,7 +112,7 @@ function createChart(ctx) {
 }
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const stars = document.querySelectorAll('.star');
     const submitButton = document.getElementById('submitAvaliacao');
 
@@ -151,18 +152,18 @@ function enviarAvaliacao(avaliacao) {
         },
         body: JSON.stringify(avaliacao)
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Erro ao enviar avaliação');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Avaliação enviada com sucesso:', data);
-    })
-    .catch(error => {
-        console.error('Erro ao enviar avaliação:', error);
-    });
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao enviar avaliação');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Avaliação enviada com sucesso:', data);
+        })
+        .catch(error => {
+            console.error('Erro ao enviar avaliação:', error);
+        });
 }
 
 function generateRandomId(length) {
@@ -174,6 +175,30 @@ function generateRandomId(length) {
     return result;
 }
 
+async function atualizarAvaliacaoUsuario() {
+    try {
+        const responseAvaliacoes = await fetch('http://localhost:3000/avaliacoes');
+        const avaliacoes = await responseAvaliacoes.json();
+        const userAvaliacoes = avaliacoes.filter(avaliacao => avaliacao.idAvaliado === idQueryString);
+        const totalEstrelas = userAvaliacoes.reduce((acc, { estrelas }) => acc + estrelas, 0);
+        const mediaAvaliacoes = totalEstrelas / userAvaliacoes.length;
+        const responseUsuario = await fetch(`http://localhost:3000/usuarios/${idQueryString}`);
+        const userData = await responseUsuario.json();
+
+        userData.avaliacao = mediaAvaliacoes;
+
+        await fetch(`http://localhost:3000/usuarios/${idQueryString}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+        });
+
+    } catch (error) {
+        console.error('Erro ao atualizar a avaliação do usuário:', error.message);
+    }
+}
 
 
 
