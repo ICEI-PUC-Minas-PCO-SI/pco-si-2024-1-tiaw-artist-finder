@@ -18,9 +18,9 @@ const searchBar = document.getElementById('searchBar');
 
 /* Barra de pesquisa ---------------------------------------------------------------------------- */
 
-//Definindo um array vazil para os usuarios
+//Definindo um array vazio para os usuarios
 let afUsers = [];
-
+let filtredUsers = [];
  let FILTRO_ATUACAO = "";
  let FILTRO_ESTADO = "";
  let FILTRO_DISPONIBILIDADE = "";
