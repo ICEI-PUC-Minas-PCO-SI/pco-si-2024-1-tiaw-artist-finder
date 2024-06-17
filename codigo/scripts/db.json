@@ -667,21 +667,5 @@
     }
   ],
   "vendas": [],
-  "avaliacoes": [
-    {
-      "id": "ZYfXwf",
-      "estrelas": 4,
-      "idAvaliado": "1"
-    },
-    {
-      "id": "w5tzSL",
-      "estrelas": 3,
-      "idAvaliado": "1"
-    },
-    {
-      "id": "VBrA5y",
-      "estrelas": 5,
-      "idAvaliado": "4"
-  }
-  ]
+  "avaliacoes": []
 }

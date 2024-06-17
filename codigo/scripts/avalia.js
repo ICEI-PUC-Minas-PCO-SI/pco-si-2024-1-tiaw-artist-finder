@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             const userId = Number(idQueryString);
-            const userReviews = data.filter(review => review.idAvaliado == userId);
+            const userReviews = data.filter(review => review.idAvaliado == userId)
             const starCounts = [0, 0, 0, 0, 0];
             userReviews.forEach(review => {
                 if (review.estrelas >= 1 && review.estrelas <= 5) {
@@ -70,36 +70,46 @@ function createChart(ctx) {
     return new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['1 Estrela', '2 Estrelas', '3 Estrelas', '4 Estrelas', '5 Estrelas'],
+            labels: ['5 Estrelas', '4 Estrelas', '3 Estrelas', '2 Estrelas', '1 Estrela'],
             datasets: [{
                 label: 'Avaliações',
                 data: [0, 0, 0, 0, 0],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)'
-                ],
+                backgroundColor: '#8e44ad',
+                borderColor: '#501968',
                 borderWidth: 1
             }]
         },
         options: {
+            indexAxis: 'y',
             scales: {
+                x: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#501968'
+                    }
+                },
                 y: {
-                    beginAtZero: true
+                    ticks: {
+                        color: '#501968'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return `${tooltipItem.raw} avaliações`;
+                        }
+                    }
                 }
             }
         }
     });
 }
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const stars = document.querySelectorAll('.star');
@@ -113,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
 
-            for (let i = index; i >= 0; i++) {
+            for (let i = index; i >= 0; i--) {
                 if (!stars[i].classList.contains('selected')) {
                     stars[i].classList.add('selected');
                 }

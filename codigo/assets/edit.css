@@ -62,3 +62,7 @@ body {
     color: #fff;
 }
 
+#user-stars {
+    align-self: flex-end;
+}
+
