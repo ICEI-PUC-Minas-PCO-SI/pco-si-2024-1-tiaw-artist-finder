@@ -98,7 +98,6 @@ if (!db) {
         })
 }
 
-// Função onde o evento de opção selecionada no HTML compara com os usuários no JSON server
 function exibeUsuarios() {
     fetch(URL)
         .then(res => res.json())
@@ -106,14 +105,21 @@ function exibeUsuarios() {
             let lista_usuarios = '';
             for (let i = 0; i < usuariosData.length; i++) {
                 let usuario = usuariosData[i];
-                let userPhoto = usuario.foto;
-                if (!userPhoto) {
-                    const userPicData = JSON.parse(localStorage.getItem('userPicData'));
-                    if (userPicData && userPicData[usuario.id]) {
-                        userPhoto = userPicData[usuario.id];
-                    } else {
-                        userPhoto = 'link_para_imagem_padrao.jpg';
+                let userPhoto = '';
+
+                const galeriaUsuario = JSON.parse(localStorage.getItem('galeriaUsuario')) || {};
+                if (galeriaUsuario[usuario.id]) {
+                    if (galeriaUsuario[usuario.id].galeria1) {
+                        userPhoto = galeriaUsuario[usuario.id].galeria1;
+                    } else if (galeriaUsuario[usuario.id].galeria2) {
+                        userPhoto = galeriaUsuario[usuario.id].galeria2;
+                    } else if (galeriaUsuario[usuario.id].galeria3) {
+                        userPhoto = galeriaUsuario[usuario.id].galeria3;
                     }
+                }
+
+                if (!userPhoto) {
+                    userPhoto = 'https://picsum.photos/800/800';
                 }
 
                 if (((usuario.disponibilidade === FILTRO_DISPONIBILIDADE) || (FILTRO_DISPONIBILIDADE === "")) &&
@@ -124,8 +130,7 @@ function exibeUsuarios() {
                     <div class="col-md-4 mb-5">
                         <a href="exibe_user.html?id=${usuario.id}">
                             <div class="card">
-                                <div class="img1"><img src="${usuario.capa}" alt=""></div>
-                                <div class="img2"><img src="${userPhoto}" alt=""></div>
+                                <div class="img1"><img src="${usuario.capa || userPhoto}" alt=""></div>
                                 <div class="main-text">
                                     <h2>${usuario.nome}</h2>
                                     <p><strong>Área de atuação:</strong> ${usuario.atuacao}</p>
@@ -138,7 +143,7 @@ function exibeUsuarios() {
                     </div>`;
                 }
             }
-            const userList = document.getElementById('user-list'); // Supondo que 'user-list' seja o id do elemento onde os usuários serão exibidos
+            const userList = document.getElementById('user-list');
             userList.innerHTML = lista_usuarios;
         });
 }
