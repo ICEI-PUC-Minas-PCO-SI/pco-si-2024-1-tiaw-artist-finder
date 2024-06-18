@@ -116,43 +116,7 @@ Será necessário ajustar a configuração de exibição de perfil do usuário, 
     </main>
     <script src="scripts/filtro.js"></script>
     <script>
-        document.body.onload = () => {
-            let filtroAtuacao = document.querySelector('#filtroAtuacao')
-            filtroAtuacao.addEventListener('change', () => {
-                FILTRO_ATUACAO = filtroAtuacao.value
-                exibeUsuarios();
-            })
-            let filtroEstado = document.querySelector('#filtroEstado')
-            filtroEstado.addEventListener('change', () => {
-                FILTRO_ESTADO = filtroEstado.value
-                exibeUsuarios();
-            })
-            let filtroDisponibilidade = document.querySelector('#filtroDisponibilidade')
-            filtroDisponibilidade.addEventListener('change', () => {
-                FILTRO_DISPONIBILIDADE = filtroDisponibilidade.value
-                exibeUsuarios();
-            })
-            let limpar = document.querySelector('#limpar')
-            limpar.addEventListener('click', () => {
-                FILTRO_DISPONIBILIDADE = ""
-                filtroDisponibilidade.value = ""
-                FILTRO_ESTADO = ""
-                filtroEstado.value = ""
-                FILTRO_ATUACAO = ""
-                filtroAtuacao.value = ""
-                exibeUsuarios();
-            })
 
-            exibeUsuarios();
-
-            searchBar.addEventListener("keyup", (e) => {
-                const searchString = e.target.value.toLowerCase();
-                const filtredUsers = afUsers.filter(usuario => {
-                    return usuario.nome.toLowerCase().includes(searchString)
-                });
-                displayUsers(filtredUsers);
-            });
-        }
     </script>    
     <script src="./scripts/login.js"></script>
 </body>
