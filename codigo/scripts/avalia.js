@@ -1,7 +1,11 @@
-// Essa função de carregar dados está mockada apenas...
-// http://127.0.0.1:5501/codigo/mockAvaliacao.html?id=1
-
 let idQueryString = 0;
+
+document.addEventListener('DOMContentLoaded', function () {
+    carregarDadosUsuario();
+    construirDadosGrafico();
+    calcularEModificarMediaAvaliacoes();
+    configurarAvaliacao();
+});
 
 function carregarDadosUsuario() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -38,15 +42,7 @@ function carregarDadosUsuario() {
         .catch(error => console.error('Erro ao carregar dados do usuário:', error.message));
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    carregarDadosUsuario();
-    construirDadosGrafico();
-});
-
-
-// Gráfico e processo de avaliação
-
-document.addEventListener('DOMContentLoaded', function () {
+function construirDadosGrafico() {
     const ctx = document.getElementById('avaliacoesChart').getContext('2d');
     const chart = createChart(ctx);
 
@@ -65,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
             chart.update();
         })
         .catch(error => console.error('Erro ao buscar avaliações:', error));
-});
+}
 
 function createChart(ctx) {
     return new Chart(ctx, {
@@ -111,8 +107,7 @@ function createChart(ctx) {
     });
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    calcularEModificarMediaAvaliacoes();
+function configurarAvaliacao() {
     const stars = document.querySelectorAll('.star');
     const submitButton = document.getElementById('submitAvaliacao');
 
@@ -124,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
-            for (let i = index; i >= 0; i++) {
+            for (let i = index; i >= 0; i--) {
                 if (!stars[i].classList.contains('selected')) {
                     stars[i].classList.add('selected');
                 }
@@ -142,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         enviarAvaliacao(avaliacao);
     });
-});
+}
 
 function enviarAvaliacao(avaliacao) {
     fetch('http://localhost:3000/avaliacoes', {
@@ -178,6 +173,7 @@ function generateRandomId(length) {
 function calcularEModificarMediaAvaliacoes() {
     const urlParams = new URLSearchParams(window.location.search);
     idQueryString = urlParams.get('id');
+
     fetch(`http://localhost:3000/avaliacoes`)
         .then(response => {
             if (!response.ok) {
@@ -189,6 +185,7 @@ function calcularEModificarMediaAvaliacoes() {
             const avaliacoesUsuario = avaliacoes.filter(avaliacao => avaliacao.idAvaliado === idQueryString.toString());
             const somaAvaliacoes = avaliacoesUsuario.reduce((acc, curr) => acc + curr.estrelas, 0);
             const mediaAvaliacoes = avaliacoesUsuario.length > 0 ? (somaAvaliacoes / avaliacoesUsuario.length).toFixed(1) : 0;
+
             return fetch(`http://localhost:3000/usuarios/${idQueryString}`)
                 .then(response => {
                     if (!response.ok) {
@@ -199,6 +196,7 @@ function calcularEModificarMediaAvaliacoes() {
                 .then(usuario => {
                     if (usuario.avaliacao !== mediaAvaliacoes) {
                         const usuarioAtualizado = { ...usuario, avaliacao: mediaAvaliacoes };
+
                         return fetch(`http://localhost:3000/usuarios/${idQueryString}`, {
                             method: 'PUT',
                             headers: {
@@ -221,8 +219,3 @@ function calcularEModificarMediaAvaliacoes() {
             console.error('Erro ao calcular ou modificar a média de avaliações:', error.message);
         });
 }
-
-// Para otimização, necessário corrigir para um único evento de DOM
-
-
-

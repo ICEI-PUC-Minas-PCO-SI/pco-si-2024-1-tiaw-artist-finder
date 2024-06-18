@@ -113,7 +113,7 @@ function displayUsers(users) {
 
         return `
             <div class="col-md-4 mb-5">
-                <a href="exibe_user.html?id=${usuario.id}">
+                <a href="user.html?id=${usuario.id}">
                     <div class="card">
                         <div class="img1"><img src="${userCapa}" alt=""></div>
                         <div class="img2"><img src="${userFotoPerfil}" alt=""></div>
