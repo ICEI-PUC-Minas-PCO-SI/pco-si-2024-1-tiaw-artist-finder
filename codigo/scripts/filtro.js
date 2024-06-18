@@ -105,32 +105,43 @@ function exibeUsuarios() {
             let lista_usuarios = '';
             for (let i = 0; i < usuariosData.length; i++) {
                 let usuario = usuariosData[i];
-                let userPhoto = '';
+                let userCapa = '';
+                let userFotoPerfil = '';
 
                 const galeriaUsuario = JSON.parse(localStorage.getItem('galeriaUsuario')) || {};
                 if (galeriaUsuario[usuario.id]) {
                     if (galeriaUsuario[usuario.id].galeria1) {
-                        userPhoto = galeriaUsuario[usuario.id].galeria1;
+                        userCapa = galeriaUsuario[usuario.id].galeria1;
                     } else if (galeriaUsuario[usuario.id].galeria2) {
-                        userPhoto = galeriaUsuario[usuario.id].galeria2;
+                        userCapa = galeriaUsuario[usuario.id].galeria2;
                     } else if (galeriaUsuario[usuario.id].galeria3) {
-                        userPhoto = galeriaUsuario[usuario.id].galeria3;
+                        userCapa = galeriaUsuario[usuario.id].galeria3;
                     }
                 }
 
-                if (!userPhoto) {
-                    userPhoto = 'https://picsum.photos/800/800';
+                if (!userCapa) {
+                    userCapa = 'https://picsum.photos/800/800';
                 }
 
-                if (((usuario.disponibilidade === FILTRO_DISPONIBILIDADE) || (FILTRO_DISPONIBILIDADE === "")) &&
-                    ((usuario.atuacao === FILTRO_ATUACAO) || (FILTRO_ATUACAO === "")) &&
-                    ((usuario.estado === FILTRO_ESTADO) || (FILTRO_ESTADO === ""))) {
+                if (usuario.foto) {
+                    userFotoPerfil = usuario.foto;
+                } else {
+                    const userPicData = JSON.parse(localStorage.getItem('userPicData')) || {};
+                    if (userPicData[usuario.id]) {
+                        userFotoPerfil = userPicData[usuario.id];
+                    }
+                }
 
-                    lista_usuarios += `
+                if (!userFotoPerfil) {
+                    userFotoPerfil = 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
+                }
+
+                lista_usuarios += `
                     <div class="col-md-4 mb-5">
                         <a href="exibe_user.html?id=${usuario.id}">
                             <div class="card">
-                                <div class="img1"><img src="${usuario.capa || userPhoto}" alt=""></div>
+                                <div class="img1"><img src="${userCapa}" alt=""></div>
+                                <div class="img2"><img src="${userFotoPerfil}" alt=""></div>
                                 <div class="main-text">
                                     <h2>${usuario.nome}</h2>
                                     <p><strong>Área de atuação:</strong> ${usuario.atuacao}</p>
@@ -141,12 +152,13 @@ function exibeUsuarios() {
                             </div>
                         </a>
                     </div>`;
-                }
             }
             const userList = document.getElementById('user-list');
             userList.innerHTML = lista_usuarios;
         });
 }
+
+
 /*------------------------------------------------------------------------------------------------------------------------------------------*/
 
 // Funções que alteram a imagem no local storage a partir do perfil selicionado
