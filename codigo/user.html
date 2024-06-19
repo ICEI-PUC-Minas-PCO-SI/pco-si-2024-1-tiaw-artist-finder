@@ -55,11 +55,9 @@
             </div>
             <button class="edit-button" data-bs-toggle="modal" data-bs-target="#avaliacaoModal">Avaliar</button>
         </div>
-        <div class="card">
+        <div class="card" id="galeriPortfolio">
             <p class="title-av">Galeria de Porftfólio:</p>
-            
         </div>
-
     </main>
     <div class="modal fade" id="avaliacaoModal" tabindex="-1" role="dialog" aria-labelledby="avaliacaoModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -88,6 +86,24 @@
             </div>
         </div>
     </div>
+    <style>
+        #galeriPortfolio {
+            max-width: 24rem;
+            max-height: 24rem;
+        }
+
+        #galeria1, #galeria2, #galeria3 {
+            max-width: 6rem;
+            max-height: 6rem;
+        }
+
+        .photos {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
     <script src="./scripts/avalia.js"></script>
     <script src="./scripts/login.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

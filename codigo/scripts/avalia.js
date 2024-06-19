@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     construirDadosGrafico();
     calcularEModificarMediaAvaliacoes();
     configurarAvaliacao();
+    carregarPortfolioUsuario();
 });
 
 function carregarDadosUsuario() {
@@ -206,4 +207,26 @@ function calcularEModificarMediaAvaliacoes() {
         .catch(error => {
             console.error('Erro ao calcular ou modificar a média de avaliações:', error.message);
         });
+}
+
+function carregarPortfolioUsuario() {
+    const galeriPortfolio = document.getElementById('galeriPortfolio');
+    let galeriaUsuario = JSON.parse(localStorage.getItem('galeriaUsuario')) || {};
+    const galeria = galeriaUsuario[idQueryString] || {};
+    const defaultImage = 'https://cdn-icons-png.flaticon.com/512/3979/3979303.png';
+
+    const galeriaHTML = `
+            <div class="photos">          
+                <label class="pic-container">
+                    <img id="galeria1" src="${galeria.galeria1 || defaultImage}" alt="Photo">
+                </label>
+                <label class="pic-container">
+                    <img id="galeria2" src="${galeria.galeria2 || defaultImage}" alt="Photo">
+                </label>
+                <label class="pic-container">
+                    <img id="galeria3" src="${galeria.galeria3 || defaultImage}" alt="Photo">
+                </label>
+            </div>`;
+
+    galeriPortfolio.innerHTML += galeriaHTML;
 }
