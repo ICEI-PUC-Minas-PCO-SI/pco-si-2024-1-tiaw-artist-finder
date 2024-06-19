@@ -1,4 +1,3 @@
-
 async function login() {
     let formLogin = document.getElementById('loginForm');
 
@@ -59,11 +58,15 @@ async function obterDadosUsuarios() {
 document.addEventListener("DOMContentLoaded", async () => {
     const currentPage = window.location.pathname;
     
-    if (currentPage !== '/codigo/index.html' && currentPage !== '/codigo/login.html') {
+    if (currentPage !== '/codigo/index.html' && currentPage !== '/codigo/login.html' && currentPage !== '/codigo/signup.html') {
         if (!isLoggedIn()) {
             alert(`Você precisa estar logado para acessar ${currentPage}.`);
             window.location.href = "login.html";
             return;
+        }
+    } else if (currentPage === '/codigo/login.html' || currentPage === '/codigo/signup.html') {
+        if (!isLoggedIn()) {
+            localStorage.removeItem('loggedInUserId');
         }
     }
 
@@ -76,4 +79,3 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     login();
 });
-
