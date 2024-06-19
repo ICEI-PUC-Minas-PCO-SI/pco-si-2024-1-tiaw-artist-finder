@@ -1,58 +1,41 @@
-let idUserLogged = 0;
+let loggedInUserId = localStorage.getItem('loggedInUserId');
 
-// Função para obter o usuário logado
 function obterUsuarioLogado() {
-    return fetch('http://localhost:3000/usuarios')
+    return fetch(`http://localhost:3000/usuarios/${loggedInUserId}`)
         .then(response => {
             if (!response.ok) {
-                throw new Error('Erro ao obter dados dos usuários');
+                throw new Error('Erro ao obter dados do usuário');
             }
             return response.json();
-        })
-        .then(data => {
-            const usuarioLogado = data.find(usuario => usuario.loggedIn);
-            if (!usuarioLogado) {
-                throw new Error('Nenhum usuário logado encontrado');
-            }
-            idUserLogged = usuarioLogado.id;
-            return usuarioLogado;
         });
 }
 
-// Função para carregar e atualizar os dados do usuário no formulário e no perfil HTML
 function carregarDadosUsuario() {
     obterUsuarioLogado()
-        .then(usuarioLogado => {
-            document.getElementById('editName').value = usuarioLogado.nome;
-            document.getElementById('editAge').value = usuarioLogado.idade;
-            document.getElementById('editUsername').value = usuarioLogado.username;
-            document.getElementById('editProfession').value = usuarioLogado.atuacao;
-            document.getElementById('editState').value = usuarioLogado.estado;
-            document.getElementById('editInstitution').value = usuarioLogado.instituicao;
-            document.getElementById('editAvailability').value = usuarioLogado.disponibilidade;
-            document.getElementById('editDescription').value = usuarioLogado.descricao;
+        .then(usuario => {
+            document.getElementById('editName').value = usuario.nome;
+            document.getElementById('editAge').value = usuario.idade;
+            document.getElementById('editUsername').value = usuario.username;
+            document.getElementById('editProfession').value = usuario.atuacao;
+            document.getElementById('editState').value = usuario.estado;
+            document.getElementById('editInstitution').value = usuario.instituicao;
+            document.getElementById('editAvailability').value = usuario.disponibilidade;
+            document.getElementById('editDescription').value = usuario.descricao;
 
             const userPhoto = document.getElementById('user-photo');
-            if (usuarioLogado.foto) {
-                userPhoto.src = usuarioLogado.foto;
-            } else {
-                const userPicData = JSON.parse(localStorage.getItem('userPicData'));
-                if (userPicData && userPicData[idUserLogged]) {
-                    userPhoto.src = userPicData[idUserLogged];
-                }
-            }
+            userPhoto.src = usuario.foto || 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
 
-            document.getElementById('user-name').textContent = usuarioLogado.nome;
-            document.getElementById('user-age').textContent = `${usuarioLogado.idade} anos`;
-            document.getElementById('username').textContent = usuarioLogado.username;
-            document.getElementById('user-profession').textContent = usuarioLogado.atuacao;
-            document.getElementById('user-state').textContent = usuarioLogado.estado;
-            document.getElementById('user-institution').textContent = usuarioLogado.instituicao;
-            document.getElementById('user-availability').textContent = usuarioLogado.disponibilidade;
-            document.getElementById('user-description').textContent = usuarioLogado.descricao;
-            document.getElementById('user-rating').textContent = usuarioLogado.avaliacao;
+            document.getElementById('user-name').textContent = usuario.nome;
+            document.getElementById('user-age').textContent = `${usuario.idade} anos`;
+            document.getElementById('username').textContent = usuario.username;
+            document.getElementById('user-profession').textContent = usuario.atuacao;
+            document.getElementById('user-state').textContent = usuario.estado;
+            document.getElementById('user-institution').textContent = usuario.instituicao;
+            document.getElementById('user-availability').textContent = usuario.disponibilidade;
+            document.getElementById('user-description').textContent = usuario.descricao;
+            document.getElementById('user-rating').textContent = usuario.avaliacao;
 
-            if (idUserLogged < 36) {
+            if (loggedInUserId < 36) {
                 const editPic = document.getElementById('edit-pic');
                 if (editPic) {
                     editPic.style.display = 'none';
@@ -62,20 +45,19 @@ function carregarDadosUsuario() {
         .catch(error => console.error('Erro ao carregar dados do usuário:', error.message));
 }
 
-// Função para salvar mudanças no usuário
 function salvarMudancasUsuario() {
-    var nome = document.getElementById('editName').value;
-    var idade = document.getElementById('editAge').value;
-    var username = document.getElementById('editUsername').value;
-    var profissao = document.getElementById('editProfession').value;
-    var estado = document.getElementById('editState').value;
-    var instituicao = document.getElementById('editInstitution').value;
-    var disponibilidade = document.getElementById('editAvailability').value;
-    var descricao = document.getElementById('editDescription').value;
+    const nome = document.getElementById('editName').value;
+    const idade = document.getElementById('editAge').value;
+    const username = document.getElementById('editUsername').value;
+    const profissao = document.getElementById('editProfession').value;
+    const estado = document.getElementById('editState').value;
+    const instituicao = document.getElementById('editInstitution').value;
+    const disponibilidade = document.getElementById('editAvailability').value;
+    const descricao = document.getElementById('editDescription').value;
 
     obterUsuarioLogado()
         .then(usuarioLogado => {
-            var dadosAtualizados = {
+            const dadosAtualizados = {
                 ...usuarioLogado,
                 nome: nome || usuarioLogado.nome,
                 idade: idade || usuarioLogado.idade,
@@ -87,7 +69,7 @@ function salvarMudancasUsuario() {
                 descricao: descricao || usuarioLogado.descricao
             };
 
-            return fetch(`http://localhost:3000/usuarios/${idUserLogged}`, {
+            return fetch(`http://localhost:3000/usuarios/${loggedInUserId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -104,14 +86,12 @@ function salvarMudancasUsuario() {
         .then(data => {
             console.log('Dados atualizados com sucesso:', data);
             carregarDadosUsuario();
-            var modal = document.getElementById('editModal');
-            var bootstrapModal = new bootstrap.Modal(modal);
-            bootstrapModal.hide();
+            const modal = new bootstrap.Modal(document.getElementById('editModal'));
+            modal.hide();
         })
         .catch(error => console.error('Erro ao salvar dados:', error.message));
 }
 
-// Função para converter uma imagem para Base64
 function convertImageToBase64(file, callback) {
     const reader = new FileReader();
     reader.onload = function (event) {
@@ -120,10 +100,9 @@ function convertImageToBase64(file, callback) {
     reader.readAsDataURL(file);
 }
 
-// Função para salvar a imagem codificada em Base64 no localStorage
 function saveImageToLocalStorage(imageBase64) {
     let userPicData = JSON.parse(localStorage.getItem('userPicData')) || {};
-    userPicData[idUserLogged] = imageBase64;
+    userPicData[loggedInUserId] = imageBase64;
     localStorage.setItem('userPicData', JSON.stringify(userPicData));
     console.log('Imagem salva no localStorage.');
 }

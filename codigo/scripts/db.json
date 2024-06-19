@@ -41,7 +41,7 @@
     {
       "id": "3",
       "nome": "Francisco Xavier",
-      "idade": 31,
+      "idade": "29",
       "username": "fXavier31",
       "email": "fxavier31@example.com",
       "password": "admin1",
@@ -54,7 +54,8 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa3.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Ilustração"
+      "atuacao": "Ilustração",
+      "instituicao": "UFMG"
     },
     {
       "id": "4",
