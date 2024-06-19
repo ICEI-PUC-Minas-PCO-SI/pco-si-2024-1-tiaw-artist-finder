@@ -1,25 +1,28 @@
-/*--------------------------------------------------------------------------------------------------------------------------*/
-
 const URL = "http://localhost:3000/usuarios";
 
-// Função para obter o usuário logado
+function getLoggedInUserId() {
+    const userId = localStorage.getItem('loggedInUserId');
+    console.log(userId);
+    return userId ? userId : null;
+}
+
 async function getLoggedInUser() {
+    const loggedInUserId = getLoggedInUserId();
+    if (!loggedInUserId) return null;
     try {
         const response = await fetch(URL);
         if (!response.ok) {
             throw new Error('Erro na rede');
         }
         const data = await response.json();
-        const loggedInUser = data.find(user => user.loggedIn);
+        const loggedInUser = data.find(user => user.id === loggedInUserId);
         return loggedInUser;
     } catch (error) {
         console.error('Erro ao buscar usuário logado:', error);
+        return null;
     }
 }
 
-/*--------------------------------------------------------------------------------------------------------------------------*/
-
-// Função para exibir usuários na sidebar
 async function fetchAndDisplayUsers() {
     try {
         const response = await fetch(URL);
@@ -27,18 +30,20 @@ async function fetchAndDisplayUsers() {
             throw new Error('Erro na rede');
         }
         const data = await response.json();
-        console.log("Data fetched from API:", data);
 
         if (!data || !Array.isArray(data)) {
-            throw new Error('Data or data.usuarios is undefined.');
+            throw new Error('Data is undefined or not an array.');
         }
 
         const contactsContainer = document.getElementById('chat-contacts');
         contactsContainer.innerHTML = '';
 
         const loggedInUser = await getLoggedInUser();
+        if (!loggedInUser) {
+            throw new Error('Erro ao identificar usuário logado.');
+        }
 
-        const usuarios = data.filter(user => !user.loggedIn);
+        const usuarios = data.filter(user => user.id !== loggedInUser.id);
         const sortedUsuarios = usuarios.sort((a, b) => {
             const aMessages = JSON.parse(localStorage.getItem(a.nome)) || [];
             const bMessages = JSON.parse(localStorage.getItem(b.nome)) || [];
@@ -75,13 +80,9 @@ async function fetchAndDisplayUsers() {
             }
 
             userDiv.addEventListener('click', () => {
-                console.log("Usuário selecionado:", usuario.nome);
-                console.log("Foto do usuário:", usuario.foto);
                 showChatMainContent();
                 updateChatHeader(usuario.nome, usuario.foto);
-
                 displayMessages(usuario.nome);
-
 
                 userMessages.forEach(m => {
                     if (m.sender === usuario.nome) {
@@ -98,9 +99,6 @@ async function fetchAndDisplayUsers() {
     }
 }
 
-/*--------------------------------------------------------------------------------------------------------------------------*/
-
-// Função para atualizar o cabeçalho do chat
 function updateChatHeader(nome, foto) {
     const chatUserPhoto = document.getElementById('chat-user-photo');
     const chatUserName = document.getElementById('chat-user-name');
@@ -108,10 +106,6 @@ function updateChatHeader(nome, foto) {
     chatUserPhoto.src = foto;
     chatUserName.textContent = nome;
 }
-
-/*--------------------------------------------------------------------------------------------------------------------------*/
-
-// Função para mostrar o chat principal e ocultar a mensagem inicial
 
 function showChatMainContent() {
     const initialMessage = document.getElementById('initial-message');
@@ -129,25 +123,15 @@ function showInitialMessage() {
     chatMainContent.style.display = 'none';
 }
 
-/*--------------------------------------------------------------------------------------------------------------------------*/
-
-// Evento de pressionar tecla
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
         showInitialMessage();
     }
 });
 
-/*--------------------------------------------------------------------------------------------------------------------------*/
-
-// Carregar os usuários ao carregar a página
 window.addEventListener('load', fetchAndDisplayUsers);
 
-/*--------------------------------------------------------------------------------------------------------------------------*/
-
-// Funções para enviar uma mensagem
 async function sendMessage() {
-
     const messageInput = document.getElementById('chat-message-input');
     const messageContent = messageInput.value.trim();
 
@@ -190,7 +174,6 @@ async function sendMessage() {
     fetchAndDisplayUsers();
 }
 
-
 function appendMessage(message, currentUser) {
     const messageElement = document.createElement('div');
     messageElement.classList.add('chat-message');
@@ -212,12 +195,7 @@ function appendMessage(message, currentUser) {
     }
 }
 
-/*--------------------------------------------------------------------------------------------------------------------------*/
-
-// Função para exibir uma mensagem
-
 async function displayMessages(selectedUser) {
-
     const chatMessages = document.getElementById('chat-messages');
     chatMessages.innerHTML = '';
 
@@ -255,41 +233,31 @@ messageInput.addEventListener('keydown', function(event) {
     }
 });
 
-/*--------------------------------------------------------------------------------------------------------------------------*/
-
-// Função alterna barra lateral e conteúdo principal do chat.
-
 function setupMobileChatInteraction() {
     const chatSidebar = document.querySelector('.chat-sidebar');
     const chatMainContent = document.querySelector('.chat-main-content');
     const chatSidebarUsers = document.querySelectorAll('.chat-sidebar-user');
 
-    // Função para esconder a sidebar e exibir o conteúdo principal do chat
     function showSelectedChatContent() {
         chatSidebar.style.display = 'none';
         chatMainContent.style.display = 'block';
     }
 
-    // Função para exibir a sidebar e ocultar o conteúdo principal do chat
     function showChatSidebar() {
         chatSidebar.style.display = 'block';
         chatMainContent.style.display = 'none';
     }
 
-    // Adiciona um event listener para cada usuário na sidebar
     chatSidebarUsers.forEach(user => {
         user.addEventListener('click', () => {
-            // Verifica se a largura da tela é igual ou inferior a 663px
             if (window.innerWidth <= 663) {
                 showSelectedChatContent();
             }
         });
     });
 
-    // Adiciona um event listener para o pressionar da tecla "Escape"
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape') {
-            // Verifica se a largura da tela é igual ou inferior a 663px
             if (window.innerWidth <= 663) {
                 showChatSidebar();
             }
@@ -297,9 +265,4 @@ function setupMobileChatInteraction() {
     });
 }
 
-/*--------------------------------------------------------------------------------------------------------------------------*/
-
-// Chama a função para configurar a interação do chat em dispositivos móveis
 setupMobileChatInteraction();
-
-/*--------------------------------------------------------------------------------------------------------------------------*/

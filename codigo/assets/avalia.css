@@ -1,94 +1,99 @@
-.rating-system {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 40px;
-  }
-  /* Sistema de estrelas - INICIO */
- .rating__star {
-    font-size: 1.3em;
-    cursor: pointer;
-    color: #dabd18b2;
-    transition: filter linear .3s;
- }
- 
- .rating__star:hover {
-    filter: drop-shadow(1px 1px 4px gold);
- }
- .rating {
-    position: relative;
-    width: 180px;
-    background: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: .3em;
-    padding: 5px;
-    overflow: hidden;
-    border-radius: 20px;
-    box-shadow: 0 0 2px #b3acac;
- }
- 
- .rating__result {
-    position: absolute;
-    display: none; /* Está como none apenas para teste visual */
-    top: 0;
-    left: 0;
-    transform: translateY(-10px) translateX(-5px);
-    z-index: -9;
-    font: 3em Arial, Helvetica, sans-serif;
-    color: #ebebeb8e;
-    pointer-events: none;
- }
- /* Sistema de Estrelas - FIM */
- 
- 
- /* Contagem de Avaliações - INICIO */
-.review-count {
-    font-size: 14px;
-    color: #666;
-    margin-top: 10px;
-  }
-  /*Contagem de Avaliações - FIM */
-  
-  
-  /* Media de Avaliações - INICIO */
-  #estrelamedia {
-    color: gold;
-    display: inline-flex;
-    padding: 1px;
-  }
-  #media {
-    color: black;
-    padding: 1px;
-  }
-  /* Media de Avaliações - FIM  */
-  
-  
-  /* Estatisticas - INICIO  */
-  .stats-bar {
-    width: 300px;
-    height: 250px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 20px;
-    
-  }  
-  /* ESTATISTICAS - FIM */
-  
-  /* Botão de Review - INICIO */
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
-  .review-button {
-    background-color: #3e1983;
-    color: #fff;
+.exibeUsuario {
+    flex-direction: row !important;
+    gap: 4rem;
+}
+
+@media (max-width: 1020px) {
+    .exibeUsuario {
+        flex-direction: column !important;
+        gap: 4rem;
+    }    
+}
+
+.title-av {
+    margin-top: .8rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.graphic-container {
+    width: 90%;
+    height: fit-content;
+}
+
+#avaliacoesChart {
+    margin-top: .8rem;
+}
+
+#avaliacaoPerfil {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#avaliacaoPerfil h1 {
+    color: #8e44ad;
+}
+
+.edit-button {
+    font-family: 'Lato', sans-serif;
+    background-color: #8e44ad;
+    color: #ffffff;
+    border: 2px solid #8e44ad;
     padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
-  }
-  
-  .review-button:hover {
-    background-color: #301464;
-    
-  }
-  /* Botão de Review - FIM  */
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0 10px;
+}
+
+.edit-button:hover {
+    background-color: #501968;
+    border-color: #501968;
+    color: #fff;
+}
+
+#avaliacaoModal .modal-content {
+    background-color: #ffffff;
+    color: #8e44ad;
+    border-radius: 10px;
+}
+
+#avaliacaoModal .modal-header, #avaliacaoModal .modal-footer {
+    border: none;
+}
+
+#avaliacaoModal .modal-header .close {
+    color: #8e44ad;
+}
+
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    font-size: 2em;
+    color: #ddd;
+}
+
+.star-rating input[type=radio] {
+    display: none;
+}
+
+.star-rating .star {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.star-rating input[type=radio]:checked ~ label {
+    color: #FFD700;
+}
+
+.star-rating .hovered,
+.star-rating input[type=radio]:hover ~ label {
+    color: #FFD700;
+}
+
+.selected {
+    display: block;
+}

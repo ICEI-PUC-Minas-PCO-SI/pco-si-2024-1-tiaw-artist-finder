@@ -1,123 +1,175 @@
-const URL = 'http://localhost:3000/usuarios';
+let loggedInUserId = localStorage.getItem('loggedInUserId');
 
-function preencherCards() {
-    fetch(URL)
-        .then(res => {
-            if (!res.ok) {
-                throw new Error('Erro ao carregar dados dos usuários');
+function obterUsuarioLogado() {
+    return fetch(`http://localhost:3000/usuarios/${loggedInUserId}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao obter dados do usuário');
             }
-            return res.json();
-        })
-        .then(data => {
-            let profileHTML = '';
-            let contactHTML = '';
-            let personalHTML = '';
-            data.forEach(usuario => {
-                profileHTML += `
-                    <div class="profile-edit">
-                        <img src="./assets/img/Djamila-Ribeiro.png" alt="Djamila Ribeiro">
-                        <p class="edit-btn" data-bs-target="#usuario-modal" data-bs-toggle="modal" data-nome="${usuario.nome}" data-login="${usuario.login}" data-local="${usuario.local}" data-localE="${usuario.localE}">Editar</p>
-                        <p class="profile-name">${usuario.nome}</p>
-                        <p class="p-simple-info">${usuario.login}</p>
-                        <p class="p-simple-info">${usuario.local}</p>
-                        <p class="p-simple-info">${usuario.localE}</p>
-                    </div>
-                `;
-
-                contactHTML += `
-                    <div class="contact-infos">
-                        <p class="edit-btn" data-bs-target="#contact-info" data-bs-toggle="modal">Editar</p>
-                        <p class="p-simple-info">Informações de Contato:</p>
-                        <p class="p-contact-info">Número de Telefone: ${usuario.telefone}</p>
-                        <p class="p-contact-info">E-mail: ${usuario.email}</p> 
-                    </div>
-                `;
-
-                personalHTML += `
-                    <div class="personal-info">
-                        <p class="edit-btn" data-bs-target="#info-personal" data-bs-toggle="modal">Editar</p>
-                        <p class="p-simple-info">Informações Pessoais</p>
-                        <p class="p-simple-info">${usuario.descricao}</p>
-                        <p class="p-simple-info">Idiomas: ${usuario.idiomas}</p>
-                        <p class="p-simple-info">Habilidades: ${usuario.habilidades}</p>
-                        <p class="p-simple-info">Educação: ${usuario.educacao}</p>
-                    </div>
-                `;
-            });
-
-            document.getElementById('profile-edit').innerHTML = profileHTML;
-            document.getElementById('contact-infos').innerHTML = contactHTML;
-            document.getElementById('personal-info').innerHTML = personalHTML;
-
-            // Evento de clicar em "Editar" em um perfil
-            document.querySelectorAll('.edit-btn').forEach(button => {
-                button.addEventListener('click', () => {
-                    const nome = button.dataset.nome;
-                    const login = button.dataset.login;
-                    const local = button.dataset.local;
-                    const localE = button.dataset.localE;
-
-                    // Preencher o modal de edição com os dados atuais do usuário
-                    document.getElementById('nome-id').value = nome;
-                    document.getElementById('login-id').value = login;
-                    document.getElementById('local-id').value = local;
-                    document.getElementById('localE-id').value = localE;
-                });
-            });
-
-            // Evento de envio do formulário de edição de perfil
-            const profileForm = document.getElementById('profile-form');
-
-            profileForm.addEventListener('submit', (e) => {
-                e.preventDefault(); // Impede o envio do formulário por padrão
-
-                // Obtém o nome de perfil
-                const nome = document.getElementById('nome-id').value;
-
-                // Verifica se o nome de perfil é válido
-                if (nome.trim() === '') {
-                    console.error('Nome de perfil inválido');
-                    return;
-                }
-
-                // Obtém os dados do perfil do formulário
-                const profileData = {
-                    login: document.getElementById('login-id').value,
-                    local: document.getElementById('local-id').value,
-                    localE: document.getElementById('localE-id').value
-                };
-
-                // Envia a requisição para atualizar os dados do usuário
-                atualizarUsuario(nome, profileData)
-                    .then(res => {
-                        if (!res.ok) {
-                            throw new Error('Erro ao atualizar dados do usuário');
-                        }
-                        location.reload(); // Recarrega a página para atualizar os dados exibidos
-                    })
-                    .catch(error => {
-                        console.error('Erro ao atualizar usuário:', error.message);
-                    });
-            });
-        })
-        .catch(error => {
-            console.error('Erro ao preencher os cards:', error.message);
+            return response.json();
         });
 }
 
-function atualizarUsuario(nome, dados) {
-    const usuario = {
-        ...dados
-    };
+function carregarDadosUsuario() {
+    obterUsuarioLogado()
+        .then(usuario => {
+            document.getElementById('editName').value = usuario.nome;
+            document.getElementById('editAge').value = usuario.idade;
+            document.getElementById('editUsername').value = usuario.username;
+            document.getElementById('editProfession').value = usuario.atuacao;
+            document.getElementById('editState').value = usuario.estado;
+            document.getElementById('editInstitution').value = usuario.instituicao;
+            document.getElementById('editAvailability').value = usuario.disponibilidade;
+            document.getElementById('editDescription').value = usuario.descricao;
 
-    // Envia a requisição para atualizar os dados do usuário
-    return fetch(`${URL}/${nome}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(usuario)
-    });
+            const userPhoto = document.getElementById('user-photo');
+            userPhoto.src = usuario.foto || 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
+
+            document.getElementById('user-name').textContent = usuario.nome;
+            document.getElementById('user-age').textContent = `${usuario.idade} anos`;
+            document.getElementById('username').textContent = usuario.username;
+            document.getElementById('user-profession').textContent = usuario.atuacao;
+            document.getElementById('user-state').textContent = usuario.estado;
+            document.getElementById('user-institution').textContent = usuario.instituicao;
+            document.getElementById('user-availability').textContent = usuario.disponibilidade;
+            document.getElementById('user-description').textContent = usuario.descricao;
+            document.getElementById('user-rating').textContent = usuario.avaliacao;
+
+            if (loggedInUserId < 36) {
+                const editPic = document.getElementById('edit-pic');
+                if (editPic) {
+                    editPic.style.display = 'none';
+                }
+            }
+
+            portfolioUsuario(); // Integração com a galeria de fotos
+        })
+        .catch(error => console.error('Erro ao carregar dados do usuário:', error.message));
 }
 
-preencherCards();
+function salvarMudancasUsuario() {
+    const nome = document.getElementById('editName').value;
+    const idade = document.getElementById('editAge').value;
+    const username = document.getElementById('editUsername').value;
+    const profissao = document.getElementById('editProfession').value;
+    const estado = document.getElementById('editState').value;
+    const instituicao = document.getElementById('editInstitution').value;
+    const disponibilidade = document.getElementById('editAvailability').value;
+    const descricao = document.getElementById('editDescription').value;
+
+    obterUsuarioLogado()
+        .then(usuarioLogado => {
+            const dadosAtualizados = {
+                ...usuarioLogado,
+                nome: nome || usuarioLogado.nome,
+                idade: idade || usuarioLogado.idade,
+                username: username || usuarioLogado.username,
+                atuacao: profissao || usuarioLogado.atuacao,
+                estado: estado || usuarioLogado.estado,
+                instituicao: instituicao || usuarioLogado.instituicao,
+                disponibilidade: disponibilidade || usuarioLogado.disponibilidade,
+                descricao: descricao || usuarioLogado.descricao
+            };
+
+            return fetch(`http://localhost:3000/usuarios/${loggedInUserId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dadosAtualizados)
+            });
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao atualizar dados do usuário');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Dados atualizados com sucesso:', data);
+            carregarDadosUsuario();
+            const modal = new bootstrap.Modal(document.getElementById('editModal'));
+            modal.hide();
+        })
+        .catch(error => console.error('Erro ao salvar dados:', error.message));
+}
+
+function convertImageToBase64(file, callback) {
+    const reader = new FileReader();
+    reader.onload = function (event) {
+        callback(event.target.result);
+    };
+    reader.readAsDataURL(file);
+}
+
+function portfolioUsuario() {
+    let galeriaUsuario = JSON.parse(localStorage.getItem('galeriaUsuario')) || {};
+    const galeria = galeriaUsuario[loggedInUserId] || {};
+    const defaultImage = 'https://cdn-icons-png.flaticon.com/512/3979/3979303.png';
+
+    const galeriaHTML = `
+    <div class="photos">          
+        <label for="picture_input1" class="pic-container">
+            <img id="galeria1" src="${galeria.galeria1 || defaultImage}" alt="Photo">
+            <input type="file" accept="image/*" onchange="previewFile('picture_input1', 'galeria1')" id="picture_input1" /><br />
+        </label>
+        <label for="picture_input2" class="pic-container">
+            <img id="galeria2" src="${galeria.galeria2 || defaultImage}" alt="Photo">
+            <input type="file" accept="image/*" onchange="previewFile('picture_input2', 'galeria2')" id="picture_input2" /><br />
+        </label>
+        <label for="picture_input3" class="pic-container">
+            <img id="galeria3" src="${galeria.galeria3 || defaultImage}" alt="Photo">
+            <input type="file" accept="image/*" onchange="previewFile('picture_input3', 'galeria3')" id="picture_input3" /><br />
+        </label>
+    </div>`;
+    document.getElementById('photo-container').innerHTML = galeriaHTML;
+}
+
+
+function previewFile(inputId, galeriaField) {
+    const preview = document.querySelector(`#${galeriaField}`);
+    const file = document.querySelector(`input[id=${inputId}]`).files[0];
+    const reader = new FileReader();
+
+    if (file && file.size < 2000000) {
+        reader.addEventListener(
+            "load",
+            () => {
+                preview.src = reader.result;
+                alterarImagem(galeriaField, reader.result);
+            },
+            false,
+        );
+        reader.readAsDataURL(file);
+    } else {
+        alert("O tamanho da imagem deve ser inferior a 2MB");
+    }
+}
+
+function alterarImagem(galeriaField, imageURI) {
+    let galeriaUsuario = JSON.parse(localStorage.getItem('galeriaUsuario')) || {};
+    galeriaUsuario[loggedInUserId] = galeriaUsuario[loggedInUserId] || {};
+    galeriaUsuario[loggedInUserId][galeriaField] = imageURI;
+    localStorage.setItem('galeriaUsuario', JSON.stringify(galeriaUsuario));
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    carregarDadosUsuario();
+
+    document.getElementById('saveChangesButton').addEventListener('click', function () {
+        salvarMudancasUsuario();
+    });
+
+    document.getElementById('editPhoto').addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if (file) {
+            convertImageToBase64(file, function (base64) {
+                let galeriaUsuario = JSON.parse(localStorage.getItem('galeriaUsuario')) || {};
+                galeriaUsuario[loggedInUserId] = galeriaUsuario[loggedInUserId] || {};
+                galeriaUsuario[loggedInUserId].userPhoto = base64;
+                localStorage.setItem('galeriaUsuario', JSON.stringify(galeriaUsuario));
+                console.log('Imagem salva no localStorage.');
+            });
+        }
+    });
+});

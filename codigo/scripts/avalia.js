@@ -1,171 +1,232 @@
-const urlApi = 'http://localhost:3000/stats';
+let idQueryString = 0;
 
-//INICIALIZE O JSON-SERVER PARA O GRAFICO APARECER
-//tentativa de puxar os dados do json
-fetch(urlApi)
-  .then(Response => Response.json())
-  .then(data => {
-    const labels = data.map(item => item.label);
-    const values = data.map(item => item.value);
-    const estrelas = data.map(item => item.estrelas); 
-    //Calculando a Média
-    const media =  MediaPond() / QtdA();
-    //Media ponderada
-    function MediaPond() {
-      let somapond = 0;
-      for (let i = 0; i < values.length; i++) {
-        somapond += values[i] * labels[i];
-      }
-      return somapond;
-    }
-    //Calculando a quantidade de avaliações
-    function QtdA() {
-      let Qtd = 0;
-      for (let i = 0; i < values.length; i++) {
-        Qtd+=values[i];
-      }
-      return Qtd;
-    }
+document.addEventListener('DOMContentLoaded', function () {
+    carregarDadosUsuario();
+    construirDadosGrafico();
+    calcularEModificarMediaAvaliacoes();
+    configurarAvaliacao();
+    carregarPortfolioUsuario();
+});
 
-    
-//GRÁFICO CHART.JS
-const ctx = document.getElementById('stats-bar-chart').getContext('2d');
-      const chart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: estrelas,
-          datasets: [{
-            label: 'Quantidade de Avaliações',
-            data: values,
-            backgroundColor: [
-              'rgba(62, 25, 131)', // 5 Estrelas
-              'rgba(62, 25, 131)', // 4 Estrelas
-              'rgba(62, 25, 131)', // 3 Estrelas
-              'rgba(62, 25, 131)', // 2 Estrelas
-              'rgba(62, 25, 131)' // 1 Estrela
-            ],
-            borderColor: [
-              'rgba(62, 25, 131)', // 5 Estrelas
-              'rgba(62, 25, 131)', // 4 Estrelas
-              'rgba(62, 25, 131)', // 3 Estrelas
-              'rgba(62, 25, 131)', // 2 Estrelas
-              'rgba(62, 25, 131)' // 1 Estrela
-            ],
-            borderWidth: 1 ,
-            borderRadius: 5 //Deixar as barras redondas
-          }]
-        },
-        options: {
-          indexAxis: 'y',
-          scales: {
-            x: {
-              grid: {
-                  display: false
-              },
-              ticks: {
-                display: false
-              },
-              border: {
-                display: false
-              }
-            },
-            y: {
-              grid: {
-        display: false
-      },
-      ticks: {
-        display: true,
-        padding: 10
-      },
-      border: {
-        display: false
-      } ,
-              beginAtZero: true,
-              ticks: {
-                
-              }
-            }
-          },
-          plugins: {
-            legend: {
-              display: true
-            }
-          }
-        }
-      });
+function carregarDadosUsuario() {
+    const urlParams = new URLSearchParams(window.location.search);
+    idQueryString = urlParams.get('id');
 
-      //Display para a Média aparecer na tela
-      const mediaElement = document.getElementById('media');
-      mediaElement.textContent = `${media.toFixed(1)}`;
-      //Display para a Quantidade total de avaliações apareça na tela
-      const QTDElement = document.getElementById('qtdA')
-      QTDElement.textContent = `${QtdA()} Avaliações`
-    })
-    .catch(error => console.error(error));
-
-/*------------------------------------------------------------------------------------------- */  
-  //SISTEMA DE ESTRELAS - INICIO
-//Função para marcar as estrelas
-const ratingStars = [...document.getElementsByClassName("rating__star")];
-const ratingResult = document.querySelector(".rating__result");
-function executeRating(stars, result) {
-   const starClassActive = "rating__star fas fa-star";
-   const starClassUnactive = "rating__star far fa-star";
-   const starsLength = stars.length;
-   let i;
-   stars.map((star) => {
-      star.onclick = () => {
-         i = stars.indexOf(star);
-
-         if (star.className.indexOf(starClassUnactive) !== -1) {
-            printRatingResult(result, i + 1);
-            for (i; i >= 0; --i) stars[i].className = starClassActive;
-         } else {
-            printRatingResult(result, i);
-            for (i; i < starsLength; ++i) stars[i].className = starClassUnactive;
-         }
-                 // Salvar a avaliação do usuário
-                 saveRating(i + 1);
-                };
-             });
-          }
-          //Função para escrever o Resultado da avaliação
-          function printRatingResult(result, num = 0) {
-             result.textContent = `${num}/5`;
-          }
-          executeRating(ratingStars, ratingResult); //Execução das funções criadas acima
-   // Função para salvar a avaliação do usuário
-  function saveRating(rating) {
-    const urlApi = 'http://localhost:3000/stats';
-    fetch(urlApi)
-      .then(response => response.json())
-      .then(data => {
-      // Verificar se o rating existe no array data
-      const ratingExists = data.some(item => item.label === rating.toString());
-
-      if (ratingExists) {
-        // Encontrar o item que corresponde ao rating
-        const item = data.find(item => item.label === rating.toString());
-
-        // Atualizar o valor do item
-        const newValue = item.value + 1;
-        fetch(`${urlApi}/${item.id}`, {
-          method: 'PATCH',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ value: newValue })
-        })
+    fetch(`http://localhost:3000/usuarios/${idQueryString}`)
         .then(response => {
-          if (response.ok) {
-            console.log('Avaliação salva com sucesso!');
-          } else {
-            throw new Error('Erro ao salvar avaliação');
-          }
+            if (!response.ok) {
+                throw new Error('Erro ao carregar dados do usuário.');
+            }
+            return response.json();
         })
-        .catch(error => console.error(error));
-      } else {
-        console.error('Avaliação não encontrada!');
-      }
-    })
-    .catch(error => console.error('Erro ao buscar dados:', error));
+        .then(usuario => {
+            const userPhoto = document.getElementById('user-photo');
+            if (usuario.foto) {
+                userPhoto.src = usuario.foto;
+            } else {
+                const userPicData = JSON.parse(localStorage.getItem('userPicData'));
+                if (userPicData && userPicData[idQueryString] && userPicData[idQueryString].userProfilePic) {
+                    userPhoto.src = userPicData[idQueryString].userProfilePic;
+                }
+            }
+
+            document.getElementById('user-name').textContent = usuario.nome;
+            document.getElementById('user-age').textContent = `${usuario.idade} anos`;
+            document.getElementById('username').textContent = usuario.username;
+            document.getElementById('user-profession').textContent = usuario.atuacao;
+            document.getElementById('user-state').textContent = usuario.estado;
+            document.getElementById('user-institution').textContent = usuario.instituicao;
+            document.getElementById('user-availability').textContent = usuario.disponibilidade;
+            document.getElementById('user-description').textContent = usuario.descricao;
+            document.getElementById('user-rating').textContent = usuario.avaliacao;
+        })
+        .catch(error => console.error('Erro ao carregar dados do usuário:', error.message));
 }
 
+function construirDadosGrafico() {
+    const ctx = document.getElementById('avaliacoesChart').getContext('2d');
+    const chart = createChart(ctx);
+
+    fetch(`http://localhost:3000/avaliacoes`)
+        .then(response => response.json())
+        .then(data => {
+            const userId = Number(idQueryString);
+            const userReviews = data.filter(review => review.idAvaliado == userId)
+            const starCounts = [0, 0, 0, 0, 0];
+            userReviews.forEach(review => {
+                if (review.estrelas >= 1 && review.estrelas <= 5) {
+                    starCounts[review.estrelas - 1]++;
+                }
+            });
+            chart.data.datasets[0].data = starCounts;
+            chart.update();
+        })
+        .catch(error => console.error('Erro ao buscar avaliações:', error));
+}
+
+function createChart(ctx) {
+    return new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['5 Estrelas', '4 Estrelas', '3 Estrelas', '2 Estrelas', '1 Estrela'],
+            datasets: [{
+                label: 'Avaliações',
+                data: [0, 0, 0, 0, 0],
+                backgroundColor: '#8e44ad',
+                borderColor: '#501968',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#501968'
+                    }
+                },
+                y: {
+                    ticks: {
+                        color: '#501968'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function (tooltipItem) {
+                            return `${tooltipItem.raw} avaliações`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+function configurarAvaliacao() {
+    const stars = document.querySelectorAll('.star-rating input');
+    const submitButton = document.getElementById('submitAvaliacao');
+
+    stars.forEach((star) => {
+        star.addEventListener('click', () => {
+            const selectedValue = star.value;
+            stars.forEach(s => s.nextElementSibling.classList.remove('selected'));
+            for (let i = 0; i < stars.length; i++) {
+                if (parseInt(stars[i].value) >= parseInt(selectedValue)) {
+                    stars[i].nextElementSibling.classList.add('selected');
+                }
+            }
+        });
+    });
+
+    submitButton.addEventListener('click', () => {
+        const selectedStar = document.querySelector('.star-rating input:checked');
+        const selectedStars = selectedStar ? selectedStar.value : 0;
+
+        const avaliacao = {
+            id: generateRandomId(6),
+            estrelas: parseInt(selectedStars),
+            idAvaliado: idQueryString
+        };
+
+        enviarAvaliacao(avaliacao);
+    });
+}
+
+function enviarAvaliacao(avaliacao) {
+    console.log('Enviando avaliação:', avaliacao);
+
+    fetch('http://localhost:3000/avaliacoes', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(avaliacao)
+    })
+        .then(response => {
+            if (response.ok) {
+                console.log('Avaliação enviada com sucesso.');
+            } else {
+                console.error('Erro ao enviar avaliação:', response.statusText);
+            }
+        })
+        .catch(error => console.error('Erro ao enviar avaliação:', error));
+}
+
+function generateRandomId(length) {
+    return Math.random().toString(36).substr(2, length);
+}
+
+function calcularEModificarMediaAvaliacoes() {
+    const urlParams = new URLSearchParams(window.location.search);
+    idQueryString = urlParams.get('id');
+
+    fetch(`http://localhost:3000/avaliacoes`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Erro ao buscar avaliações: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(avaliacoes => {
+            const avaliacoesUsuario = avaliacoes.filter(avaliacao => avaliacao.idAvaliado === idQueryString.toString());
+            const somaAvaliacoes = avaliacoesUsuario.reduce((acc, curr) => acc + curr.estrelas, 0);
+            const mediaAvaliacoes = avaliacoesUsuario.length > 0 ? (somaAvaliacoes / avaliacoesUsuario.length).toFixed(1) : 0;
+
+            return fetch(`http://localhost:3000/usuarios/${idQueryString}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Erro ao buscar usuário: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(usuario => {
+                    if (usuario.avaliacao !== mediaAvaliacoes) {
+                        const usuarioAtualizado = { ...usuario, avaliacao: mediaAvaliacoes };
+
+                        return fetch(`http://localhost:3000/usuarios/${idQueryString}`, {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(usuarioAtualizado)
+                        })
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error(`Erro ao atualizar avaliação do usuário: ${response.status}`);
+                                }
+                            });
+                    }
+                });
+        })
+        .catch(error => {
+            console.error('Erro ao calcular ou modificar a média de avaliações:', error.message);
+        });
+}
+
+function carregarPortfolioUsuario() {
+    const galeriPortfolio = document.getElementById('galeriPortfolio');
+    let galeriaUsuario = JSON.parse(localStorage.getItem('galeriaUsuario')) || {};
+    const galeria = galeriaUsuario[idQueryString] || {};
+    const defaultImage = 'https://cdn-icons-png.flaticon.com/512/3979/3979303.png';
+
+    const galeriaHTML = `
+            <div class="photos">          
+                <label class="pic-container">
+                    <img id="galeria1" src="${galeria.galeria1 || defaultImage}" alt="Photo">
+                </label>
+                <label class="pic-container">
+                    <img id="galeria2" src="${galeria.galeria2 || defaultImage}" alt="Photo">
+                </label>
+                <label class="pic-container">
+                    <img id="galeria3" src="${galeria.galeria3 || defaultImage}" alt="Photo">
+                </label>
+            </div>`;
+
+    galeriPortfolio.innerHTML += galeriaHTML;
+}
