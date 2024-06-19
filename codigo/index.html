@@ -13,44 +13,41 @@
 </head>
 
 <body>
-    <div class="menu">
-        <header id="header">
-            <div class="container-header  ">
-                <div class="navbar navbar-expand-lg  text-center ">
-                    <a href="index.html"><img src="assets/img/logo.svg" id="logo"> </a>
-                    <button id="expandir" class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse fs-3 " id="navbarTogglerDemo02">
-                        <nav>
-                            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-                                <li> <a class="nav-item me-2 ms-3 fs-4" href="index.html">HOME</a> </li>
-                                <li> <a class="nav-item me-2 ms-3 fs-4" href="Explorar.html">EXPLORAR</a> </li>
-                                <li> <a class="nav-item me-2 ms-3 fs-4" href="index.html">PERFIL</a> </li>
-                            </ul>
-                        </nav>
-                    </div>
 
-                </div><!--navbar-->
-            </div><!--container-header -->
-        </header>
-    </div>
-
-    <div class="input__wrapper">
-        <input id="confirmPassword" type="password" class="input__field" placeholder="Confirm Your Password" title="No mínimo 6 caracteres" minlength="6" required>
-        <label for="confirmPassword" class="input__label">Confirmar Senha:</label>
-    </div>
-    <button type="submit" class="my-form__button">
-        Cadastro
-    </button>
-    <div class="my-form__actions">
-        <div class="my-form__row">
-            <span>Já tem conta?</span>
-            <a href="login.html" title="Login">
-                Login
+    <form class="my-form" id="signUpForm">
+        <div class="login-welcome-row">
+            <a href="#" title="Logo">
+                <img src="assets/img/logo.svg" alt="Logo" class="logo">
             </a>
+            <h1>Cadastre-se!</h1>
+            <p><a href="avaliacao.html">ARTEFATO AQUI CLIQUE AQUI!</a></p>
+            <p>Digite seus dados:</p>
         </div>
-    </div>
+        <div class="input__wrapper">
+            <input type="text" id="username" name="username" class="input__field" placeholder="Your username" required minlength="4" maxlength="20" pattern="[a-zA-Z0-9_-]{4,20}" title="Username must contain only letters, numbers, underscores, and hyphens (4-20 characters)">
+            <label for="username" class="input__label">Nome de usuário:</label>
+        </div>
+
+        </div><!--navbar-->
+        </div><!--container-header -->
+        </header>
+        </div>
+
+        <div class="input__wrapper">
+            <input id="confirmPassword" type="password" class="input__field" placeholder="Confirm Your Password" title="No mínimo 6 caracteres" minlength="6" required>
+            <label for="confirmPassword" class="input__label">Confirmar Senha:</label>
+        </div>
+        <button type="submit" class="my-form__button">
+            Cadastro
+        </button>
+        <div class="my-form__actions">
+            <div class="my-form__row">
+                <span>Já tem conta?</span>
+                <a href="login.html" title="Login">
+                    Login
+                </a>
+            </div>
+        </div>
     </form>
 
     <script src="./scripts/login.js"></script>
