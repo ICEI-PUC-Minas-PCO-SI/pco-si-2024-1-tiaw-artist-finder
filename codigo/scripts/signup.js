@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
     signUp();
 });
 
-// Função para cadastro de novo usuário
 async function signUp() {
     let formSignUp = document.getElementById('signUpForm');
     if (!formSignUp) {
@@ -52,20 +51,20 @@ async function signUp() {
                 disponibilidade: "edite sua disponibilidade!",
                 capa: "",
                 atuacao: "edite sua atuação!",
-                loggedIn: false,
                 galeria1: "",
                 galeria2: "",
                 galeria3: "",
                 avaliacao: 0,
                 descricao: "edite sua descrição!"
             };
+
             await createUser(newUser);
             alert("Conta criada com sucesso!");
+
             const userPicData = JSON.parse(localStorage.getItem('userPicData')) || {};
             userPicData[userId] = 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
             localStorage.setItem('userPicData', JSON.stringify(userPicData));
             window.location.href = "login.html";
-
         } catch (error) {
             console.error('Erro ao criar a conta:', error);
             alert("Erro ao criar a conta. Por favor, tente novamente mais tarde.");
@@ -73,7 +72,6 @@ async function signUp() {
     });
 }
 
-// Função para carregar os usuários
 async function fetchUsuarios() {
     try {
         const response = await fetch('http://localhost:3000/usuarios');
@@ -87,7 +85,6 @@ async function fetchUsuarios() {
     }
 }
 
-// Função para criar um novo usuário
 async function createUser(user) {
     try {
         const response = await fetch('http://localhost:3000/usuarios', {
