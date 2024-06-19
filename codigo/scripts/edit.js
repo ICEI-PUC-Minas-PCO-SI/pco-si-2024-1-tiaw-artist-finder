@@ -41,6 +41,8 @@ function carregarDadosUsuario() {
                     editPic.style.display = 'none';
                 }
             }
+
+            portfolioUsuario(); // Integração com a galeria de fotos
         })
         .catch(error => console.error('Erro ao carregar dados do usuário:', error.message));
 }
@@ -100,11 +102,55 @@ function convertImageToBase64(file, callback) {
     reader.readAsDataURL(file);
 }
 
-function saveImageToLocalStorage(imageBase64) {
-    let userPicData = JSON.parse(localStorage.getItem('userPicData')) || {};
-    userPicData[loggedInUserId] = imageBase64;
-    localStorage.setItem('userPicData', JSON.stringify(userPicData));
-    console.log('Imagem salva no localStorage.');
+function portfolioUsuario() {
+    let galeriaUsuario = JSON.parse(localStorage.getItem('galeriaUsuario')) || {};
+    const galeria = galeriaUsuario[loggedInUserId] || {};
+    const defaultImage = 'https://cdn-icons-png.flaticon.com/512/3979/3979303.png';
+
+    const galeriaHTML = `
+    <div class="photos">          
+        <label for="picture_input1" class="pic-container">
+            <img id="galeria1" src="${galeria.galeria1 || defaultImage}" alt="Photo">
+            <input type="file" accept="image/*" onchange="previewFile('picture_input1', 'galeria1')" id="picture_input1" /><br />
+        </label>
+        <label for="picture_input2" class="pic-container">
+            <img id="galeria2" src="${galeria.galeria2 || defaultImage}" alt="Photo">
+            <input type="file" accept="image/*" onchange="previewFile('picture_input2', 'galeria2')" id="picture_input2" /><br />
+        </label>
+        <label for="picture_input3" class="pic-container">
+            <img id="galeria3" src="${galeria.galeria3 || defaultImage}" alt="Photo">
+            <input type="file" accept="image/*" onchange="previewFile('picture_input3', 'galeria3')" id="picture_input3" /><br />
+        </label>
+    </div>`;
+    document.getElementById('photo-container').innerHTML = galeriaHTML;
+}
+
+
+function previewFile(inputId, galeriaField) {
+    const preview = document.querySelector(`#${galeriaField}`);
+    const file = document.querySelector(`input[id=${inputId}]`).files[0];
+    const reader = new FileReader();
+
+    if (file && file.size < 2000000) {
+        reader.addEventListener(
+            "load",
+            () => {
+                preview.src = reader.result;
+                alterarImagem(galeriaField, reader.result);
+            },
+            false,
+        );
+        reader.readAsDataURL(file);
+    } else {
+        alert("O tamanho da imagem deve ser inferior a 2MB");
+    }
+}
+
+function alterarImagem(galeriaField, imageURI) {
+    let galeriaUsuario = JSON.parse(localStorage.getItem('galeriaUsuario')) || {};
+    galeriaUsuario[loggedInUserId] = galeriaUsuario[loggedInUserId] || {};
+    galeriaUsuario[loggedInUserId][galeriaField] = imageURI;
+    localStorage.setItem('galeriaUsuario', JSON.stringify(galeriaUsuario));
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -118,7 +164,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const file = event.target.files[0];
         if (file) {
             convertImageToBase64(file, function (base64) {
-                saveImageToLocalStorage(base64);
+                let galeriaUsuario = JSON.parse(localStorage.getItem('galeriaUsuario')) || {};
+                galeriaUsuario[loggedInUserId] = galeriaUsuario[loggedInUserId] || {};
+                galeriaUsuario[loggedInUserId].userPhoto = base64;
+                localStorage.setItem('galeriaUsuario', JSON.stringify(galeriaUsuario));
+                console.log('Imagem salva no localStorage.');
             });
         }
     });
