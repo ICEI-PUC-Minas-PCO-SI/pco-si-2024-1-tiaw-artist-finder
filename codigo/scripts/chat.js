@@ -1,21 +1,25 @@
 const URL = "http://localhost:3000/usuarios";
 
-function logado() {
-    return localStorage.getItem('loggedInUserId') !== null;
+function getLoggedInUserId() {
+    const userId = localStorage.getItem('loggedInUserId');
+    console.log(userId);
+    return userId ? userId : null;
 }
 
 async function getLoggedInUser() {
-    if (!logado()) return null;
+    const loggedInUserId = getLoggedInUserId();
+    if (!loggedInUserId) return null;
     try {
         const response = await fetch(URL);
         if (!response.ok) {
             throw new Error('Erro na rede');
         }
         const data = await response.json();
-        const loggedInUser = data.find(user => user.loggedIn);
+        const loggedInUser = data.find(user => user.id === loggedInUserId);
         return loggedInUser;
     } catch (error) {
         console.error('Erro ao buscar usuário logado:', error);
+        return null;
     }
 }
 
@@ -28,20 +32,23 @@ async function fetchAndDisplayUsers() {
         const data = await response.json();
 
         if (!data || !Array.isArray(data)) {
-            throw new Error('Data or data.usuarios is undefined.');
+            throw new Error('Data is undefined or not an array.');
         }
 
         const contactsContainer = document.getElementById('chat-contacts');
         contactsContainer.innerHTML = '';
 
         const loggedInUser = await getLoggedInUser();
+        if (!loggedInUser) {
+            throw new Error('Erro ao identificar usuário logado.');
+        }
 
-        const usuarios = data.filter(user => !user.loggedIn);
+        const usuarios = data.filter(user => user.id !== loggedInUser.id);
         const sortedUsuarios = usuarios.sort((a, b) => {
             const aMessages = JSON.parse(localStorage.getItem(a.nome)) || [];
             const bMessages = JSON.parse(localStorage.getItem(b.nome)) || [];
             const aLastMessage = aMessages[aMessages.length - 1];
-            const bLastMessage = bLastMessages[bMessages.length - 1];
+            const bLastMessage = bMessages[bMessages.length - 1];
 
             if (aMessages.some(m => m.sender === a.nome && !m.read)) return -1;
             if (bMessages.some(m => m.sender === b.nome && !m.read)) return 1;
