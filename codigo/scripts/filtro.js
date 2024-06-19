@@ -78,59 +78,89 @@ function filtrarUsuarios(usuarios) {
     });
 }
 
-function displayUsers(users) {
-    const user_list = users.map((usuario) => {
-        let userCapa = '';
-        let userFotoPerfil = '';
+async function displayUsers(users) {
+    try {
+        const usuarioLogadoId = await getLoggedInUser();
 
-        const galeriaUsuario = JSON.parse(localStorage.getItem('galeriaUsuario')) || {};
-        if (galeriaUsuario[usuario.id]) {
-            if (galeriaUsuario[usuario.id].galeria1) {
-                userCapa = galeriaUsuario[usuario.id].galeria1;
-            } else if (galeriaUsuario[usuario.id].galeria2) {
-                userCapa = galeriaUsuario[usuario.id].galeria2;
-            } else if (galeriaUsuario[usuario.id].galeria3) {
-                userCapa = galeriaUsuario[usuario.id].galeria3;
-            }
-        }
+        const user_list = users.map((usuario) => {
+            if (usuario.id !== usuarioLogadoId) {
+                let userCapa = '';
+                let userFotoPerfil = '';
 
-        if (!userCapa) {
-            userCapa = 'https://picsum.photos/800/800';
-        }
+                const galeriaUsuario = JSON.parse(localStorage.getItem('galeriaUsuario')) || {};
+                if (galeriaUsuario[usuario.id]) {
+                    if (galeriaUsuario[usuario.id].galeria1) {
+                        userCapa = galeriaUsuario[usuario.id].galeria1;
+                    } else if (galeriaUsuario[usuario.id].galeria2) {
+                        userCapa = galeriaUsuario[usuario.id].galeria2;
+                    } else if (galeriaUsuario[usuario.id].galeria3) {
+                        userCapa = galeriaUsuario[usuario.id].galeria3;
+                    }
+                }
 
-        if (usuario.foto) {
-            userFotoPerfil = usuario.foto;
-        } else {
-            const userPicData = JSON.parse(localStorage.getItem('userPicData')) || {};
-            if (userPicData[usuario.id]) {
-                userFotoPerfil = userPicData[usuario.id];
-            }
-        }
+                if (!userCapa) {
+                    userCapa = 'https://picsum.photos/800/800';
+                }
 
-        if (!userFotoPerfil) {
-            userFotoPerfil = 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
-        }
+                if (usuario.foto) {
+                    userFotoPerfil = usuario.foto;
+                } else {
+                    const userPicData = JSON.parse(localStorage.getItem('userPicData')) || {};
+                    if (userPicData[usuario.id]) {
+                        userFotoPerfil = userPicData[usuario.id];
+                    }
+                }
 
-        return `
-            <div class="col-md-4 mb-5">
-                <a href="user.html?id=${usuario.id}">
-                    <div class="card">
-                        <div class="img1"><img src="${userCapa}" alt=""></div>
-                        <div class="img2"><img src="${userFotoPerfil}" alt=""></div>
-                        <div class="main-text">
-                            <h2>${usuario.nome}</h2>
-                            <p><strong>Área de atuação:</strong> ${usuario.atuacao}</p>
-                            <p class="bi bi-geo-fill"> ${usuario.estado}</p>
-                            <p><strong>Disponibilidade:</strong> ${usuario.disponibilidade}</p>
-                            <p><strong>Avaliação:</strong> ${usuario.avaliacao} <i class="fa-solid fa-star"></i></p>
-                        </div>
+                if (!userFotoPerfil) {
+                    userFotoPerfil = 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
+                }
+
+                return `
+                    <div class="col-md-4 mb-5">
+                        <a href="user.html?id=${usuario.id}">
+                            <div class="card">
+                                <div class="img1"><img src="${userCapa}" alt=""></div>
+                                <div class="img2"><img src="${userFotoPerfil}" alt=""></div>
+                                <div class="main-text">
+                                    <h2>${usuario.nome}</h2>
+                                    <p><strong>Área de atuação:</strong> ${usuario.atuacao}</p>
+                                    <p class="bi bi-geo-fill"> ${usuario.estado}</p>
+                                    <p><strong>Disponibilidade:</strong> ${usuario.disponibilidade}</p>
+                                    <p><strong>Avaliação:</strong> ${usuario.avaliacao} <i class="fa-solid fa-star"></i></p>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-        `;
-    }).join('');
+                `;
+            }
+            return ''; // Retorna uma string vazia para usuários logados não serem exibidos
+        }).join('');
 
-    userList.innerHTML = user_list;
+        userList.innerHTML = user_list;
+    } catch (error) {
+        console.error('Erro ao exibir usuários:', error);
+    }
+}
+
+async function getLoggedInUser() {
+    try {
+        const response = await fetch('http://localhost:3000/usuarios');
+        if (!response.ok) {
+            throw new Error('Erro ao obter dados do usuário logado.');
+        }
+        const usuarios = await response.json();
+        const loggedInUserId = localStorage.getItem('loggedInUserId');
+
+        const usuarioLogado = usuarios.find(usuario => usuario.id === loggedInUserId);
+        if (!usuarioLogado) {
+            throw new Error('Usuário logado não encontrado.');
+        }
+
+        return usuarioLogado.id;
+    } catch (error) {
+        console.error('Erro ao obter usuário logado:', error);
+        throw error;
+    }
 }
 
 window.addEventListener("scroll", function () {

@@ -17,8 +17,7 @@
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "Eu faço umas parada aí...",
-      "atuacao": "Web Design",
-      "loggedIn": true
+      "atuacao": "Web Design"
     },
     {
       "id": "2",
@@ -37,7 +36,6 @@
       "capa": "assets/img/capa2.jpg",
       "descricao": "Faço uns bico aí né",
       "atuacao": "Fotografia",
-      "loggedIn": false,
       "avaliacoes": 0
     },
     {
@@ -56,8 +54,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa3.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Ilustração",
-      "loggedIn": false
+      "atuacao": "Ilustração"
     },
     {
       "id": "4",
@@ -75,8 +72,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa4.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Web Design",
-      "loggedIn": false
+      "atuacao": "Web Design"
     },
     {
       "id": "5",
@@ -94,8 +90,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa5.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Edição",
-      "loggedIn": false
+      "atuacao": "Edição"
     },
     {
       "id": "6",
@@ -114,8 +109,7 @@
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Edição",
-      "loggedIn": false
+      "atuacao": "Edição"
     },
     {
       "id": "7",
@@ -133,8 +127,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa7.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Modelagem 3D",
-      "loggedIn": false
+      "atuacao": "Modelagem 3D"
     },
     {
       "id": "8",
@@ -152,8 +145,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa8.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Grafite",
-      "loggedIn": false
+      "atuacao": "Grafite"
     },
     {
       "id": "9",
@@ -171,8 +163,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa9.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Fotografia",
-      "loggedIn": false
+      "atuacao": "Fotografia"
     },
     {
       "id": "10",
@@ -191,8 +182,7 @@
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Animação",
-      "loggedIn": false
+      "atuacao": "Animação"
     },
     {
       "id": "11",
@@ -211,8 +201,7 @@
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Pintura",
-      "loggedIn": false
+      "atuacao": "Pintura"
     },
     {
       "id": "12",
@@ -231,8 +220,7 @@
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Edição",
-      "loggedIn": false
+      "atuacao": "Edição"
     },
     {
       "id": "13",
@@ -251,8 +239,7 @@
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Filmagem",
-      "loggedIn": false
+      "atuacao": "Filmagem"
     },
     {
       "id": "14",
@@ -271,8 +258,7 @@
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Web Design",
-      "loggedIn": false
+      "atuacao": "Web Design"
     },
     {
       "id": "15",
@@ -290,8 +276,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa15.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Fotografia",
-      "loggedIn": false
+      "atuacao": "Fotografia"
     },
     {
       "id": "16",
@@ -309,8 +294,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa16.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Modelagem 3D",
-      "loggedIn": false
+      "atuacao": "Modelagem 3D"
     },
     {
       "id": "17",
@@ -329,8 +313,7 @@
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Design Gráfico",
-      "loggedIn": false
+      "atuacao": "Design Gráfico"
     },
     {
       "id": "18",
@@ -349,8 +332,7 @@
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Design Gráfico",
-      "loggedIn": false
+      "atuacao": "Design Gráfico"
     },
     {
       "id": "19",
@@ -369,8 +351,7 @@
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Pintura",
-      "loggedIn": false
+      "atuacao": "Pintura"
     },
     {
       "id": "20",
@@ -389,8 +370,7 @@
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Grafite",
-      "loggedIn": false
+      "atuacao": "Grafite"
     },
     {
       "id": "21",
@@ -408,8 +388,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa21.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Design Gráfico",
-      "loggedIn": false
+      "atuacao": "Design Gráfico"
     },
     {
       "id": "22",
@@ -427,8 +406,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa27.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Filmagem",
-      "loggedIn": false
+      "atuacao": "Filmagem"
     },
     {
       "id": "23",
@@ -447,8 +425,7 @@
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Modelagem 3D",
-      "loggedIn": false
+      "atuacao": "Modelagem 3D"
     },
     {
       "id": "24",
@@ -467,8 +444,7 @@
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Ilustração",
-      "loggedIn": false
+      "atuacao": "Ilustração"
     },
     {
       "id": "25",
@@ -487,8 +463,7 @@
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Edição",
-      "loggedIn": false
+      "atuacao": "Edição"
     },
     {
       "id": "26",
@@ -507,8 +482,7 @@
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Fotografia",
-      "loggedIn": false
+      "atuacao": "Fotografia"
     },
     {
       "id": "27",
@@ -527,8 +501,7 @@
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Design Gráfico",
-      "loggedIn": false
+      "atuacao": "Design Gráfico"
     },
     {
       "id": "28",
@@ -546,8 +519,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa28.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Edição",
-      "loggedIn": false
+      "atuacao": "Edição"
     },
     {
       "id": "29",
@@ -565,8 +537,7 @@
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa29.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Design Gráfico",
-      "loggedIn": false
+      "atuacao": "Design Gráfico"
     },
     {
       "id": "30",
@@ -585,8 +556,7 @@
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Fotografia",
-      "loggedIn": false
+      "atuacao": "Fotografia"
     },
     {
       "id": "31",
@@ -605,8 +575,7 @@
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Pintura",
-      "loggedIn": false
+      "atuacao": "Pintura"
     },
     {
       "id": "32",
@@ -625,8 +594,7 @@
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Web Design",
-      "loggedIn": false
+      "atuacao": "Web Design"
     },
     {
       "id": "33",
@@ -645,8 +613,7 @@
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Design Gráfico",
-      "loggedIn": false
+      "atuacao": "Design Gráfico"
     },
     {
       "id": "34",
@@ -665,8 +632,7 @@
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Filmagem",
-      "loggedIn": false
+      "atuacao": "Filmagem"
     },
     {
       "id": "35",
@@ -685,8 +651,7 @@
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Ilustração",
-      "loggedIn": false
+      "atuacao": "Ilustração"
     }
   ],
   "vendas": [],

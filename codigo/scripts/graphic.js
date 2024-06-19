@@ -1,22 +1,17 @@
-
 document.getElementById("open_btn").addEventListener("click", function () {
     document.getElementById("sidebar").classList.toggle("open-sidebar");
 });
 
 function applyStyleOnHover() {
-    
     const sideItems = document.querySelectorAll('li.side-item');  
     sideItems.forEach((item) => {
-        
         item.addEventListener('mouseenter', function() {
-            
             const link = this.querySelector('a');
             if (link) {
                 link.style.color = '#fff';
             }
         });     
         item.addEventListener('mouseleave', function() {
-            
             const link = this.querySelector('a');
             if (link) {
                 link.style.color = '';
@@ -26,45 +21,23 @@ function applyStyleOnHover() {
 }
 
 applyStyleOnHover();
+
 const URL = "http://localhost:3000/vendas";
 let vendas;
 
 async function getLoggedInUser() {
-    return localStorage.getItem('loggedInUserId') !== null;
+    const loggedInUserId = localStorage.getItem('loggedInUserId');
+    if (!loggedInUserId) {
+        throw new Error('Nenhum usuário logado encontrado.');
+    }
+    return loggedInUserId;
 }
 
 const vendaList = document.getElementById("venda-list");
 
-fetch(URL)
-    .then((res) => res.json())
-    .then((vendasData) => {
-        vendas = vendasData;
-
-        vendas.sort((a, b) => {
-            const mesMesA = a.mes.toLowerCase();
-            const mesMesB = b.mes.toLowerCase();
-            const mesesOrdem = [
-                "janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho",
-                "agosto", "setembro", "outubro", "novembro", "dezembro"
-            ];
-
-            return mesesOrdem.indexOf(mesMesA) - mesesOrdem.indexOf(mesMesB);
-        });
-
-        populateVendaTable();
-    })
-    .catch(error => console.error('Erro ao recuperar dados de vendas:', error));
-
 async function populateVendaTable() {
     try {
-        const usuarioLogado = await getLoggedInUser();
-
-        if (!usuarioLogado) {
-            console.error("Nenhum usuário logado encontrado.");
-            return;
-        }
-
-        const usuarioLogadoId = usuarioLogado.id;
+        const usuarioLogadoId = await getLoggedInUser();
 
         const response = await fetch(URL);
         if (!response.ok) {
@@ -72,7 +45,7 @@ async function populateVendaTable() {
         }
         const vendas = await response.json();
 
-        const vendasUsuarioLogado = vendas.filter(venda => venda.usuarioCriador === usuarioLogadoId);
+        const vendasUsuarioLogado = vendas.filter(venda => venda.idUsuarioCriador === usuarioLogadoId);
 
         vendaList.innerHTML = '';
 
@@ -86,7 +59,7 @@ async function populateVendaTable() {
                     <td>${venda.qtd}</td>
                     <td>R$${parseFloat(vlt_total).toFixed(2)}</td>
                     <td>
-                        <a onclick="getvenda(${venda.id});" 
+                        <a onclick="getVenda(${venda.id});" 
                             class="btn btn-warning btn-sm" 
                             data-toggle="modal" data-target="#venda-modal">
                             <i class="fa fa-edit"></i>  Editar
@@ -112,38 +85,41 @@ async function populateVendaTable() {
 
 const vendaDelete = document.getElementById("btn-delete");
 
-vendaDelete.addEventListener("click", (e) => {
+vendaDelete.addEventListener("click", async (e) => {
+    try {
+        const usuarioLogadoId = await getLoggedInUser();
 
-    if (!vendas) {
-        console.error("Erro: Dados de vendas não estão disponíveis.");
-        return;
+        if (!vendas) {
+            throw new Error("Erro: Dados de vendas não estão disponíveis.");
+        }
+
+        let id = $("#id-venda").text();
+
+        const vendaToDelete = vendas.find(venda => venda.id === id);
+
+        if (!vendaToDelete || vendaToDelete.idUsuarioCriador !== usuarioLogadoId) {
+            throw new Error("Você não tem permissão para excluir esta venda.");
+        }
+
+        const response = await fetch(`${URL}/${id}`, {
+            method: "DELETE",
+        });
+
+        if (!response.ok) {
+            throw new Error("Erro ao excluir a venda.");
+        }
+
+        const remainingVendas = vendas.filter(venda => venda.id !== id);
+        vendas = remainingVendas;
+
+        generateChart(remainingVendas);
+        populateVendaTable();
+    } catch (error) {
+        console.error("Erro ao excluir a venda:", error);
     }
-
-    let id = $("#id-venda").text();
-
-    if (!vendas.some((venda) => venda.id === id)) {
-        console.error(
-            "Venda não encontrada. O ID especificado pode estar incorreto."
-        );
-        return;
-    }
-
-    fetch(`${URL}/${id}`, {
-        method: "DELETE",
-    })
-        .then((res) => {
-            if (!res.ok) {
-                throw new Error("Erro ao excluir a venda");
-            }
-            return res.json();
-        })
-        .then(() => {
-            generateChart();
-        })
-        .catch((error) => console.error("Erro ao excluir a venda:", error));
 });
 
-function getvenda(id) {
+function getVenda(id) {
     if (id == 0) {
         $("#edit-venda-id").text("");
         $("#venda-id").prop("disabled", false);
@@ -160,8 +136,9 @@ function getvenda(id) {
                 $("#venda-id").val(data.id);
                 $("#venda-mes").val(data.mes);
                 $("#venda-vlr").val(data.vlr);
-                $("#venda-vlr").val(data.qtd);
-            });
+                $("#venda-qtd").val(data.qtd);
+            })
+            .catch(error => console.error('Erro ao obter venda:', error));
     }
 }
 
@@ -169,98 +146,62 @@ const vendaForm = document.getElementById("venda-form");
 vendaForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const usuarioLogado = await getLoggedInUser();
+    try {
+        const usuarioLogadoId = await getLoggedInUser();
 
-    if (!usuarioLogado) {
-        console.error("Nenhum usuário logado encontrado.");
-        return;
-    }
+        let id = parseInt($("#edit-venda-id").text());
 
-    const usuarioLogadoId = usuarioLogado.id;
+        const venda = {
+            id: document.getElementById("venda-id").value,
+            mes: document.getElementById("venda-mes").value,
+            vlr: document.getElementById("venda-vlr").value,
+            qtd: document.getElementById("venda-qtd").value,
+            idUsuarioCriador: usuarioLogadoId,
+        };
 
-    let id = parseInt($("#edit-venda-id").text());
+        if (venda.id.startsWith("0") || venda.id === "") {
+            alert("O ID da venda não pode começar com 0 ou estar vazio.");
+            return;
+        }
 
-    const venda = {
-        id: document.getElementById("venda-id").value,
-        mes: document.getElementById("venda-mes").value,
-        vlr: document.getElementById("venda-vlr").value,
-        qtd: document.getElementById("venda-qtd").value,
-        usuarioCriador: usuarioLogadoId,
-    };
+        let method = 'POST';
+        let url = URL;
+        
+        if (id >= 0) {
+            method = 'PUT';
+            url = `${URL}/${id}`;
+        }
 
-    if (venda.id.startsWith("0") || venda.id === "") {
-        alert("O ID da venda não pode começar com 0 ou estar vazio.");
-        return;
-    }
-
-    if (id >= 0) {
-        fetch(`${URL}/${id}`, {
-            method: "PUT",
+        const response = await fetch(url, {
+            method: method,
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(venda),
-        })
-            .then((res) => res.json())
-            .then(() => {
-                generateChart();
-                updateSalesStatistics();
-            });
-    } else {
-        fetch(URL, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(venda),
-        })
-            .then((res) => res.json())
-            .then(() => {
-                generateChart();
-                updateSalesStatistics();
-            });
+        });
+
+        if (!response.ok) {
+            throw new Error("Erro ao salvar a venda.");
+        }
+
+        const updatedVenda = await response.json();
+
+        if (method === 'POST') {
+            vendas.push(updatedVenda);
+        } else {
+            const index = vendas.findIndex(venda => venda.id === updatedVenda.id);
+            if (index !== -1) {
+                vendas[index] = updatedVenda;
+            }
+        }
+
+        generateChart(vendas);
+        updateSalesStatistics(vendas);
+        populateVendaTable();
+    } catch (error) {
+        console.error('Erro ao salvar a venda:', error);
     }
 });
-
-let meses = [];
-let valores = [];
-
-fetch(URL)
-    .then((res) => res.json())
-    .then((vendas) => {
-        const vendasPorMes = {};
-
-        vendas.forEach((venda) => {
-            const mes = venda.mes.toLowerCase();
-            const valorTotal = parseFloat(venda.vlr) * parseFloat(venda.qtd);
-
-            if (vendasPorMes[mes]) {
-                vendasPorMes[mes] += valorTotal;
-            } else {
-                vendasPorMes[mes] = valorTotal;
-            }
-        });
-
-        Object.keys(vendasPorMes).forEach((mes) => {
-            meses.push(mes);
-            valores.push(vendasPorMes[mes]);
-        });
-
-        meses.sort((a, b) => {
-            const mesesOrdem = [
-                "janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho",
-                "agosto", "setembro", "outubro", "novembro", "dezembro"
-            ];
-            return mesesOrdem.indexOf(a) - mesesOrdem.indexOf(b);
-        });
-
-        const valoresOrdenados = [];
-        meses.forEach((mes) => {
-            valoresOrdenados.push(vendasPorMes[mes]);
-        });
-
-        generateChart(meses, valoresOrdenados);
-    });
 
 function generateChart(vendas) {
     const vendasPorMes = {};
@@ -300,7 +241,6 @@ function generateChart(vendas) {
                 duration: 2000,
                 easing: "easeInOutQuad",
             },
-
             scales: {
                 y: {
                     beginAtZero: true,
@@ -310,13 +250,7 @@ function generateChart(vendas) {
     });
 }
 
-fetch(URL)
-    .then((res) => res.json())
-    .then((vendas) => {
-        updateSalesStatistics(vendas);
-    });
-
-function updateSalesStatistics(vendas) {
+async function updateSalesStatistics(vendas) {
     let totalSales = 0;
     let totalMonths = 0;
 
@@ -335,3 +269,7 @@ function updateSalesStatistics(vendas) {
     document.getElementById("avg-sales-value").textContent =
         avgSalesPerMonth.toFixed(2);
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    populateVendaTable();
+});
