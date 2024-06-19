@@ -17,28 +17,6 @@ async function loadUsuarios() {
 
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
-// Função para obter o próximo ID único
-async function getNextUserId() {
-    try {
-        const response = await fetch('http://localhost:3000/usuarios');
-        if (!response.ok) {
-            throw new Error('Erro ao carregar usuários.');
-        }
-        const usuarios = await response.json();
-        if (usuarios.length === 0) {
-            return "1";
-        }
-
-        return (parseInt(usuarios[usuarios.length - 1].id) + 1).toString();
-        
-    } catch (error) {
-        console.error('Erro ao obter o próximo ID:', error);
-        throw error;
-    }
-}
-
-/*--------------------------------------------------------------------------------------------------------------------------*/
-
 // Função para revelar a senha quando o usuário clica no ícone
 document.addEventListener("click", (e) => {
     try {
@@ -56,81 +34,6 @@ document.addEventListener("click", (e) => {
         console.error('Erro ao revelar senha:', error.message);
     }
 });
-
-/*--------------------------------------------------------------------------------------------------------------------------*/
-
-// Função para cadastro de novo usuário
-async function signUp() {
-    let formSignUp = document.getElementById('signUpForm');
-    if (!formSignUp) {
-        console.error("Elemento de formulário de cadastro não encontrado.");
-        return;
-    }
-
-    formSignUp.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        let username = document.getElementById("username").value;
-        let email = document.getElementById("email").value;
-        let confirmEmail = document.getElementById("confirmEmail").value;
-        let confirmPassword = document.getElementById("confirmPassword").value;
-
-        if (email !== confirmEmail) {
-            alert("Os emails não coincidem. Por favor, verifique.");
-            return;
-        }
-
-        let password = document.getElementById("password").value;
-        let confirmPass = document.getElementById("confirmPassword").value;
-
-        if (password !== confirmPass) {
-            alert("A senha e o confirmar senha não coincidem. Por favor, verifique.");
-            return;
-        }
-
-        if (usuarios.some(user => user.email === email)) {
-            alert("Este email já está cadastrado. Por favor, escolha outro.");
-            return;
-        }
-
-        let userId;
-        try {
-            userId = await getNextUserId();
-        } catch (error) {
-            console.error('Erro ao obter o próximo ID:', error);
-            alert("Erro ao obter o próximo ID. Por favor, tente novamente mais tarde.");
-            return;
-        }
-
-        try {
-
-            const response = await fetch('http://localhost:3000/usuarios', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    id: userId,
-                    username: username,
-                    email: email,
-                    password: password,
-                    loggedIn: false
-                }),
-            });
-            if (!response.ok) {
-                throw new Error('Erro ao criar a conta.');
-            }
-            window.location.href = "login.html";
-
-            await loadUsuarios();
-            console.log('Conta criada com sucesso!');
-            alert("Conta criada com sucesso!");
-        } catch (error) {
-            console.error('Erro ao criar a conta:', error);
-            alert("Erro ao criar a conta. Por favor, tente novamente mais tarde.");
-        }
-    });
-}
 
 /*--------------------------------------------------------------------------------------------------------------------------*/
 

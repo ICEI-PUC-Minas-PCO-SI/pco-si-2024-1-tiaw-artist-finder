@@ -36,10 +36,25 @@
         </header>
     </div>
 
-    <section class="banner">
-        <h1>PAGINA EM <span>CONSTRUÇÃO</span></h1>
-    </section>
+    <div class="input__wrapper">
+        <input id="confirmPassword" type="password" class="input__field" placeholder="Confirm Your Password" title="No mínimo 6 caracteres" minlength="6" required>
+        <label for="confirmPassword" class="input__label">Confirmar Senha:</label>
+    </div>
+    <button type="submit" class="my-form__button">
+        Cadastro
+    </button>
+    <div class="my-form__actions">
+        <div class="my-form__row">
+            <span>Já tem conta?</span>
+            <a href="login.html" title="Login">
+                Login
+            </a>
+        </div>
+    </div>
+    </form>
 
+    <script src="./scripts/login.js"></script>
+    <script src="./scripts/signup.js"></script>
 </body>
 
 </html>
