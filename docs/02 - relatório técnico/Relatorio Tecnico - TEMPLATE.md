@@ -164,6 +164,7 @@ Principais requisitos que compõe a aplicação:
 Facilita a comunicação direta entre clientes e freelancers, permitindo a discussão de projetos e esclarecimento de dúvidas de forma rápida e eficiente.
 
 - Carossel:
+- Carossel:
 
 Destaca obras de destaque na página principal, proporcionando aos clientes uma visão rápida e inspiradora do talento disponível na plataforma.
 
@@ -173,6 +174,7 @@ Permite que os freelancers exibam seus trabalhos anteriores de forma detalhada, 
 
 - Avaliações Transparentes:
 
+Oferece um sistema de avaliação transparente, através de comentários e estrelas, permitindo que os clientes forneçam feedback detalhado sobre a experiência com os freelancers.
 Oferece um sistema de avaliação transparente, através de comentários e estrelas, permitindo que os clientes forneçam feedback detalhado sobre a experiência com os freelancers.
 
 A elaboração dos requisitos teve como ponto de partida as pesquisas com os profissionais freelancer, a partir daí, com as necessidades em mente, conseguimos pensar em funcionalidades que atendam esses profissionais, tornando assim, a plataforma fácil e útil. Os requisitos não funcionais tiveram como base heurísticas que já existem em sites nesse segmento, sendo assim, torna-se necessário a adição desses requisitos para correta adaptação no mercado.
