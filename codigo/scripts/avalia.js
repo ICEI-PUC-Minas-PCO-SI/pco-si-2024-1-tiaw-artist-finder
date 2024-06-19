@@ -67,7 +67,7 @@ function createChart(ctx) {
     return new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['1 Estrelas', '2 Estrelas', '3 Estrelas', '4 Estrelas', '5 Estrela'],
+            labels: ['5 Estrelas', '4 Estrelas', '3 Estrelas', '2 Estrelas', '1 Estrela'],
             datasets: [{
                 label: 'Avaliações',
                 data: [0, 0, 0, 0, 0],
@@ -108,30 +108,28 @@ function createChart(ctx) {
 }
 
 function configurarAvaliacao() {
-    const stars = document.querySelectorAll('.star');
+    const stars = document.querySelectorAll('.star-rating input');
     const submitButton = document.getElementById('submitAvaliacao');
 
-    stars.forEach((star, index) => {
+    stars.forEach((star) => {
         star.addEventListener('click', () => {
-            stars.forEach(s => {
-                if (s.classList.contains('selected')) {
-                    s.classList.remove('selected');
-                }
-            });
-
-            for (let i = index; i >= 0; i--) {
-                if (!stars[i].classList.contains('selected')) {
-                    stars[i].classList.add('selected');
+            const selectedValue = star.value;
+            stars.forEach(s => s.nextElementSibling.classList.remove('selected'));
+            for (let i = 0; i < stars.length; i++) {
+                if (parseInt(stars[i].value) >= parseInt(selectedValue)) {
+                    stars[i].nextElementSibling.classList.add('selected');
                 }
             }
         });
     });
 
     submitButton.addEventListener('click', () => {
-        const selectedStars = document.querySelectorAll('.star.selected').length;
+        const selectedStar = document.querySelector('.star-rating input:checked');
+        const selectedStars = selectedStar ? selectedStar.value : 0;
+
         const avaliacao = {
             id: generateRandomId(6),
-            estrelas: selectedStars,
+            estrelas: parseInt(selectedStars),
             idAvaliado: idQueryString
         };
 
@@ -140,6 +138,8 @@ function configurarAvaliacao() {
 }
 
 function enviarAvaliacao(avaliacao) {
+    console.log('Enviando avaliação:', avaliacao);
+
     fetch('http://localhost:3000/avaliacoes', {
         method: 'POST',
         headers: {
@@ -148,26 +148,17 @@ function enviarAvaliacao(avaliacao) {
         body: JSON.stringify(avaliacao)
     })
         .then(response => {
-            if (!response.ok) {
-                throw new Error('Erro ao enviar avaliação');
+            if (response.ok) {
+                console.log('Avaliação enviada com sucesso.');
+            } else {
+                console.error('Erro ao enviar avaliação:', response.statusText);
             }
-            return response.json();
         })
-        .then(data => {
-            console.log('Avaliação enviada com sucesso:', data);
-        })
-        .catch(error => {
-            console.error('Erro ao enviar avaliação:', error);
-        });
+        .catch(error => console.error('Erro ao enviar avaliação:', error));
 }
 
 function generateRandomId(length) {
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let result = '';
-    for (let i = 0; i < length; i++) {
-        result += characters.charAt(Math.floor(Math.random() * characters.length));
-    }
-    return result;
+    return Math.random().toString(36).substr(2, length);
 }
 
 function calcularEModificarMediaAvaliacoes() {
@@ -208,10 +199,7 @@ function calcularEModificarMediaAvaliacoes() {
                                 if (!response.ok) {
                                     throw new Error(`Erro ao atualizar avaliação do usuário: ${response.status}`);
                                 }
-                                console.log('Avaliação do usuário atualizada com sucesso');
                             });
-                    } else {
-                        console.log('A avaliação do usuário já está atualizada');
                     }
                 });
         })
