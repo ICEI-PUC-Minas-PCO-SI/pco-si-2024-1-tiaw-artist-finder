@@ -43,26 +43,16 @@ async function fetchAndDisplayUsers() {
             throw new Error('Erro ao identificar usuário logado.');
         }
 
-        const usuarios = data.filter(user => user.id !== loggedInUser.id);
-        const sortedUsuarios = usuarios.sort((a, b) => {
-            const aMessages = JSON.parse(localStorage.getItem(a.nome)) || [];
-            const bMessages = JSON.parse(localStorage.getItem(b.nome)) || [];
-            const aLastMessage = aMessages[aMessages.length - 1];
-            const bLastMessage = bMessages[bMessages.length - 1];
-
-            if (aMessages.some(m => m.sender === a.nome && !m.read)) return -1;
-            if (bMessages.some(m => m.sender === b.nome && !m.read)) return 1;
-            if (aLastMessage && bLastMessage) {
-                return new Date(bLastMessage.timestamp) - new Date(aLastMessage.timestamp);
-            }
-            return 0;
-        });
+        const sortedUsuarios = data.filter(user => user.id !== loggedInUser.id);
 
         sortedUsuarios.forEach(usuario => {
             const userDiv = document.createElement('div');
             userDiv.classList.add('chat-sidebar-user');
+            
+            let userPhoto = usuario.foto || 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
+
             userDiv.innerHTML = `
-                <img src="${usuario.foto}" alt="${usuario.nome}" class="chat-sidebar-user-photo">
+                <img src="${userPhoto}" alt="${usuario.nome}" class="chat-sidebar-user-photo">
                 <span class="chat-sidebar-user-name">${usuario.nome}</span>
                 <i class="fas fa-circle new-message-indicator"></i>
             `;
@@ -82,7 +72,6 @@ async function fetchAndDisplayUsers() {
             userDiv.addEventListener('click', () => {
                 showChatMainContent();
                 updateChatHeader(usuario.nome, usuario.foto);
-                displayMessages(usuario.nome);
 
                 userMessages.forEach(m => {
                     if (m.sender === usuario.nome) {
@@ -91,6 +80,8 @@ async function fetchAndDisplayUsers() {
                 });
                 localStorage.setItem(usuario.nome, JSON.stringify(userMessages));
                 newMessageIndicator.style.display = 'none';
+
+                displayMessages(usuario.nome);
             });
         });
 
@@ -128,8 +119,6 @@ document.addEventListener('keydown', function(event) {
         showInitialMessage();
     }
 });
-
-window.addEventListener('load', fetchAndDisplayUsers);
 
 async function sendMessage() {
     const messageInput = document.getElementById('chat-message-input');
@@ -266,3 +255,5 @@ function setupMobileChatInteraction() {
 }
 
 setupMobileChatInteraction();
+
+window.addEventListener('load', fetchAndDisplayUsers);

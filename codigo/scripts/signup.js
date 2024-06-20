@@ -1,22 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
-    signUp();
-});
+    const formSignUp = document.getElementById('signUpForm');
 
-async function signUp() {
-    let formSignUp = document.getElementById('signUpForm');
-    if (!formSignUp) {
-        console.error("Elemento de formulário de cadastro não encontrado.");
-        return;
-    }
-
-    formSignUp.addEventListener("submit", async (e) => {
+    formSignUp.addEventListener("submit", async function (e) {
         e.preventDefault();
+        e.stopPropagation();
 
-        let username = document.getElementById("username").value;
-        let email = document.getElementById("email").value;
-        let confirmEmail = document.getElementById("confirmEmail").value;
-        let password = document.getElementById("password").value;
-        let confirmPassword = document.getElementById("confirmPassword").value;
+        const username = document.getElementById("username").value;
+        const email = document.getElementById("email").value;
+        const confirmEmail = document.getElementById("confirmEmail").value;
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
 
         if (email !== confirmEmail) {
             alert("Os emails não coincidem. Por favor, verifique.");
@@ -61,16 +54,22 @@ async function signUp() {
             await createUser(newUser);
             alert("Conta criada com sucesso!");
 
-            const userPicData = JSON.parse(localStorage.getItem('userPicData')) || {};
-            userPicData[userId] = 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
+            let userPicData = JSON.parse(localStorage.getItem('userPicData')) || [];
+            
+            userPicData.push({
+                id: userId,
+                foto: 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png'
+            });
+
             localStorage.setItem('userPicData', JSON.stringify(userPicData));
+
             window.location.href = "login.html";
         } catch (error) {
             console.error('Erro ao criar a conta:', error);
             alert("Erro ao criar a conta. Por favor, tente novamente mais tarde.");
         }
     });
-}
+});
 
 async function fetchUsuarios() {
     try {
@@ -99,7 +98,7 @@ async function createUser(user) {
             throw new Error('Erro ao criar a conta.');
         }
 
-        await response.json();
+        return await response.json();
     } catch (error) {
         console.error('Erro ao criar a conta:', error);
         throw error;

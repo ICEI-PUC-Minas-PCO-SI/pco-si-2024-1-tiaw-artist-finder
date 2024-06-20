@@ -105,9 +105,10 @@ async function displayUsers(users) {
                 if (usuario.foto) {
                     userFotoPerfil = usuario.foto;
                 } else {
-                    const userPicData = JSON.parse(localStorage.getItem('userPicData')) || {};
-                    if (userPicData[usuario.id]) {
-                        userFotoPerfil = userPicData[usuario.id];
+                    const userPicData = JSON.parse(localStorage.getItem('userPicData')) || [];
+                    const userIndex = userPicData.findIndex(user => user.id === usuario.id.toString());
+                    if (userIndex !== -1) {
+                        userFotoPerfil = userPicData[userIndex].foto;
                     }
                 }
 
@@ -133,7 +134,7 @@ async function displayUsers(users) {
                     </div>
                 `;
             }
-            return ''; // Retorna uma string vazia para usuários logados não serem exibidos
+            return '';
         }).join('');
 
         userList.innerHTML = user_list;

@@ -23,7 +23,14 @@ function carregarDadosUsuario() {
             document.getElementById('editDescription').value = usuario.descricao;
 
             const userPhoto = document.getElementById('user-photo');
-            userPhoto.src = usuario.foto || 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
+            let userPicData = JSON.parse(localStorage.getItem('userPicData')) || [];
+            const userIndex = userPicData.findIndex(user => user.id === loggedInUserId.toString());
+
+            if (userIndex !== -1) {
+                userPhoto.src = userPicData[userIndex].foto;
+            } else {
+                userPhoto.src = 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
+            }
 
             document.getElementById('user-name').textContent = usuario.nome;
             document.getElementById('user-age').textContent = `${usuario.idade} anos`;
@@ -42,7 +49,7 @@ function carregarDadosUsuario() {
                 }
             }
 
-            portfolioUsuario(); // Integração com a galeria de fotos
+            portfolioUsuario();
         })
         .catch(error => console.error('Erro ao carregar dados do usuário:', error.message));
 }
@@ -125,7 +132,6 @@ function portfolioUsuario() {
     document.getElementById('photo-container').innerHTML = galeriaHTML;
 }
 
-
 function previewFile(inputId, galeriaField) {
     const preview = document.querySelector(`#${galeriaField}`);
     const file = document.querySelector(`input[id=${inputId}]`).files[0];
@@ -164,10 +170,18 @@ document.addEventListener('DOMContentLoaded', function () {
         const file = event.target.files[0];
         if (file) {
             convertImageToBase64(file, function (base64) {
-                let galeriaUsuario = JSON.parse(localStorage.getItem('galeriaUsuario')) || {};
-                galeriaUsuario[loggedInUserId] = galeriaUsuario[loggedInUserId] || {};
-                galeriaUsuario[loggedInUserId].userPhoto = base64;
-                localStorage.setItem('galeriaUsuario', JSON.stringify(galeriaUsuario));
+                let userPicData = JSON.parse(localStorage.getItem('userPicData')) || [];
+                const userIndex = userPicData.findIndex(user => user.id === loggedInUserId.toString());
+                if (userIndex !== -1) {
+                    userPicData[userIndex].foto = base64;
+                } else {
+                    userPicData.push({
+                        id: loggedInUserId.toString(),
+                        foto: base64
+                    });
+                }
+                
+                localStorage.setItem('userPicData', JSON.stringify(userPicData));
                 console.log('Imagem salva no localStorage.');
             });
         }
