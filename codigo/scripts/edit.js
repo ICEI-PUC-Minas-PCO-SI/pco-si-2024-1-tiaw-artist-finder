@@ -50,8 +50,6 @@ function carregarDadosUsuario() {
                     editPic.style.display = 'none';
                 }
             }
-
-            // Atualiza o portfólio do usuário normalmente
             portfolioUsuario();
         })
         .catch(error => console.error('Erro ao carregar dados do usuário:', error.message));
@@ -136,8 +134,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 
                 localStorage.setItem('userPicData', JSON.stringify(userPicData));
                 console.log('Imagem salva no localStorage.');
-
-                // Atualiza a foto de perfil exibida
                 const userPhoto = document.getElementById('user-photo');
                 userPhoto.src = base64;
             });

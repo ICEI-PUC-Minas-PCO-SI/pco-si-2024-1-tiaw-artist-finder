@@ -83,7 +83,7 @@
       "email": "goliveira33@example.com",
       "password": "admin1",
       "foto": "assets/img/pessoa6.jpeg",
-      "avaliacao": 0,
+      "avaliacao": "5.0",
       "estado": "SP",
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
@@ -694,5 +694,16 @@
     }
   ],
   "vendas": [],
-  "avaliacoes": []
+  "avaliacoes": [
+    {
+      "id": "g5ztez",
+      "estrelas": 5,
+      "idAvaliado": "5"
+    },
+    {
+      "id": "6knw7v",
+      "estrelas": 5,
+      "idAvaliado": "5"
+    }
+  ]
 }

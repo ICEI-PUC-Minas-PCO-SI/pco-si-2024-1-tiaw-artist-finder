@@ -68,7 +68,7 @@ function createChart(ctx) {
     return new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['5 Estrelas', '4 Estrelas', '3 Estrelas', '2 Estrelas', '1 Estrela'],
+            labels: ['1 Estrelas', '2 Estrelas', '3 Estrelas', '4 Estrelas', '5 Estrela'],
             datasets: [{
                 label: 'Avaliações',
                 data: [0, 0, 0, 0, 0],
