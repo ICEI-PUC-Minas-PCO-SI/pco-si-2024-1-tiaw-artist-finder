@@ -2,7 +2,6 @@ const URL = "http://localhost:3000/usuarios";
 
 function getLoggedInUserId() {
     const userId = localStorage.getItem('loggedInUserId');
-    console.log(userId);
     return userId ? userId : null;
 }
 
@@ -48,19 +47,33 @@ async function fetchAndDisplayUsers() {
         sortedUsuarios.forEach(usuario => {
             const userDiv = document.createElement('div');
             userDiv.classList.add('chat-sidebar-user');
-            
-            let userPhoto = usuario.foto || 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
+
+            let userFotoPerfil = usuario.foto || '';
+
+            if (!userFotoPerfil) {
+                const userPicData = JSON.parse(localStorage.getItem('userPicData')) || [];
+                const storedUser = userPicData.find(u => u.id === usuario.id);
+                if (storedUser && storedUser.foto) {
+                    userFotoPerfil = storedUser.foto;
+                    console.log(`Foto base64 recuperada do localStorage para ${usuario.nome}:`, userFotoPerfil);
+                } else {
+                    userFotoPerfil = 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
+                }
+            } else {
+                console.log(`Foto obtida diretamente para ${usuario.nome}:`, userFotoPerfil);
+            }
 
             userDiv.innerHTML = `
-                <img src="${userPhoto}" alt="${usuario.nome}" class="chat-sidebar-user-photo">
+                <img src="${userFotoPerfil}" alt="${usuario.nome}" class="chat-sidebar-user-photo">
                 <span class="chat-sidebar-user-name">${usuario.nome}</span>
                 <i class="fas fa-circle new-message-indicator"></i>
             `;
             contactsContainer.appendChild(userDiv);
 
             const userMessages = JSON.parse(localStorage.getItem(usuario.nome)) || [];
-            const hasUnreadMessages = userMessages.some(m => m.sender === usuario.nome && !m.read);
             const newMessageIndicator = userDiv.querySelector('.new-message-indicator');
+
+            const hasUnreadMessages = userMessages.some(m => m.sender === usuario.nome && !m.read);
             newMessageIndicator.style.marginLeft = '0.2rem';
             if (hasUnreadMessages) {
                 newMessageIndicator.style.color = 'red';
@@ -69,24 +82,61 @@ async function fetchAndDisplayUsers() {
                 newMessageIndicator.style.display = 'none';
             }
 
-            userDiv.addEventListener('click', () => {
+            userDiv.addEventListener('click', async () => {
                 showChatMainContent();
-                updateChatHeader(usuario.nome, usuario.foto);
 
-                userMessages.forEach(m => {
-                    if (m.sender === usuario.nome) {
-                        m.read = true;
+                try {
+                    const clickedUser = await getUserById(usuario.id);
+                    if (clickedUser) {
+                        let clickedUserFoto = clickedUser.foto || '';
+
+                        if (!clickedUserFoto) {
+                            const userPicData = JSON.parse(localStorage.getItem('userPicData')) || [];
+                            const storedUser = userPicData.find(u => u.id === clickedUser.id);
+                            if (storedUser && storedUser.foto) {
+                                clickedUserFoto = storedUser.foto;
+                                console.log(`Foto base64 recuperada do localStorage para ${clickedUser.nome}:`, clickedUserFoto);
+                            } else {
+                                clickedUserFoto = 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
+                            }
+                        } else {
+                            console.log(`Foto obtida diretamente para ${clickedUser.nome}:`, clickedUserFoto);
+                        }
+
+                        updateChatHeader(clickedUser.nome, clickedUserFoto);
+                        displayMessages(clickedUser.nome);
                     }
-                });
-                localStorage.setItem(usuario.nome, JSON.stringify(userMessages));
-                newMessageIndicator.style.display = 'none';
 
-                displayMessages(usuario.nome);
+                    userMessages.forEach(m => {
+                        if (m.sender === usuario.nome) {
+                            m.read = true;
+                        }
+                    });
+                    localStorage.setItem(usuario.nome, JSON.stringify(userMessages));
+                    newMessageIndicator.style.display = 'none';
+
+                } catch (error) {
+                    console.error('Erro ao carregar informações do usuário:', error);
+                }
             });
         });
 
     } catch (error) {
         console.error('Erro ao buscar usuários:', error);
+    }
+}
+
+async function getUserById(userId) {
+    try {
+        const response = await fetch(`${URL}/${userId}`);
+        if (!response.ok) {
+            throw new Error('Erro na rede');
+        }
+        const userData = await response.json();
+        return userData;
+    } catch (error) {
+        console.error(`Erro ao buscar usuário com ID ${userId}:`, error);
+        return null;
     }
 }
 
