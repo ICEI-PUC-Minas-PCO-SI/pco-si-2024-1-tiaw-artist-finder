@@ -26,10 +26,12 @@ function carregarDadosUsuario() {
             let userPicData = JSON.parse(localStorage.getItem('userPicData')) || [];
             const userIndex = userPicData.findIndex(user => user.id === loggedInUserId.toString());
 
-            if (userIndex !== -1) {
+            if (userIndex !== -1 && userPicData[userIndex].foto) {
                 userPhoto.src = userPicData[userIndex].foto;
+                console.log(`Foto de perfil recuperada do localStorage para ${usuario.nome}`);
             } else {
-                userPhoto.src = 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
+                userPhoto.src = usuario.foto || 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
+                console.log(`Foto de perfil obtida diretamente para ${usuario.nome}`);
             }
 
             document.getElementById('user-name').textContent = usuario.nome;
@@ -49,6 +51,7 @@ function carregarDadosUsuario() {
                 }
             }
 
+            // Atualiza o portfólio do usuário normalmente
             portfolioUsuario();
         })
         .catch(error => console.error('Erro ao carregar dados do usuário:', error.message));
@@ -109,6 +112,39 @@ function convertImageToBase64(file, callback) {
     reader.readAsDataURL(file);
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+    carregarDadosUsuario();
+
+    document.getElementById('saveChangesButton').addEventListener('click', function () {
+        salvarMudancasUsuario();
+    });
+
+    document.getElementById('editPhoto').addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if (file) {
+            convertImageToBase64(file, function (base64) {
+                let userPicData = JSON.parse(localStorage.getItem('userPicData')) || [];
+                const userIndex = userPicData.findIndex(user => user.id === loggedInUserId.toString());
+                if (userIndex !== -1) {
+                    userPicData[userIndex].foto = base64;
+                } else {
+                    userPicData.push({
+                        id: loggedInUserId.toString(),
+                        foto: base64
+                    });
+                }
+                
+                localStorage.setItem('userPicData', JSON.stringify(userPicData));
+                console.log('Imagem salva no localStorage.');
+
+                // Atualiza a foto de perfil exibida
+                const userPhoto = document.getElementById('user-photo');
+                userPhoto.src = base64;
+            });
+        }
+    });
+});
+
 function portfolioUsuario() {
     let galeriaUsuario = JSON.parse(localStorage.getItem('galeriaUsuario')) || {};
     const galeria = galeriaUsuario[loggedInUserId] || {};
@@ -158,32 +194,3 @@ function alterarImagem(galeriaField, imageURI) {
     galeriaUsuario[loggedInUserId][galeriaField] = imageURI;
     localStorage.setItem('galeriaUsuario', JSON.stringify(galeriaUsuario));
 }
-
-document.addEventListener('DOMContentLoaded', function () {
-    carregarDadosUsuario();
-
-    document.getElementById('saveChangesButton').addEventListener('click', function () {
-        salvarMudancasUsuario();
-    });
-
-    document.getElementById('editPhoto').addEventListener('change', function (event) {
-        const file = event.target.files[0];
-        if (file) {
-            convertImageToBase64(file, function (base64) {
-                let userPicData = JSON.parse(localStorage.getItem('userPicData')) || [];
-                const userIndex = userPicData.findIndex(user => user.id === loggedInUserId.toString());
-                if (userIndex !== -1) {
-                    userPicData[userIndex].foto = base64;
-                } else {
-                    userPicData.push({
-                        id: loggedInUserId.toString(),
-                        foto: base64
-                    });
-                }
-                
-                localStorage.setItem('userPicData', JSON.stringify(userPicData));
-                console.log('Imagem salva no localStorage.');
-            });
-        }
-    });
-});
