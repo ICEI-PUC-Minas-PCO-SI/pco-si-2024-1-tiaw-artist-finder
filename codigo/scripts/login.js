@@ -92,5 +92,11 @@ function createNavItem(text, href) {
     navItem.innerHTML = `
         <a class="nav-link" href="${href}">${text}</a>
     `;
+    
+    const div = document.getElementById('screenWelcome');
+    div.innerHTML = `
+        <h1>Querido usuário, bem vindo ao Artist Finder! Confira nossos artistas e logue para ter mais opções!</h1>
+    `
     return navItem;
+
 }
