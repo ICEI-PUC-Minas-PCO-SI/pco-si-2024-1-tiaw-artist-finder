@@ -24,7 +24,7 @@ async function login() {
 
                 localStorage.setItem('loggedInUserId', user.id);
 
-                window.location.href = "home.html";
+                window.location.href = "index.html";
             } catch (error) {
                 console.error('Erro ao fazer login:', error);
                 alert("Erro ao fazer login. Por favor, tente novamente mais tarde.");
@@ -60,8 +60,25 @@ document.addEventListener("DOMContentLoaded", async () => {
     
     if (currentPage !== '/codigo/index.html' && currentPage !== '/codigo/login.html' && currentPage !== '/codigo/signup.html') {
         if (!isLoggedIn()) {
-            alert(`Você precisa estar logado para acessar ${currentPage}.`);
-            window.location.href = "login.html";
+            const navbarItemsToHide = document.querySelectorAll('.navbar-nav .nav-item:nth-child(2), .navbar-nav .nav-item:nth-child(3), .navbar-nav .nav-item:nth-child(4), .navbar-nav .nav-item:nth-child(5), .navbar-nav .nav-item:nth-child(6)');
+            navbarItemsToHide.forEach(item => {
+                item.style.display = 'none';
+            });
+
+            const loginNavItem = document.createElement('li');
+            loginNavItem.classList.add('nav-item', 'me-3');
+            loginNavItem.innerHTML = `
+                <a class="nav-link" href="login.html">Login</a>
+            `;
+            const signupNavItem = document.createElement('li');
+            signupNavItem.classList.add('nav-item', 'me-3');
+            signupNavItem.innerHTML = `
+                <a class="nav-link" href="signup.html">Cadastro</a>
+            `;
+            const navbarNav = document.querySelector('.navbar-nav');
+            navbarNav.appendChild(loginNavItem);
+            navbarNav.appendChild(signupNavItem);
+            
             return;
         }
     } else if (currentPage === '/codigo/login.html' || currentPage === '/codigo/signup.html') {

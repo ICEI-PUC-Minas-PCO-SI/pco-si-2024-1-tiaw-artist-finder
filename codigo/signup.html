@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
+    <title>Cadastro</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
@@ -13,18 +13,25 @@
 
 <body>
 
-    <form class="my-form" id="loginForm">
+    <form class="my-form" id="signUpForm">
         <div class="login-welcome-row">
             <a href="#" title="Logo">
                 <img src="assets/img/logo.svg" alt="Logo" class="logo">
             </a>
-            <h1>Seja Bem-Vindo! &#x1F44F;</h1>
-            <p>Entre com seus dados:</p>
+            <h1>Cadastre-se!</h1>
+            <p>Digite seus dados:</p>
+        </div>
+        <div class="input__wrapper">
+            <input type="text" id="username" name="username" class="input__field" placeholder="Your username" required minlength="4" maxlength="20" pattern="[a-zA-Z0-9_-]{4,20}" title="Username must contain only letters, numbers, underscores, and hyphens (4-20 characters)">
+            <label for="username" class="input__label">Nome de usuário:</label>
         </div>
         <div class="input__wrapper">
             <input type="email" id="email" name="email" class="input__field" placeholder="Your Email" required>
             <label for="email" class="input__label">Email:</label>
-            
+        </div>
+        <div class="input__wrapper">
+            <input id="confirmEmail" type="email" class="input__field" placeholder="Confirm Your Email" required>
+            <label for="confirmEmail" class="input__label">Confirmar Email:</label>
         </div>
         <div class="input__wrapper">
             <input id="password" type="password" class="input__field" placeholder="Your Password" title="No mínimo 6 caracteres" minlength="6" required>
@@ -36,20 +43,25 @@
                 <path d="M8 11v-4a4 4 0 1 1 8 0v4"></path>
             </svg>
         </div>
+        <div class="input__wrapper">
+            <input id="confirmPassword" type="password" class="input__field" placeholder="Confirm Your Password" title="No mínimo 6 caracteres" minlength="6" required>
+            <label for="confirmPassword" class="input__label">Confirmar Senha:</label>
+        </div>
         <button type="submit" class="my-form__button">
-            Login
+            Cadastro
         </button>
         <div class="my-form__actions">
             <div class="my-form__row">
-                <span>Não tem conta?</span>
-                <a href="signup.html" title="Create Account">
-                    Cadastre-se
+                <span>Já tem conta?</span>
+                <a href="login.html" title="Login">
+                    Login
                 </a>
             </div>
         </div>
     </form>
 
     <script src="./scripts/login.js"></script>
+    <script src="./scripts/signup.js"></script>
 </body>
 
 </html>
