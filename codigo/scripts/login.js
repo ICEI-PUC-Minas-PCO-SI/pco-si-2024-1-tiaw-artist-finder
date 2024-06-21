@@ -1,4 +1,3 @@
-
 async function login() {
     let formLogin = document.getElementById('loginForm');
 
@@ -59,34 +58,29 @@ async function obterDadosUsuarios() {
 document.addEventListener("DOMContentLoaded", async () => {
     const currentPage = window.location.pathname;
     const navbar = document.getElementById('navbar');
-    const navbarNav = navbar.querySelector('.navbar-collapse .navbar-nav');
 
-    if (!isLoggedIn()) {
-        if (currentPage !== '/codigo/login.html' && currentPage !== '/codigo/signup.html') {
-            const navbarItemsToHide = navbarNav.querySelectorAll('.nav-item:nth-child(2), .nav-item:nth-child(3), .nav-item:nth-child(4), .nav-item:nth-child(5), .nav-item:nth-child(6), .nav-item:nth-child(7)');
-            navbarItemsToHide.forEach(item => {
-                item.style.display = 'none';
-            });
-
-            const loginNavItem = createNavItem('Login', 'login.html');
-            const signupNavItem = createNavItem('Cadastro', 'signup.html');
-            navbarNav.appendChild(loginNavItem);
-            navbarNav.appendChild(signupNavItem);
-            
-            return;
-        }
-    } else {
-        if (currentPage === '/codigo/login.html' || currentPage === '/codigo/signup.html') {
-            localStorage.removeItem('loggedInUserId');
-            window.location.href = "login.html";
-        } else {
-            const logoutButton = document.getElementById('logoutButton');
-            if (logoutButton) {
-                logoutButton.addEventListener("click", () => {
-                    logout();
+    if (currentPage === '/codigo/index.html' && navbar) {
+        if (!isLoggedIn()) {
+            const navbarNav = navbar.querySelector('.navbar-collapse .navbar-nav');
+            if (navbarNav) {
+                const navbarItemsToHide = navbarNav.querySelectorAll('.nav-item:nth-child(2), .nav-item:nth-child(3), .nav-item:nth-child(4), .nav-item:nth-child(5), .nav-item:nth-child(6), .nav-item:nth-child(7)');
+                navbarItemsToHide.forEach(item => {
+                    item.style.display = 'none';
                 });
+
+                const loginNavItem = createNavItem('Login', 'login.html');
+                const signupNavItem = createNavItem('Cadastro', 'signup.html');
+                navbarNav.appendChild(loginNavItem);
+                navbarNav.appendChild(signupNavItem);
             }
         }
+    }
+
+    const logoutButton = document.getElementById('logoutButton');
+    if (logoutButton) {
+        logoutButton.addEventListener("click", () => {
+            logout();
+        });
     }
 
     login();
