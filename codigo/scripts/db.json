@@ -3,59 +3,59 @@
     {
       "id": "1",
       "nome": "Ana Silva",
-      "idade": "25",
-      "username": "aSilva22",
-      "email": "asilva22@gmail.com",
+      "idade": 25,
+      "username": "aSilva25",
+      "email": "asilva25@gmail.com",
       "password": "admin1",
       "foto": "assets/img/pessoa2.jpeg",
-      "avaliacao": 0,
       "estado": "SP",
-      "instituicao": "PUC",
+      "instituicao": "Mackenzie",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa1.jpg",
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
-      "descricao": "Eu faço umas parada aí...",
+      "avaliacao": 0,
+      "descricao": "Olá, sou Ana Silva, uma designer apaixonada por transformar ideias em experiências visuais memoráveis, combinando criatividade com técnica para criar designs que inspiram e cativam.",
       "atuacao": "Web Design"
     },
     {
       "id": "2",
       "nome": "Jorge Alves",
-      "idade": "32",
+      "idade": 32,
       "username": "jAlves29",
       "email": "jalves29@example.com",
       "password": "admin1",
       "foto": "assets/img/pessoa1.jpeg",
-      "avaliacao": 0,
       "estado": "SP",
+      "instituicao": "PUC",
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa2.jpg",
-      "descricao": "Faço uns bico aí né",
-      "atuacao": "Fotografia",
-      "avaliacoes": 0
+      "avaliacao": 0,
+      "descricao": "Meu nome é Jorge Alves e sou um fotógrafo que captura momentos únicos com minha câmera, transformando ocasiões especiais em memórias visuais que duram para sempre.",
+      "atuacao": "Fotografia"
     },
     {
       "id": "3",
       "nome": "Francisco Xavier",
-      "idade": "31",
+      "idade": 31,
       "username": "fXavier31",
       "email": "fxavier31@example.com",
       "password": "admin1",
       "foto": "assets/img/pessoa3.jpeg",
-      "avaliacao": 0,
       "estado": "MG",
+      "instituicao": "UFMG",
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa3.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Ilustração",
-      "instituicao": "UFMG"
+      "avaliacao": 0,
+      "descricao": "Sou um ilustrador dedicado a dar vida a conceitos complexos através de traços elegantes e cores vibrantes, criando arte visual que comunica e inspira.",
+      "atuacao": "Ilustração"
     },
     {
       "id": "4",
@@ -66,13 +66,14 @@
       "password": "admin1",
       "foto": "assets/img/pessoa5.jpeg",
       "avaliacao": 0,
-      "estado": "RJ",
+      "estado": "SP",
+      "instituicao": "UNESP",
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa4.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Olá, meu nome é André Schmidt. Sou apaixonado por criar interfaces web intuitivas e funcionais que proporcionam uma ótima experiência ao usuário. Tenho experiência em design responsivo e estou sempre buscando aprender novas tecnologias.",
       "atuacao": "Web Design"
     },
     {
@@ -83,14 +84,15 @@
       "email": "goliveira33@example.com",
       "password": "admin1",
       "foto": "assets/img/pessoa6.jpeg",
-      "avaliacao": "5.0",
-      "estado": "SP",
+      "avaliacao": 0,
+      "estado": "RJ",
+      "instituicao": "UFF",
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa5.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Sou um editor apaixonado por transformar vídeos e imagens em projetos dinâmicos e visualmente atrativos. Trabalho com edição há mais de 5 anos, sempre buscando inovar e superar expectativas.",
       "atuacao": "Edição"
     },
     {
@@ -102,14 +104,14 @@
       "password": "admin1",
       "foto": "assets/img/pessoa4.jpeg",
       "avaliacao": 0,
-      "estado": "PE",
-      "instituicao": "USP",
+      "estado": "BA",
+      "instituicao": "UFBA",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa6.jpg",
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Olá, meu nome é Aline Dias. Sou uma editora apaixonada por contar histórias através das imagens, buscando sempre capturar a essência e a emoção de cada momento. Com experiência em edição de vídeo e imagem, transformo ideias em projetos visualmente impactantes.",
       "atuacao": "Edição"
     },
     {
@@ -121,13 +123,14 @@
       "password": "admin1",
       "foto": "assets/img/pessoa7.jpeg",
       "avaliacao": 0,
-      "estado": "SP",
+      "estado": "RS",
+      "instituicao": "UFRGS",
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa7.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Oi, eu sou o Lucas! Apaixonado por transformar ideias em modelos 3D incríveis, meu objetivo é criar visualizações que não apenas impressionam, mas também contam histórias. Com uma formação sólida em design e tecnologia, estou sempre em busca de desafios que me permitam explorar novos horizontes criativos.",
       "atuacao": "Modelagem 3D"
     },
     {
@@ -139,13 +142,14 @@
       "password": "admin1",
       "foto": "assets/img/pessoa10.jpeg",
       "avaliacao": 0,
-      "estado": "RJ",
+      "estado": "SP",
+      "instituicao": "USP",
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa8.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Olá! Me chamo Marina Santos e sou uma artista urbana apaixonada por grafite. Através das ruas e paredes da cidade, transformo espaços cinzentos em obras de arte vibrantes que contam histórias e inspiram reflexões. Com cada traço, busco deixar minha marca e trazer cor para o cotidiano das pessoas.",
       "atuacao": "Grafite"
     },
     {
@@ -158,12 +162,13 @@
       "foto": "assets/img/pessoa8.jpeg",
       "avaliacao": 0,
       "estado": "MG",
+      "instituicao": "UFMG",
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa9.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Ei! Sou Thiago Oliveira, um caçador de momentos e luzes perdidas. Minha câmera não captura apenas imagens, mas histórias e emoções que só um olhar sensível pode encontrar. Entre cliques e sorrisos, transformo instantes fugazes em memórias eternas, explorando a beleza oculta que mora nos detalhes do nosso dia a dia.",
       "atuacao": "Fotografia"
     },
     {
@@ -176,13 +181,13 @@
       "foto": "assets/img/pessoa14.jpeg",
       "avaliacao": 0,
       "estado": "AM",
-      "instituicao": "UFMG",
+      "instituicao": "UFAM",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa10.jpg",
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Olá! Sou Amanda Costa, uma apaixonada por animação. Meu objetivo é dar vida a personagens e histórias que encantam e inspiram. Com habilidades em design e tecnologia, transformo ideias em movimento, criando animações que conectam e emocionam. Estou sempre em busca de novos desafios para expandir meu repertório criativo.",
       "atuacao": "Animação"
     },
     {
@@ -195,13 +200,13 @@
       "foto": "assets/img/pessoa18.jpeg",
       "avaliacao": 0,
       "estado": "MT",
-      "instituicao": "PUC MG",
+      "instituicao": "PUC-MG",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa11.jpg",
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Olá! Me chamo Carla Santos e sou uma artista apaixonada pela arte da pintura. Minhas pinceladas são uma expressão da minha criatividade e emoções, transformando telas em janelas para o meu mundo interior. Com técnica e sensibilidade, busco capturar momentos e inspirar reflexões através das cores e formas que escolho.",
       "atuacao": "Pintura"
     },
     {
@@ -220,7 +225,7 @@
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Desde criança, mergulho no mundo mágico da edição digital, transformando simples pixels em narrativas visuais que capturam a imaginação. Meu trabalho vai além de ajustar cores e luzes; é uma jornada para criar experiências que ecoam na mente dos espectadores, convidando-os a explorar novos universos através das minhas lentes digitais.",
       "atuacao": "Edição"
     },
     {
@@ -239,7 +244,7 @@
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Olá! Sou Rafael Lima, um contador de histórias visuais apaixonado por capturar momentos efêmeros e transformá-los em narrativas cinematográficas que tocam o coração e a mente. Meu olhar busca não apenas registrar, mas também interpretar a essência de cada cena, explorando luzes, sombras e emoções que se entrelaçam para criar verdadeiras obras de arte em movimento.",
       "atuacao": "Filmagem"
     },
     {
@@ -258,7 +263,7 @@
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Olá! Eu sou Camila Fernandes, uma designer apaixonada por criar experiências digitais que não apenas atendem às necessidades, mas também inspiram e encantam. Meu trabalho combina forma e função para transformar ideias em interfaces intuitivas e visualmente atraentes. Estou sempre buscando novas maneiras de inovar e impactar positivamente a experiência do usuário através do design.",
       "atuacao": "Web Design"
     },
     {
@@ -276,7 +281,7 @@
       "galeria3": "assets/img/gallery.jpg",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa15.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Olá! Eu sou Gustavo Rodrigues, um apaixonado por capturar momentos únicos através da minha câmera. Para mim, fotografar vai além de simplesmente pressionar o obturador; é sobre contar histórias e transmitir emoções através das minhas imagens. Com um olhar atento e uma paixão pela luz e composição, busco sempre criar fotografias que deixem uma marca duradoura.",
       "atuacao": "Fotografia"
     },
     {
@@ -294,7 +299,7 @@
       "galeria3": "assets/img/gallery.jpg",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa16.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Oi! Eu sou Suzana Novaes, uma entusiasta da criação 3D. Mergulho no mundo digital para dar vida a conceitos abstratos e transformá-los em modelos tridimensionais impressionantes. Com uma combinação de arte e tecnologia, busco sempre inovar e explorar novas possibilidades visuais. Cada projeto é uma oportunidade de aprender e crescer, enquanto contribuo para construir realidades virtuais que capturam a imaginação.",
       "atuacao": "Modelagem 3D"
     },
     {
@@ -307,13 +312,13 @@
       "foto": "assets/img/pessoa13.jpeg",
       "avaliacao": 0,
       "estado": "BA",
-      "instituicao": "UFC",
+      "instituicao": "UFMG",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa17.jpg",
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Olá! Sou Bruno Oliveira, um apaixonado por design gráfico e pela arte de comunicar visualmente. Minha jornada é transformar ideias em imagens que não só captam a atenção, mas também contam histórias e transmitem emoções. Com formação na UFC e uma bagagem de experiências variadas, estou sempre em busca de desafios que me permitam explorar novas tendências e expandir minha criatividade.",
       "atuacao": "Design Gráfico"
     },
     {
@@ -332,27 +337,27 @@
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Olá! Me chamo Larissa Silva e sou uma entusiasta do design gráfico. Fascinada pela combinação de estética e funcionalidade, busco constantemente criar designs que não só agradem visualmente, mas também transmitam mensagens claras e impactantes. Minha formação na USP me proporcionou uma base sólida para explorar novas ideias e técnicas, sempre em busca de inovação e excelência.",
       "atuacao": "Design Gráfico"
     },
     {
-      "id": "19",
-      "nome": "Renato Santos",
-      "idade": 25,
-      "username": "rSantos25",
-      "email": "rsantos25@example.com",
-      "password": "admin1",
-      "foto": "assets/img/pessoa15.jpeg",
-      "avaliacao": 0,
-      "estado": "RJ",
-      "instituicao": "UFF",
-      "disponibilidade": "Freelance",
-      "capa": "assets/img/capa19.jpg",
-      "galeria1": "assets/img/gallery.jpg",
-      "galeria2": "assets/img/gallery.jpg",
-      "galeria3": "assets/img/gallery.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
-      "atuacao": "Pintura"
+        "id": "19",
+        "nome": "Renato Santos",
+        "idade": 25,
+        "username": "rSantos25",
+        "email": "rsantos25@example.com",
+        "password": "admin1",
+        "foto": "assets/img/pessoa15.jpeg",
+        "avaliacao": 0,
+        "estado": "RJ",
+        "instituicao": "UFF",
+        "disponibilidade": "Freelance",
+        "capa": "assets/img/capa19.jpg",
+        "galeria1": "assets/img/gallery.jpg",
+        "galeria2": "assets/img/gallery.jpg",
+        "galeria3": "assets/img/gallery.jpg",
+        "descricao": "Olá! Me chamo Renato Santos e sou um artista apaixonado pela pintura. Através das cores e pinceladas, busco expressar emoções e contar histórias que vão além das palavras. Minha jornada na UFF me proporcionou um olhar crítico e sensível para o mundo das artes, onde cada tela é uma nova oportunidade de explorar meu universo criativo.",
+        "atuacao": "Pintura"    
     },
     {
       "id": "20",
@@ -370,7 +375,7 @@
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Oi, meu nome é Isabela e eu sou uma grafiteira de coração. Através das ruas e paredes, transformo espaços cinzentos em telas vibrantes que contam histórias e espalham mensagens de arte e amor. A UFMG me ensinou a ver o mundo com outros olhos, onde cada spray é uma nova oportunidade de expressar minha criatividade e deixar minha marca no mundo.",
       "atuacao": "Grafite"
     },
     {
@@ -388,7 +393,7 @@
       "galeria3": "assets/img/gallery.jpg",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa21.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Olá! Me chamo Iago Maciel, e sou um designer gráfico apaixonado por transformar ideias em imagens que comunicam e inspiram. Com um olhar criativo e atento aos detalhes, busco sempre superar expectativas e criar designs que deixam uma marca positiva. Estou sempre em busca de novos desafios que me permitam explorar novas técnicas e tendências.",
       "atuacao": "Design Gráfico"
     },
     {
@@ -406,7 +411,7 @@
       "galeria3": "assets/img/gallery.jpg",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa27.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Olá! Sou Mariana Almeida, uma apaixonada por filmagem e captura de momentos únicos. Através da minha lente, busco eternizar histórias e emoções, transformando momentos simples em memórias preciosas. Com experiência em diversos projetos cinematográficos, estou sempre em busca de novas inspirações e desafios que ampliem minha visão artística.",
       "atuacao": "Filmagem"
     },
     {
@@ -425,7 +430,7 @@
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Olá! Sou Nivaldo Lopes, um entusiasta da modelagem 3D com um olhar criativo para transformar ideias em realidade virtual. Desde jovem, minha paixão por criar universos digitais me impulsiona a explorar novos desafios e técnicas para produzir modelos que capturam a imaginação. Com dedicação e habilidade, busco sempre inovar e surpreender com cada projeto.",
       "atuacao": "Modelagem 3D"
     },
     {
@@ -444,7 +449,7 @@
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Olá! Me chamo Amanda Costa e sou uma apaixonada ilustradora, transformando ideias em imagens que saltam aos olhos. Minhas ilustrações não apenas decoram, mas contam histórias que tocam corações e inspiram mentes. Com um traço único e uma paleta de cores vibrantes, busco sempre conectar o imaginário com a realidade, criando universos encantados que despertam a imaginação de quem os contempla.",
       "atuacao": "Ilustração"
     },
     {
@@ -463,7 +468,7 @@
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Olá, sou o Pedro Almeida, um jovem apaixonado por edição de vídeos. Transformo momentos simples em histórias envolventes através do poder da edição. Combinando técnica e criatividade, busco sempre superar expectativas, criando vídeos que emocionam e inspiram. Meu objetivo é deixar uma marca positiva em cada projeto que realizo, tornando cada experiência única e memorável.",
       "atuacao": "Edição"
     },
     {
@@ -482,7 +487,7 @@
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Olá, sou a Juliana Santos, uma fotógrafa apaixonada por capturar momentos que contam histórias. Com minha câmera, busco revelar a beleza singular de cada momento, transformando simples instantes em memórias que perduram para sempre. Minha abordagem combina técnica e sensibilidade, sempre em busca do ângulo perfeito para transmitir emoções genuínas. Meu objetivo é não apenas registrar imagens, mas também criar narrativas visuais que deixem uma marca emocional profunda.",
       "atuacao": "Fotografia"
     },
     {
@@ -519,7 +524,7 @@
       "galeria3": "assets/img/gallery.jpg",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa28.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Oi! Me chamo Carolina Lima e tenho um olhar atento para detalhes que muitos podem não notar. Minha paixão está na edição de imagens, onde posso transformar fotos comuns em obras de arte que capturam a essência de cada momento. A cada clique, busco não apenas aperfeiçoar cores e luzes, mas também contar histórias e transmitir emoções através das minhas composições visuais. Com habilidades técnicas e criatividade, meu objetivo é criar imagens que não apenas impressionem, mas também deixem uma marca duradoura nos corações dos espectadores.",
       "atuacao": "Edição"
     },
     {
@@ -537,7 +542,7 @@
       "galeria3": "assets/img/gallery.jpg",
       "disponibilidade": "Freelance",
       "capa": "assets/img/capa29.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Olá! Me chamo Rogério Gotardo e tenho uma paixão profunda por design gráfico. Cada projeto para mim é uma oportunidade de criar algo único e impactante, onde cada pixel e cada traço têm um propósito. Através da combinação de cores, formas e tipografias, busco não apenas transmitir mensagens claras e eficazes, mas também despertar emoções e inspirar quem interage com meu trabalho. Sou movido pelo desafio de transformar ideias em realidade visual, sempre buscando alcançar o equilíbrio perfeito entre estética e funcionalidade.",
       "atuacao": "Design Gráfico"
     },
     {
@@ -556,7 +561,7 @@
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Olá! Me chamo Camila Fernandes e sou apaixonada por capturar momentos únicos através da fotografia. Desde retratos até paisagens, meu objetivo é não apenas registrar imagens, mas sim contar histórias e despertar emoções através das lentes da minha câmera. Cada clique representa uma busca incessante pela luz perfeita, pela composição ideal e pelo instante que nunca mais se repetirá. Sou fascinada pelo poder da imagem em eternizar momentos fugazes e transformá-los em memórias que perduram para sempre.",
       "atuacao": "Fotografia"
     },
     {
@@ -575,7 +580,7 @@
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Olá, sou Tobias Silva, um artista que encontra na pintura uma forma de traduzir o mundo em cores e formas. Cada pincelada carrega não apenas pigmentos, mas também sentimentos, histórias e reflexões. Minha tela é o espaço onde a imaginação se liberta e encontra expressão, explorando desde paisagens tranquilas até retratos cheios de alma. Através da minha arte, busco conectar o observador com o que vai além do visível, capturando o espírito do momento e transformando-o em obras que provocam emoções profundas.",
       "atuacao": "Pintura"
     },
     {
@@ -594,7 +599,7 @@
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Olá, sou Larissa Silva, uma apaixonada por design digital e criatividade. Meu trabalho vai além de simplesmente criar interfaces atraentes; eu busco construir experiências que cativam e inspiram. Cada projeto é uma oportunidade de explorar novas ideias e transformá-las em soluções visuais que não apenas funcionam bem, mas também encantam. A combinação de técnica e sensibilidade me guia na jornada de transformar conceitos abstratos em realidade digital, proporcionando aos usuários uma experiência memorável e intuitiva.",
       "atuacao": "Web Design"
     },
     {
@@ -613,7 +618,7 @@
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Olá! Sou Ulisses Costa, um designer gráfico apaixonado por transformar ideias em imagens que contam histórias. Para mim, design não é apenas sobre estética; é sobre comunicar conceitos, emoções e mensagens de maneira visualmente impactante. Ao longo da minha carreira, desenvolvi uma abordagem criativa e estratégica para cada projeto, buscando sempre a harmonia entre forma e função. Meu objetivo é criar soluções visuais que não só atendam às necessidades do cliente, mas também inspirem e envolvam o público. Vamos juntos dar vida às suas ideias através do poder do design!",
       "atuacao": "Design Gráfico"
     },
     {
@@ -632,7 +637,7 @@
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Olá! Eu sou Letícia Guimarães, uma cineasta de alma e coração. Desde criança, tenho uma paixão avassaladora por contar histórias através das lentes da câmera. A cada projeto, busco capturar momentos autênticos e emocionantes que ecoem na memória do público. Minha jornada na filmagem me levou a explorar diferentes técnicas e estilos, sempre em busca da próxima narrativa que irá cativar e inspirar. Com formação em cinema pela UFBA, trago uma abordagem criativa e profissional para cada produção, transformando ideias em filmes que provocam reflexão e conexão. Estou aqui para transformar suas ideias em imagens que transcendem o tempo e contam histórias inesquecíveis!",
       "atuacao": "Filmagem"
     },
     {
@@ -651,47 +656,9 @@
       "galeria1": "assets/img/gallery.jpg",
       "galeria2": "assets/img/gallery.jpg",
       "galeria3": "assets/img/gallery.jpg",
-      "descricao": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus rerum iste tenetur error soluta earum quod, aliquid suscipit, tempore quas minus sed quaerat, eius nesciunt impedit eaque autem reiciendis?",
+      "descricao": "Olá! Meu nome é Bruno Borges, e sou apaixonado por ilustração desde que me entendo por gente. Minha jornada artística começou com rabiscos no caderno da escola, evoluindo para explorar técnicas digitais e tradicionais que me permitem criar imagens vibrantes e cheias de personalidade. Sou graduado pela UFPE em Artes Visuais, onde aprimorei minha habilidade de transformar ideias em ilustrações que capturam a imaginação e contam histórias visualmente cativantes. Estou sempre em busca de novos desafios e colaborações criativas que me permitam expandir meu repertório e levar a arte da ilustração a novos horizontes. Vamos juntos explorar o poder das imagens e criar algo verdadeiramente único!",
       "atuacao": "Ilustração"
-    },
-    {
-      "id": "36",
-      "nome": "carlin0102",
-      "idade": "18",
-      "username": "admin1",
-      "email": "admin@admin.com",
-      "password": "admin1",
-      "foto": "",
-      "estado": "edite seu estado!",
-      "instituicao": "edite sua instituição!",
-      "disponibilidade": "edite sua disponibilidade!",
-      "capa": "",
-      "atuacao": "edite sua atuação!",
-      "galeria1": "",
-      "galeria2": "",
-      "galeria3": "",
-      "avaliacao": 0,
-      "descricao": "edite sua descrição!"
-    },
-    {
-      "id": "37",
-      "nome": "edite seu nome!",
-      "idade": 18,
-      "username": "admin2",
-      "email": "admin2@admin.com",
-      "password": "admin2",
-      "foto": "",
-      "estado": "edite seu estado!",
-      "instituicao": "edite sua instituição!",
-      "disponibilidade": "edite sua disponibilidade!",
-      "capa": "",
-      "atuacao": "edite sua atuação!",
-      "galeria1": "",
-      "galeria2": "",
-      "galeria3": "",
-      "avaliacao": 0,
-      "descricao": "edite sua descrição!"
-    }
+    }    
   ],
   "vendas": [],
   "avaliacoes": [
