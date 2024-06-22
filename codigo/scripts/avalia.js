@@ -211,22 +211,53 @@ function calcularEModificarMediaAvaliacoes() {
 
 function carregarPortfolioUsuario() {
     const galeriPortfolio = document.getElementById('galeriPortfolio');
+    const defaultImage = 'https://cdn-icons-png.flaticon.com/512/3979/3979303.png';
+
+    fetch(`http://localhost:3000/usuarios/${idQueryString}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao carregar dados do usuário.');
+            }
+            return response.json();
+        })
+        .then(usuario => {
+            let galeriaHTML = `<div class="photos">`;
+
+            for (let i = 1; i <= 3; i++) {
+                const imageField = `galeria${i}`;
+                const imageUrl = usuario[imageField] || getGaleriaFromLocalStorage(imageField);
+                galeriaHTML += `
+                    <label class="pic-container">
+                        <img id="${imageField}" src="${imageUrl}" alt="Photo">
+                    </label>`;
+            }
+
+            galeriaHTML += `</div>`;
+            galeriPortfolio.innerHTML = galeriaHTML;
+        })
+        .catch(error => {
+            console.error('Erro ao carregar dados do usuário:', error.message);
+
+            let galeriaHTML = `<div class="photos">`;
+
+            for (let i = 1; i <= 3; i++) {
+                const imageField = `galeria${i}`;
+                const imageUrl = getGaleriaFromLocalStorage(imageField);
+                galeriaHTML += `
+                    <label class="pic-container">
+                        <img id="${imageField}" src="${imageUrl}" alt="Photo">
+                    </label>`;
+            }
+
+            galeriaHTML += `</div>`;
+            galeriPortfolio.innerHTML = galeriaHTML;
+        });
+}
+
+function getGaleriaFromLocalStorage(imageField) {
     let galeriaUsuario = JSON.parse(localStorage.getItem('galeriaUsuario')) || {};
     const galeria = galeriaUsuario[idQueryString] || {};
     const defaultImage = 'https://cdn-icons-png.flaticon.com/512/3979/3979303.png';
-
-    const galeriaHTML = `
-            <div class="photos">          
-                <label class="pic-container">
-                    <img id="galeria1" src="${galeria.galeria1 || defaultImage}" alt="Photo">
-                </label>
-                <label class="pic-container">
-                    <img id="galeria2" src="${galeria.galeria2 || defaultImage}" alt="Photo">
-                </label>
-                <label class="pic-container">
-                    <img id="galeria3" src="${galeria.galeria3 || defaultImage}" alt="Photo">
-                </label>
-            </div>`;
-
-    galeriPortfolio.innerHTML += galeriaHTML;
+    return galeria[imageField] || defaultImage;
 }
+
