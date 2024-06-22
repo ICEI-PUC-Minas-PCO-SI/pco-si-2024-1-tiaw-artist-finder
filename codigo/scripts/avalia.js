@@ -25,8 +25,15 @@ function carregarDadosUsuario() {
                 userPhoto.src = usuario.foto;
             } else {
                 const userPicData = JSON.parse(localStorage.getItem('userPicData'));
-                if (userPicData && userPicData[idQueryString] && userPicData[idQueryString].userProfilePic) {
-                    userPhoto.src = userPicData[idQueryString].userProfilePic;
+                if (userPicData) {
+                    const userData = userPicData.find(user => user.id === idQueryString);
+                    if (userData && userData.foto) {
+                        userPhoto.src = userData.foto;
+                    } else {
+                        userPhoto.src = 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
+                    }
+                } else {
+                    userPhoto.src = 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
                 }
             }
 
@@ -42,6 +49,7 @@ function carregarDadosUsuario() {
         })
         .catch(error => console.error('Erro ao carregar dados do usuário:', error.message));
 }
+
 
 function construirDadosGrafico() {
     const ctx = document.getElementById('avaliacoesChart').getContext('2d');

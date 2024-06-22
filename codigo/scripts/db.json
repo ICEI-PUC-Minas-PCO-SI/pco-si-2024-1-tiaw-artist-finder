@@ -341,23 +341,23 @@
       "atuacao": "Design Gráfico"
     },
     {
-        "id": "19",
-        "nome": "Renato Santos",
-        "idade": 25,
-        "username": "rSantos25",
-        "email": "rsantos25@example.com",
-        "password": "admin1",
-        "foto": "assets/img/pessoa15.jpeg",
-        "avaliacao": 0,
-        "estado": "RJ",
-        "instituicao": "UFF",
-        "disponibilidade": "Freelance",
-        "capa": "assets/img/capa19.jpg",
-        "galeria1": "assets/img/19-1-min.jpg",
-        "galeria2": "assets/img/19-2-min.jpg",
-        "galeria3": "assets/img/19-3-min.jpg",
-        "descricao": "Olá! Me chamo Renato Santos e sou um artista apaixonado pela pintura. Através das cores e pinceladas, busco expressar emoções e contar histórias que vão além das palavras. Minha jornada na UFF me proporcionou um olhar crítico e sensível para o mundo das artes, onde cada tela é uma nova oportunidade de explorar meu universo criativo.",
-        "atuacao": "Pintura"    
+      "id": "19",
+      "nome": "Renato Santos",
+      "idade": 25,
+      "username": "rSantos25",
+      "email": "rsantos25@example.com",
+      "password": "admin1",
+      "foto": "assets/img/pessoa15.jpeg",
+      "avaliacao": 0,
+      "estado": "RJ",
+      "instituicao": "UFF",
+      "disponibilidade": "Freelance",
+      "capa": "assets/img/capa19.jpg",
+      "galeria1": "assets/img/19-1-min.jpg",
+      "galeria2": "assets/img/19-2-min.jpg",
+      "galeria3": "assets/img/19-3-min.jpg",
+      "descricao": "Olá! Me chamo Renato Santos e sou um artista apaixonado pela pintura. Através das cores e pinceladas, busco expressar emoções e contar histórias que vão além das palavras. Minha jornada na UFF me proporcionou um olhar crítico e sensível para o mundo das artes, onde cada tela é uma nova oportunidade de explorar meu universo criativo.",
+      "atuacao": "Pintura"
     },
     {
       "id": "20",
@@ -658,7 +658,7 @@
       "galeria3": "assets/img/35-3-min.jpg",
       "descricao": "Olá! Meu nome é Bruno Borges, e sou apaixonado por ilustração desde que me entendo por gente. Minha jornada artística começou com rabiscos no caderno da escola, evoluindo para explorar técnicas digitais e tradicionais que me permitem criar imagens vibrantes e cheias de personalidade. Sou graduado pela UFPE em Artes Visuais, onde aprimorei minha habilidade de transformar ideias em ilustrações que capturam a imaginação e contam histórias visualmente cativantes. Estou sempre em busca de novos desafios e colaborações criativas que me permitam expandir meu repertório e levar a arte da ilustração a novos horizontes. Vamos juntos explorar o poder das imagens e criar algo verdadeiramente único!",
       "atuacao": "Ilustração"
-    }    
+    }
   ],
   "vendas": [],
   "avaliacoes": [
