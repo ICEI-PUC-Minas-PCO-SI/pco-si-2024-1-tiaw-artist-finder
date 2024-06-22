@@ -585,10 +585,10 @@
     },
     {
       "id": "32",
-      "nome": "Larissa Silva",
+      "nome": "Larissa Marques",
       "idade": 25,
-      "username": "lSilva25_2",
-      "email": "lsilva25_2@example.com",
+      "username": "lMarques25",
+      "email": "lMarques25@example.com",
       "password": "admin1",
       "foto": "assets/img/pessoa34.jpeg",
       "avaliacao": 0,

@@ -87,21 +87,29 @@ async function displayUsers(users) {
                 let userCapa = '';
                 let userFotoPerfil = '';
 
-                const galeriaUsuario = JSON.parse(localStorage.getItem('galeriaUsuario')) || {};
-                if (galeriaUsuario[usuario.id]) {
-                    if (galeriaUsuario[usuario.id].galeria1) {
-                        userCapa = galeriaUsuario[usuario.id].galeria1;
-                    } else if (galeriaUsuario[usuario.id].galeria2) {
-                        userCapa = galeriaUsuario[usuario.id].galeria2;
-                    } else if (galeriaUsuario[usuario.id].galeria3) {
-                        userCapa = galeriaUsuario[usuario.id].galeria3;
+                // Verifica se galeria1, galeria2 e galeria3 são vazios
+                if (!usuario.galeria1 && !usuario.galeria2 && !usuario.galeria3) {
+                    const galeriaUsuario = JSON.parse(localStorage.getItem('galeriaUsuario')) || {};
+                    if (galeriaUsuario[usuario.id]) {
+                        if (galeriaUsuario[usuario.id].galeria1) {
+                            userCapa = galeriaUsuario[usuario.id].galeria1;
+                        } else if (galeriaUsuario[usuario.id].galeria2) {
+                            userCapa = galeriaUsuario[usuario.id].galeria2;
+                        } else if (galeriaUsuario[usuario.id].galeria3) {
+                            userCapa = galeriaUsuario[usuario.id].galeria3;
+                        }
                     }
+                } else {
+                    // Se qualquer galeria1, galeria2 ou galeria3 não estiver vazio, use-o
+                    userCapa = usuario.galeria1 || usuario.galeria2 || usuario.galeria3 || '';
                 }
 
+                // Se nenhuma capa foi encontrada, define um valor padrão
                 if (!userCapa) {
                     userCapa = 'https://picsum.photos/800/800';
                 }
 
+                // Define a foto do perfil do usuário
                 if (usuario.foto) {
                     userFotoPerfil = usuario.foto;
                 } else {
@@ -112,6 +120,7 @@ async function displayUsers(users) {
                     }
                 }
 
+                // Se nenhuma foto de perfil foi encontrada, define um valor padrão
                 if (!userFotoPerfil) {
                     userFotoPerfil = 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
                 }
