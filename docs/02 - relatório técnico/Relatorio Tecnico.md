@@ -124,17 +124,15 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|------|
-|RF-001| Carossel                                | MÉDIA | 
+|RF-001| Carossel                                | ALTA | 
 |RF-002| Barra de Pesquisa                       | MÉDIA |
 |RF-003| Editar Perfil                           | ALTA |
 |RF-004| Gráfico de Vendas                       | BAIXA |
 |RF-005| Filtros                                 | MÉDIA |
-|RF-006| Comentários                             | MÉDIA | 
-|RF-007| Calendário                              | BAIXA |
-|RF-008| Favoritos                               | BAIXA |
-|RF-009| Avaliação por Estrelas                  | ALTA |
-|RF-0010| Chat Interativo                        | ALTA |
-|RF-0011| Portfólio                              | ALTA |
+|RF-006| Calendário                              | BAIXA |
+|RF-007| Avaliação por Estrelas                  | ALTA |
+|RF-008| Chat Interativo                        | ALTA |
+|RF-009| Portfólio                              | ALTA |
 
 
 ### Requisitos não Funcionais
@@ -163,7 +161,6 @@ Principais requisitos que compõe a aplicação:
 Facilita a comunicação direta entre clientes e freelancers, permitindo a discussão de projetos e esclarecimento de dúvidas de forma rápida e eficiente.
 
 - Carossel:
-- Carossel:
 
 Destaca obras de destaque na página principal, proporcionando aos clientes uma visão rápida e inspiradora do talento disponível na plataforma.
 
@@ -174,7 +171,6 @@ Permite que os freelancers exibam seus trabalhos anteriores de forma detalhada, 
 - Avaliações Transparentes:
 
 Oferece um sistema de avaliação transparente, através de comentários e estrelas, permitindo que os clientes forneçam feedback detalhado sobre a experiência com os freelancers.
-Oferece um sistema de avaliação transparente, através de comentários e estrelas, permitindo que os clientes forneçam feedback detalhado sobre a experiência com os freelancers.
 
 A elaboração dos requisitos teve como ponto de partida as pesquisas com os profissionais freelancer, a partir daí, com as necessidades em mente, conseguimos pensar em funcionalidades que atendam esses profissionais, tornando assim, a plataforma fácil e útil. Os requisitos não funcionais tiveram como base heurísticas que já existem em sites nesse segmento, sendo assim, torna-se necessário a adição desses requisitos para correta adaptação no mercado.
 
@@ -184,7 +180,7 @@ O User Flow do site foi cuidadosamente planejado para atender a dois objetivos p
 
 - Criação de Perfil:
 
-Permitindo que os usuários criem um perfil, eles podem acessar ferramentas como a criação de um perfil freelancer, adição de portfólio e descrição de suas qualidades. Ou, se preferirem, podem visualizar perfis de freelancers, filtrar pesquisas de acordo com suas necessidades específicas.
+Permitindo que os usuários criem um perfil, eles podem acessar ferramentas como a criação de um perfil freelancer, adição de portfólio e descrição. Ou, se preferirem, podem visualizar perfis de freelancers, filtrar pesquisas de acordo com suas necessidades específicas.
 
 - Contato com um Freelancer: 
 
@@ -306,7 +302,7 @@ etiquetas:
 
 ## Tecnologias Utilizadas
 
-......  COLOQUE AQUI O SEU TEXTO ......
+O projeto foi desenvolvido à tecnogias restritas ao Front End, sendo utilizado HTML e CSS para estruturação e estilização, além do JavaScript para a lógica de código. Para além disso, foi utilizado o JSON-Server via Node para a persistência de dados.
 
 > Descreva aqui qual(is) tecnologias você vai usar para resolver o seu
 > problema, ou seja, implementar a sua solução. Liste todas as
