@@ -22,6 +22,7 @@ function carregarDadosUsuario() {
             document.getElementById('editAvailability').value = usuario.disponibilidade;
             document.getElementById('editDescription').value = usuario.descricao;
 
+            const capa = document.getElementById('header-capa');
             const userPhoto = document.getElementById('user-photo');
             let userPicData = JSON.parse(localStorage.getItem('userPicData')) || [];
             const userIndex = userPicData.findIndex(user => user.id === loggedInUserId.toString());
@@ -33,7 +34,14 @@ function carregarDadosUsuario() {
                 userPhoto.src = usuario.foto || 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
                 console.log(`Foto de perfil obtida diretamente para ${usuario.nome}`);
             }
-
+            capa.innerHTML = `<header class="capa" id="capa"></header>
+                                    <style>
+                                .main .header_wrapper header {
+                                    width: 100%;
+                                    background: url(${usuario.capa}) no-repeat 50% 20% / cover;
+                                    min-height: calc(100px + 15vw);
+                                }
+                            </style>`
             document.getElementById('user-name').textContent = usuario.nome;
             document.getElementById('user-age').textContent = `${usuario.idade} anos`;
             document.getElementById('username').textContent = usuario.username;
