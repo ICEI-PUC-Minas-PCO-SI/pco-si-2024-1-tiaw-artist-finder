@@ -20,7 +20,9 @@ function carregarDadosUsuario() {
             return response.json();
         })
         .then(usuario => {
+            console.log(usuario);
             const userPhoto = document.getElementById('user-photo');
+            const capa = document.getElementById('header-capa');
             if (usuario.foto) {
                 userPhoto.src = usuario.foto;
             } else {
@@ -37,15 +39,23 @@ function carregarDadosUsuario() {
                 }
             }
 
-            document.getElementById('user-name').textContent = usuario.nome;
-            document.getElementById('user-age').textContent = `${usuario.idade} anos`;
+            capa.innerHTML = `<header class="capa" id="capa"></header>
+                <style>
+            .main .header_wrapper header {
+                width: 100%;
+                background: url(${usuario.capa}) no-repeat 50% 20% / cover;
+                min-height: calc(100px + 15vw);
+            }
+        </style>`
+            document.getElementById('user-name').innerHTML = `${usuario.nome}`;
+            document.getElementById('user-age').textContent = `${usuario.idade} Anos`;
             document.getElementById('username').textContent = usuario.username;
             document.getElementById('user-profession').textContent = usuario.atuacao;
-            document.getElementById('user-state').textContent = usuario.estado;
+            document.getElementById('user-state').innerHTML = `<p class="bi bi-geo-fill" id="user-state">${usuario.estado}</p>` ;
             document.getElementById('user-institution').textContent = usuario.instituicao;
             document.getElementById('user-availability').textContent = usuario.disponibilidade;
             document.getElementById('user-description').textContent = usuario.descricao;
-            document.getElementById('user-rating').textContent = usuario.avaliacao;
+            document.getElementById('user-rating').textContent = `Estrelas: ${usuario.avaliacao}`;
         })
         .catch(error => console.error('Erro ao carregar dados do usuário:', error.message));
 }
