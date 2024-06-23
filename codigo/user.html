@@ -9,10 +9,84 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/brands.min.css" />
     <link rel="stylesheet" href="./assets/avalia.css" />
     <link rel="stylesheet" href="./assets/edit.css" />
+    <link rel="stylesheet" href="./assets/perfil.css" />
     <title>Exibe Usuário</title>
 </head>
 
 <body>
+
+    <div class="main">
+        <div class="header_wrapper">
+            <header class="capa" id="capa"></header>
+            <div class="cols_container">
+                <div class="left_col">
+                    <div class="img_container">
+                        <img src="https://picsum.photos/seed/picsum/1200/1200" id="user-photo"alt="">
+                        <span></span>
+                    </div>
+                    <h2 id="user-name">usuario</h2>
+                    <p id="user-profession">${user.atuacao}</p>
+                    <p id="user-availability">${user.disponibilidade}</p>
+                    <p class="bi bi-geo-fill" id="user-state">${user.estado}</p>
+                    <p id="">${user.email}</p>
+
+                    <ul class="about">
+                        <li><span>4,000</span>Followers</li>
+                        <li><span>333</span>Following</li>
+                        <li><span>200,300</span>Attractions</li>
+                    </ul>
+
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, soluta, totam dolor aliquam placeat vel, facere possimus officia voluptates nam ut dolores est dolore sed dicta tenetur reiciendis aliquid eius.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, soluta, totam dolor aliquam placeat vel, facere possimus officia voluptates nam ut dolores est dolore sed dicta tenetur reiciendis aliquid eius.</p>
+
+                        <ul>
+                            <li><i class="fab fa-twitter"></i></li>
+                            <li><i class="fab fa-instagram"></i></li>
+                            <li><i class="fab fa-facebook"></i></li>
+                            <li><i class="fab fa-dribbble"></i></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="right_col">
+                    <nav>
+                        <ul>
+                            <li><a href="#">Galeria</a></li>
+                            <li><a href="#">Grupos</a></li>
+                            <li><a href="#">Sobre</a></li>
+                        </ul>
+                        <button>Follow</button>
+                    </nav>
+                    <p> Selecione uma foto para upload <p>
+                    <div class="photos">
+                    
+                        <label for="picture_input" >
+                            <img id="galeria1" src="${user.galeria1}" alt="Photo">
+                            <input type="file" accept="image/*" onchange="previewFile()"  id="picture_input"  /><br />
+                        </label>
+                        <label for="picture_input2"  >
+                            <img id="galeria2" src="${user.galeria2}" alt="Photo">
+                            <input type="file" class accept="image/*" onchange="previewFile2()"  id="picture_input2"  /><br />
+                        </label>
+                        <label for="picture_input3"  >
+                            <img id="galeria3" src="${user.galeria3}" alt="Photo">
+                            <input type="file" class accept="image/*" onchange="previewFile3()"  id="picture_input3"  /><br />
+                        </label>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            .main .header_wrapper header {
+                width: 100%;
+                background: url(${user.capa}) no-repeat 50% 20% / cover;
+                min-height: calc(100px + 15vw);
+            }
+        </style>
+    </div>`
+
     <div class="menu">
         <header id="header">
             <div class="container-header ">
