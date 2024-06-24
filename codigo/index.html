@@ -13,46 +13,38 @@
 </head>
 
 <body>
+    <div class="menu">
+        <header id="header">
+            <div class="container-header ">
+                <div class="navbar navbar-expand-lg  text-center ">
+                    <a href="index.html"><img src="assets/img/logo.svg" id="logo"> </a>
+                    <button id="expandir" class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse fs-3 " id="navbarTogglerDemo02">
+                        <nav>
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                                <li> <a class="nav-link active " aria-current="page"  href="index.html">Home</a> </li>
+                                <li> <a class="nav-link " href="explore.html">Explorar</a></li>
+                                <li> <a class="nav-link " href="profile.html">Perfil</a> </li>
+                                <li> <a class="nav-link " href="graphic.html">Vendas</a></li>
+                                <li> <a class="nav-link " href="chat.html">Chat</a> </li>
+                                <li> <a class="nav-link " href="calendario.html">Calendário</a> </li>
+                                <li><a class="nav-link " href="#" id="logoutButton">Logout</a></li> 
+                            </ul>
+                        </nav>
+                    </div>
 
-    <!--  navbar simples com bootstrap q sera refinada -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbar">
-        <div class="container-fluid">
-            <img src="assets/img/logo.svg" id="logo">
-            <!--<a class="navbar-brand" href="#">Artist Finder</a>-->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse fs-3 " id="navbarTogglerDemo02">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-                    <li class="nav-item me-3">
-                        <a class="nav-link active " aria-current="page" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item me-3">
-                        <a class="nav-link " href="explore.html">Explorar</a>
-                    </li>
-                    <li class="nav-item me-3">
-                        <a class="nav-link " href="profile.html">Perfil</a>
-                    </li>
-                    <li class="nav-item me-3">
-                        <a class="nav-link " href="graphic.html">Vendas</a>
-                    </li>
-                    <li class="nav-item me-3">
-                        <a class="nav-link " href="chat.html">Chat</a>
-                    </li>
-                    <li class="nav-item me-3">
-                        <a class="nav-link " href="calendario.html">Calendário</a>
-                    </li>
-                    <li class="nav-item me-3">
-                        <a class="nav-link " href="#" id="logoutButton">Logout</a>
-                    </li>
-                </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-    <div id="screenWelcome">
-        <h1>Construir navbar, implementar carrosel, plano de funco bacaninha, etc...</h1>
+        </header>
     </div>
+    <section class="banner">
+        <h1>ENCONTRE QUEM VOCE <span>PRECISA</span></h1>
+    </section>
+   
     <script src="./scripts/login.js"></script>
+    <script src="./scripts/filtro.js"></script>
 </body>
 
 </html>
