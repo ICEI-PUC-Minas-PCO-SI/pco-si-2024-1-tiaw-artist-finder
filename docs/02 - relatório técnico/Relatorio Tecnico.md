@@ -203,11 +203,11 @@ Homepage:
 
 A homepage terá uma barra de pesquisa para o usuário poder pesquisar de acordo com suas preferências, bem como escolher pela sugestão de categorias mais buscadas. Além disso, terá um carrossel em destaque dos artistas premium, de modo que sua arte seja exibida na página principal do site.
 
-Pesquisa:
+Explorar:
 
 ![Wireframe](imaages/../images/wireframe_search.jpg)
 
-A página de pesquisa irá permitir o usuário visualizar os perfis dos artistas que mais se encaixam com as preferências pesquisadas, além de permitir o cliente filtrar ainda mais a pesquisa, de modo que ache exatamente um artista freelancer que combine com seu fit.
+A página de explorar irá permitir o usuário visualizar os perfis dos artistas que mais se encaixam com as preferências pesquisadas, além de permitir o cliente filtrar ainda mais a pesquisa, de modo que ache exatamente um artista freelancer que combine com seu fit.
 
 Edição de perfil:
 
@@ -302,16 +302,94 @@ etiquetas:
 
 ## Tecnologias Utilizadas
 
-O projeto foi desenvolvido à tecnogias restritas ao Front End, sendo utilizado HTML e CSS para estruturação e estilização, além do JavaScript para a lógica de código. Para além disso, foi utilizado o JSON-Server via Node para a persistência de dados.
+O projeto Artist Finder foi desenvolvido utilizando uma variedade de tecnologias front-end e back-end para garantir uma solução robusta e eficiente. Abaixo, detalhamos cada tecnologia utilizada e sua aplicação no projeto:
 
-> Descreva aqui qual(is) tecnologias você vai usar para resolver o seu
-> problema, ou seja, implementar a sua solução. Liste todas as
-> tecnologias envolvidas, linguagens a serem utilizadas, serviços web,
-> frameworks, bibliotecas, IDEs de desenvolvimento, e ferramentas.
-> Apresente também uma figura explicando como as tecnologias estão
-> relacionadas ou como uma interação do usuário com o sistema vai ser
-> conduzida, por onde ela passa até retornar uma resposta ao usuário.
-> 
+### Front-End
+
+1. **HTML (HyperText Markup Language)**
+   - **Descrição**: Utilizado para estruturar o conteúdo do site.
+   - **Aplicação**: Todas as páginas do site foram criadas usando HTML para definir a estrutura básica dos elementos.
+
+2. **CSS (Cascading Style Sheets)**
+   - **Descrição**: Utilizado para estilizar e melhorar a aparência visual do site.
+   - **Aplicação**: CSS foi utilizado para aplicar estilos personalizados às páginas, garantindo um design atraente e consistente.
+
+3. **JavaScript**
+   - **Descrição**: Linguagem de programação usada para adicionar interatividade e lógica ao site.
+   - **Aplicação**: JavaScript foi implementado para funcionalidades dinâmicas como validação de formulários, manipulação do DOM, e comunicação assíncrona com o servidor.
+
+4. **Bootstrap**
+   - **Descrição**: Framework front-end para desenvolver interfaces responsivas.
+   - **Aplicação**: Bootstrap foi utilizado para criar modais, navegação, e garantir a responsividade do design em diferentes dispositivos.
+
+5. **Chart.js**
+   - **Descrição**: Biblioteca JavaScript para criar gráficos interativos.
+   - **Aplicação**: Chart.js foi utilizada para implementar gráficos de vendas e estatísticas de uso na plataforma.
+
+6. **Swiper**
+   - **Descrição**: Biblioteca para criação de sliders/carrosséis.
+   - **Aplicação**: Swiper foi utilizada para desenvolver carrosséis na página principal, destacando artistas e suas obras.
+
+7. **jQuery**
+   - **Descrição**: Biblioteca JavaScript que simplifica a manipulação de HTML e eventos.
+   - **Aplicação**: jQuery foi utilizado para facilitar manipulações do DOM, eventos e AJAX.
+
+8. **Font Awesome**
+   - **Descrição**: Biblioteca de ícones vetoriais e fontes.
+   - **Aplicação**: Font Awesome foi utilizada para adicionar ícones ao site, melhorando a interface do usuário.
+
+### Fake Back-End
+
+1. **JSON-Server via Node.js**
+   - **Descrição**: Ferramenta para criar um servidor RESTful simulado usando JSON.
+   - **Aplicação**: JSON-Server foi utilizado para simular a persistência de dados, permitindo operações CRUD (Create, Read, Update, Delete) sem necessidade de um banco de dados real.
+
+2. **Local Storage**
+   - **Descrição**: Mecanismo de armazenamento local do navegador.
+   - **Aplicação**: Local Storage foi utilizado para armazenar temporariamente dados do usuário no navegador, complementando a persistência de dados fornecida pelo JSON-Server.
+
+### Ferramentas de Desenvolvimento
+
+1. **Visual Studio Code (VS Code)**
+   - **Descrição**: IDE usada para desenvolvimento de código.
+   - **Aplicação**: VS Code foi a IDE principal utilizada para escrever, editar e depurar o código do projeto.
+
+### Relacionamento com o Escopo do Projeto
+
+#### Funcionalidades Desenvolvidas
+
+1. **Carrossel**
+   - **Tecnologias**: HTML, CSS, JavaScript, Swiper
+   - **Descrição**: Destaca obras de destaque na página principal, proporcionando uma visão rápida e inspiradora do talento disponível na plataforma.
+
+2. **Barra de Pesquisa e Filtros**
+   - **Tecnologias**: HTML, CSS, JavaScript, jQuery
+   - **Descrição**: Implementação de uma barra de pesquisa com filtros avançados para facilitar a busca por artistas e suas obras.
+
+3. **Edição de Perfil**
+   - **Tecnologias**: HTML, CSS, JavaScript
+   - **Descrição**: Permite que artistas completem seus perfis com informações relevantes e adicionem seus portfólios.
+
+4. **Gráfico de Vendas**
+   - **Tecnologias**: HTML, CSS, JavaScript, Chart.js
+   - **Descrição**: Exibição de gráficos de vendas para que artistas possam acompanhar seu desempenho.
+
+5. **Avaliação por Estrelas**
+   - **Tecnologias**: HTML, CSS, JavaScript
+   - **Descrição**: Sistema de avaliação por estrelas para que clientes possam fornecer feedback sobre artistas.
+
+6. **Chat Interativo**
+   - **Tecnologias**: HTML, CSS, JavaScript, jQuery
+   - **Descrição**: Facilita a comunicação direta entre clientes e artistas, permitindo discussões de projetos e esclarecimento de dúvidas.
+
+7. **Portfólio**
+   - **Tecnologias**: HTML, CSS, JavaScript
+   - **Descrição**: Permite que artistas exibam seus trabalhos anteriores de forma detalhada, ajudando clientes a avaliar sua experiência e estilo.
+
+8. **Persistência de Dados**
+   - **Tecnologias**: JSON-Server via Node.js, Local Storage
+   - **Descrição**: Armazenamento e gerenciamento de dados dos usuários, portfólios, avaliações e mensagens.
+
 > Inclua os diagramas de User Flow, esboços criados pelo grupo
 > (stoyboards), além dos protótipos de telas (wireframes). Descreva cada
 > item textualmente comentando e complementando o que está apresentado
