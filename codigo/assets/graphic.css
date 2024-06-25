@@ -66,9 +66,8 @@
 }
 
 .side-item {
-    border-radius: 0.5rem;
-    padding: 0.875rem;
     cursor: pointer;
+    border-radius: 0.5rem;
 }
 
 .side-item.active {
@@ -84,6 +83,7 @@
     align-items: center;
     justify-content: center;
     color: #0a0a0a;
+    padding: 0.875rem;
 }
 
 .side-item:hover {
