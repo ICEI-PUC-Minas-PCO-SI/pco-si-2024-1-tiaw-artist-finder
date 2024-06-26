@@ -23,7 +23,7 @@ function displayLoginMessage() {
     const mainContainer = document.querySelector('.main-container');
     if (mainContainer) {
         mainContainer.innerHTML = `
-            <h2>Você precisa estar logado para visualizar o chat!</h2>
+            <h2>Você precisa estar logado para interagir com o gráfico!</h2>
             <a href="./login.html">
                 <button class="edit-button">Ir para Login</button>
             </a>

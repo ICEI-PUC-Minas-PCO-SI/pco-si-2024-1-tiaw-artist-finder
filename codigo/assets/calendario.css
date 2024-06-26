@@ -7,7 +7,7 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
   }
-  /* barra de rolagem */
+
   ::-webkit-scrollbar {
     width: 5px;
   }
@@ -57,7 +57,7 @@
     border-radius: 5px;
     background-color: #fff;
   }
- /* definir atrás do elemento principal */
+
   .calendar::before,
   .calendar::after {
     content: "";
@@ -294,7 +294,7 @@
     background: linear-gradient(90deg, #3f4458, transparent);
     cursor: pointer;
   }
- /* mesmo evento */
+
   .events .event:nth-child(even) {
     background: transparent;
   }
@@ -328,7 +328,7 @@
   .events .event:hover .event-time {
     color: #fff;
   }
- /* adicionar marca de seleção no evento seguinte */
+
   .events .event::after {
     content: "✓";
     position: absolute;
@@ -474,9 +474,7 @@
     background-color: transparent;
     color: var(--primary-clr);
   }
-  
-  /* consultas de mídia */
-  
+   
   @media screen and (max-width: 1000px) {
     body {
       align-items: flex-start;
@@ -556,3 +554,19 @@
   .credits a:hover {
     text-decoration: underline;
   }
+
+  .edit-button {
+    background-color: #8e44ad;
+    color: #ffffff;
+    border: 2px solid #8e44ad;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.edit-button:hover {
+    background-color: #501968;
+    border-color: #501968;
+    color: #fff;
+}
