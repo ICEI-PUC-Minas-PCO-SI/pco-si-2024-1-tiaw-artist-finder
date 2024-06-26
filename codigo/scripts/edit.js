@@ -14,11 +14,11 @@ function carregarDadosUsuario() {
     if (!loggedInUserId) {
         const mainElement = document.querySelector('.cols_container');
         mainElement.innerHTML = `
-            <div class = "left_col">
+            <div class="left_col">
                 <h2>Você precisa estar logado para editar seu perfil!</h2>
-                    <a href = "./login.html">
-                        <button class = "edit-button">Ir para Login</button>
-                    </a>
+                <a href="./login.html">
+                    <button class="edit-button">Ir para Login</button>
+                </a>
             </div>
         `;
         return;
@@ -48,13 +48,14 @@ function carregarDadosUsuario() {
                 console.log(`Foto de perfil obtida diretamente para ${usuario.nome}`);
             }
             capa.innerHTML = `<header class="capa" id="capa"></header>
-                                    <style>
-                                .main .header_wrapper header {
-                                    width: 100%;
-                                    background: url(${usuario.capa}) no-repeat 50% 20% / cover;
-                                    min-height: calc(100px + 15vw);
-                                }
-                            </style>`
+                <style>
+                    .main .header_wrapper header {
+                        width: 100%;
+                        background: url(${usuario.capa}) no-repeat 50% 20% / cover;
+                        min-height: calc(100px + 15vw);
+                    }
+                </style>`;
+
             document.getElementById('user-name').textContent = usuario.nome;
             document.getElementById('user-age').textContent = `${usuario.idade} anos`;
             document.getElementById('username').textContent = usuario.username;
@@ -152,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         foto: base64
                     });
                 }
-                
+
                 localStorage.setItem('userPicData', JSON.stringify(userPicData));
                 console.log('Imagem salva no localStorage.');
                 const userPhoto = document.getElementById('user-photo');
@@ -197,7 +198,7 @@ function previewFile(inputId, galeriaField) {
                 preview.src = reader.result;
                 alterarImagem(galeriaField, reader.result);
             },
-            false,
+            false
         );
         reader.readAsDataURL(file);
     } else {

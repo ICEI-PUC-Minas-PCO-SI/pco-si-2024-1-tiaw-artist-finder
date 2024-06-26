@@ -79,8 +79,6 @@ async function fetchAndDisplayUsers() {
                 } else {
                     userFotoPerfil = 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
                 }
-            } else {
-                console.log(`Foto obtida diretamente para ${usuario.nome}:`, userFotoPerfil);
             }
 
             userDiv.innerHTML = `
@@ -119,8 +117,6 @@ async function fetchAndDisplayUsers() {
                             } else {
                                 clickedUserFoto = 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
                             }
-                        } else {
-                            console.log(`Foto obtida diretamente para ${clickedUser.nome}:`, clickedUserFoto);
                         }
 
                         updateChatHeader(clickedUser.nome, clickedUserFoto);

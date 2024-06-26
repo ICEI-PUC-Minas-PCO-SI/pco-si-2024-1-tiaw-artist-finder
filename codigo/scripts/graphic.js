@@ -2,6 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
     checkLoginStatusAndPopulateContent();
 });
 
+const URL = "http://localhost:3000/vendas";
+let vendas;
+
 document.getElementById("open_btn").addEventListener("click", function () {
     document.getElementById("sidebar").classList.toggle("open-sidebar");
 });
