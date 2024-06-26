@@ -272,12 +272,6 @@ Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a 
 |Hospedagem do site | Heroku |  https://XXXXXXX.herokuapp.com | 
 |Protótipo Interativo | MavelApp ou Figma | https://www.figma.com/proto/xhMqePLbQ48FSjh0R09G9H/Artist-Finder?type=design&node-id=49-27&scaling=min-zoom&page-id=49%3A25&starting-point-node-id=49%3A27 | 
 
-> **Links Úteis - Hospedagem**:
-> - [Getting Started with Heroku](https://devcenter.heroku.com/start)
-> - [Crie seu Site com o HostGator](https://www.hostgator.com.br/como-publicar-seu-site)
-> - [GoDady](https://br.godaddy.com/how-to)
-> - [GitHub Pages](https://pages.github.com/)
-
 ## Controle de Versão
 
 Na primeira sprint, houve apenas commits para criação de documentação, logo não houve tanta aplicabilidade das tags combinadas, porém, nas próximas sprints, as quais terão necessidade de se criar o código do site propriamente dito, serão aplicadas as tags.
@@ -296,13 +290,27 @@ etiquetas:
 
 # **############## SPRINT 1 ACABA AQUI #############**
 
-# Projeto da Solução
+## Projeto de Solução
 
-......  COLOQUE AQUI O SEU TEXTO ......
+O projeto Artist Finder foi concebido para criar uma plataforma digital que conecta artistas freelancers a potenciais clientes, facilitando a contratação de serviços artísticos. A solução proposta se baseia em uma série de funcionalidades que atendem tanto às necessidades dos artistas quanto dos clientes, garantindo uma experiência de usuário intuitiva, eficiente e segura. Abaixo, detalhamos os principais componentes do projeto de solução:
+
+### Objetivos do Projeto
+
+1. **Conectar Artistas e Clientes**
+   - Facilitar o encontro entre artistas freelancers e clientes em busca de serviços artísticos, como ilustrações, design gráfico, pintura, entre outros.
+
+2. **Oferecer uma Experiência de Usuário Intuitiva**
+   - Garantir que a navegação na plataforma seja fácil e agradável, com ferramentas de busca e filtros eficientes.
+
+3. **Proporcionar Ferramentas para Gerenciamento de Portfólios**
+   - Permitir que artistas exibam seus trabalhos de forma organizada e atraente.
+
+4. **Implementar um Sistema de Avaliação e Feedback**
+   - Ajudar clientes a tomar decisões informadas com base nas avaliações e feedbacks de outros usuários.
 
 ## Tecnologias Utilizadas
 
-O projeto Artist Finder foi desenvolvido utilizando uma variedade de tecnologias front-end e back-end para garantir uma solução robusta e eficiente. Abaixo, detalhamos cada tecnologia utilizada e sua aplicação no projeto:
+O projeto Artist Finder foi desenvolvido utilizando uma variedade de tecnologias front-end e um fake back-end para garantir uma solução robusta e eficiente. Abaixo, detalhamos cada tecnologia utilizada e sua aplicação no projeto:
 
 ### Front-End
 
@@ -363,7 +371,7 @@ O projeto Artist Finder foi desenvolvido utilizando uma variedade de tecnologias
    - **Descrição**: Destaca obras de destaque na página principal, proporcionando uma visão rápida e inspiradora do talento disponível na plataforma.
 
 2. **Barra de Pesquisa e Filtros**
-   - **Tecnologias**: HTML, CSS, JavaScript, jQuery
+   - **Tecnologias**: HTML, CSS, JavaScript
    - **Descrição**: Implementação de uma barra de pesquisa com filtros avançados para facilitar a busca por artistas e suas obras.
 
 3. **Edição de Perfil**
@@ -379,7 +387,7 @@ O projeto Artist Finder foi desenvolvido utilizando uma variedade de tecnologias
    - **Descrição**: Sistema de avaliação por estrelas para que clientes possam fornecer feedback sobre artistas.
 
 6. **Chat Interativo**
-   - **Tecnologias**: HTML, CSS, JavaScript, jQuery
+   - **Tecnologias**: HTML, CSS, JavaScript
    - **Descrição**: Facilita a comunicação direta entre clientes e artistas, permitindo discussões de projetos e esclarecimento de dúvidas.
 
 7. **Portfólio**

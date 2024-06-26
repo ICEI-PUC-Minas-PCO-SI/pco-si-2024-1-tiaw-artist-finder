@@ -81,9 +81,8 @@ function filtrarUsuarios(usuarios) {
 async function displayUsers(users) {
     try {
         const usuarioLogadoId = await getLoggedInUser();
-
         const user_list = users.map((usuario) => {
-            if (usuario.id !== usuarioLogadoId) {
+            if (!usuarioLogadoId || usuario.id !== usuarioLogadoId) {
                 let userCapa = '';
                 let userFotoPerfil = '';
 
@@ -156,6 +155,10 @@ async function getLoggedInUser() {
         const usuarios = await response.json();
         const loggedInUserId = localStorage.getItem('loggedInUserId');
 
+        if (!loggedInUserId) {
+            return null;
+        }
+
         const usuarioLogado = usuarios.find(usuario => usuario.id === loggedInUserId);
         if (!usuarioLogado) {
             throw new Error('Usuário logado não encontrado.');
@@ -164,7 +167,7 @@ async function getLoggedInUser() {
         return usuarioLogado.id;
     } catch (error) {
         console.error('Erro ao obter usuário logado:', error);
-        throw error;
+        return null;
     }
 }
 
