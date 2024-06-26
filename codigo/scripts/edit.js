@@ -11,6 +11,19 @@ function obterUsuarioLogado() {
 }
 
 function carregarDadosUsuario() {
+    if (!loggedInUserId) {
+        const mainElement = document.querySelector('.cols_container');
+        mainElement.innerHTML = `
+            <div class = "left_col">
+                <h2>Você precisa estar logado para editar seu perfil!</h2>
+                    <a href = "./login.html">
+                        <button class = "edit-button">Ir para Login</button>
+                    </a>
+            </div>
+        `;
+        return;
+    }
+
     obterUsuarioLogado()
         .then(usuario => {
             document.getElementById('editName').value = usuario.nome;
