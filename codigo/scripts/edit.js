@@ -66,12 +66,6 @@ function carregarDadosUsuario() {
             document.getElementById('user-description').textContent = usuario.descricao;
             document.getElementById('user-rating').textContent = usuario.avaliacao;
 
-            if (loggedInUserId < 36) {
-                const editPic = document.getElementById('edit-pic');
-                if (editPic) {
-                    editPic.style.display = 'none';
-                }
-            }
             portfolioUsuario();
         })
         .catch(error => console.error('Erro ao carregar dados do usuário:', error.message));
@@ -158,6 +152,29 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log('Imagem salva no localStorage.');
                 const userPhoto = document.getElementById('user-photo');
                 userPhoto.src = base64;
+            });
+        }
+    });
+
+    document.getElementById('editCapa').addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if (file) {
+            convertImageToBase64(file, function (base64) {
+                let userCapaData = JSON.parse(localStorage.getItem('userCapaData')) || [];
+                const userIndex = userCapaData.findIndex(user => user.id === loggedInUserId.toString());
+                if (userIndex !== -1) {
+                    userCapaData[userIndex].capa = base64;
+                } else {
+                    userCapaData.push({
+                        id: loggedInUserId.toString(),
+                        capa: base64
+                    });
+                }
+
+                localStorage.setItem('userCapaData', JSON.stringify(userCapaData));
+                console.log('Imagem da capa salva no localStorage.');
+                const capa = document.getElementById('header-capa');
+                capa.style.backgroundImage = `url(${base64})`;
             });
         }
     });
