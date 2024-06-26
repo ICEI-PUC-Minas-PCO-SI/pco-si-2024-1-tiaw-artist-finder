@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 disponibilidade: "edite sua disponibilidade!",
                 capa: "",
                 atuacao: "edite sua atuação!",
+                capa: "",
                 galeria1: "",
                 galeria2: "",
                 galeria3: "",

@@ -1,4 +1,6 @@
-document.body.onload = init;
+document.addEventListener('DOMContentLoaded', (event) => {
+    init();
+});
 
 const URL = 'http://localhost:3000/usuarios';
 const userList = document.getElementById('user-list');
@@ -81,28 +83,26 @@ function filtrarUsuarios(usuarios) {
 async function displayUsers(users) {
     try {
         const usuarioLogadoId = await getLoggedInUser();
+
+        if (!userList) {
+            console.error('Elemento userList não encontrado.');
+            return;
+        }
+
         const user_list = users.map((usuario) => {
             if (!usuarioLogadoId || usuario.id !== usuarioLogadoId) {
                 let userCapa = '';
                 let userFotoPerfil = '';
 
-                if (!usuario.galeria1 && !usuario.galeria2 && !usuario.galeria3) {
-                    const galeriaUsuario = JSON.parse(localStorage.getItem('galeriaUsuario')) || {};
-                    if (galeriaUsuario[usuario.id]) {
-                        if (galeriaUsuario[usuario.id].galeria1) {
-                            userCapa = galeriaUsuario[usuario.id].galeria1;
-                        } else if (galeriaUsuario[usuario.id].galeria2) {
-                            userCapa = galeriaUsuario[usuario.id].galeria2;
-                        } else if (galeriaUsuario[usuario.id].galeria3) {
-                            userCapa = galeriaUsuario[usuario.id].galeria3;
-                        }
-                    }
+                if (usuario.capa && usuario.capa !== '') {
+                    userCapa = usuario.capa;
                 } else {
-                    userCapa = usuario.galeria1 || usuario.galeria2 || usuario.galeria3 || '';
-                }
-
-                if (!userCapa) {
-                    userCapa = 'https://picsum.photos/800/800';
+                    const userCapaData = JSON.parse(localStorage.getItem('userCapa')) || {};
+                    if (userCapaData[usuario.id]) {
+                        userCapa = userCapaData[usuario.id];
+                    } else {
+                        userCapa = 'https://picsum.photos/800/800';
+                    }
                 }
 
                 if (usuario.foto) {
@@ -112,19 +112,17 @@ async function displayUsers(users) {
                     const userIndex = userPicData.findIndex(user => user.id === usuario.id.toString());
                     if (userIndex !== -1) {
                         userFotoPerfil = userPicData[userIndex].foto;
+                    } else {
+                        userFotoPerfil = 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
                     }
-                }
-
-                if (!userFotoPerfil) {
-                    userFotoPerfil = 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
                 }
 
                 return `
                     <div class="col-md-4 mb-5">
                         <a href="user.html?id=${usuario.id}">
                             <div class="card">
-                                <div class="img1"><img src="${userCapa}" alt=""></div>
-                                <div class="img2"><img src="${userFotoPerfil}" alt=""></div>
+                                <div class="img1"><img src="${userCapa}" alt="Capa do usuário ${usuario.nome}"></div>
+                                <div class="img2"><img src="${userFotoPerfil}" alt="Foto de perfil do usuário ${usuario.nome}"></div>
                                 <div class="main-text">
                                     <h2>${usuario.nome}</h2>
                                     <p><strong>Área de atuação:</strong> ${usuario.atuacao}</p>

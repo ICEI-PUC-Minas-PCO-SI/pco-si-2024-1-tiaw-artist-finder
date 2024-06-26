@@ -398,6 +398,10 @@ O projeto Artist Finder foi desenvolvido utilizando uma variedade de tecnologias
    - **Tecnologias**: JSON-Server via Node.js, Local Storage
    - **Descrição**: Armazenamento e gerenciamento de dados dos usuários, portfólios, avaliações e mensagens.
 
+![User Flow final](imaages/../images/userflowfinal.jpg)
+
+No userflow apresentado podemos perceber o caminho que o usuário deverá fazer e como esse caminho conversa com os requisitos criados para a aplicação.
+
 > Inclua os diagramas de User Flow, esboços criados pelo grupo
 > (stoyboards), além dos protótipos de telas (wireframes). Descreva cada
 > item textualmente comentando e complementando o que está apresentado
