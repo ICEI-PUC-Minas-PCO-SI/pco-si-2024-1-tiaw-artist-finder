@@ -19,6 +19,26 @@
     gap: 0px;
 }
 
+.hide {
+    display: none !important;
+}
+
+.edit-button {
+    background-color: #8e44ad;
+    color: #ffffff;
+    border: 2px solid #8e44ad;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.edit-button:hover {
+    background-color: #501968;
+    border-color: #501968;
+    color: #fff;
+}
+
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
 /*Navbar*/

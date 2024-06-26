@@ -1,29 +1,54 @@
+document.addEventListener("DOMContentLoaded", () => {
+    checkLoginStatusAndPopulateContent();
+});
+
 document.getElementById("open_btn").addEventListener("click", function () {
     document.getElementById("sidebar").classList.toggle("open-sidebar");
 });
 
-function applyStyleOnHover() {
-    const sideItems = document.querySelectorAll('li.side-item');  
-    sideItems.forEach((item) => {
-        item.addEventListener('mouseenter', function() {
-            const link = this.querySelector('a');
-            if (link) {
-                link.style.color = '#fff';
-            }
-        });     
-        item.addEventListener('mouseleave', function() {
-            const link = this.querySelector('a');
-            if (link) {
-                link.style.color = '';
-            }
-        });
-    });
+async function checkLoginStatusAndPopulateContent() {
+    try {
+        const loggedInUserId = await getLoggedInUser();
+        if (!loggedInUserId) {
+            displayLoginMessage();
+        } else {
+            populateVendaTable();
+        }
+    } catch (error) {
+        displayLoginMessage();
+    }
 }
 
-applyStyleOnHover();
+function displayLoginMessage() {
+    const mainContainer = document.querySelector('.main-container');
+    if (mainContainer) {
+        mainContainer.innerHTML = `
+            <h2>Você precisa estar logado para visualizar o chat!</h2>
+            <a href="./login.html">
+                <button class="edit-button">Ir para Login</button>
+            </a>
+            <style>
+                .main-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                    justify-content: center;
+                    align-items: center;
+                    width: calc(100% - 5.125rem);
+                }
+            </style>
+        `;
 
-const URL = "http://localhost:3000/vendas";
-let vendas;
+        const home = document.getElementById('home');
+        home.classList.add('active');
+
+        const sideItems = document.querySelectorAll('#notHome');
+        sideItems.forEach(item => {
+            item.classList.add('hide');
+        });
+    }
+}
+
 
 async function getLoggedInUser() {
     const loggedInUserId = localStorage.getItem('loggedInUserId');
@@ -32,8 +57,6 @@ async function getLoggedInUser() {
     }
     return loggedInUserId;
 }
-
-const vendaList = document.getElementById("venda-list");
 
 async function populateVendaTable() {
     try {
@@ -47,6 +70,7 @@ async function populateVendaTable() {
 
         const vendasUsuarioLogado = vendas.filter(venda => venda.idUsuarioCriador === usuarioLogadoId);
 
+        const vendaList = document.getElementById("venda-list");
         vendaList.innerHTML = '';
 
         vendasUsuarioLogado.forEach((venda) => {
@@ -76,7 +100,6 @@ async function populateVendaTable() {
         });
 
         updateSalesStatistics(vendasUsuarioLogado);
-
         generateChart(vendasUsuarioLogado);
     } catch (error) {
         console.error('Erro ao recuperar dados de vendas:', error);
@@ -269,7 +292,3 @@ async function updateSalesStatistics(vendas) {
     document.getElementById("avg-sales-value").textContent =
         avgSalesPerMonth.toFixed(2);
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-    populateVendaTable();
-});

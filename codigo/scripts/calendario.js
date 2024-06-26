@@ -1,4 +1,14 @@
-const calendar = document.querySelector(".calendar"),
+
+async function getLoggedInUser() {
+  const loggedInUserId = localStorage.getItem('loggedInUserId');
+  if (!loggedInUserId) {
+      throw new Error('Nenhum usuário logado encontrado.');
+  }
+  return loggedInUserId;
+}
+
+if (getLoggedInUser) {
+  const calendar = document.querySelector(".calendar"),
   date = document.querySelector(".date"),
   daysContainer = document.querySelector(".days"),
   prev = document.querySelector(".prev"),
@@ -454,4 +464,25 @@ function convertTime(time) {
   timeHour = timeHour % 12 || 12;
   time = timeHour + ":" + timeMin + " " + timeFormat;
   return time;
+}
+} else {
+  const mainContainer = document.querySelector('.main-container');
+    if (mainContainer) {
+        mainContainer.innerHTML = `
+            <h2>Você precisa estar logado para visualizar o chat!</h2>
+            <a href="./login.html">
+                <button class="edit-button">Ir para Login</button>
+            </a>
+            <style>
+                .main-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                    justify-content: center;
+                    align-items: center;
+                    width: calc(100% - 5.125rem);
+                }
+            </style>
+        `;
+  }
 }
