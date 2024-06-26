@@ -9,12 +9,11 @@ async function getLoggedInUser() {
     const loggedInUserId = getLoggedInUserId();
     if (!loggedInUserId) return null;
     try {
-        const response = await fetch(URL);
+        const response = await fetch(`${URL}/${loggedInUserId}`);
         if (!response.ok) {
             throw new Error('Erro na rede');
         }
-        const data = await response.json();
-        const loggedInUser = data.find(user => user.id === loggedInUserId);
+        const loggedInUser = await response.json();
         return loggedInUser;
     } catch (error) {
         console.error('Erro ao buscar usuário logado:', error);
@@ -23,6 +22,27 @@ async function getLoggedInUser() {
 }
 
 async function fetchAndDisplayUsers() {
+    const loggedInUserId = getLoggedInUserId();
+    if (!loggedInUserId) {
+        const chatContainer = document.querySelector('.chat-container');
+        chatContainer.innerHTML = `
+            <h2>Você precisa estar logado para visualizar o chat!</h2>
+            <a href="./login.html">
+                <button class="edit-button">Ir para Login</button>
+            </a>
+            <style>
+                .chat-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                    justify-content: center;
+                    align-items: center;
+                }
+            </style>
+        `;
+        return;
+    }
+
     try {
         const response = await fetch(URL);
         if (!response.ok) {
