@@ -274,7 +274,7 @@ Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a 
 
 ## Controle de Versão
 
-Na primeira sprint, houve apenas commits para criação de documentação, logo não houve tanta aplicabilidade das tags combinadas, porém, nas próximas sprints, as quais terão necessidade de se criar o código do site propriamente dito, serão aplicadas as tags.
+Na primeira sprint, houve apenas commits para criação de documentação, logo não houve tanta aplicabilidade das tags combinadas, porém, na segunda e terceira sprint as seguintes tags foram aplicadas:
 
 O projeto segue a seguinte convenção para o nome de branchs: 
 
@@ -346,9 +346,9 @@ O projeto Artist Finder foi desenvolvido utilizando uma variedade de tecnologias
    - **Descrição**: Biblioteca de ícones vetoriais e fontes.
    - **Aplicação**: Font Awesome foi utilizada para adicionar ícones ao site, melhorando a interface do usuário.
 
-### Fake Back-End
+### Armazenamento de dados
 
-1. **JSON-Server via Node.js**
+1. **Fake Back-End com JSON-Server via Node.js**
    - **Descrição**: Ferramenta para criar um servidor RESTful simulado usando JSON.
    - **Aplicação**: JSON-Server foi utilizado para simular a persistência de dados, permitindo operações CRUD (Create, Read, Update, Delete) sem necessidade de um banco de dados real.
 
@@ -383,7 +383,7 @@ O projeto Artist Finder foi desenvolvido utilizando uma variedade de tecnologias
    - **Descrição**: Exibição de gráficos de vendas para que artistas possam acompanhar seu desempenho.
 
 5. **Avaliação por Estrelas**
-   - **Tecnologias**: HTML, CSS, JavaScript
+   - **Tecnologias**: HTML, CSS, JavaScript, Bootstrap
    - **Descrição**: Sistema de avaliação por estrelas para que clientes possam fornecer feedback sobre artistas.
 
 6. **Chat Interativo**

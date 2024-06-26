@@ -12,13 +12,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
-
 <body>
     <div class="bg"></div>
     <div class="bg bg2"></div>
     <div class="bg bg3"></div>
     <div class="body-container">
-        <!-- Sidebar -->
         <nav id="sidebar">
             <div class="logo">
                 <a href="./index.html.html"><img src="./assets/img/logo.svg" alt="" width="100px" id="site_logo"></a>
@@ -57,12 +55,10 @@
         </nav>
         <main class="main-container">
             <h1>Controle de Vendas</h1>
-            <!-- Gráfico de vendas -->
             <div class="chart-container">
                 <h2>Gráfico de vendas</h2>
                 <canvas id="myChart"></canvas>
             </div>
-            <!-- Estatísticas -->
             <div class="stats-container">
                 <h2>Estatísticas de vendas</h2>
                 <div class="stats-items-container">
@@ -76,7 +72,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Tabela --> 
             <div class="h2-table">
                 <h2>Tabela CRUD de vendas</h2>
             </div>           
@@ -93,12 +88,10 @@
                         </tr>
                     </thead>
                     <tbody id="venda-list">
-                        <!-- Aqui será preenchido dinamicamente com os dados das vendas -->
                     </tbody>
                 </table>
             </div>
         </main>
-        <!-- Modal apresentada para solicitar confirmação do usuário quanto à remoção dos dados -->
         <div class="modal fade" id="modal-delete" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -118,7 +111,6 @@
                 </div>
             </div>
         </div>
-        <!--  Modal apresentada para solicitar os dados para preenchimento do formulário -->
         <div class="modal fade" id="venda-modal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -172,5 +164,4 @@
     <script src="./scripts/graphic.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
-
 </html>
