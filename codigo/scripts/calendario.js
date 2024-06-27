@@ -16,7 +16,7 @@ async function verifyUserLogged() {
 function displayLoginMessage() {
   const container = document.querySelector('.container');
   if (container) {
-    container.innerHTML = `
+    container.innerHTML = `a
       <h2>Você precisa estar logado para interagir com o calendário!</h2>
       <a href="./login.html">
         <button class="edit-button">Ir para Login</button>
