@@ -84,7 +84,7 @@
       "email": "goliveira33@example.com",
       "password": "admin1",
       "foto": "assets/img/pessoa6.jpeg",
-      "avaliacao": 0,
+      "avaliacao": "5.0",
       "estado": "RJ",
       "instituicao": "UFF",
       "galeria1": "assets/img/5-1-min.jpg",
