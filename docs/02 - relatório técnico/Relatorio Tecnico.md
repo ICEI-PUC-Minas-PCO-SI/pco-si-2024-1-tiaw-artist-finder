@@ -400,56 +400,220 @@ O projeto Artist Finder foi desenvolvido utilizando uma variedade de tecnologias
 
 ![User Flow final](imaages/../images/userflowfinal.jpg)
 
-No userflow apresentado podemos perceber o caminho que o usuário deverá fazer e como esse caminho conversa com os requisitos criados para a aplicação.
+### Descrição do User Flow
 
-> Inclua os diagramas de User Flow, esboços criados pelo grupo
-> (stoyboards), além dos protótipos de telas (wireframes). Descreva cada
-> item textualmente comentando e complementando o que está apresentado
-> nas imagens.
+Este user flow ilustra a experiência do usuário em uma plataforma dinâmica para artistas e clientes. Começando pela **Home Page**, os visitantes são introduzidos a um mundo de arte e criatividade, incentivando-os a **Criar uma Conta** para explorar e participar ativamente.
+
+#### Visualização da Home Page
+Através da visualização da Home Page, os visitantes do site, sejam eles clientes ou artistas, terão uma introdução atrativa ao conteúdo disponível. Os clientes poderão visualizar diversos trabalhos postados no site, o que pode cativá-los e incentivá-los a criar uma conta para buscar um artista específico para seus projetos. Por outro lado, os artistas poderão explorar os trabalhos de seus colegas de profissão, o que pode inspirá-los e motivá-los a criar uma conta em busca de oportunidades e para apresentar suas próprias criações. A Home Page, portanto, atua como um ponto de entrada envolvente para ambos os públicos, destacando a qualidade e a diversidade dos serviços artísticos oferecidos na plataforma.
+
+#### Explorar
+Permite a visualização, filtro e pesquisa dos perfis de artistas cadastrados no site, fazendo com que clientes possam procurar profissionais que combinem com seu fit e artistas possam se inspirar.
+
+#### Criar uma conta
+A partir da visualização da Home Page ou do Explorar, o usuário vai se sentir motivado a criar uma conta devido à exposição inicial aos trabalhos artísticos destacados.
+
+#### Visualizar Perfil
+Após o usuário visualizar o explorar, ele poderá clicar em um perfil que interessa para ver maiores detalhes, como portfólio e descrição.
+
+#### Calendário
+Permite que o usuário faça um controle simplificado da sua agenda, adicionando eventos conforme as demandas aparecem.
+
+#### Chat
+Permite a comunicação simplificada entre usuários do site por meio de mensagens de texto.
+
+#### Editar Perfil
+Permite que o usuário edite os parâmetros do seu perfil da maneira que preferir, além de adicionar um portfólio com seus trabalhos mais relevantes.
 
 ## Arquitetura da solução
 
-......  COLOQUE AQUI O SEU TEXTO E O DIAGRAMA DE ARQUITETURA .......
+> ![Arquitetura de Solução Final](images/Arquitetura_de_Solução_TIAW_AF.jpg)
 
-> Inclua um diagrama da solução e descreva os módulos e as tecnologias
-> que fazem parte da solução. Discorra sobre o diagrama.
-> 
-> **Exemplo do diagrama de Arquitetura**:
-> 
-> ![Exemplo de Arquitetura](images/arquitetura-exemplo.png)
+## 1. Navegador
 
+### 1.1 Tecnologias Utilizadas
+- HTML
+- CSS
+- JavaScript
+- Framework Bootstrap
+- Bibliotecas JS:
+  - Swiper
+  - Chart.js
+
+### 1.2 Funcionalidades
+- **Interface do Usuário**: 
+  - Construída usando HTML, CSS e Bootstrap para um design responsivo.
+  - Swiper para sliders/carrosséis.
+  - Chart.js para gráficos e visualizações de dados.
+  
+- **Armazenamento Local**:
+  - **Local Storage** para armazenar:
+    - Fotos de perfil
+    - Portfólio
+    - Capa
+    - Mensagens via chat
+    - Calendário
+
+### 1.3 Fluxo de Dados
+- Os dados armazenados no Local Storage são utilizados para exibir informações no site.
+- Interações do usuário (mensagens, atualizações de perfil, etc.) são armazenadas diretamente no Local Storage.
+
+## 2. Nuvem
+
+### 2.1 Tecnologias Utilizadas
+- **Hospedagem**: Vercel
+- **Banco de Dados**: API fake com json-server
+
+### 2.2 Funcionalidades
+- **API REST**:
+  - Servida pelo json-server, hospedado na Vercel.
+  - Manipulação de dados do usuário, dados de venda e dados de avaliação.
+  
+- **Sincronização**:
+  - O navegador se conecta com a API para buscar e atualizar dados conforme necessário.
+  - Sincronização periódica entre Local Storage e a API para garantir que os dados locais e remotos estejam atualizados.
+
+### 2.3 Fluxo de Dados
+- **Leitura de Dados**:
+  - O navegador faz chamadas GET para a API no json-server para obter dados do usuário, vendas e avaliações.
+  
+- **Escrita de Dados**:
+  - O navegador faz chamadas POST/PUT/DELETE para a API para atualizar ou remover dados conforme necessário.
+  - Após operações de escrita, o Local Storage é atualizado para refletir as mudanças.
+
+## 3. Integração
+
+### 3.1 Comunicação Navegador-Nuvem
+- **Fetch API**:
+  - Utilizada no navegador para fazer requisições assíncronas (GET, POST, PUT, DELETE) para a API no json-server.
+  
+### 3.2 Sincronização de Dados
+- **Inicialização**:
+  - Ao carregar a página, os dados são primeiramente carregados do Local Storage.
+  - Caso não existam dados no Local Storage, uma requisição é feita à API para obter os dados iniciais.
+  
+- **Atualizações em Tempo Real**:
+  - Interações do usuário que modificam dados locais (como enviar uma mensagem ou atualizar o perfil) disparam requisições para atualizar os dados na API.
+  - Sincronização periódica para garantir que as alterações locais e remotas estejam em sincronia.
+
+### 3.3 Estrutura de Requisições
+- **GET /usuarios**: Obtém dados dos usuários.
+- **POST /usuarios**: Cria um novo usuário.
+- **PUT /usuarios/id**: Atualiza os dados de um usuário existente.
+- **GET /vendas/idUsuarioCriador**: Obtém dados de uma venda de acordo com o usuário logado.
+- **POST /vendas/**: Cria uma nova venda.
+- **PUT /vendas/id**: Atualiza uma venda existente.
+- **DELETE /vendas/id**: Remove uma venda.
+- **GET /avaliacoes/idAvaliado**: Obtém dados de avaliações.
+- **POST /avaliacoes**: Cria uma nova avaliação.
 
 # Avaliação da Aplicação
 
-......  COLOQUE AQUI O SEU TEXTO ......
+A avaliação da aplicação Artist Finder foi conduzida com o objetivo de garantir que todas as funcionalidades principais funcionem conforme os requisitos e ofereçam uma experiência de usuário satisfatória. Abaixo, apresentamos os cenários de testes utilizados para validar a aplicação.
 
-> Apresente os cenários de testes utilizados na realização dos testes da
-> sua aplicação. Escolha cenários de testes que demonstrem os requisitos
-> sendo satisfeitos.
+### Cenários de Testes
+
+Os cenários de testes foram escolhidos para demonstrar que os requisitos do projeto estão sendo atendidos. Cada cenário foi projetado para avaliar funcionalidades específicas, desde a criação de contas até a navegação no site e a interação entre usuários.
+
+1. **Criação de Conta**
+   - Verificação se usuários podem criar contas com sucesso, preenchendo os campos obrigatórios.
+   - Teste de validação de campos.
+
+2. **Login e Logout**
+   - Testar se usuários podem fazer login e logout corretamente.
+   - Verificação de persistência da sessão entre navegações.
+
+3. **Navegação na Home Page**
+   - Visualicação correta de usuários que existem no site, com suas obras e redirecionamento funcional.
+   - Testar a funcionalidade de carrosséis.
+
+4. **Exploração de Perfis**
+   - Teste de filtros e busca de artistas.
+   - Verificação da exibição correta dos perfis de artistas.
+
+5. **Visualização de Perfil**
+   - Avaliação da funcionalidade de visualização de detalhes do perfil.
+   - Teste da exibição de portfólios.
+
+6. **Edição de Perfil**
+   - Verificação se artistas podem editar seus perfis e adicionar trabalhos ao portfólio.
+   - Teste da atualização dos dados no Local Storage e na API.
+
+7. **Interação via Chat**
+   - Testar se a comunicação entre clientes e artistas é funcional através do chat.
+   - Verificação da persistência de mensagens no Local Storage.
+
+8. **Sistema de Avaliação**
+   - Avaliação da funcionalidade de avaliação por estrelas.
+   - Teste de submissão e exibição de feedbacks.
+
+9. **Calendário**
+   - Teste da funcionalidade de adição e visualização de eventos no calendário.
+   - Verificação da persistência de dados no Local Storage.
+
 
 ## Plano de Testes
 
-......  COLOQUE AQUI O SEU TEXTO ......
+#### Cenários Selecionados
 
-> Enumere quais cenários de testes foram selecionados para teste. Neste
-> tópico o grupo deve detalhar quais funcionalidades avaliadas, o grupo
-> de usuários que foi escolhido para participar do teste e as
-> ferramentas utilizadas.
-> 
-> **Links Úteis**:
-> - [IBM - Criação e Geração de Planos de Teste](https://www.ibm.com/developerworks/br/local/rational/criacao_geracao_planos_testes_software/index.html)
-> - [Práticas e Técnicas de Testes Ágeis](http://assiste.serpro.gov.br/serproagil/Apresenta/slides.pdf)
-> -  [Teste de Software: Conceitos e tipos de testes](https://blog.onedaytesting.com.br/teste-de-software/)
+Os cenários foram selecionados para cobrir as funcionalidades essenciais da plataforma Artist Finder. Detalhamos abaixo os cenários e as ferramentas utilizadas para cada teste.
+
+1. **Criação de Conta**
+   - **Funcionalidade Avaliada**: Registro de novos usuários.
+   - **Grupo de Usuários**: Novos visitantes do site.
+   - **Ferramentas Utilizadas**: Testes manuais, Ferramentas de inspeção do navegador.
+
+2. **Login e Logout**
+   - **Funcionalidade Avaliada**: Autenticação de usuários.
+   - **Grupo de Usuários**: Usuários registrados.
+   - **Ferramentas Utilizadas**: Testes manuais, Ferramentas de inspeção do navegador.
+
+3. **Navegação na Home Page**
+   - **Funcionalidade Avaliada**: Exibição de conteúdos e carrosséis.
+   - **Grupo de Usuários**: Todos os visitantes.
+   - **Ferramentas Utilizadas**: Testes manuais, Ferramentas de inspeção do navegador.
+
+4. **Exploração de Perfis**
+   - **Funcionalidade Avaliada**: Busca e filtros de perfis.
+   - **Grupo de Usuários**: Clientes em busca de artistas.
+   - **Ferramentas Utilizadas**: Testes manuais, Ferramentas de inspeção do navegador.
+
+5. **Visualização de Perfil**
+   - **Funcionalidade Avaliada**: Detalhamento de perfis de artistas.
+   - **Grupo de Usuários**: Clientes e outros artistas.
+   - **Ferramentas Utilizadas**: Testes manuais, Ferramentas de inspeção do navegador.
+
+6. **Edição de Perfil**
+   - **Funcionalidade Avaliada**: Atualização de perfis e portfólios.
+   - **Grupo de Usuários**: Artistas registrados.
+   - **Ferramentas Utilizadas**: Testes manuais, Ferramentas de inspeção do navegador.
+
+7. **Interação via Chat**
+   - **Funcionalidade Avaliada**: Sistema de mensagens entre usuários.
+   - **Grupo de Usuários**: Clientes e artistas.
+   - **Ferramentas Utilizadas**: Testes manuais, Ferramentas de inspeção do navegador.
+
+8. **Sistema de Avaliação**
+   - **Funcionalidade Avaliada**: Submissão e exibição de avaliações.
+   - **Grupo de Usuários**: Clientes que contrataram artistas.
+   - **Ferramentas Utilizadas**: Testes manuais, Ferramentas de inspeção do navegador.
+
+9. **Calendário**
+   - **Funcionalidade Avaliada**: Adição e visualização de eventos.
+   - **Grupo de Usuários**: Artistas e clientes.
+   - **Ferramentas Utilizadas**: Testes manuais, Ferramentas de inspeção do navegador.
 
 ## Ferramentas de Testes (Opcional)
 
-......  COLOQUE AQUI O SEU TEXTO ......
+Para realizar os testes, utilizamos diversas ferramentas que facilitaram a validação das funcionalidades e a identificação de possíveis problemas.
 
-> Comente sobre as ferramentas de testes utilizadas.
-> 
-> **Links Úteis**:
-> - [Ferramentas de Test para Java Script](https://geekflare.com/javascript-unit-testing/)
-> - [UX Tools](https://uxdesign.cc/ux-user-research-and-user-testing-tools-2d339d379dc7)
+1. **Testes Manuais**
+   - **Descrição**: Realizados por membros da equipe para simular o comportamento do usuário.
+   - **Aplicação**: Utilizados para verificar a navegação e a usabilidade geral da aplicação.
+
+2. **Ferramentas de Inspeção do Navegador**
+   - **Descrição**: Ferramentas como DevTools do Chrome para inspecionar e debugar o código.
+   - **Aplicação**: Utilizadas para verificar o comportamento do DOM, monitorar requests, e inspecionar o Local Storage.
 
 ## Registros de Testes
 
@@ -459,7 +623,6 @@ No userflow apresentado podemos perceber o caminho que o usuário deverá fazer 
 > fracos identificados na solução. Comente como o grupo pretende atacar
 > esses pontos nas próximas iterações. Apresente as falhas detectadas e
 > as melhorias geradas a partir dos resultados obtidos nos testes.
-
 
 # Referências
 
