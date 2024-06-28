@@ -21,7 +21,7 @@ async function getLoggedInUser() {
     }
 }
 
-async function fetchAndDisplayUsers() {
+async function fetchAndDisplayUsers(filter = '') {
     const loggedInUserId = getLoggedInUserId();
     if (!loggedInUserId) {
         const chatContainer = document.querySelector('.chat-container');
@@ -63,8 +63,11 @@ async function fetchAndDisplayUsers() {
         }
 
         const sortedUsuarios = data.filter(user => user.id !== loggedInUser.id);
+        const filteredUsuarios = sortedUsuarios.filter(user => 
+            user.nome.toLowerCase().includes(filter.toLowerCase())
+        );
 
-        sortedUsuarios.forEach(usuario => {
+        filteredUsuarios.forEach(usuario => {
             const userDiv = document.createElement('div');
             userDiv.classList.add('chat-sidebar-user');
 
@@ -322,4 +325,11 @@ function setupMobileChatInteraction() {
 
 setupMobileChatInteraction();
 
-window.addEventListener('load', fetchAndDisplayUsers);
+window.addEventListener('load', () => fetchAndDisplayUsers());
+
+const searchBar = document.getElementById('searchBar');
+searchBar.addEventListener('input', () => {
+    const filter = searchBar.value;
+    fetchAndDisplayUsers(filter);
+});
+
