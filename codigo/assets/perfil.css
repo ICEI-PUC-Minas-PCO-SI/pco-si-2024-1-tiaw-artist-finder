@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 body {
     width: 100%;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     min-height: 100vh;
-    font-family: "Poppins", sans-serif;
+    font-family: "Lato", sans-serif;
 }
 
 .main ul {
@@ -18,8 +20,6 @@ body {
 .main a {
     text-decoration: none;
 }
-
-
 
 .main .header_wrapper .cols_container .left_col {
     padding: 25px 20px;

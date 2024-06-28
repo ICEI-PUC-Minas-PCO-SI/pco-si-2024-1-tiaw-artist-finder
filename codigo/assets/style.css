@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
-    
+}
+
+h1, h2, h3, p {
+    font-family: 'Lato', sans-serif;
 }
 
 .menu .container-header{
@@ -226,4 +230,15 @@ input{
     font-size: 20px;
     color: #7400aa;
     padding: 0 10px;
+}
+
+fa-star {
+    display: block;
+}
+
+.avalia-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .4rem;
 }

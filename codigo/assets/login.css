@@ -1,5 +1,6 @@
-/*--------------------------------------------------------------------------------------------------------------------------*/
-/* Variáveis Raiz */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 :root {
     --primary: #605DFF;
     --primary-dark: #4a00e0;
@@ -10,14 +11,13 @@
     --text: #000000;
     --white: #FFFFFF;
     --violet: #8e2de2;
+    font-family: 'Lato';
 }
 
 .hide {
     display: none;
 }
 
-/*--------------------------------------------------------------------------------------------------------------------------*/
-/* Estilos Globais */
 * {
     margin: 0;
     padding: 0;
@@ -41,8 +41,6 @@ body {
     
 }
 
-/*--------------------------------------------------------------------------------------------------------------------------*/
-/* Linha de Boas-Vindas no Login */
 .login-welcome-row {
     margin-bottom: 1rem;
     text-align: center;
@@ -59,8 +57,6 @@ body {
     margin: 0 auto;
 }
 
-/*--------------------------------------------------------------------------------------------------------------------------*/
-/* Estilos do Formulário */
 .input__label{
     color: #dddddd;
 }
@@ -187,8 +183,6 @@ body {
     border-radius: 50%;
 }
 
-/*--------------------------------------------------------------------------------------------------------------------------*/
-/* Ações do Formulário */
 .my-form__actions {
     display: flex;
     flex-direction: column;
