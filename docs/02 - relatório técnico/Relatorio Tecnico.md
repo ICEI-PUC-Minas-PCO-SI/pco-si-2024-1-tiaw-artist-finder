@@ -409,15 +409,85 @@ No userflow apresentado podemos perceber o caminho que o usuário deverá fazer 
 
 ## Arquitetura da solução
 
-......  COLOQUE AQUI O SEU TEXTO E O DIAGRAMA DE ARQUITETURA .......
+> ![Arquitetura de Solução Final](images/Arquitetura_de_Solução_TIAW_AF.jpg)
 
-> Inclua um diagrama da solução e descreva os módulos e as tecnologias
-> que fazem parte da solução. Discorra sobre o diagrama.
-> 
-> **Exemplo do diagrama de Arquitetura**:
-> 
-> ![Exemplo de Arquitetura](images/arquitetura-exemplo.png)
+## 1. Navegador
 
+### 1.1 Tecnologias Utilizadas
+- HTML
+- CSS
+- JavaScript
+- Framework Bootstrap
+- Bibliotecas JS:
+  - Swiper
+  - Chart.js
+
+### 1.2 Funcionalidades
+- **Interface do Usuário**: 
+  - Construída usando HTML, CSS e Bootstrap para um design responsivo.
+  - Swiper para sliders/carrosséis.
+  - Chart.js para gráficos e visualizações de dados.
+  
+- **Armazenamento Local**:
+  - **Local Storage** para armazenar:
+    - Fotos de perfil
+    - Portfólio
+    - Capa
+    - Mensagens via chat
+    - Calendário
+
+### 1.3 Fluxo de Dados
+- Os dados armazenados no Local Storage são utilizados para exibir informações no site.
+- Interações do usuário (mensagens, atualizações de perfil, etc.) são armazenadas diretamente no Local Storage.
+
+## 2. Nuvem
+
+### 2.1 Tecnologias Utilizadas
+- **Hospedagem**: Vercel
+- **Banco de Dados**: API fake com json-server
+
+### 2.2 Funcionalidades
+- **API REST**:
+  - Servida pelo json-server, hospedado na Vercel.
+  - Manipulação de dados do usuário, dados de venda e dados de avaliação.
+  
+- **Sincronização**:
+  - O navegador se conecta com a API para buscar e atualizar dados conforme necessário.
+  - Sincronização periódica entre Local Storage e a API para garantir que os dados locais e remotos estejam atualizados.
+
+### 2.3 Fluxo de Dados
+- **Leitura de Dados**:
+  - O navegador faz chamadas GET para a API no json-server para obter dados do usuário, vendas e avaliações.
+  
+- **Escrita de Dados**:
+  - O navegador faz chamadas POST/PUT/DELETE para a API para atualizar ou remover dados conforme necessário.
+  - Após operações de escrita, o Local Storage é atualizado para refletir as mudanças.
+
+## 3. Integração
+
+### 3.1 Comunicação Navegador-Nuvem
+- **Fetch API**:
+  - Utilizada no navegador para fazer requisições assíncronas (GET, POST, PUT, DELETE) para a API no json-server.
+  
+### 3.2 Sincronização de Dados
+- **Inicialização**:
+  - Ao carregar a página, os dados são primeiramente carregados do Local Storage.
+  - Caso não existam dados no Local Storage, uma requisição é feita à API para obter os dados iniciais.
+  
+- **Atualizações em Tempo Real**:
+  - Interações do usuário que modificam dados locais (como enviar uma mensagem ou atualizar o perfil) disparam requisições para atualizar os dados na API.
+  - Sincronização periódica para garantir que as alterações locais e remotas estejam em sincronia.
+
+### 3.3 Estrutura de Requisições
+- **GET /usuarios**: Obtém dados dos usuários.
+- **POST /usuarios**: Cria um novo usuário.
+- **PUT /usuarios/id**: Atualiza os dados de um usuário existente.
+- **GET /vendas/idUsuarioCriador**: Obtém dados de uma venda de acordo com o usuário logado.
+- **POST /vendas/**: Cria uma nova venda.
+- **PUT /vendas/id**: Atualiza uma venda existente.
+- **DELETE /vendas/id**: Remove uma venda.
+- **GET /avaliacoes/idAvaliado**: Obtém dados de avaliações.
+- **POST /avaliacoes**: Cria uma nova avaliação.
 
 # Avaliação da Aplicação
 
@@ -459,7 +529,6 @@ No userflow apresentado podemos perceber o caminho que o usuário deverá fazer 
 > fracos identificados na solução. Comente como o grupo pretende atacar
 > esses pontos nas próximas iterações. Apresente as falhas detectadas e
 > as melhorias geradas a partir dos resultados obtidos nos testes.
-
 
 # Referências
 
