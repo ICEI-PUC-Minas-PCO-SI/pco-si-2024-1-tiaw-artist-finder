@@ -236,7 +236,7 @@
       "email": "rlima25@example.com",
       "password": "admin1",
       "foto": "assets/img/pessoa11.jpeg",
-      "avaliacao": 0,
+      "avaliacao": "4.0",
       "estado": "RS",
       "instituicao": "PUC RS",
       "disponibilidade": "Freelance",
@@ -643,7 +643,7 @@
     {
       "id": "35",
       "nome": "Bruno Borges",
-      "idade": 22,
+      "idade": "22",
       "username": "bBorges22",
       "email": "bborges22@example.com",
       "password": "admin1",
@@ -657,7 +657,7 @@
       "galeria2": "assets/img/35-2-min.jpg",
       "galeria3": "assets/img/35-3-min.jpg",
       "descricao": "Olá! Meu nome é Bruno Borges, e sou apaixonado por ilustração desde que me entendo por gente. Minha jornada artística começou com rabiscos no caderno da escola, evoluindo para explorar técnicas digitais e tradicionais que me permitem criar imagens vibrantes e cheias de personalidade. Sou graduado pela UFPE em Artes Visuais, onde aprimorei minha habilidade de transformar ideias em ilustrações que capturam a imaginação e contam histórias visualmente cativantes. Estou sempre em busca de novos desafios e colaborações criativas que me permitam expandir meu repertório e levar a arte da ilustração a novos horizontes. Vamos juntos explorar o poder das imagens e criar algo verdadeiramente único!",
-      "atuacao": "Ilustração"
+      "atuacao": "Edicao"
     }
   ],
   "vendas": [],
@@ -691,6 +691,26 @@
       "id": "0q1ido",
       "estrelas": 5,
       "idAvaliado": "2"
+    },
+    {
+      "id": "mio7w3",
+      "estrelas": 5,
+      "idAvaliado": "13"
+    },
+    {
+      "id": "j0v3lj",
+      "estrelas": 5,
+      "idAvaliado": "13"
+    },
+    {
+      "id": "2icynj",
+      "estrelas": 5,
+      "idAvaliado": "13"
+    },
+    {
+      "id": "qg95yu",
+      "estrelas": 1,
+      "idAvaliado": "13"
     }
   ]
 }

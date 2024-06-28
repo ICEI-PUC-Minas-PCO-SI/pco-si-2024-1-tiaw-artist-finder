@@ -30,7 +30,7 @@
     background-color: #fff;
     padding: 20px 4%;
     position: fixed;
-    z-index: 2;
+    z-index: 10001;
 }
 
 .menu header.rolagem a{
@@ -52,8 +52,7 @@
 }
 
 
-
- .banner{
+.banner{
     height: 100vh;
     background-image: url(img/banner.jpg);
     background-position: center;
@@ -66,7 +65,7 @@
     justify-content: center;
 }
 
- .banner h1{
+.banner h1{
     font-size: 5em;
     color: #fff;
     text-align: center;
