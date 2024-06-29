@@ -12,14 +12,14 @@
     top: 0;
     left: 0;
     transition: .5s;
-    z-index: 99999;
+    z-index: 3;
 }
 
 .menu header.rolagem{
     background-color: #fff;
     padding: 20px 4%;
     position: fixed;
-    z-index: 99999;
+    z-index: 3;
 }
 
 .menu header.rolagem a{
