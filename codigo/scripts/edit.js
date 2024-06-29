@@ -45,7 +45,6 @@ function carregarDadosUsuario() {
                 console.log(`Foto de perfil recuperada do localStorage para ${usuario.nome}`);
             } else {
                 userPhoto.src = usuario.foto || 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
-                console.log(`Foto de perfil obtida diretamente para ${usuario.nome}`);
             }
             capa.innerHTML = `<header class="capa" id="capa"></header>
                 <style>
@@ -110,7 +109,6 @@ function salvarMudancasUsuario() {
             return response.json();
         })
         .then(data => {
-            console.log('Dados atualizados com sucesso:', data);
             carregarDadosUsuario();
             const modal = document.getElementById('editModal');
             if (modal) {

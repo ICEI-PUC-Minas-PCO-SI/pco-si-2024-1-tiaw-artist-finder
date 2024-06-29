@@ -140,7 +140,6 @@ vendaDelete.addEventListener("click", async (e) => {
         generateChart(remainingVendas);
         populateVendaTable();
         
-        // Fechar o modal de exclusão
         const deleteModal = document.getElementById('modal-delete');
         if (deleteModal) {
             const bootstrapModal = bootstrap.Modal.getInstance(deleteModal);
@@ -226,14 +225,13 @@ vendaForm.addEventListener("submit", async (e) => {
             const index = vendas.findIndex(venda => venda.id === updatedVenda.id);
             if (index !== -1) {
                 vendas[index] = updatedVenda;
-            }
+            }  
         }
 
         generateChart(vendas);
         updateSalesStatistics(vendas);
         populateVendaTable();
         
-        // Fechar o modal de edição
         const editModal = document.getElementById('venda-modal');
         if (editModal) {
             const bootstrapModal = bootstrap.Modal.getInstance(editModal);

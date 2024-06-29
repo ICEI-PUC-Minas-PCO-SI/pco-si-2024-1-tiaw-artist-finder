@@ -127,6 +127,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     await login();
     await updateProfilePicture();
+    updateSubMenu();
 });
 
 function createNavItem(text, href) {
@@ -174,7 +175,6 @@ function adjustMenu() {
             userNavPhoto.style.display = 'block';
         }
 
-        // Remover itens extras apenas se eles estiverem presentes
         subMenuItems.forEach(item => {
             const existingNavLink = navMenu.querySelector(`a[href="${item.getAttribute('href')}"]`);
             if (existingNavLink && existingNavLink.parentElement.classList.contains('extra-nav-item')) {
@@ -184,7 +184,22 @@ function adjustMenu() {
     }
 }
 
+function updateSubMenu() {
+    const subMenuWrap = document.getElementById('subMenu');
+    const loggedInUserId = localStorage.getItem('loggedInUserId');
+
+    if (!loggedInUserId) {
+        subMenuWrap.innerHTML = `
+            <div class="sub-menu">
+                <a href="./login.html" class="sub-menu-link">
+                    <img src="./assets/img/edit-profile.svg" alt="">
+                    <p>Login</p>
+                    <span>></span>
+                </a>
+            </div>
+        `;
+    }
+}
+
 window.addEventListener('resize', adjustMenu);
 window.addEventListener('DOMContentLoaded', adjustMenu);
-
-
