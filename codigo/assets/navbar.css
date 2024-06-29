@@ -76,7 +76,7 @@
 .user-info{
     display: flex;
     align-items: center;
-    
+    justify-content: center;
 }
 
 .user-info h3{
@@ -136,4 +136,12 @@
 
 #user-photo {
     cursor: pointer;
+}
+
+.nav-link {
+    font-weight: 500 !important;
+}
+
+.nav-link:hover {
+    transform: scale(1.07);
 }

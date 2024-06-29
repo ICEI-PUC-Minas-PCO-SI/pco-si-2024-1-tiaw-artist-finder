@@ -199,3 +199,24 @@ fa-star {
     gap: .4rem;
 }
 
+.search {
+    overflow: hidden;
+}
+
+.search-input {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+@media (max-width: 500px) {
+    #h1-presentation {
+        font-size: 4rem;
+    }  
+}
+
+@media (max-width: 385px) {
+    #h1-presentation {
+        font-size: 3rem;
+    }  
+}
