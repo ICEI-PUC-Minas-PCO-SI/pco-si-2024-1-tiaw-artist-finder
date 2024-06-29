@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     checkLoginStatusAndPopulateContent();
 });
 
-const URL = "http://localhost:3000/vendas";
+const URL = "https://api-artistfinder-tiaw.onrender.com/vendas";
 let vendas;
 
 document.getElementById("open_btn").addEventListener("click", function () {
@@ -52,7 +52,6 @@ function displayLoginMessage() {
     }
 }
 
-
 async function getLoggedInUser() {
     const loggedInUserId = localStorage.getItem('loggedInUserId');
     if (!loggedInUserId) {
@@ -69,7 +68,7 @@ async function populateVendaTable() {
         if (!response.ok) {
             throw new Error('Erro ao recuperar dados de vendas');
         }
-        const vendas = await response.json();
+        vendas = await response.json();
 
         const vendasUsuarioLogado = vendas.filter(venda => venda.idUsuarioCriador === usuarioLogadoId);
 
@@ -140,6 +139,14 @@ vendaDelete.addEventListener("click", async (e) => {
 
         generateChart(remainingVendas);
         populateVendaTable();
+        
+        const deleteModal = document.getElementById('modal-delete');
+        if (deleteModal) {
+            const bootstrapModal = bootstrap.Modal.getInstance(deleteModal);
+            if (bootstrapModal) {
+                bootstrapModal.hide();
+            }
+        }
     } catch (error) {
         console.error("Erro ao excluir a venda:", error);
     }
@@ -218,12 +225,20 @@ vendaForm.addEventListener("submit", async (e) => {
             const index = vendas.findIndex(venda => venda.id === updatedVenda.id);
             if (index !== -1) {
                 vendas[index] = updatedVenda;
-            }
+            }  
         }
 
         generateChart(vendas);
         updateSalesStatistics(vendas);
         populateVendaTable();
+        
+        const editModal = document.getElementById('venda-modal');
+        if (editModal) {
+            const bootstrapModal = bootstrap.Modal.getInstance(editModal);
+            if (bootstrapModal) {
+                bootstrapModal.hide();
+            }
+        }
     } catch (error) {
         console.error('Erro ao salvar a venda:', error);
     }
