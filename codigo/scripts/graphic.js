@@ -68,7 +68,7 @@ async function populateVendaTable() {
         if (!response.ok) {
             throw new Error('Erro ao recuperar dados de vendas');
         }
-        vendas = await response.json();
+        const vendas = await response.json();
 
         const vendasUsuarioLogado = vendas.filter(venda => venda.idUsuarioCriador === usuarioLogadoId);
 
@@ -139,14 +139,11 @@ vendaDelete.addEventListener("click", async (e) => {
 
         generateChart(remainingVendas);
         populateVendaTable();
-        
-        const deleteModal = document.getElementById('modal-delete');
-        if (deleteModal) {
-            const bootstrapModal = bootstrap.Modal.getInstance(deleteModal);
-            if (bootstrapModal) {
-                bootstrapModal.hide();
-            }
-        }
+
+        setTimeout(() => {
+            $('#modal-delete').modal('hide');
+            location.reload();
+        }, 3000);
     } catch (error) {
         console.error("Erro ao excluir a venda:", error);
     }
@@ -225,20 +222,17 @@ vendaForm.addEventListener("submit", async (e) => {
             const index = vendas.findIndex(venda => venda.id === updatedVenda.id);
             if (index !== -1) {
                 vendas[index] = updatedVenda;
-            }  
+            }
         }
 
         generateChart(vendas);
         updateSalesStatistics(vendas);
         populateVendaTable();
-        
-        const editModal = document.getElementById('venda-modal');
-        if (editModal) {
-            const bootstrapModal = bootstrap.Modal.getInstance(editModal);
-            if (bootstrapModal) {
-                bootstrapModal.hide();
-            }
-        }
+
+        setTimeout(() => {
+            $('#venda-modal').modal('hide');
+            location.reload();
+        }, 3000);
     } catch (error) {
         console.error('Erro ao salvar a venda:', error);
     }
@@ -302,9 +296,10 @@ async function updateSalesStatistics(vendas) {
     });
 
     let avgSalesPerMonth = 0;
-    if (totalMonths > 0) {        
+    if (totalMonths > 0) {
         avgSalesPerMonth = totalSales / totalMonths;
     }
+
     document.getElementById("total-sales-value").textContent =
         totalSales.toFixed(2);
     document.getElementById("avg-sales-value").textContent =
