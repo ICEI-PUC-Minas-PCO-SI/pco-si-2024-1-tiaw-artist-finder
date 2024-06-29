@@ -61,7 +61,6 @@ function init() {
     carregarUsuarios();
 }
 
-
 async function carregarUsuarios() {
     try {
         const res = await fetch(URL);

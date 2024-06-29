@@ -67,7 +67,7 @@ async function updateProfilePicture() {
             const data = await response.json();
             const user = data.find(user => user.id === loggedInUserId);
             if (user) {
-                const userPhoto = document.getElementById('user-photo');
+                const userPhoto = document.getElementById('navbar-user-photo');
                 const subMenuPhoto = document.querySelector('.sub-menu .user-info img');
                 const subMenuName = document.querySelector('.sub-menu .user-info h2');
 
@@ -151,7 +151,7 @@ function adjustMenu() {
     const screenWidth = window.innerWidth;
     const navMenu = document.querySelector('.navbar-nav');
     const subMenuItems = document.querySelectorAll('.sub-menu-link');
-    const userPhoto = document.getElementById('user-photo');
+    const userPhoto = document.getElementById('navbar-user-photo');
     const subMenu = document.getElementById('subMenu');
 
     const extraNavItems = document.querySelectorAll('.extra-nav-item');
