@@ -1,7 +1,7 @@
 let loggedInUserId = localStorage.getItem('loggedInUserId');
 
 function obterUsuarioLogado() {
-    return fetch(`http://localhost:3000/usuarios/${loggedInUserId}`)
+    return fetch(`https://api-newusers-tiaw.vercel.app/usuarios/${loggedInUserId}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Erro ao obter dados do usuário');
@@ -95,7 +95,7 @@ function salvarMudancasUsuario() {
                 descricao: descricao || usuarioLogado.descricao
             };
 
-            return fetch(`http://localhost:3000/usuarios/${loggedInUserId}`, {
+            return fetch(`https://api-newusers-tiaw.vercel.app/usuarios/${loggedInUserId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

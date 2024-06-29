@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     checkLoginStatusAndPopulateContent();
 });
 
-const URL = "http://localhost:3000/vendas";
+const URL = "https://api-newusers-tiaw.vercel.app/vendas";
 let vendas;
 
 document.getElementById("open_btn").addEventListener("click", function () {

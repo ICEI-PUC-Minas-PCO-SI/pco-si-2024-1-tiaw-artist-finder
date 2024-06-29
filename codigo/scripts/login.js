@@ -44,7 +44,7 @@ function isLoggedIn() {
 
 async function obterDadosUsuarios() {
     try {
-        const response = await fetch('http://localhost:3000/usuarios');
+        const response = await fetch('https://api-newusers-tiaw.vercel.app/usuarios');
         if (!response.ok) {
             throw new Error('Erro ao carregar usuários.');
         }
@@ -59,7 +59,7 @@ async function updateProfilePicture() {
     const loggedInUserId = localStorage.getItem('loggedInUserId');
     if (loggedInUserId) {
         try {
-            const response = await fetch('http://localhost:3000/usuarios');
+            const response = await fetch('https://api-newusers-tiaw.vercel.app/usuarios');
             if (!response.ok) {
                 throw new Error('Erro ao carregar dados do usuário.');
             }

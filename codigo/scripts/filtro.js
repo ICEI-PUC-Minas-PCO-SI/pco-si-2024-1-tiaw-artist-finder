@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     init();
 });
 
-const URL = 'http://localhost:3000/usuarios';
+const URL = 'https://api-newusers-tiaw.vercel.app/usuarios';
 const userList = document.getElementById('user-list');
 const searchBar = document.getElementById('searchBar');
 let afUsers = [];
@@ -162,7 +162,7 @@ async function displayUsers(users) {
 
 async function getLoggedInUser() {
     try {
-        const response = await fetch('http://localhost:3000/usuarios');
+        const response = await fetch('https://api-newusers-tiaw.vercel.app/usuarios');
         if (!response.ok) {
             throw new Error('Erro ao obter dados do usuário logado.');
         }
