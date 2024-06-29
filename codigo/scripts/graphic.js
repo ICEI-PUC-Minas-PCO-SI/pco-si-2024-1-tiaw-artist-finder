@@ -149,6 +149,7 @@ vendaDelete.addEventListener("click", async (e) => {
     }
 });
 
+
 function getVenda(id) {
     if (id == 0) {
         $("#edit-venda-id").text("");
@@ -177,10 +178,7 @@ vendaForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     try {
-        const usuarioLogadoId = await getLoggedInUser();
-
         let id = parseInt($("#edit-venda-id").text());
-
         const venda = {
             id: document.getElementById("venda-id").value,
             mes: document.getElementById("venda-mes").value,
