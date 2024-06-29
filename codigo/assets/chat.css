@@ -1,8 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
-html {
-    height: 100vh;
-    width: 100vw;
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -49,6 +50,7 @@ body {
     margin-top: 0;
     height: 3rem;
     color: #5926b6;
+    margin-bottom: 2rem;
 }
 
 #chat-contacts {

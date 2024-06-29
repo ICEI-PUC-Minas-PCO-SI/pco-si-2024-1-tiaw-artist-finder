@@ -144,7 +144,7 @@ function createNavItem(text, href) {
 
 function ToggleMenu() {
     const subMenu = document.getElementById('subMenu');
-    subMenu.style.display = subMenu.style.display === 'block' ? 'none' : 'block';
+    subMenu.classList.toggle('open-menu');
 }
 
 function adjustMenu() {
@@ -154,10 +154,13 @@ function adjustMenu() {
     const userPhoto = document.getElementById('user-photo');
     const subMenu = document.getElementById('subMenu');
 
+    const extraNavItems = document.querySelectorAll('.extra-nav-item');
+    extraNavItems.forEach(item => item.remove());
+
     if (screenWidth <= 991) {
         subMenuItems.forEach(item => {
             const li = document.createElement('li');
-            li.classList.add('nav-item');
+            li.classList.add('nav-item', 'extra-nav-item');
             li.innerHTML = `<a class="nav-link" href="${item.getAttribute('href')}">${item.querySelector('p').textContent}</a>`;
             navMenu.appendChild(li);
         });
@@ -165,18 +168,17 @@ function adjustMenu() {
         if (userPhoto) {
             userPhoto.style.display = 'none';
         }
-        subMenu.style.display = 'none';
+        subMenu.classList.remove('open-menu');
     } else {
-
         if (userPhoto) {
             userPhoto.style.display = 'block';
         }
 
-        const extraNavItems = document.querySelectorAll('.navbar-nav > .nav-item');
-        extraNavItems.forEach(item => {
-            if (item.querySelector('a') && item.querySelector('a').classList.contains('nav-link') &&
-                (item.querySelector('a').textContent === 'Editar Perfil' || item.querySelector('a').textContent === 'Calendário' || item.querySelector('a').textContent === 'Logout')) {
-                item.remove();
+        // Remover itens extras apenas se eles estiverem presentes
+        subMenuItems.forEach(item => {
+            const existingNavLink = navMenu.querySelector(`a[href="${item.getAttribute('href')}"]`);
+            if (existingNavLink && existingNavLink.parentElement.classList.contains('extra-nav-item')) {
+                existingNavLink.parentElement.remove();
             }
         });
     }
@@ -184,4 +186,5 @@ function adjustMenu() {
 
 window.addEventListener('resize', adjustMenu);
 window.addEventListener('DOMContentLoaded', adjustMenu);
+
 

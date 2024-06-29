@@ -133,3 +133,7 @@
 .sub-menu-link:hover p{
     font-weight: 600;
 }
+
+#user-photo {
+    cursor: pointer;
+}
