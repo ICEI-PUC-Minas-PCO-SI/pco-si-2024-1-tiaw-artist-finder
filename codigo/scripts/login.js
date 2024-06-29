@@ -141,3 +141,47 @@ function createNavItem(text, href) {
     `;
     return navItem;
 }
+
+function ToggleMenu() {
+    const subMenu = document.getElementById('subMenu');
+    subMenu.style.display = subMenu.style.display === 'block' ? 'none' : 'block';
+}
+
+function adjustMenu() {
+    const screenWidth = window.innerWidth;
+    const navMenu = document.querySelector('.navbar-nav');
+    const subMenuItems = document.querySelectorAll('.sub-menu-link');
+    const userPhoto = document.getElementById('user-photo');
+    const subMenu = document.getElementById('subMenu');
+
+    if (screenWidth <= 991) {
+        subMenuItems.forEach(item => {
+            const li = document.createElement('li');
+            li.classList.add('nav-item');
+            li.innerHTML = `<a class="nav-link" href="${item.getAttribute('href')}">${item.querySelector('p').textContent}</a>`;
+            navMenu.appendChild(li);
+        });
+
+        if (userPhoto) {
+            userPhoto.style.display = 'none';
+        }
+        subMenu.style.display = 'none';
+    } else {
+
+        if (userPhoto) {
+            userPhoto.style.display = 'block';
+        }
+
+        const extraNavItems = document.querySelectorAll('.navbar-nav > .nav-item');
+        extraNavItems.forEach(item => {
+            if (item.querySelector('a') && item.querySelector('a').classList.contains('nav-link') &&
+                (item.querySelector('a').textContent === 'Editar Perfil' || item.querySelector('a').textContent === 'Calendário' || item.querySelector('a').textContent === 'Logout')) {
+                item.remove();
+            }
+        });
+    }
+}
+
+window.addEventListener('resize', adjustMenu);
+window.addEventListener('DOMContentLoaded', adjustMenu);
+
