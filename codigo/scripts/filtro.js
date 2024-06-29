@@ -110,16 +110,9 @@ async function displayUsers(users) {
                 let userCapa = '';
                 let userFotoPerfil = '';
 
-                if (usuario.capa && usuario.capa !== '') {
-                    userCapa = usuario.capa;
-                } else {
-                    const userCapaData = JSON.parse(localStorage.getItem('userCapa')) || {};
-                    if (userCapaData[usuario.id]) {
-                        userCapa = userCapaData[usuario.id];
-                    } else {
-                        userCapa = `https://picsum.photos/id/${(usuario.id)}/700/700`;
-                    }
-                }
+                const userCapaData = JSON.parse(localStorage.getItem('userCapaData')) || [];
+                const userCapaItem = userCapaData.find(user => user.id === usuario.id.toString());
+                const capaUrl = userCapaItem ? userCapaItem.capa : `https://picsum.photos/id/${usuario.id}/1600/900`;
 
                 if (usuario.foto) {
                     userFotoPerfil = usuario.foto;
@@ -137,7 +130,7 @@ async function displayUsers(users) {
                     <div class="col-md-4 mb-5">
                         <a href="user.html?id=${usuario.id}">
                             <div class="card">
-                                <div class="img1"><img src="${userCapa}" alt="Capa do usuário ${usuario.nome}"></div>
+                                <div class="img1"><img src="${capaUrl}" alt="Capa do usuário ${usuario.nome}"></div>
                                 <div class="img2"><img src="${userFotoPerfil}" alt="Foto de perfil do usuário ${usuario.nome}"></div>
                                 <div class="main-text">
                                     <h2>${usuario.nome}</h2>

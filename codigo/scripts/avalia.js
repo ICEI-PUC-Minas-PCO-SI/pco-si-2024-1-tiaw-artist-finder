@@ -12,7 +12,7 @@
     function carregarDadosUsuario() {
         const urlParams = new URLSearchParams(window.location.search);
         idQueryString = urlParams.get('id');
-
+    
         fetch(`https://api-artistfinder-tiaw.onrender.com/usuarios/${idQueryString}`)
             .then(response => {
                 if (!response.ok) {
@@ -23,6 +23,7 @@
             .then(usuario => {
                 const userPhoto = document.getElementById('user-photo');
                 const capa = document.getElementById('header-capa');
+    
                 if (usuario.foto) {
                     userPhoto.src = usuario.foto;
                 } else {
@@ -38,29 +39,33 @@
                         userPhoto.src = 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
                     }
                 }
-
+    
+                const userCapaData = JSON.parse(localStorage.getItem('userCapaData')) || [];
+                const userCapa = userCapaData.find(user => user.id === idQueryString);
+                const capaUrl = userCapa ? userCapa.capa : `https://picsum.photos/id/${usuario.id}/1600/900`;
+    
                 capa.innerHTML = `<header class="capa" id="capa"></header>
                     <style>
-                .main .header_wrapper header {
-                    width: 100%;
-                    background: url(${usuario.capa}) no-repeat 50% 20% / cover;
-                    min-height: calc(100px + 15vw);
-                }
-            </style>`
+                        .main .header_wrapper header {
+                            width: 100%;
+                            background: url(${capaUrl}) no-repeat 50% 20% / cover;
+                            min-height: calc(100px + 15vw);
+                        }
+                    </style>`;
+    
                 document.getElementById('user-name').innerHTML = `${usuario.nome}`;
                 document.getElementById('user-age').textContent = `${usuario.idade} Anos`;
                 document.getElementById('username').textContent = usuario.username;
                 document.getElementById('user-profession').textContent = usuario.atuacao;
-                document.getElementById('user-state').innerHTML = `<p class="bi bi-geo-fill" id="user-state">${usuario.estado}</p>` ;
+                document.getElementById('user-state').innerHTML = `<p class="bi bi-geo-fill" id="user-state">${usuario.estado}</p>`;
                 document.getElementById('user-institution').textContent = usuario.instituicao;
                 document.getElementById('user-availability').textContent = usuario.disponibilidade;
                 document.getElementById('user-description').textContent = usuario.descricao;
                 document.getElementById('user-rating').textContent = usuario.avaliacao;
-                
             })
             .catch(error => console.error('Erro ao carregar dados do usuário:', error.message));
     }
-
+    
     function construirDadosGrafico() {
         const ctx = document.getElementById('avaliacoesChart').getContext('2d');
         const chart = createChart(ctx);
