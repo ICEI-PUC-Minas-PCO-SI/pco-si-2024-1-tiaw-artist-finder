@@ -126,7 +126,8 @@
         let ceu = document.getElementById("ceu");
         let text = document.getElementById("text_capa");
         let mainContent = document.getElementById("mainContent");
-
+        let header = document.querySelector("header");
+        header.style.zIndex = 99999;
         window.addEventListener('scroll', function () {
             var value = window.scrollY;
             montanhas.style.top = value * 0.75 + 'px';
@@ -136,7 +137,13 @@
             mainContent.style.right = value * 0.1 + 'px'
         })
 
+      
+           
         
+
+
+       
+
     </script>
     <script>
         let subMenu = document.getElementById("subMenu");
@@ -145,6 +152,7 @@
         }
     </script>
     <script src="./scripts/login.js"></script>
+    <script src="./scripts/filtro.js"></script>
 </body>
 
 </html>
