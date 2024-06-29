@@ -1,7 +1,7 @@
 let loggedInUserId = localStorage.getItem('loggedInUserId');
 
 function obterUsuarioLogado() {
-    return fetch(`https://api-newusers-tiaw.vercel.app/usuarios/${loggedInUserId}`)
+    return fetch(`https://api-artistfinder-tiaw.onrender.com/usuarios/${loggedInUserId}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Erro ao obter dados do usuário');
@@ -95,7 +95,7 @@ function salvarMudancasUsuario() {
                 descricao: descricao || usuarioLogado.descricao
             };
 
-            return fetch(`https://api-newusers-tiaw.vercel.app/usuarios/${loggedInUserId}`, {
+            return fetch(`https://api-artistfinder-tiaw.onrender.com/usuarios/${loggedInUserId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -112,8 +112,13 @@ function salvarMudancasUsuario() {
         .then(data => {
             console.log('Dados atualizados com sucesso:', data);
             carregarDadosUsuario();
-            const modal = new bootstrap.Modal(document.getElementById('editModal'));
-            modal.hide();
+            const modal = document.getElementById('editModal');
+            if (modal) {
+                const bootstrapModal = bootstrap.Modal.getInstance(modal);
+                if (bootstrapModal) {
+                    bootstrapModal.hide();
+                }
+            }
         })
         .catch(error => console.error('Erro ao salvar dados:', error.message));
 }

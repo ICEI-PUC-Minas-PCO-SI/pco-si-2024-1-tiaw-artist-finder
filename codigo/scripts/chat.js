@@ -1,4 +1,4 @@
-const URL = "https://api-newusers-tiaw.vercel.app/usuarios";
+const URL = "https://api-artistfinder-tiaw.onrender.com/usuarios";
 
 function getLoggedInUserId() {
     const userId = localStorage.getItem('loggedInUserId');
