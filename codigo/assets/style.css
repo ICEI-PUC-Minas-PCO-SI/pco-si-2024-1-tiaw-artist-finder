@@ -10,50 +10,7 @@ h1, h2, h3, p {
     font-family: 'Lato', sans-serif;
 }
 
-.menu .container-header{
-    max-width: 1280px;
-    margin: auto;
-}
 
-.menu .navbar{
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.menu header{
-    width: 100%;
-    padding: 60px 4%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    transition: .5s;
-}
-
-.menu header.rolagem{
-    background-color: #fff;
-    padding: 20px 4%;
-    position: fixed;
-    z-index: 10001;
-}
-
-.menu header.rolagem a{
-    color: #7400aa;
-}
-
-.menu header ul{
-    list-style-type: none;
-}
-
-.menu header ul li{
-    display: inline-block;
-    margin: 0 40px;
-}
-
-.menu header ul li a{
-    color:#fff;
-    text-decoration: none;
-}
 
 
 .banner{
@@ -81,11 +38,7 @@ h1, h2, h3, p {
 
 
 
-#logo{
-    width: 80px;
-    height: 80px;
-    margin-right: 50px;
-}
+
 
 body{
     background: #fff;
