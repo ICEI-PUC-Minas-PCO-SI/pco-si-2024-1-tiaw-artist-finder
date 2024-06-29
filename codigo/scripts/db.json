@@ -34,7 +34,7 @@
       "galeria3": "assets/img/2-3-min.jpg",
       "disponibilidade": "Freelance",
       "capa": "assets/img/banner.jpg",
-      "avaliacao": "3.8",
+      "avaliacao": "4.2",
       "descricao": "Meu nome é Jorge Alves e sou um fotógrafo que captura momentos únicos com minha câmera, transformando ocasiões especiais em memórias visuais que duram para sempre.",
       "atuacao": "Fotografia"
     },
@@ -711,6 +711,16 @@
       "id": "qg95yu",
       "estrelas": 1,
       "idAvaliado": "13"
+    },
+    {
+      "id": "jxi7s3",
+      "estrelas": 5,
+      "idAvaliado": "2"
+    },
+    {
+      "id": "yeg0n3",
+      "estrelas": 5,
+      "idAvaliado": "2"
     }
   ]
 }

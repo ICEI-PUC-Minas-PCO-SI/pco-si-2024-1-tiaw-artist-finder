@@ -1,8 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
-/*--------------------------------------------------------------------------------------------------------------------------*/
-
-/* Estilos Globais */
 html {
     height: 100vh;
     width: 100vw;
@@ -18,10 +15,6 @@ body {
     background: #f4f4f4;
 }
 
-/*--------------------------------------------------------------------------------------------------------------------------*/
-
-/* Mensagem Inicial */
-
 .initial-message {
     display: flex;
     justify-content: center;
@@ -34,18 +27,12 @@ body {
     text-align: center;
 }
 
-/*--------------------------------------------------------------------------------------------------------------------------*/
-
-/* Contêiner do Chat */
 .chat-container {
     display: flex;
     width: 100%;
     height: calc(100vh - 6rem);
 }
 
-/*--------------------------------------------------------------------------------------------------------------------------*/
-
-/* Barra Lateral do Chat */
 .chat-sidebar {
     display: flex;
     flex-direction: column;
@@ -98,10 +85,6 @@ body {
     background: #e6e6e6;
 }
 
-/*--------------------------------------------------------------------------------------------------------------------------*/
-
-/* Conteúdo Principal do Chat */
-
 .chat-main-content {
     width: calc(100% - 27vw);
     display: flex;
@@ -139,10 +122,6 @@ body {
     flex-direction: column;
 }
 
-/*--------------------------------------------------------------------------------------------------------------------------*/
-
-/* Contêiner de Entrada de Mensagem */
-
 .chat-input-container {
     display: flex;
     padding: 1rem;
@@ -178,10 +157,6 @@ body {
     font-size: 1.2rem;
 }
 
-/*--------------------------------------------------------------------------------------------------------------------------*/
-
-/* Mensagens do Chat */
-
 .chat-message.me {
     align-self: flex-end;
     background: #3e1983;
@@ -207,10 +182,6 @@ body {
     word-wrap: break-word;
     text-align: left;
 }
-
-/*--------------------------------------------------------------------------------------------------------------------------*/
-
-/* Usuários da Barra Lateral do Chat */
 
 .chat-sidebar-user {
     display: flex;
@@ -253,12 +224,7 @@ body {
     color: black;
 }
 
-/*--------------------------------------------------------------------------------------------------------------------------*/
-
-/* Estilos Responsivos */
-
 @media (max-width: 663px) {
-
     .chat-container {
         flex-direction: column-reverse;
         overflow-y: auto;
@@ -286,7 +252,4 @@ body {
     .chat-message.me, .chat-message.received {
         max-width: 50%;
     }
-
 }
-
-/*--------------------------------------------------------------------------------------------------------------------------*/

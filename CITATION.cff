@@ -1,65 +1,48 @@
-<<<<<<< HEAD
-cff-version: 1.0.1
-message: Please cite this software using these metadata.
-title: 
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Artist Finder
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
 authors:
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names:
-  - name-suffix: Professor
+  - given-names: Alfredo
+    family-names: Rodrigues Simões Macedo Campos
+  - given-names: Diego
+    family-names: Romero Ribeiro Chaves
+  - given-names: Filipe
+    family-names: Augusto dos Santos Silva
+  - given-names: João
+    family-names: Gabriel Soares Da Silva Franco
+  - given-names: Lucas
+    family-names: Fernandes Nascimento
+  - given-names: Pablo
+    family-names: Marques Cordeiro
+  - given-names: Amália
+    family-names: Soares Vieira de Vasconcelos
+    name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
-  - name-suffix: Professor
+  - given-names: Leonardo
+    family-names: Vilela Cardoso
+    name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
+repository-code: >-
+  https://github.com/ICEI-PUC-Minas-PCO-SI/pco-si-2024-1-tiaw-artist-finder
+url: 'https://seraadicionadoposteriormente.com'
+abstract: >-
+  O Artist Finder é uma plataforma online dedicada a
+  simplificar o processo de conexão entre artistas
+  freelancers e potenciais clientes. Nosso principal
+  objetivo é fornecer uma experiência intuitiva e eficiente
+  que facilite a descoberta e contratação de talentos
+  artísticos em uma variedade de áreas.
 keywords:
-  - 
-  - 
-repository-code: 
+  - Freelancer
+  - PUC Minas
+  - Artistas
+  - Sistemas de Informação
 license: CC-BY-4.0
 version: 1.0.0
-date-released: 2022-07-14
-=======
-cff-version: 1.0.1
-message: Please cite this software using these metadata.
-title: 
-authors:
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names:
-  - name-suffix: Professor
-    affiliation: PUC Minas
-    family-names: 
-    given-names: 
-  - name-suffix: Professor
-    affiliation: PUC Minas
-    family-names: 
-    given-names: 
-keywords:
-  - 
-  - 
-repository-code: 
-license: CC-BY-4.0
-version: 1.0.0
-date-released: 2022-07-14
->>>>>>> 576e4073eb686b7caee5801aac8f95491eb4d605
+date-released: '2024-07-04'

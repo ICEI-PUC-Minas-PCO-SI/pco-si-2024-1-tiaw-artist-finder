@@ -20,7 +20,6 @@ function carregarDadosUsuario() {
             return response.json();
         })
         .then(usuario => {
-            console.log(usuario);
             const userPhoto = document.getElementById('user-photo');
             const capa = document.getElementById('header-capa');
             if (usuario.foto) {
@@ -55,7 +54,8 @@ function carregarDadosUsuario() {
             document.getElementById('user-institution').textContent = usuario.instituicao;
             document.getElementById('user-availability').textContent = usuario.disponibilidade;
             document.getElementById('user-description').textContent = usuario.descricao;
-            document.getElementById('user-rating').textContent = `Estrelas: ${usuario.avaliacao}`;
+            document.getElementById('user-rating').textContent = usuario.avaliacao;
+            
         })
         .catch(error => console.error('Erro ao carregar dados do usuário:', error.message));
 }
