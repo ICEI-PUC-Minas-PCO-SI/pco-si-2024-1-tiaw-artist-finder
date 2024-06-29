@@ -117,7 +117,7 @@ async function displayUsers(users) {
                     if (userCapaData[usuario.id]) {
                         userCapa = userCapaData[usuario.id];
                     } else {
-                        userCapa = `https://picsum.photos/id/${usuario.id + 9}/800/800`;
+                        userCapa = `https://picsum.photos/id/${(usuario.id)}/700/700`;
                     }
                 }
 
@@ -129,7 +129,7 @@ async function displayUsers(users) {
                     if (userIndex !== -1) {
                         userFotoPerfil = userPicData[userIndex].foto;
                     } else {
-                        userFotoPerfil = 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
+                        userFotoPerfil = 'https://thispersondoesnotexist.com/';
                     }
                 }
 

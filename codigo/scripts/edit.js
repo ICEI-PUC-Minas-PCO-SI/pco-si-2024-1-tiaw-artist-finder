@@ -34,8 +34,14 @@ function carregarDadosUsuario() {
             document.getElementById('editInstitution').value = usuario.instituicao;
             document.getElementById('editAvailability').value = usuario.disponibilidade;
             document.getElementById('editDescription').value = usuario.descricao;
+            
+            const userCapaData = JSON.parse(localStorage.getItem('userCapaData')) || [];
+            const userCapa = userCapaData.find(user => user.id === loggedInUserId.toString());
+            const capaUrl = userCapa ? userCapa.capa : `https://picsum.photos/id/${usuario.id}/700/700`;
 
+            // Exibe a capa
             const capa = document.getElementById('header-capa');
+            capa.style.backgroundImage = `url(${capaUrl})`;
             const userPhoto = document.getElementById('user-photo');
             let userPicData = JSON.parse(localStorage.getItem('userPicData')) || [];
             const userIndex = userPicData.findIndex(user => user.id === loggedInUserId.toString());
