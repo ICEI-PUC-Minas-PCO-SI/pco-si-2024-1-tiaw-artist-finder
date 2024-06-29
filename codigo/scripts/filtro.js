@@ -117,7 +117,7 @@ async function displayUsers(users) {
                     if (userCapaData[usuario.id]) {
                         userCapa = userCapaData[usuario.id];
                     } else {
-                        userCapa = 'https://picsum.photos/800/800';
+                        userCapa = `https://picsum.photos/id/${usuario.id}/800/800`;
                     }
                 }
 
