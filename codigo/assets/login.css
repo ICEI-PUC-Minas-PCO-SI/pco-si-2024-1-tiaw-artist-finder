@@ -32,13 +32,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(img/background2.jpg);
-     
+    background-image: url(img/background2.jpg);   
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
-    
-    
+    background-size: cover; 
 }
 
 .login-welcome-row {
@@ -75,7 +72,7 @@ body {
     color: #dddddd;
     border-radius: 2rem;
     height: fit-content;
-    
+    max-height: 45rem;   
 }
 
 .my-form__button {

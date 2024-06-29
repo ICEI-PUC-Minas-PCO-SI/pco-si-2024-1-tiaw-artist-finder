@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="./logo.svg">
     <title>Cadastro</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./logo.svg">
     <link rel="stylesheet" href="./assets/login.css">
+    <link rel="stylesheet" href="./assets/avalia.css">
+    <link rel="stylesheet" href="./assets/edit.css">
 </head>
 <body>
     <form class="my-form" id="signUpForm">
@@ -57,8 +60,40 @@
             </div>
         </div>
     </form>
+    <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Atenção!</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Querido usuário, ao fazer cadastro gentileza utilizar dados fictícios!</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Ciente</button>
+            </div>
+          </div>
+        </div>
+      </div>
     <script src="./scripts/login.js"></script>
     <script src="./scripts/signup.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+  function showModal() {
+    var modal = document.querySelector('.modal');
+    var modalInstance = new bootstrap.Modal(modal); 
+    // Exibir o modal
+    modalInstance.show();
+  }
+  
+  showModal();
+});
+    </script>
 </body>
 
 </html>
