@@ -28,7 +28,7 @@ h2 { text-align: center }
 
 @media (min-width: 1440px) {
   html {
-    zoom: 1.5;
+    zoom: 1;
   }
 }
 
