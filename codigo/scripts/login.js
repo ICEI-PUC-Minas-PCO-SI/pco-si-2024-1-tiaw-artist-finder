@@ -44,7 +44,7 @@ function isLoggedIn() {
 
 async function obterDadosUsuarios() {
     try {
-        const response = await fetch('http://localhost:3000/usuarios');
+        const response = await fetch('https://api-newusers-tiaw.vercel.app/usuarios/');
         if (!response.ok) {
             throw new Error('Erro ao carregar usuários.');
         }
@@ -59,7 +59,7 @@ async function updateProfilePicture() {
     const loggedInUserId = localStorage.getItem('loggedInUserId');
     if (loggedInUserId) {
         try {
-            const response = await fetch('http://localhost:3000/usuarios');
+            const response = await fetch('https://api-newusers-tiaw.vercel.app/usuarios');
             if (!response.ok) {
                 throw new Error('Erro ao carregar dados do usuário.');
             }
@@ -67,18 +67,18 @@ async function updateProfilePicture() {
             const data = await response.json();
             const user = data.find(user => user.id === loggedInUserId);
             if (user) {
-                const userPhoto = document.getElementById('navbar-user-photo');
+                const userNavPhoto = document.getElementById('navbar-user-photo');
                 const subMenuPhoto = document.querySelector('.sub-menu .user-info img');
                 const subMenuName = document.querySelector('.sub-menu .user-info h2');
 
                 if (user.foto) {
-                    userPhoto.src = user.foto;
+                    userNavPhoto.src = user.foto;
                     subMenuPhoto.src = user.foto;
                 } else {
                     let userPicData = JSON.parse(localStorage.getItem('userPicData')) || [];
                     const userIndex = userPicData.findIndex(u => u.id === loggedInUserId);
                     if (userIndex !== -1) {
-                        userPhoto.src = userPicData[userIndex].foto;
+                        userNavPhoto.src = userPicData[userIndex].foto;
                         subMenuPhoto.src = userPicData[userIndex].foto;
                     } else {
                         console.warn('Foto de perfil não encontrada no localStorage.');
@@ -151,7 +151,7 @@ function adjustMenu() {
     const screenWidth = window.innerWidth;
     const navMenu = document.querySelector('.navbar-nav');
     const subMenuItems = document.querySelectorAll('.sub-menu-link');
-    const userPhoto = document.getElementById('navbar-user-photo');
+    const userNavPhoto = document.getElementById('navbar-user-photo');
     const subMenu = document.getElementById('subMenu');
 
     const extraNavItems = document.querySelectorAll('.extra-nav-item');
@@ -165,13 +165,13 @@ function adjustMenu() {
             navMenu.appendChild(li);
         });
 
-        if (userPhoto) {
-            userPhoto.style.display = 'none';
+        if (userNavPhoto) {
+            userNavPhoto.style.display = 'none';
         }
         subMenu.classList.remove('open-menu');
     } else {
-        if (userPhoto) {
-            userPhoto.style.display = 'block';
+        if (userNavPhoto) {
+            userNavPhoto.style.display = 'block';
         }
 
         // Remover itens extras apenas se eles estiverem presentes

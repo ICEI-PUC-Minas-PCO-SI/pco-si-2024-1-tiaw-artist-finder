@@ -1,4 +1,4 @@
-const URL = "http://localhost:3000/usuarios";
+const URL = "https://api-newusers-tiaw.vercel.app/usuarios";
 
 function getLoggedInUserId() {
     const userId = localStorage.getItem('loggedInUserId');
