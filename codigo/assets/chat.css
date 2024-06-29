@@ -255,3 +255,8 @@ body {
         max-width: 50%;
     }
 }
+
+.navbar navbar-expand-lg bg-body-tertiary {
+    display: flex;
+    justify-content: space-between !important;
+}

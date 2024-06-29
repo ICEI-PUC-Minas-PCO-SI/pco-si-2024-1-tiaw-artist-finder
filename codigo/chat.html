@@ -22,7 +22,9 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <img src="assets/img/logo.svg" id="logo">
+            <a href="./index.html">
+                <img src="assets/img/logo.svg" id="logo">
+            </a>          
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
                 aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -30,26 +32,42 @@
             <div class="collapse navbar-collapse fs-3 " id="navbarTogglerDemo02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                     <li class="nav-item me-3">
-                        <a class="nav-link " href="chat.html">Chat</a>                                       
-                    </li>
-                    <li class="nav-item me-3">
                         <a class="nav-link active " aria-current="page" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item me-3">
-                        <a class="nav-link " href="profile.html">Perfil</a>
-                    </li>
-                    <li class="nav-item me-3">
-                        <a class="nav-link " href="graphic.html">Vendas</a>
                     </li>
                     <li class="nav-item me-3">
                         <a class="nav-link " href="explore.html">Explorar</a>   
                     </li>
                     <li class="nav-item me-3">
-                        <a class="nav-link " href="calendario.html">Calendário</a>
+                        <a class="nav-link " href="graphic.html">Vendas</a>
                     </li>
                     <li class="nav-item me-3">
-                        <a class="nav-link " href="#" id="logoutButton">Logout</a>
+                        <a class="nav-link " href="chat.html">Chat</a>                                       
                     </li>
+                    <img src="assets/img/user-profile-icon.svg" id="navbar-user-photo" class="pic" onclick="ToggleMenu()">
+                            <div class="sub-menu-wrap" id="subMenu">
+                                <div class="sub-menu">
+                                    <div class="user-info">
+                                        <img src="assets/img/user-profile-icon.svg" alt="">
+                                        <h2>Nome</h2>
+                                    </div>
+                                    <hr>                                       
+                                    <a href="profile.html" class="sub-menu-link">
+                                        <img src="assets/img/edit-profile.svg" alt="">
+                                        <p>Editar Perfil</p>
+                                        <span>></span>
+                                    </a>
+                                    <a href="calendario.html" class="sub-menu-link">
+                                        <img src="assets/img/edit-profile.svg" alt="">
+                                        <p>Calendário</p>
+                                        <span>></span>
+                                    </a>
+                                    <a href="#" id="logoutButton" class="sub-menu-link">
+                                        <img src="assets/img/edit-profile.svg" alt="">
+                                        <p>Logout</p>
+                                        <span>></span>
+                                    </a>
+                                </div>
+                            </div>
                 </ul>
             </div>
         </div>
