@@ -12,38 +12,55 @@ let FILTRO_ESTADO = "";
 let FILTRO_DISPONIBILIDADE = "";
 
 function init() {
-    document.querySelector('#filtroAtuacao').addEventListener('change', (e) => {
-        FILTRO_ATUACAO = e.target.value;
-        exibeUsuarios();
-    });
+    const filtroAtuacao = document.querySelector('#filtroAtuacao');
+    const filtroEstado = document.querySelector('#filtroEstado');
+    const filtroDisponibilidade = document.querySelector('#filtroDisponibilidade');
+    const limparButton = document.querySelector('#limpar');
+    const searchBar = document.querySelector('#searchBar');
 
-    document.querySelector('#filtroEstado').addEventListener('change', (e) => {
-        FILTRO_ESTADO = e.target.value;
-        exibeUsuarios();
-    });
+    if (filtroAtuacao) {
+        filtroAtuacao.addEventListener('change', (e) => {
+            FILTRO_ATUACAO = e.target.value;
+            exibeUsuarios();
+        });
+    }
 
-    document.querySelector('#filtroDisponibilidade').addEventListener('change', (e) => {
-        FILTRO_DISPONIBILIDADE = e.target.value;
-        exibeUsuarios();
-    });
+    if (filtroEstado) {
+        filtroEstado.addEventListener('change', (e) => {
+            FILTRO_ESTADO = e.target.value;
+            exibeUsuarios();
+        });
+    }
 
-    document.querySelector('#limpar').addEventListener('click', () => {
-        FILTRO_ATUACAO = "";
-        FILTRO_ESTADO = "";
-        FILTRO_DISPONIBILIDADE = "";
-        document.querySelector('#filtroAtuacao').value = "";
-        document.querySelector('#filtroEstado').value = "";
-        document.querySelector('#filtroDisponibilidade').value = "";
-        searchBar.value = "";
-        exibeUsuarios();
-    });
+    if (filtroDisponibilidade) {
+        filtroDisponibilidade.addEventListener('change', (e) => {
+            FILTRO_DISPONIBILIDADE = e.target.value;
+            exibeUsuarios();
+        });
+    }
 
-    searchBar.addEventListener("keyup", () => {
-        exibeUsuarios();
-    });
+    if (limparButton) {
+        limparButton.addEventListener('click', () => {
+            FILTRO_ATUACAO = "";
+            FILTRO_ESTADO = "";
+            FILTRO_DISPONIBILIDADE = "";
+            if (filtroAtuacao) filtroAtuacao.value = "";
+            if (filtroEstado) filtroEstado.value = "";
+            if (filtroDisponibilidade) filtroDisponibilidade.value = "";
+            if (searchBar) searchBar.value = "";
+            exibeUsuarios();
+        });
+    }
+
+    if (searchBar) {
+        searchBar.addEventListener("keyup", () => {
+            exibeUsuarios();
+        });
+    }
 
     carregarUsuarios();
 }
+
 
 async function carregarUsuarios() {
     try {

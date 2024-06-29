@@ -22,7 +22,7 @@ async function login() {
                     return;
                 }
 
-                localStorage.setItem('loggedInUserId', user.id);
+                localStorage.setItem('loggedInUserId', user.id.toString());
 
                 window.location.href = "index.html";
             } catch (error) {
@@ -55,6 +55,48 @@ async function obterDadosUsuarios() {
     }
 }
 
+async function updateProfilePicture() {
+    const loggedInUserId = localStorage.getItem('loggedInUserId');
+    if (loggedInUserId) {
+        try {
+            const response = await fetch('http://localhost:3000/usuarios');
+            if (!response.ok) {
+                throw new Error('Erro ao carregar dados do usuário.');
+            }
+
+            const data = await response.json();
+            const user = data.find(user => user.id === loggedInUserId);
+            if (user) {
+                const userPhoto = document.getElementById('user-photo');
+                const subMenuPhoto = document.querySelector('.sub-menu .user-info img');
+                const subMenuName = document.querySelector('.sub-menu .user-info h2');
+
+                if (user.foto) {
+                    userPhoto.src = user.foto;
+                    subMenuPhoto.src = user.foto;
+                } else {
+                    let userPicData = JSON.parse(localStorage.getItem('userPicData')) || [];
+                    const userIndex = userPicData.findIndex(u => u.id === loggedInUserId);
+                    if (userIndex !== -1) {
+                        userPhoto.src = userPicData[userIndex].foto;
+                        subMenuPhoto.src = userPicData[userIndex].foto;
+                    } else {
+                        console.warn('Foto de perfil não encontrada no localStorage.');
+                    }
+                }
+
+                subMenuName.textContent = user.nome;
+            } else {
+                console.warn('Usuário não encontrado.');
+            }
+        } catch (error) {
+            console.error('Erro ao buscar dados do usuário:', error);
+        }
+    } else {
+        console.warn('Nenhum usuário logado.');
+    }
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
     const currentPage = window.location.pathname;
     const navbar = document.getElementById('navbar');
@@ -83,7 +125,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
 
-    login();
+    await login();
+    await updateProfilePicture();
 });
 
 function createNavItem(text, href) {
@@ -92,11 +135,9 @@ function createNavItem(text, href) {
     navItem.innerHTML = `
         <a class="nav-link" href="${href}">${text}</a>
     `;
-    
     const div = document.getElementById('screenWelcome');
     div.innerHTML = `
         <h1>Querido usuário, bem vindo ao Artist Finder! Confira nossos artistas e logue para ter mais opções!</h1>
-    `
+    `;
     return navItem;
-
 }
