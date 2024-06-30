@@ -288,7 +288,7 @@ etiquetas:
 - `feature`: uma nova funcionalidade precisa ser introduzida
 - `merge`: preparação e adequação do código para sofrer merge de features
 
-# **############## SPRINT 1 ACABA AQUI #############**
+# **# O conteúdo a seguir foi desenvolvido nas Sprints 2, 3 e 4 #**
 
 ## Projeto de Solução
 
@@ -350,7 +350,7 @@ O projeto Artist Finder foi desenvolvido utilizando uma variedade de tecnologias
 
 1. **Fake Back-End com JSON-Server via Node.js**
    - **Descrição**: Ferramenta para criar um servidor RESTful simulado usando JSON.
-   - **Aplicação**: JSON-Server foi utilizado para simular a persistência de dados, permitindo operações CRUD (Create, Read, Update, Delete) sem necessidade de um banco de dados real.
+   - **Aplicação**: JSON-Server foi utilizado para simular a persistência de dados, permitindo operações CRUD (Create, Read, Update) sem necessidade de um banco de dados real.
 
 2. **Local Storage**
    - **Descrição**: Mecanismo de armazenamento local do navegador.
@@ -453,6 +453,7 @@ Permite que o usuário edite os parâmetros do seu perfil da maneira que preferi
     - Capa
     - Mensagens via chat
     - Calendário
+    - Avaliação
 
 ### 1.3 Fluxo de Dados
 - Os dados armazenados no Local Storage são utilizados para exibir informações no site.
@@ -478,7 +479,7 @@ Permite que o usuário edite os parâmetros do seu perfil da maneira que preferi
   - O navegador faz chamadas GET para a API no json-server para obter dados do usuário, vendas e avaliações.
   
 - **Escrita de Dados**:
-  - O navegador faz chamadas POST/PUT/DELETE para a API para atualizar ou remover dados conforme necessário.
+  - O navegador faz chamadas POST/PUT para a API para atualizar ou remover dados conforme necessário.
   - Após operações de escrita, o Local Storage é atualizado para refletir as mudanças.
 
 ## 3. Integração
@@ -502,10 +503,6 @@ Permite que o usuário edite os parâmetros do seu perfil da maneira que preferi
 - **PUT /usuarios/id**: Atualiza os dados de um usuário existente.
 - **GET /vendas/idUsuarioCriador**: Obtém dados de uma venda de acordo com o usuário logado.
 - **POST /vendas/**: Cria uma nova venda.
-- **PUT /vendas/id**: Atualiza uma venda existente.
-- **DELETE /vendas/id**: Remove uma venda.
-- **GET /avaliacoes/idAvaliado**: Obtém dados de avaliações.
-- **POST /avaliacoes**: Cria uma nova avaliação.
 
 # Avaliação da Aplicação
 
