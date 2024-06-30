@@ -21,25 +21,18 @@
 <body>
     <div class="menu">
         <header id="header">
-            <div class="container-header ">
-                <div class="navbar navbar-expand-lg  text-center">
-                    <section class="logo">
+            <div class="container-header">
+                <div class="flex">
                         <a href="index.html"><img src="assets/img/logo.svg" id="logo"> </a>
-                    </section>
-                    <button id="expandir" class="navbar-toggler " type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse fs-3 " id="navbarTogglerDemo02">
                         <nav>
-                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <ul>
                                 <li> <a class="nav-link" aria-current="page" href="index.html">Home</a> </li>
                                 <li> <a class="nav-link" href="explore.html">Explorar</a></li>
                                 <li> <a class="nav-link" href="graphic.html">Vendas</a></li>
                                 <li> <a class="nav-link" href="chat.html">Chat</a> </li>
                             </ul>
                         </nav>
+
                         <section class="btn-profile">
                             <img src="assets/img/user-profile-icon.svg" id="navbar-user-photo" class="pic"
                                     onclick="ToggleMenu()">
@@ -68,8 +61,8 @@
                                     </div>
                                 </div>
                         </section>
-                    </div>
-                </div>
+
+                </div><!--flex-->
             </div>
         </header>
     </div>
@@ -124,7 +117,7 @@
     </section>
     <div class="slider_body">      
     <div class="gallery">
-        <h1>Hall de <span>projetos</span></h1>
+        <h1>Projetos em <span>destaque</span></h1>
         <div class="gallery-container">
             
             <img class="gallery-item gallery-item-1" src="assets/img/11-1-min.jpg" data-index="1">
@@ -237,7 +230,7 @@
         }
     </script>
     <script src="./scripts/login.js"></script>
-    <script src="./scripts/filtro.js"></script>
+    <script src="./scripts/menu.js"></script>
 </body>
 
 </html>

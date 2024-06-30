@@ -47,21 +47,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 galeria1: "",
                 galeria2: "",
                 galeria3: "",
+                avaliacao: 0,
                 descricao: "edite sua descrição!"
             };
 
             await createUser(newUser);
             alert("Conta criada com sucesso!");
 
-            let userPicData = JSON.parse(localStorage.getItem('userPicData')) || [];           
-            userPicData.push({
+            let userPicData = JSON.parse(localStorage.getItem('userPicData')) || [];
+            erPicData.push({
                 id: userId,
                 foto: 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png'
             });
-            
+
 
             localStorage.setItem('userPicData', JSON.stringify(userPicData));
-            
+
 
             window.location.href = "login.html";
         } catch (error) {
@@ -104,4 +105,3 @@ async function createUser(user) {
         throw error;
     }
 }
-
