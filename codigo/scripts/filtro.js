@@ -126,11 +126,10 @@ function displayUsers(users) {
                     }
                 }
 
-                // Obter avaliações do usuário do localStorage
                 const avaliacoes = JSON.parse(localStorage.getItem('avaliacoes')) || [];
                 const avaliacoesUsuario = avaliacoes.filter(avaliacao => avaliacao.idAvaliado === usuario.id.toString());
                 const somaAvaliacoes = avaliacoesUsuario.reduce((acc, curr) => acc + curr.estrelas, 0);
-                const mediaAvaliacoes = avaliacoesUsuario.length > 0 ? (somaAvaliacoes / avaliacoesUsuario.length).toFixed(1) : 'N/A';
+                const mediaAvaliacoes = avaliacoesUsuario.length > 0 ? (somaAvaliacoes / avaliacoesUsuario.length).toFixed(1) : '5.0';
 
                 return `
                     <div class="col-md-4 mb-5">

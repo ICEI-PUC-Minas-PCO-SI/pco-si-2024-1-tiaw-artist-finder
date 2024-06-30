@@ -72,7 +72,7 @@ function carregarDadosUsuario() {
             const avaliacoes = JSON.parse(localStorage.getItem('avaliacoes')) || [];
             const avaliacoesUsuario = avaliacoes.filter(avaliacao => avaliacao.idAvaliado === loggedInUserId.toString());
             const somaAvaliacoes = avaliacoesUsuario.reduce((acc, curr) => acc + curr.estrelas, 0);
-            const mediaAvaliacoes = avaliacoesUsuario.length > 0 ? (somaAvaliacoes / avaliacoesUsuario.length).toFixed(1) : 'N/A';
+            let mediaAvaliacoes = avaliacoesUsuario.length > 0 ? (somaAvaliacoes / avaliacoesUsuario.length).toFixed(1) : '5.0';
 
             document.getElementById('user-rating').textContent = mediaAvaliacoes;
 
