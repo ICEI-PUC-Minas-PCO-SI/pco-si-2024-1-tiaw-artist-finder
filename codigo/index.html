@@ -79,41 +79,35 @@
     <section class="main-content" id="mainContent">
         <div class="container">
             <div class="content">
-                <h3 class="titulo"><span>Sobre</span> Nós
+                <h3 class="titulo"><span>Conecte-se com </span>artistas
                     <div class="border"></div>
                 </h3>
-                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum laboriosam provident
-                    voluptatum consectetur repudiandae cupiditate explicabo, odio distinctio repellat veniam quos eaque
-                    corporis. Molestiae, quo commodi voluptas aperiam expedita consectetur.</p>
+                <p class="text">Faça parte de uma comunidade vibrante. Encontre e colabore com artistas de diversas áreas e expanda suas possibilidades criativas.</p>
             </div>
             <div class="imgContainer">
-                <img src="assets/img/18-2-min.jpg" alt="">
+                <img src="https://img.freepik.com/fotos-gratis/close-up-aperto-de-mao-de-empresarios_23-2148825865.jpg?t=st=1719760061~exp=1719763661~hmac=e4e20b76e29c53c72acfe8068f8051987c95b5632b859cd99954e30c8de72130&w=1380" alt="">
             </div>
 
 
             <div class="imgContainer">
-                <img src="assets/img/18-2-min.jpg" alt="">
+                <img src="https://img.freepik.com/fotos-gratis/mulher-de-vista-lateral-se-preparando-para-podcast_23-2149386580.jpg?t=st=1719760199~exp=1719763799~hmac=ba26ac8af2372731e86721b23bf2fb29473496790b109f61e406792e06163ead&w=1380" alt="">
             </div>
 
             <div class="content">
-                <h3 class="titulo">Sobre
+                <h3 class="titulo"><span>Sua arte, seu </span>espaço
                     <div class="border"></div>
                 </h3>
-                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum laboriosam provident
-                    voluptatum consectetur repudiandae cupiditate explicabo, odio distinctio repellat veniam quos eaque
-                    corporis. Molestiae, quo commodi voluptas aperiam expedita consectetur.</p>
+                <p class="text">Crie seu perfil e compartilhe suas obras com o mundo. Conecte-se com outros artistas e amantes da arte em nossa plataforma.</p>
             </div>
 
             <div class="content">
-                <h3 class="titulo"><span>Sobre</span> Nós
+                <h3 class="titulo"><span>Galeria de </span>talentos
                     <div class="border"></div>
                 </h3>
-                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum laboriosam provident
-                    voluptatum consectetur repudiandae cupiditate explicabo, odio distinctio repellat veniam quos eaque
-                    corporis. Molestiae, quo commodi voluptas aperiam expedita consectetur.</p>
+                <p class="text">Mergulhe no universo criativo de artistas talentosos. Descubra obras que inspiram e transformam.</p>
             </div>
             <div class="imgContainer">
-                <img src="assets/img/18-2-min.jpg" alt="">
+                <img src="https://img.freepik.com/fotos-gratis/mulher-em-um-arte-exposicao_53876-14379.jpg?t=st=1719760289~exp=1719763889~hmac=c83e92a78f792d24c79669b82152c3382ee2f72d53a0d415946cf993af14019c&w=1380" alt="">
             </div>
 
         </div>
@@ -121,8 +115,28 @@
 
     <section class="projetos">
         <div class="filtro"></div>
-        <h1>Conheça alguns projetos</h1>
+        <h1 id="textBanner">Procure por um artista</h1>
+        
     </section>
+
+    <div class="slider_body">
+        
+    <div class="gallery">
+        <h1>Hall de de <span>projetos</span></h1>
+        <div class="gallery-container">
+            
+            <img class="gallery-item gallery-item-1" src="assets/img/11-1-min.jpg" data-index="1">
+            <img class="gallery-item gallery-item-2" src="assets/img/11-2-min.jpg" data-index="2"> 
+            <img class="gallery-item gallery-item-3" src="assets/img/11-3-min.jpg" data-index="3">  
+            <img class="gallery-item gallery-item-4" src="assets/img/12-2-min.jpg" data-index="4"> 
+            <img class="gallery-item gallery-item-5" src="assets/img/12-1-min.jpg" data-index="5">  
+        </div>
+        <div class="gallery-controls"></div>
+    </div>
+</div>
+
+
+
 
     <footer>
         <div id="footer_content">
@@ -195,7 +209,7 @@
     </footer>
 
 
-
+    <script src="scripts/slider_home.js"></script>
     <script type="text/javascript">
         let montanhas = document.getElementById("montanhas");
         let flores = document.getElementById("flores");
@@ -213,13 +227,11 @@
             mainContent.style.right = value * 0.1 + 'px'
         })
 
-      
-           
-        
-
-
-       
-
+        let textBanner = document.getElementById("textBanner");
+        window.addEventListener('scroll', function () {
+            var scrollValue = window.scrollY;
+            textBanner.style.top = scrollValue * 1 + 'px;'
+        })
     </script>
     <script>
         let subMenu = document.getElementById("subMenu");

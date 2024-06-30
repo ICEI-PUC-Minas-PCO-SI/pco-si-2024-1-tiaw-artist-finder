@@ -69,8 +69,11 @@
 
 .pic {
     width: 60px;
+    height: 60px;
     border-radius: 50%;
     margin-right: 15px;
+    object-fit: cover;
+    
 }
 
 .user-info{
@@ -87,6 +90,7 @@
     width: 60px;
     border-radius: 50%;
     margin-right: 15px;
+    object-fit: cover;
 }
 
 .sub-menu img{
