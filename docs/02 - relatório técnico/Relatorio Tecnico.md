@@ -511,99 +511,83 @@ Permite que o usuário edite os parâmetros do seu perfil da maneira que preferi
 
 A avaliação da aplicação Artist Finder foi conduzida com o objetivo de garantir que todas as funcionalidades principais funcionem conforme os requisitos e ofereçam uma experiência de usuário satisfatória. Abaixo, apresentamos os cenários de testes utilizados para validar a aplicação.
 
-### Cenários de Testes
+## Cenários de Testes
 
 Os cenários de testes foram escolhidos para demonstrar que os requisitos do projeto estão sendo atendidos. Cada cenário foi projetado para avaliar funcionalidades específicas, desde a criação de contas até a navegação no site e a interação entre usuários.
+
+### Plano de Testes
 
 1. **Criação de Conta**
    - Verificação se usuários podem criar contas com sucesso, preenchendo os campos obrigatórios.
    - Teste de validação de campos.
-
-2. **Login e Logout**
-   - Testar se usuários podem fazer login e logout corretamente.
-   - Verificação de persistência da sessão entre navegações.
-
-3. **Navegação na Home Page**
-   - Visualicação correta de usuários que existem no site, com suas obras e redirecionamento funcional.
-   - Testar a funcionalidade de carrosséis.
-
-4. **Exploração de Perfis**
-   - Teste de filtros e busca de artistas.
-   - Verificação da exibição correta dos perfis de artistas.
-
-5. **Visualização de Perfil**
-   - Avaliação da funcionalidade de visualização de detalhes do perfil.
-   - Teste da exibição de portfólios.
-
-6. **Edição de Perfil**
-   - Verificação se artistas podem editar seus perfis e adicionar trabalhos ao portfólio.
-   - Teste da atualização dos dados no Local Storage e na API.
-
-7. **Interação via Chat**
-   - Testar se a comunicação entre clientes e artistas é funcional através do chat.
-   - Verificação da persistência de mensagens no Local Storage.
-
-8. **Sistema de Avaliação**
-   - Avaliação da funcionalidade de avaliação por estrelas.
-   - Teste de submissão e exibição de feedbacks.
-
-9. **Calendário**
-   - Teste da funcionalidade de adição e visualização de eventos no calendário.
-   - Verificação da persistência de dados no Local Storage.
-
-
-## Plano de Testes
-
-#### Cenários Selecionados
-
-Os cenários foram selecionados para cobrir as funcionalidades essenciais da plataforma Artist Finder. Detalhamos abaixo os cenários e as ferramentas utilizadas para cada teste.
-
-1. **Criação de Conta**
    - **Funcionalidade Avaliada**: Registro de novos usuários.
    - **Grupo de Usuários**: Novos visitantes do site.
    - **Ferramentas Utilizadas**: Testes manuais, Ferramentas de inspeção do navegador.
 
 2. **Login e Logout**
+   - Testar se usuários podem fazer login e logout corretamente.
+   - Verificação de persistência da sessão entre navegações.
    - **Funcionalidade Avaliada**: Autenticação de usuários.
    - **Grupo de Usuários**: Usuários registrados.
    - **Ferramentas Utilizadas**: Testes manuais, Ferramentas de inspeção do navegador.
 
 3. **Navegação na Home Page**
+   - Visualicação correta de usuários que existem no site, com suas obras e redirecionamento funcional.
+   - Testar a funcionalidade de carrosséis.
    - **Funcionalidade Avaliada**: Exibição de conteúdos e carrosséis.
    - **Grupo de Usuários**: Todos os visitantes.
    - **Ferramentas Utilizadas**: Testes manuais, Ferramentas de inspeção do navegador.
 
 4. **Exploração de Perfis**
+   - Teste de filtros e busca de artistas.
+   - Verificação da exibição correta dos perfis de artistas.
    - **Funcionalidade Avaliada**: Busca e filtros de perfis.
    - **Grupo de Usuários**: Clientes em busca de artistas.
    - **Ferramentas Utilizadas**: Testes manuais, Ferramentas de inspeção do navegador.
 
 5. **Visualização de Perfil**
+   - Avaliação da funcionalidade de visualização de detalhes do perfil.
+   - Teste da exibição de portfólios.
    - **Funcionalidade Avaliada**: Detalhamento de perfis de artistas.
    - **Grupo de Usuários**: Clientes e outros artistas.
    - **Ferramentas Utilizadas**: Testes manuais, Ferramentas de inspeção do navegador.
 
 6. **Edição de Perfil**
+   - Verificação se artistas podem editar seus perfis e adicionar trabalhos ao portfólio.
+   - Teste da atualização dos dados no Local Storage e na API.
    - **Funcionalidade Avaliada**: Atualização de perfis e portfólios.
    - **Grupo de Usuários**: Artistas registrados.
    - **Ferramentas Utilizadas**: Testes manuais, Ferramentas de inspeção do navegador.
 
 7. **Interação via Chat**
+   - Testar se a comunicação entre clientes e artistas é funcional através do chat.
+   - Verificação da persistência de mensagens no Local Storage.
    - **Funcionalidade Avaliada**: Sistema de mensagens entre usuários.
    - **Grupo de Usuários**: Clientes e artistas.
    - **Ferramentas Utilizadas**: Testes manuais, Ferramentas de inspeção do navegador.
 
 8. **Sistema de Avaliação**
+   - Avaliação da funcionalidade de avaliação por estrelas.
+   - Teste de submissão e exibição de feedbacks.
    - **Funcionalidade Avaliada**: Submissão e exibição de avaliações.
    - **Grupo de Usuários**: Clientes que contrataram artistas.
    - **Ferramentas Utilizadas**: Testes manuais, Ferramentas de inspeção do navegador.
 
 9. **Calendário**
+   - Teste da funcionalidade de adição e visualização de eventos no calendário.
+   - Verificação da persistência de dados no Local Storage.
    - **Funcionalidade Avaliada**: Adição e visualização de eventos.
    - **Grupo de Usuários**: Artistas e clientes.
    - **Ferramentas Utilizadas**: Testes manuais, Ferramentas de inspeção do navegador.
 
-## Ferramentas de Testes (Opcional)
+10. **Gráfico de Vendas**
+   - Teste da funcionalidade de adição de venda.
+   - Verificação da persistência de dados na API.
+   - **Funcionalidade Avaliada**: Criação e exibição correta das vendas do artista.
+   - **Grupo de Usuários**: Artistas.
+   - **Ferramentas Utilizadas**: Testes manuais, Ferramentas de inspeção do navegador.
+
+## Ferramentas de Testes
 
 Para realizar os testes, utilizamos diversas ferramentas que facilitaram a validação das funcionalidades e a identificação de possíveis problemas.
 
