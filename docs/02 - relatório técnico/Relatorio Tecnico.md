@@ -50,13 +50,12 @@ Os membros do grupo são:
   - [Divisão de Papéis](#divisão-de-papéis)
   - [Ferramentas](#ferramentas)
   - [Controle de Versão](#controle-de-versão)
-- [**############## SPRINT 1 ACABA AQUI #############**](#-sprint-1-acaba-aqui-)
 - [Projeto da Solução](#projeto-da-solução)
   - [Tecnologias Utilizadas](#tecnologias-utilizadas)
   - [Arquitetura da solução](#arquitetura-da-solução)
 - [Avaliação da Aplicação](#avaliação-da-aplicação)
   - [Plano de Testes](#plano-de-testes)
-  - [Ferramentas de Testes (Opcional)](#ferramentas-de-testes-opcional)
+  - [Ferramentas de Testes (Opcional)](#ferramentas-de-testes)
   - [Registros de Testes](#registros-de-testes)
 - [Referências](#referências)
 
@@ -290,7 +289,7 @@ etiquetas:
 
 # **# O conteúdo a seguir foi desenvolvido nas Sprints 2, 3 e 4 #**
 
-## Projeto de Solução
+## Projeto da Solução
 
 O projeto Artist Finder foi concebido para criar uma plataforma digital que conecta artistas freelancers a potenciais clientes, facilitando a contratação de serviços artísticos. A solução proposta se baseia em uma série de funcionalidades que atendem tanto às necessidades dos artistas quanto dos clientes, garantindo uma experiência de usuário intuitiva, eficiente e segura. Abaixo, detalhamos os principais componentes do projeto de solução:
 
@@ -464,6 +463,7 @@ Permite que o usuário edite os parâmetros do seu perfil da maneira que preferi
 ### 2.1 Tecnologias Utilizadas
 - **Hospedagem**: Vercel
 - **Banco de Dados**: API fake com json-server
+> ![Visualizar](https://api-tiaw-vercel.vercel.app/)
 
 ### 2.2 Funcionalidades
 - **API REST**:
@@ -624,6 +624,9 @@ Para realizar os testes, utilizamos diversas ferramentas que facilitaram a valid
 > ![Dados salvos com sucesso](images/dadossalvoscomsucesso.jpg)
 > ![Exibição de portfólio selecionado pelo usuário](images/portfolio.jpg)
 > ![Dados exibidos com sucesso na navbar](images/dadosexibidosnanavbar.jpg)
+> ![Abrindo modal de avaliação](images/av1.jpg)
+> ![Avaliando](images/av2.jpg)
+> ![Média de avaliação aparecendo corretamente](images/av3.jpg)
 
 # Referências
 
@@ -633,4 +636,4 @@ Para realizar os testes, utilizamos diversas ferramentas que facilitaram a valid
 - Inspiração de sidebar do gráfico de vendas:https://www.youtube.com/watch?v=lZVQGjTEX-w
 - Inspiração de calendário: https://youtu.be/6EVgmpm4z5U?si=B4T8cb0YXLm7Dltr
 - Inspiração de rodapé: https://www.youtube.com/watch?v=SUFzgCwJZkk
-- Inspiração tela de login e cadastro: 
+- Inspiração tela de login e cadastro: https://github.com/atherosai/ui
