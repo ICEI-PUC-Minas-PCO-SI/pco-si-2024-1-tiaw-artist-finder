@@ -601,12 +601,32 @@ Para realizar os testes, utilizamos diversas ferramentas que facilitaram a valid
 
 ## Registros de Testes
 
-......  COLOQUE AQUI O SEU TEXTO ......
-
-> Discorra sobre os resultados do teste. Ressaltando pontos fortes e
-> fracos identificados na solução. Comente como o grupo pretende atacar
-> esses pontos nas próximas iterações. Apresente as falhas detectadas e
-> as melhorias geradas a partir dos resultados obtidos nos testes.
+> ![Criação de conta](images/cadastro1.jpg)
+> ![Criação de conta, feedback positivo](images/cadastro2.jpg)
+> ![Login](images/login1.jpg)
+> ![Entrando na aplicação pós login](images/usuariologado.jpg)
+> ![Navegação na home](images/navegacaohome.jpg)
+> ![Navegação na home, mostrando mensagem convidativa](images/navegacaohome2.jpg)
+> ![Carrousel com conteúdos reais dos usuários do site](images/navegacaohome3.jpg)
+> ![Logout](images/logout.jpg)
+> ![Chat, enviando mensagem](images/chat1.jpg)
+> ![Chat, recebendo e respondendo mensagem](images/chat2.jpg)
+> ![Notificação do chat](images/chat3.jpg)
+> ![Calendário](images/calendario1.jpg)
+> ![Calendário com evento adicionado](images/calendario2.jpg)
+> ![Explorar](images/explorar1.jpg)
+> ![Explorar exibindo usuários do site](images/explorar2.jpg)
+> ![Explorar exibindo resultado da pesquisa](images/pesquisaexplorar.jpg)
+> ![Explorar exibindo resultado do filtro](images/filtroexplorar.jpg)
+> ![Visualizando perfil](images/visualizacaoperfil.jpg)
+> ![Visualizando perfil, com todos os dados corretos](images/dadospuxados.jpg)
+> ![Sub menu, redirecionando para editar perfil](images/edicaodeperfil.jpg)
+> ![Página de editar perfil recuperando dados do usuário](images/editarperfil.jpg)
+> ![Modal para editar dados do perfil](images/editardados.jpg)
+> ![Dados sendo editados](images/dadossendoeditados.jpg)
+> ![Dados salvos com sucesso](images/dadossalvoscomsucesso.jpg)
+> ![Exibição de portfólio selecionado pelo usuário](images/portfolio.jpg)
+> ![Dados exibidos com sucesso na navbar](images/dadosexibidosnanavbar.jpg)
 
 # Referências
 
