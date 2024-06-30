@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
     const formSignUp = document.getElementById('signUpForm');
-
     formSignUp.addEventListener("submit", async function (e) {
         e.preventDefault();
         e.stopPropagation();
