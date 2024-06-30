@@ -57,7 +57,7 @@ async function fetchGalleryImages() {
             if (images[index]) {
                 item.src = images[index];
                 item.addEventListener('click', () => {
-                    window.location.href = `./codigo/user.html?id=${users[index].id}`;
+                    window.location.href = `user.html?id=${users[index].id}`;
                 });
             }
         });

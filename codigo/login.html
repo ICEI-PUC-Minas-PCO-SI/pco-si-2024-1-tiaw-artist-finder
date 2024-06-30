@@ -1,17 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Artist Finder">
+    <meta property="og:description" content="Um projeto PUC Minas para artistas e clientes!">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1593382067395-ace3045a1547?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+    <meta name="description"
+        content="Bem vindo ao Artist Finder! Um projeto da PUC Minas que traz uma experiência cativante e intuitiva para artistas freelancers e clientes que buscam talentos." />
     <link rel="icon" type="image/x-icon" href="favicon.svg">
     <title>Login</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <meta name="keywords" content="artistas, freelancers, pucminas">
     <link rel="stylesheet" href="./assets/login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <form class="my-form" id="loginForm">
         <div class="login-welcome-row">
@@ -23,12 +33,15 @@
         </div>
         <div class="input__wrapper">
             <input type="email" id="email" name="email" class="input__field " placeholder="Your Email" required>
-            <label for="email" class="input__label">Email:</label>          
+            <label for="email" class="input__label">Email:</label>
         </div>
         <div class="input__wrapper">
-            <input id="password" type="password" class="input__field" placeholder="Your Password" title="No mínimo 6 caracteres" minlength="6" required>
+            <input id="password" type="password" class="input__field" placeholder="Your Password"
+                title="No mínimo 6 caracteres" minlength="6" required>
             <label for="password" class="input__label">Senha:</label>
-            <svg id="togglePassword" class="input__icon toggle-password" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <svg id="togglePassword" class="input__icon toggle-password" xmlns="http://www.w3.org/2000/svg" width="24"
+                height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                 <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z"></path>
                 <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path>
@@ -49,4 +62,5 @@
     </form>
     <script src="./scripts/login.js"></script>
 </body>
+
 </html>

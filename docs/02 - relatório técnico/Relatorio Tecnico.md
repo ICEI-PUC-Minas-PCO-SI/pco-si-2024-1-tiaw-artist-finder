@@ -633,3 +633,4 @@ Para realizar os testes, utilizamos diversas ferramentas que facilitaram a valid
 - Inspiração de sidebar do gráfico de vendas:https://www.youtube.com/watch?v=lZVQGjTEX-w
 - Inspiração de calendário: https://youtu.be/6EVgmpm4z5U?si=B4T8cb0YXLm7Dltr
 - Inspiração de rodapé: https://www.youtube.com/watch?v=SUFzgCwJZkk
+- Inspiração tela de login e cadastro: 
