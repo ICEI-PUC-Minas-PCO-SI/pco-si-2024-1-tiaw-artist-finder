@@ -3,10 +3,12 @@
     display:flex;
     align-items: center;
     justify-content: space-between;
+    
 }
 .container-header{
     max-width: 1280px;
     margin: auto;
+    
 }
 
 .flex{
@@ -17,10 +19,7 @@
 .menu header{
     width: 100%;
     padding: 40px 4%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    transition: .5s;
+    background: #e6e6e6;
     z-index: 3;
 }
 
@@ -40,25 +39,16 @@
 
 .menu header ul li a{
     font-size: 25px;
-    color:#fff;
+    color:#7400aa;
     text-decoration: none;
 }
 
-.menu header.rolagem{
-    background-color: #fff;
-    padding: 40px 4%;
-    position: fixed;
-    z-index: 3;
-}
 
-.menu header.rolagem a{
-    color: #7400aa;
-}
 
 
 .sub-menu-wrap{
     position: absolute;
-    top: 93%;
+    top: 13%;
     right: 10%;
     width: 320px;
     max-height: 0px;
@@ -72,7 +62,7 @@
 
 
 .sub-menu{
-    background: #fff;
+    background: #e6e6e6;
     padding: 20px;
     margin: 10px;
 }

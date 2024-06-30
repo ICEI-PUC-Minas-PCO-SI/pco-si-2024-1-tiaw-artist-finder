@@ -20,88 +20,94 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        try {
-            const usuarios = await fetchUsuarios();
+        const usuarios = await fetchUsuarios();
 
-            if (usuarios.some(user => user.email === email)) {
-                alert("Este email já está cadastrado. Por favor, escolha outro.");
-                return;
-            }
-
-            const userId = (usuarios.length + 1).toString();
-
-            const newUser = {
-                id: userId,
-                nome: "edite seu nome!",
-                idade: 18,
-                username: username,
-                email: email,
-                password: password,
-                foto: "",
-                estado: "edite seu estado!",
-                instituicao: "edite sua instituição!",
-                disponibilidade: "edite sua disponibilidade!",
-                capa: "",
-                atuacao: "edite sua atuação!",
-                capa: "",
-                galeria1: "",
-                galeria2: "",
-                galeria3: "",
-                avaliacao: 0,
-                descricao: "edite sua descrição!"
-            };
-
-            await createUser(newUser);
-            alert("Conta criada com sucesso!");
-
-            let userPicData = JSON.parse(localStorage.getItem('userPicData')) || [];
-            erPicData.push({
-                id: userId,
-                foto: 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png'
-            });
-
-
-            localStorage.setItem('userPicData', JSON.stringify(userPicData));
-
-
-            window.location.href = "login.html";
-        } catch (error) {
-            console.error('Erro ao criar a conta:', error);
-            alert("Erro ao criar a conta. Por favor, tente novamente mais tarde.");
+        if (usuarios.some(user => user.email === email)) {
+            alert("Este email já está cadastrado. Por favor, escolha outro.");
+            return;
         }
+
+        const userId = (usuarios.length + 1).toString();
+
+        const newUser = {
+            id: userId,
+            nome: "edite seu nome!",
+            idade: 18,
+            username: username,
+            email: email,
+            password: password,
+            foto: "",
+            estado: "edite seu estado!",
+            instituicao: "edite sua instituição!",
+            disponibilidade: "edite sua disponibilidade!",
+            capa: "",
+            atuacao: "edite sua atuação!",
+            galeria1: "",
+            galeria2: "",
+            galeria3: "",
+            avaliacao: 0,
+            descricao: "edite sua descrição!"
+        };
+
+        await createUser(newUser);
+        alert("Conta criada com sucesso!");
+
+        let userPicData = JSON.parse(localStorage.getItem('userPicData')) || [];
+        userPicData.push({
+            id: userId,
+            foto: 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png'
+        });
+
+        localStorage.setItem('userPicData', JSON.stringify(userPicData));
+
+        await addDefaultRatings(userId);
+
+        window.location.href = "login.html";
     });
 });
 
 async function fetchUsuarios() {
-    try {
-        const response = await fetch('https://api-tiaw-vercel.vercel.app/usuarios');
-        if (!response.ok) {
-            throw new Error('Erro ao carregar usuários.');
-        }
-        return await response.json();
-    } catch (error) {
-        console.error('Erro ao carregar usuários:', error);
-        throw error;
+    const response = await fetch('https://api-tiaw-vercel.vercel.app/usuarios');
+    if (!response.ok) {
+        throw new Error('Erro ao carregar usuários.');
     }
+    return await response.json();
 }
 
 async function createUser(user) {
-    try {
-        const response = await fetch('https://api-tiaw-vercel.vercel.app/usuarios', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(user),
-        });
+    const response = await fetch('https://api-tiaw-vercel.vercel.app/usuarios', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user),
+    });
 
-        if (!response.ok) {
-            throw new Error('Erro ao criar a conta.');
-        }
-
-        return await response.json();
-    } catch (error) {
-        console.error('Erro ao criar a conta:', error);
-        throw error;
+    if (!response.ok) {
+        throw new Error('Erro ao criar a conta.');
     }
+
+    return await response.json();
+}
+
+async function addDefaultRatings(userId) {
+    const usuarios = await fetchUsuarios();
+    const avaliacoes = await fetchAvaliacoes();
+
+    const novasAvaliacoes = [];
+
+    usuarios.forEach(user => {
+        if (user.id !== userId) {
+            const novaAvaliacao = {
+                id: (avaliacoes.length + novasAvaliacoes.length + 1).toString(),
+                idAvaliador: userId,
+                idAvaliado: user.id,
+                estrelas: 5
+            };
+            novasAvaliacoes.push(novaAvaliacao);
+        }
+    });
+
+    await Promise.all(novasAvaliacoes.map(avaliacao => createAvaliacao(avaliacao)));
+    console.log("Avaliações padrão adicionadas com sucesso para todos os usuários!");
 }
