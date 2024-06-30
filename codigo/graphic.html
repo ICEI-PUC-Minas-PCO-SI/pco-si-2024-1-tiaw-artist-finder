@@ -26,7 +26,7 @@
             <div id="sidebar_content">
                 <ul id="side_items">
                     <li class="side-item active" id="notHome">
-                        <a href="#" onclick="getvenda(0)" data-toggle="modal" data-target="#venda-modal">
+                        <a href="#" onclick="getVenda(0)" data-toggle="modal" data-target="#venda-modal">
                             <i class="fa-solid fa-plus"></i>
                             <span class="item-description">Adicionar</span>
                         </a>
@@ -40,7 +40,7 @@
                     <li class="side-item" id="notHome">
                         <a href="#table">
                             <i class="fa-solid fa-database"></i>
-                            <span class="item-description">Ver CRUD</span>
+                            <span class="item-description">Ver Tabela</span>
                         </a>
                     </li>
                     <li class="side-item" id="home">
@@ -75,8 +75,8 @@
                 </div>
             </div>
             <div class="h2-table">
-                <h2>Tabela CRUD de vendas</h2>
-            </div>           
+                <h2>Tabela de vendas</h2>
+            </div>
             <div class="table-container">
                 <table class="table" id="table">
                     <thead>
@@ -86,7 +86,6 @@
                             <th>Valor</th>
                             <th>Quantidade</th>
                             <th>Total</th>
-                            <th>Controlar</th>
                         </tr>
                     </thead>
                     <tbody id="venda-list">
@@ -94,30 +93,11 @@
                 </table>
             </div>
         </main>
-        <div class="modal fade" id="modal-delete" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Confirmação de remoção</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Você realmente deseja remover a venda <span id="id-venda"></span>?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-                        <button type="button" class="btn btn-primary" id="btn-delete">Sim</button>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="modal fade" id="venda-modal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Venda<span id="edit-venda-id"></span></h5>
+                        <h5 class="modal-title">Adicionar Venda</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -155,7 +135,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary">Salvar</button>
+                                <button type="submit" class="btn btn-primary" id="saveSale">Salvar</button>
                             </div>
                         </form>
                     </div>
@@ -163,7 +143,7 @@
             </div>
         </div>
     </div>
-    <script src="./scripts/graphic.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./scripts/graphic.js"></script>
 </body>
 </html>
