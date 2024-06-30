@@ -21,4 +21,5 @@ O Artist Finder é uma plataforma online dedicada a simplificar o processo de co
 
 ## Instruções de utilização
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+Acesse a aplicação pelo seguinte link:
+Ao entrar na aplicação, talvez demore um tempo para o servidor na nuvem ser iniciado, no máximo 3 minutos. Aguarde, e crie uma conta para acessar a aplicação. A partir do cadastro e posteriormente do login, você é livre para explorar todos as funcionalidades que preparamos com muito carinho e dedicação!
