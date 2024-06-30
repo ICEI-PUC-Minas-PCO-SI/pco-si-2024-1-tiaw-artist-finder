@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="./assets/navbarChat.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Stay organized with our user-friendly Calendar featuring events, reminders, and a customizable interface. Built with HTML, CSS, and JavaScript. Start scheduling today!" />
   <meta name="keywords" content="calendar, events, reminders, javascript, html, css, open source coding" />
@@ -62,6 +63,63 @@
   </header>
 </div>
 <body>
+  <div class="menu">
+    <header id="header">
+        <div class="container-header">
+            <div class="flex">
+                    <a href="index.html"><img src="assets/img/logo.svg" id="logo"> </a>
+                    <nav>
+                        <ul>
+                            <li> <a class="nav-link" aria-current="page" href="index.html">Home</a> </li>
+                            <li> <a class="nav-link" href="explore.html">Explorar</a></li>
+                        </ul>
+                    </nav>
+
+                    <section class="btn-profile">
+                        <img src="assets/img/user-profile-icon.svg" id="navbar-user-photo" class="pic"
+                                onclick="ToggleMenu()">
+                            <div class="sub-menu-wrap" id="subMenu">
+                                <div class="sub-menu">
+                                    <div class="user-info">
+                                        <img src="assets/img/user-profile-icon.svg" alt="">
+                                        <h2>Nome</h2>
+                                    </div>
+                                    <hr>
+                                    <a href="profile.html" class="sub-menu-link">
+                                        <i class="fa-solid fa-user-pen"></i>
+                                        <p>Editar Perfil</p>
+                                        <span>></span>
+                                    </a>
+                                    <a href="calendario.html" class="sub-menu-link">
+                                        <i class="fa-regular fa-calendar"></i>
+                                        <p>Calendário</p>
+                                        <span>></span>
+                                    </a>
+                                    <a href="chat.html" class="sub-menu-link">
+                                        <i class="fa-solid fa-comments"></i>
+                                        <p>Chat</p>
+                                        <span>></span>
+                                    </a>
+                                    <a href="graphic.html" class="sub-menu-link">
+                                        <i class="fa-solid fa-chart-line"></i>
+                                        <p>Vendas</p>
+                                        <span>></span>
+                                    </a>
+                                    <a href="#" id="logoutButton" class="sub-menu-link">
+                                        <i class="fa-solid fa-right-from-bracket"></i>
+                                        <p>Logout</p>
+                                        <span>></span>
+                                    </a>
+                                    
+                                </div>
+                            </div>
+                    </section>
+
+            </div><!--flex-->
+        </div>
+    </header>
+</div>
+<div class="calendar-body">
   <div class="container">
     <div class="left">
       <div class="calendar">
@@ -120,7 +178,9 @@
       <i class="fas fa-plus"></i>
     </button>
   </div>
+</div>
   <script src="./scripts/calendario.js"></script>
+  <script src="./scripts/login.js"></script>
 </body>
 
 </html>

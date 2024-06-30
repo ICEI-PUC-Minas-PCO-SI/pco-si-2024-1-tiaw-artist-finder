@@ -20,14 +20,14 @@
     border-radius: 50px;
   }
   
-  body {
+  .calendar-body {
     position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding-bottom: 30px;
-    background-color: #e2e1dc;
+    background-color: #e1dce2;
   }
   .container {
     position: relative;
