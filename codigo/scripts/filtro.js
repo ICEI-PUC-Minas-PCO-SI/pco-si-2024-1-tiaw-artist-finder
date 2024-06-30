@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     init();
 });
 
-const URL = 'https://api-artistfinder-tiaw.onrender.com/usuarios';
+const URL = 'https://api-tiaw-vercel.vercel.app/usuarios';
 const userList = document.getElementById('user-list');
 const searchBar = document.getElementById('searchBar');
 let afUsers = [];
@@ -155,7 +155,7 @@ async function displayUsers(users) {
 
 async function getLoggedInUser() {
     try {
-        const response = await fetch('https://api-artistfinder-tiaw.onrender.com/usuarios');
+        const response = await fetch('https://api-tiaw-vercel.vercel.app/usuarios');
         if (!response.ok) {
             throw new Error('Erro ao obter dados do usuário logado.');
         }

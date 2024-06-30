@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 async function fetchUsuarios() {
     try {
-        const response = await fetch('https://api-artistfinder-tiaw.onrender.com/usuarios');
+        const response = await fetch('https://api-tiaw-vercel.vercel.app/usuarios');
         if (!response.ok) {
             throw new Error('Erro ao carregar usuários.');
         }
@@ -90,7 +90,7 @@ async function fetchUsuarios() {
 
 async function createUser(user) {
     try {
-        const response = await fetch('https://api-artistfinder-tiaw.onrender.com/usuarios', {
+        const response = await fetch('https://api-tiaw-vercel.vercel.app/usuarios', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

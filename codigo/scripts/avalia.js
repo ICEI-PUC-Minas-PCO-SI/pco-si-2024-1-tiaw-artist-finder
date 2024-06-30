@@ -13,7 +13,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         idQueryString = urlParams.get('id');
     
-        fetch(`https://api-artistfinder-tiaw.onrender.com/usuarios/${idQueryString}`)
+        fetch(`https://api-tiaw-vercel.vercel.app/usuarios/${idQueryString}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Erro ao carregar dados do usuário.');
@@ -68,7 +68,7 @@
         const ctx = document.getElementById('avaliacoesChart').getContext('2d');
         const chart = createChart(ctx);
 
-        fetch(`https://api-artistfinder-tiaw.onrender.com/avaliacoes`)
+        fetch(`https://api-tiaw-vercel.vercel.app/avaliacoes`)
             .then(response => response.json())
             .then(data => {
                 const userId = Number(idQueryString);
@@ -162,7 +162,7 @@
     function enviarAvaliacao(avaliacao) {
         console.log('Enviando avaliação:', avaliacao);
 
-        fetch('https://api-artistfinder-tiaw.onrender.com/avaliacoes', {
+        fetch('https://api-tiaw-vercel.vercel.app/avaliacoes', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -194,7 +194,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         idQueryString = urlParams.get('id');
 
-        fetch(`https://api-artistfinder-tiaw.onrender.com/avaliacoes`)
+        fetch(`https://api-tiaw-vercel.vercel.app/avaliacoes`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`Erro ao buscar avaliações: ${response.status}`);
@@ -206,7 +206,7 @@
                 const somaAvaliacoes = avaliacoesUsuario.reduce((acc, curr) => acc + curr.estrelas, 0);
                 const mediaAvaliacoes = avaliacoesUsuario.length > 0 ? (somaAvaliacoes / avaliacoesUsuario.length).toFixed(1) : 0;
 
-                return fetch(`https://api-artistfinder-tiaw.onrender.com/usuarios/${idQueryString}`)
+                return fetch(`https://api-tiaw-vercel.vercel.app/usuarios/${idQueryString}`)
                     .then(response => {
                         if (!response.ok) {
                             throw new Error(`Erro ao buscar usuário: ${response.status}`);
@@ -217,7 +217,7 @@
                         if (usuario.avaliacao !== mediaAvaliacoes) {
                             const usuarioAtualizado = { ...usuario, avaliacao: mediaAvaliacoes };
 
-                            return fetch(`https://api-artistfinder-tiaw.onrender.com/usuarios/${idQueryString}`, {
+                            return fetch(`https://api-tiaw-vercel.vercel.app/usuarios/${idQueryString}`, {
                                 method: 'PUT',
                                 headers: {
                                     'Content-Type': 'application/json',
@@ -241,7 +241,7 @@
         const galeriPortfolio = document.getElementById('galeriPortfolio');
         const defaultImage = 'https://cdn-icons-png.flaticon.com/512/3979/3979303.png';
 
-        fetch(`https://api-artistfinder-tiaw.onrender.com/usuarios/${idQueryString}`)
+        fetch(`https://api-tiaw-vercel.vercel.app/usuarios/${idQueryString}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Erro ao carregar dados do usuário.');
