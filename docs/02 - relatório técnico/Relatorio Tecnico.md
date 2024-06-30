@@ -50,13 +50,12 @@ Os membros do grupo são:
   - [Divisão de Papéis](#divisão-de-papéis)
   - [Ferramentas](#ferramentas)
   - [Controle de Versão](#controle-de-versão)
-- [**############## SPRINT 1 ACABA AQUI #############**](#-sprint-1-acaba-aqui-)
 - [Projeto da Solução](#projeto-da-solução)
   - [Tecnologias Utilizadas](#tecnologias-utilizadas)
   - [Arquitetura da solução](#arquitetura-da-solução)
 - [Avaliação da Aplicação](#avaliação-da-aplicação)
   - [Plano de Testes](#plano-de-testes)
-  - [Ferramentas de Testes (Opcional)](#ferramentas-de-testes-opcional)
+  - [Ferramentas de Testes (Opcional)](#ferramentas-de-testes)
   - [Registros de Testes](#registros-de-testes)
 - [Referências](#referências)
 
@@ -288,9 +287,9 @@ etiquetas:
 - `feature`: uma nova funcionalidade precisa ser introduzida
 - `merge`: preparação e adequação do código para sofrer merge de features
 
-# **############## SPRINT 1 ACABA AQUI #############**
+# **# O conteúdo a seguir foi desenvolvido nas Sprints 2, 3 e 4 #**
 
-## Projeto de Solução
+## Projeto da Solução
 
 O projeto Artist Finder foi concebido para criar uma plataforma digital que conecta artistas freelancers a potenciais clientes, facilitando a contratação de serviços artísticos. A solução proposta se baseia em uma série de funcionalidades que atendem tanto às necessidades dos artistas quanto dos clientes, garantindo uma experiência de usuário intuitiva, eficiente e segura. Abaixo, detalhamos os principais componentes do projeto de solução:
 
@@ -350,7 +349,7 @@ O projeto Artist Finder foi desenvolvido utilizando uma variedade de tecnologias
 
 1. **Fake Back-End com JSON-Server via Node.js**
    - **Descrição**: Ferramenta para criar um servidor RESTful simulado usando JSON.
-   - **Aplicação**: JSON-Server foi utilizado para simular a persistência de dados, permitindo operações CRUD (Create, Read, Update, Delete) sem necessidade de um banco de dados real.
+   - **Aplicação**: JSON-Server foi utilizado para simular a persistência de dados, permitindo operações CRUD (Create, Read, Update) sem necessidade de um banco de dados real.
 
 2. **Local Storage**
    - **Descrição**: Mecanismo de armazenamento local do navegador.
@@ -453,6 +452,7 @@ Permite que o usuário edite os parâmetros do seu perfil da maneira que preferi
     - Capa
     - Mensagens via chat
     - Calendário
+    - Avaliação
 
 ### 1.3 Fluxo de Dados
 - Os dados armazenados no Local Storage são utilizados para exibir informações no site.
@@ -463,6 +463,7 @@ Permite que o usuário edite os parâmetros do seu perfil da maneira que preferi
 ### 2.1 Tecnologias Utilizadas
 - **Hospedagem**: Vercel
 - **Banco de Dados**: API fake com json-server
+> ![Visualizar](https://api-tiaw-vercel.vercel.app/)
 
 ### 2.2 Funcionalidades
 - **API REST**:
@@ -478,7 +479,7 @@ Permite que o usuário edite os parâmetros do seu perfil da maneira que preferi
   - O navegador faz chamadas GET para a API no json-server para obter dados do usuário, vendas e avaliações.
   
 - **Escrita de Dados**:
-  - O navegador faz chamadas POST/PUT/DELETE para a API para atualizar ou remover dados conforme necessário.
+  - O navegador faz chamadas POST/PUT para a API para atualizar ou remover dados conforme necessário.
   - Após operações de escrita, o Local Storage é atualizado para refletir as mudanças.
 
 ## 3. Integração
@@ -502,10 +503,6 @@ Permite que o usuário edite os parâmetros do seu perfil da maneira que preferi
 - **PUT /usuarios/id**: Atualiza os dados de um usuário existente.
 - **GET /vendas/idUsuarioCriador**: Obtém dados de uma venda de acordo com o usuário logado.
 - **POST /vendas/**: Cria uma nova venda.
-- **PUT /vendas/id**: Atualiza uma venda existente.
-- **DELETE /vendas/id**: Remove uma venda.
-- **GET /avaliacoes/idAvaliado**: Obtém dados de avaliações.
-- **POST /avaliacoes**: Cria uma nova avaliação.
 
 # Avaliação da Aplicação
 
@@ -601,12 +598,35 @@ Para realizar os testes, utilizamos diversas ferramentas que facilitaram a valid
 
 ## Registros de Testes
 
-......  COLOQUE AQUI O SEU TEXTO ......
-
-> Discorra sobre os resultados do teste. Ressaltando pontos fortes e
-> fracos identificados na solução. Comente como o grupo pretende atacar
-> esses pontos nas próximas iterações. Apresente as falhas detectadas e
-> as melhorias geradas a partir dos resultados obtidos nos testes.
+> ![Criação de conta](images/cadastro1.jpg)
+> ![Criação de conta, feedback positivo](images/cadastro2.jpg)
+> ![Login](images/login1.jpg)
+> ![Entrando na aplicação pós login](images/usuariologado.jpg)
+> ![Navegação na home](images/navegacaohome.jpg)
+> ![Navegação na home, mostrando mensagem convidativa](images/navegacaohome2.jpg)
+> ![Carrousel com conteúdos reais dos usuários do site](images/navegacaohome3.jpg)
+> ![Logout](images/logout.jpg)
+> ![Chat, enviando mensagem](images/chat1.jpg)
+> ![Chat, recebendo e respondendo mensagem](images/chat2.jpg)
+> ![Notificação do chat](images/chat3.jpg)
+> ![Calendário](images/calendario1.jpg)
+> ![Calendário com evento adicionado](images/calendario2.jpg)
+> ![Explorar](images/explorar1.jpg)
+> ![Explorar exibindo usuários do site](images/explorar2.jpg)
+> ![Explorar exibindo resultado da pesquisa](images/pesquisaexplorar.jpg)
+> ![Explorar exibindo resultado do filtro](images/filtroexplorar.jpg)
+> ![Visualizando perfil](images/visualizacaoperfil.jpg)
+> ![Visualizando perfil, com todos os dados corretos](images/dadospuxados.jpg)
+> ![Sub menu, redirecionando para editar perfil](images/edicaodeperfil.jpg)
+> ![Página de editar perfil recuperando dados do usuário](images/editarperfil.jpg)
+> ![Modal para editar dados do perfil](images/editardados.jpg)
+> ![Dados sendo editados](images/dadossendoeditados.jpg)
+> ![Dados salvos com sucesso](images/dadossalvoscomsucesso.jpg)
+> ![Exibição de portfólio selecionado pelo usuário](images/portfolio.jpg)
+> ![Dados exibidos com sucesso na navbar](images/dadosexibidosnanavbar.jpg)
+> ![Abrindo modal de avaliação](images/av1.jpg)
+> ![Avaliando](images/av2.jpg)
+> ![Média de avaliação aparecendo corretamente](images/av3.jpg)
 
 # Referências
 
@@ -616,3 +636,4 @@ Para realizar os testes, utilizamos diversas ferramentas que facilitaram a valid
 - Inspiração de sidebar do gráfico de vendas:https://www.youtube.com/watch?v=lZVQGjTEX-w
 - Inspiração de calendário: https://youtu.be/6EVgmpm4z5U?si=B4T8cb0YXLm7Dltr
 - Inspiração de rodapé: https://www.youtube.com/watch?v=SUFzgCwJZkk
+- Inspiração tela de login e cadastro: https://github.com/atherosai/ui

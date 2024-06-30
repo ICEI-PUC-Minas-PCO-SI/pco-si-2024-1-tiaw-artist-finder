@@ -1,92 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8" />
-    <link rel="shortcut icon" href="./logo.svg">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="./assets/style.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="favicon.svg">
+    <meta property="og:title" content="Artist Finder">
+    <meta property="og:description" content="Um projeto PUC Minas para artistas e clientes!">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1593382067395-ace3045a1547?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+    <meta name="keywords" content="artistas, freelancers, pucminas">
+    <meta name="description"
+        content="Bem vindo ao Artist Finder! Um projeto da PUC Minas que traz uma experiência cativante e intuitiva para artistas freelancers e clientes que buscam talentos." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/footer.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="./assets/avalia.css"/>
-    <link rel="stylesheet" href="./assets/edit.css"/>
-    <link rel="stylesheet" href="./assets/perfil.css"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="./assets/avalia.css" />
+    <link rel="stylesheet" href="./assets/edit.css" />
+    <link rel="stylesheet" href="./assets/perfil.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="./assets/navbar.css">
     <title>Exibe Usuário</title>
 </head>
+
 <body>
     <div class="menu">
         <header id="header">
             <div class="container-header">
                 <div class="flex">
-                        <a href="index.html"><img src="assets/img/logo.svg" id="logo"> </a>
-                        <nav>
-                            <ul>
-                                <li> <a class="nav-link" aria-current="page" href="index.html">Home</a> </li>
-                                <li> <a class="nav-link" href="explore.html">Explorar</a></li>
-                            </ul>
-                        </nav>
-
-                        <section class="btn-profile">
-                            <img src="assets/img/user-profile-icon.svg" id="navbar-user-photo" class="pic"
-                                    onclick="ToggleMenu()">
-                                <div class="sub-menu-wrap" id="subMenu">
-                                    <div class="sub-menu">
-                                        <div class="user-info">
-                                            <img src="assets/img/user-profile-icon.svg" alt="">
-                                            <h2>Nome</h2>
-                                        </div>
-                                        <hr>
-                                        <a href="profile.html" class="sub-menu-link">
-                                            <i class="fa-solid fa-user-pen"></i>
-                                            <p>Editar Perfil</p>
-                                            <span>></span>
-                                        </a>
-                                        <a href="calendario.html" class="sub-menu-link">
-                                            <i class="fa-regular fa-calendar"></i>
-                                            <p>Calendário</p>
-                                            <span>></span>
-                                        </a>
-                                        <a href="chat.html" class="sub-menu-link">
-                                            <i class="fa-solid fa-comments"></i>
-                                            <p>Chat</p>
-                                            <span>></span>
-                                        </a>
-                                        <a href="graphic.html" class="sub-menu-link">
-                                            <i class="fa-solid fa-chart-line"></i>
-                                            <p>Vendas</p>
-                                            <span>></span>
-                                        </a>
-                                        <a href="#" id="logoutButton" class="sub-menu-link">
-                                            <i class="fa-solid fa-right-from-bracket"></i>
-                                            <p>Logout</p>
-                                            <span>></span>
-                                        </a>
-                                        
-                                    </div>
+                    <a href="index.html"><img src="assets/img/logo.svg" id="logo"> </a>
+                    <nav>
+                        <ul>
+                            <li> <a class="nav-link" aria-current="page" href="index.html">Home</a> </li>
+                            <li> <a class="nav-link" href="explore.html">Explorar</a></li>
+                        </ul>
+                    </nav>
+                    <section class="btn-profile">
+                        <img src="assets/img/user-profile-icon.svg" id="navbar-user-photo" class="pic"
+                            onclick="ToggleMenu()">
+                        <div class="sub-menu-wrap" id="subMenu">
+                            <div class="sub-menu">
+                                <div class="user-info">
+                                    <img src="assets/img/user-profile-icon.svg" alt="">
+                                    <h2>Nome</h2>
                                 </div>
-                        </section>
+                                <hr>
+                                <a href="profile.html" class="sub-menu-link">
+                                    <i class="fa-solid fa-user-pen"></i>
+                                    <p>Editar Perfil</p>
+                                    <span>></span>
+                                </a>
+                                <a href="calendario.html" class="sub-menu-link">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <p>Calendário</p>
+                                    <span>></span>
+                                </a>
+                                <a href="chat.html" class="sub-menu-link">
+                                    <i class="fa-solid fa-comments"></i>
+                                    <p>Chat</p>
+                                    <span>></span>
+                                </a>
+                                <a href="graphic.html" class="sub-menu-link">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                    <p>Vendas</p>
+                                    <span>></span>
+                                </a>
+                                <a href="#" id="logoutButton" class="sub-menu-link">
+                                    <i class="fa-solid fa-right-from-bracket"></i>
+                                    <p>Logout</p>
+                                    <span>></span>
+                                </a>
 
-                </div><!--flex-->
+                            </div>
+                        </div>
+                    </section>
+                </div>
             </div>
         </header>
     </div>
     <div class="main">
         <div class="header_wrapper">
-            <div id="header-capa">              
+            <div id="header-capa">
             </div>
             <div class="cols_container">
                 <div class="left_col">
                     <div class="img_container">
-                        <img src="https://picsum.photos/seed/picsum/1200/1200" id="user-photo"alt="">
+                        <img src="https://picsum.photos/seed/picsum/1200/1200" id="user-photo" alt="">
                         <span></span>
-                    </div>                   
+                    </div>
                     <h2 id="user-name">usuario</h2>
                     <div class="avalia-container">
-                        <i class="fa-solid fa-star" style="color: #501968;"></i>  
+                        <i class="fa-solid fa-star" style="color: #501968;"></i>
                         <p id="user-rating">usuario estrelas</p>
                     </div>
                     <p id="username">${user.atuacao}</p>
@@ -101,8 +111,12 @@
                         <li><span>200,300</span>Attractions</li>
                     </ul>
                     <div class="content" id="user-description">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, soluta, totam dolor aliquam placeat vel, facere possimus officia voluptates nam ut dolores est dolore sed dicta tenetur reiciendis aliquid eius.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, soluta, totam dolor aliquam placeat vel, facere possimus officia voluptates nam ut dolores est dolore sed dicta tenetur reiciendis aliquid eius.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, soluta, totam dolor
+                            aliquam placeat vel, facere possimus officia voluptates nam ut dolores est dolore sed dicta
+                            tenetur reiciendis aliquid eius.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, soluta, totam dolor
+                            aliquam placeat vel, facere possimus officia voluptates nam ut dolores est dolore sed dicta
+                            tenetur reiciendis aliquid eius.</p>
                         <ul>
                             <li><i class="fab fa-twitter"></i></li>
                             <li><i class="fab fa-instagram"></i></li>
@@ -118,51 +132,55 @@
                             <li><a href="#">Grupos</a></li>
                             <li><a href="#">Sobre</a></li>
                         </ul>
-                        <button class="edit-button" data-bs-toggle="modal" data-bs-target="#avaliacaoModal">Avaliar</button>
+                        <button class="edit-button" data-bs-toggle="modal"
+                            data-bs-target="#avaliacaoModal">Avaliar</button>
                     </nav>
-                    <p> Galeria de Portfólios <p>
-                    
-                        <div class="galeria1" id="galeriPortfolio">
-                            
+                    <p> Galeria de Portfólios
+                    <p>
+
+                    <div class="galeria1" id="galeriPortfolio">
+
+                    </div>
+                    <div class="graphic-rating">
+                        <p class="">Avaliação de Perfil</p>
+                        <div class="graphic-container">
+                            <canvas id="avaliacoesChart" width="420" height="200"></canvas>
                         </div>
-                        <div class="graphic-rating">
-                            <p class="">Avaliação de Perfil</p>
-                            <div class="graphic-container">
-                                <canvas id="avaliacoesChart" width="420" height="200"></canvas>
-                            </div>
-                        </div>
-                        <div class="modal fade" id="avaliacaoModal" tabindex="-1" role="dialog" aria-labelledby="avaliacaoModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="avaliacaoModalLabel">Avaliação</h5>
+                    </div>
+                    <div class="modal fade" id="avaliacaoModal" tabindex="-1" role="dialog"
+                        aria-labelledby="avaliacaoModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="avaliacaoModalLabel">Avaliação</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="star-rating">
+                                        <input type="radio" id="1-star" name="rating" value="5" />
+                                        <label for="1-star" class="star">&#9733;</label>
+                                        <input type="radio" id="2-stars" name="rating" value="4" />
+                                        <label for="2-stars" class="star">&#9733;</label>
+                                        <input type="radio" id="3-stars" name="rating" value="3" />
+                                        <label for="3-stars" class="star">&#9733;</label>
+                                        <input type="radio" id="4-stars" name="rating" value="2" />
+                                        <label for="4-stars" class="star">&#9733;</label>
+                                        <input type="radio" id="5-stars" name="rating" value="1" />
+                                        <label for="5-stars" class="star">&#9733;</label>
                                     </div>
-                                    <div class="modal-body">
-                                        <div class="star-rating">
-                                            <input type="radio" id="1-star" name="rating" value="5" />
-                                            <label for="1-star" class="star">&#9733;</label>
-                                            <input type="radio" id="2-stars" name="rating" value="4" />
-                                            <label for="2-stars" class="star">&#9733;</label>
-                                            <input type="radio" id="3-stars" name="rating" value="3" />
-                                            <label for="3-stars" class="star">&#9733;</label>
-                                            <input type="radio" id="4-stars" name="rating" value="2" />
-                                            <label for="4-stars" class="star">&#9733;</label>
-                                            <input type="radio" id="5-stars" name="rating" value="1" />
-                                            <label for="5-stars" class="star">&#9733;</label>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                        <button type="button" class="btn btn-primary" id="submitAvaliacao">Enviar</button>
-                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Fechar</button>
+                                    <button type="button" class="btn btn-primary" id="submitAvaliacao">Enviar</button>
                                 </div>
                             </div>
                         </div>
-                    
+                    </div>
+
                 </div>
             </div>
         </div>
-        
+
     </div>
     <main class="main-container exibeUsuario">
         <!-- <div class="card" id="user-profile">
@@ -176,7 +194,7 @@
             <p id="user-institution">usuario</p>
             <p id="user-availability">usuario</p>
             <p id="user-description">usuario</p>
-        </div> -->      
+        </div> -->
     </main>
     <footer>
         <div id="footer_content">
@@ -196,7 +214,6 @@
                     </a>
                 </div>
             </div>
-
             <ul class="footer_list">
                 <li>
                     <h3>Categorias</h3>
@@ -210,7 +227,6 @@
                 <li>
                     <a href="signup.html" class="footer-link">Registrar</a>
                 </li>
-                
             </ul>
             <ul class="footer_list">
                 <li>
@@ -222,16 +238,12 @@
                 <li>
                     <p class="footer-link">Politicas & Privacidade </p>
                 </li>
-                
             </ul>
-
             <div id="footer_subscribe">
                 <h3>Sugestões</h3>
-
                 <p>
                     Nos de um feedback ou uma sugestão de melhoria.
                 </p>
-
                 <div id="input_group">
                     <input type="email" id="email">
                     <button>
@@ -240,12 +252,10 @@
                 </div>
             </div>
         </div>
-
         <div id="footer_copyright">
             &#169
             2024 todos os direitos reservados
         </div>
-
     </footer>
     <script src="./scripts/avalia.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -254,4 +264,5 @@
     <script src="./scripts/login.js"></script>
     <script src="./scripts/menu.js"></script>
 </body>
+
 </html>

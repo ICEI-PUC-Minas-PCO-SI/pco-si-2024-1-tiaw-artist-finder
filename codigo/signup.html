@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Artist Finder">
+    <meta property="og:description" content="Um projeto PUC Minas para artistas e clientes!">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1593382067395-ace3045a1547?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+    <meta name="description"
+        content="Bem vindo ao Artist Finder! Um projeto da PUC Minas que traz uma experiência cativante e intuitiva para artistas freelancers e clientes que buscam talentos." />
     <title>Cadastro</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta name="keywords" content="artistas, freelancers, pucminas">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="./logo.svg">
+    <link rel="icon" type="image/x-icon" href="favicon.svg">
     <link rel="stylesheet" href="./assets/login.css">
     <link rel="stylesheet" href="./assets/avalia.css">
     <link rel="stylesheet" href="./assets/edit.css">
@@ -23,7 +31,9 @@
             <p>Digite seus dados:</p>
         </div>
         <div class="input__wrapper">
-            <input type="text" id="username" name="username" class="input__field" placeholder="Your username" required minlength="4" maxlength="20" pattern="[a-zA-Z0-9_-]{4,20}" title="Username must contain only letters, numbers, underscores, and hyphens (4-20 characters)">
+            <input type="text" id="username" name="username" class="input__field" placeholder="Your username" required
+                minlength="4" maxlength="20" pattern="[a-zA-Z0-9_-]{4,20}"
+                title="Username must contain only letters, numbers, underscores, and hyphens (4-20 characters)">
             <label for="username" class="input__label">Nome de usuário:</label>
         </div>
         <div class="input__wrapper">
@@ -35,9 +45,12 @@
             <label for="confirmEmail" class="input__label">Confirmar Email:</label>
         </div>
         <div class="input__wrapper">
-            <input id="password" type="password" class="input__field" placeholder="Your Password" title="No mínimo 6 caracteres" minlength="6" required>
+            <input id="password" type="password" class="input__field" placeholder="Your Password"
+                title="No mínimo 6 caracteres" minlength="6" required>
             <label for="password" class="input__label">Senha:</label>
-            <svg id="togglePassword" class="input__icon toggle-password" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <svg id="togglePassword" class="input__icon toggle-password" xmlns="http://www.w3.org/2000/svg" width="24"
+                height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                 <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z"></path>
                 <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path>
@@ -45,7 +58,8 @@
             </svg>
         </div>
         <div class="input__wrapper">
-            <input id="confirmPassword" type="password" class="input__field" placeholder="Confirm Your Password" title="No mínimo 6 caracteres" minlength="6" required>
+            <input id="confirmPassword" type="password" class="input__field" placeholder="Confirm Your Password"
+                title="No mínimo 6 caracteres" minlength="6" required>
             <label for="confirmPassword" class="input__label">Confirmar Senha:</label>
         </div>
         <button type="submit" class="my-form__button">
@@ -62,36 +76,37 @@
     </form>
     <div class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Atenção!</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Atenção!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Querido usuário, ao fazer cadastro gentileza utilizar dados fictícios!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Ciente</button>
+                </div>
             </div>
-            <div class="modal-body">
-              <p>Querido usuário, ao fazer cadastro gentileza utilizar dados fictícios!</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Ciente</button>
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
     <script src="./scripts/login.js"></script>
     <script src="./scripts/signup.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-  function showModal() {
-    var modal = document.querySelector('.modal');
-    var modalInstance = new bootstrap.Modal(modal); 
-    modalInstance.show();
-  }
-  
-  showModal();
-});
+        document.addEventListener("DOMContentLoaded", function () {
+            function showModal() {
+                var modal = document.querySelector('.modal');
+                var modalInstance = new bootstrap.Modal(modal);
+                modalInstance.show();
+            }
+
+            showModal();
+        });
     </script>
 </body>
+
 </html>
