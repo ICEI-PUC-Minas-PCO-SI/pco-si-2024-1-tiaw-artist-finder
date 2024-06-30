@@ -68,8 +68,8 @@ async function carregarDadosUsuario() {
 
         document.getElementById('user-rating').textContent = mediaAvaliacoes;
 
-        carregarPortfolioUsuario(usuario); // Passa o objeto 'usuario' para carregarPortfolioUsuario
-
+        carregarPortfolioUsuario(usuario);
+        
     } catch (error) {
         console.error('Erro ao carregar dados do usuário:', error.message);
     }

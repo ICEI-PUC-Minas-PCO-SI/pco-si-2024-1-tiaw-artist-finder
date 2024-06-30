@@ -96,9 +96,9 @@ function filtrarUsuarios(usuarios) {
     });
 }
 
-async function displayUsers(users) {
+function displayUsers(users) {
     try {
-        const usuarioLogadoId = await getLoggedInUser();
+        const usuarioLogadoId = getLoggedInUserId();
 
         if (!userList) {
             console.error('Elemento userList não encontrado.');
@@ -126,6 +126,12 @@ async function displayUsers(users) {
                     }
                 }
 
+                // Obter avaliações do usuário do localStorage
+                const avaliacoes = JSON.parse(localStorage.getItem('avaliacoes')) || [];
+                const avaliacoesUsuario = avaliacoes.filter(avaliacao => avaliacao.idAvaliado === usuario.id.toString());
+                const somaAvaliacoes = avaliacoesUsuario.reduce((acc, curr) => acc + curr.estrelas, 0);
+                const mediaAvaliacoes = avaliacoesUsuario.length > 0 ? (somaAvaliacoes / avaliacoesUsuario.length).toFixed(1) : 'N/A';
+
                 return `
                     <div class="col-md-4 mb-5">
                         <a href="user.html?id=${usuario.id}">
@@ -137,7 +143,7 @@ async function displayUsers(users) {
                                     <p><strong>Área de atuação:</strong> ${usuario.atuacao}</p>
                                     <p class="bi bi-geo-fill"> ${usuario.estado}</p>
                                     <p><strong>Disponibilidade:</strong> ${usuario.disponibilidade}</p>
-                                    <p><strong>Avaliação:</strong> ${usuario.avaliacao} <i class="fa-solid fa-star"></i></p>
+                                    <p><strong>Avaliação:</strong> ${mediaAvaliacoes} <i class="fa-solid fa-star"></i></p>
                                 </div>
                             </div>
                         </a>
@@ -150,6 +156,22 @@ async function displayUsers(users) {
         userList.innerHTML = user_list;
     } catch (error) {
         console.error('Erro ao exibir usuários:', error);
+    }
+}
+
+
+function getLoggedInUserId() {
+    try {
+        const loggedInUserId = localStorage.getItem('loggedInUserId');
+
+        if (!loggedInUserId) {
+            return null;
+        }
+
+        return loggedInUserId;
+    } catch (error) {
+        console.error('Erro ao obter ID do usuário logado:', error);
+        return null;
     }
 }
 

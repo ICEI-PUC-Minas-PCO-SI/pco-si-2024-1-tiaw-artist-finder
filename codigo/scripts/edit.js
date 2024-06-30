@@ -39,7 +39,6 @@ function carregarDadosUsuario() {
             const userCapa = userCapaData.find(user => user.id === loggedInUserId.toString());
             const capaUrl = userCapa ? userCapa.capa : `https://picsum.photos/id/${usuario.id}/700/700`;
 
-            // Exibe a capa
             const capa = document.getElementById('header-capa');
             capa.style.backgroundImage = `url(${capaUrl})`;
             const userPhoto = document.getElementById('user-photo');
@@ -69,12 +68,19 @@ function carregarDadosUsuario() {
             document.getElementById('user-institution').textContent = usuario.instituicao;
             document.getElementById('user-availability').textContent = usuario.disponibilidade;
             document.getElementById('user-description').textContent = usuario.descricao;
-            document.getElementById('user-rating').textContent = usuario.avaliacao;
+            
+            const avaliacoes = JSON.parse(localStorage.getItem('avaliacoes')) || [];
+            const avaliacoesUsuario = avaliacoes.filter(avaliacao => avaliacao.idAvaliado === loggedInUserId.toString());
+            const somaAvaliacoes = avaliacoesUsuario.reduce((acc, curr) => acc + curr.estrelas, 0);
+            const mediaAvaliacoes = avaliacoesUsuario.length > 0 ? (somaAvaliacoes / avaliacoesUsuario.length).toFixed(1) : 'N/A';
+
+            document.getElementById('user-rating').textContent = mediaAvaliacoes;
 
             portfolioUsuario();
         })
         .catch(error => console.error('Erro ao carregar dados do usuário:', error.message));
 }
+
 
 function salvarMudancasUsuario() {
     const nome = document.getElementById('editName').value;
