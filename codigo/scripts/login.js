@@ -185,18 +185,13 @@ function adjustMenu() {
 }
 
 function updateSubMenu() {
-    const subMenuWrap = document.getElementById('subMenu');
+    const subMenuWrap = document.querySelector('.btn-profile');
     const loggedInUserId = localStorage.getItem('loggedInUserId');
 
     if (!loggedInUserId) {
         subMenuWrap.innerHTML = `
-            <div class="sub-menu">
-                <a href="./login.html" class="sub-menu-link">
-                    <img src="./assets/img/edit-profile.svg" alt="">
-                    <p>Login</p>
-                    <span>></span>
-                </a>
-            </div>
+           <a href="login.html" class="btn-logar"><button>Entrar</button></a>
+           
         `;
     }
 }

@@ -76,6 +76,20 @@
     padding: 20px;
     margin: 10px;
 }
+.menu button{
+    background: #7400aa;
+    color: #fff;
+    border: none;
+    padding: 20px 50px;
+    border-radius: 4px;
+    cursor: pointer;
+        
+        
+}
+.menu button:hover {
+    opacity: 0.8;
+}
+
 
 .pic {
     width: 60px;
