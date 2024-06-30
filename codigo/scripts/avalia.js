@@ -33,10 +33,8 @@
                         if (userData && userData.foto) {
                             userPhoto.src = userData.foto;
                         } else {
-                            userPhoto.src = 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
+                            userPhoto.src = 'https://thispersondoesnotexist.com/';
                         }
-                    } else {
-                        userPhoto.src = 'https://cdn-icons-png.flaticon.com/128/1077/1077114.png';
                     }
                 }
     

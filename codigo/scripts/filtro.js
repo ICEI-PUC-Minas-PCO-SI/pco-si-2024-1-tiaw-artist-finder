@@ -122,7 +122,7 @@ async function displayUsers(users) {
                     if (userIndex !== -1) {
                         userFotoPerfil = userPicData[userIndex].foto;
                     } else {
-                        userFotoPerfil = 'https://thispersondoesnotexist.com/';
+                        userFotoPerfil = `https://robohash.org/${usuario.id}`;
                     }
                 }
 

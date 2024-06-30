@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const URL = "https://api-artistfinder-tiaw.onrender.com/vendas";
-let vendas;
 
 document.getElementById("open_btn").addEventListener("click", function () {
     document.getElementById("sidebar").classList.toggle("open-sidebar");
@@ -84,18 +83,6 @@ async function populateVendaTable() {
                     <td>R$${parseFloat(venda.vlr).toFixed(2)}</td>
                     <td>${venda.qtd}</td>
                     <td>R$${parseFloat(vlt_total).toFixed(2)}</td>
-                    <td>
-                        <a onclick="getVenda(${venda.id});" 
-                            class="btn btn-warning btn-sm" 
-                            data-toggle="modal" data-target="#venda-modal">
-                            <i class="fa fa-edit"></i>  Editar
-                        </a>
-                        <a onclick="$('#id-venda').text(${venda.id});" 
-                            class="btn btn-danger btn-sm" 
-                            data-toggle="modal" data-target="#modal-delete">
-                            <i class="fa fa-trash"></i> Remover
-                        </a>
-                    </td>
                 </tr>
             `;
             vendaList.insertAdjacentHTML('beforeend', vendaRow);
@@ -108,77 +95,12 @@ async function populateVendaTable() {
     }
 }
 
-const vendaDelete = document.getElementById("btn-delete");
-
-vendaDelete.addEventListener("click", async (e) => {
-    try {
-        const usuarioLogadoId = await getLoggedInUser();
-
-        if (!vendas) {
-            throw new Error("Erro: Dados de vendas não estão disponíveis.");
-        }
-
-        let id = $("#id-venda").text();
-
-        const vendaToDelete = vendas.find(venda => venda.id === id);
-
-        if (!vendaToDelete || vendaToDelete.idUsuarioCriador !== usuarioLogadoId) {
-            throw new Error("Você não tem permissão para excluir esta venda.");
-        }
-
-        const response = await fetch(`${URL}/${id}`, {
-            method: "DELETE",
-        });
-
-        if (!response.ok) {
-            throw new Error("Erro ao excluir a venda.");
-        }
-
-        const remainingVendas = vendas.filter(venda => venda.id !== id);
-        vendas = remainingVendas;
-
-        generateChart(remainingVendas);
-        populateVendaTable();
-
-        setTimeout(() => {
-            $('#modal-delete').modal('hide');
-            location.reload();
-        }, 3000);
-    } catch (error) {
-        console.error("Erro ao excluir a venda:", error);
-    }
-});
-
-
-function getVenda(id) {
-    if (id == 0) {
-        $("#edit-venda-id").text("");
-        $("#venda-id").prop("disabled", false);
-        $("#venda-id").val("");
-        $("#venda-mes").val("");
-        $("#venda-vlr").val("");
-        $("#venda-qtd").val("");
-    } else {
-        $("#edit-venda-id").text(id);
-        fetch(`${URL}/${id}`)
-            .then((res) => res.json())
-            .then((data) => {
-                $("#venda-id").prop("disabled", true);
-                $("#venda-id").val(data.id);
-                $("#venda-mes").val(data.mes);
-                $("#venda-vlr").val(data.vlr);
-                $("#venda-qtd").val(data.qtd);
-            })
-            .catch(error => console.error('Erro ao obter venda:', error));
-    }
-}
-
 const vendaForm = document.getElementById("venda-form");
 vendaForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     try {
-        let id = parseInt($("#edit-venda-id").text());
+        const usuarioLogadoId = await getLoggedInUser();
         const venda = {
             id: document.getElementById("venda-id").value,
             mes: document.getElementById("venda-mes").value,
@@ -192,15 +114,8 @@ vendaForm.addEventListener("submit", async (e) => {
             return;
         }
 
-        let method = 'POST';
-        let url = URL;
-        
-        if (id >= 0) {
-            method = 'PUT';
-            url = `${URL}/${id}`;
-        }
-
-        const response = await fetch(url, {
+        const method = 'POST';
+        const response = await fetch(URL, {
             method: method,
             headers: {
                 "Content-Type": "application/json",
@@ -208,31 +123,21 @@ vendaForm.addEventListener("submit", async (e) => {
             body: JSON.stringify(venda),
         });
 
+        // Mesmo se ocorrer um erro 500, fechar o modal
+        $('#venda-modal').modal('hide');
+
         if (!response.ok) {
             throw new Error("Erro ao salvar a venda.");
         }
 
         const updatedVenda = await response.json();
 
-        if (method === 'POST') {
-            vendas.push(updatedVenda);
-        } else {
-            const index = vendas.findIndex(venda => venda.id === updatedVenda.id);
-            if (index !== -1) {
-                vendas[index] = updatedVenda;
-            }
-        }
-
-        generateChart(vendas);
-        updateSalesStatistics(vendas);
+        vendas.push(updatedVenda);
         populateVendaTable();
 
-        setTimeout(() => {
-            $('#venda-modal').modal('hide');
-            location.reload();
-        }, 3000);
+        location.reload();
     } catch (error) {
-        console.error('Erro ao salvar a venda:', error);
+        location.reload();
     }
 });
 
@@ -283,7 +188,7 @@ function generateChart(vendas) {
     });
 }
 
-async function updateSalesStatistics(vendas) {
+function updateSalesStatistics(vendas) {
     let totalSales = 0;
     let totalMonths = 0;
 

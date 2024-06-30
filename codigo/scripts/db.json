@@ -678,7 +678,36 @@
       "descricao": "edite sua descrição!"
     }
   ],
-  "vendas": [],
+  "vendas": [
+    {
+      "id": "1",
+      "mes": "janeiro",
+      "vlr": "14",
+      "qtd": "5",
+      "idUsuarioCriador": "36"
+    },
+    {
+      "id": "24",
+      "mes": "março",
+      "vlr": "7",
+      "qtd": "7",
+      "idUsuarioCriador": "36"
+    },
+    {
+      "id": "1",
+      "mes": "março",
+      "vlr": "4",
+      "qtd": "7",
+      "idUsuarioCriador": "36"
+    },
+    {
+      "id": "7",
+      "mes": "maio",
+      "vlr": "4",
+      "qtd": "2",
+      "idUsuarioCriador": "36"
+    }
+  ],
   "avaliacoes": [
     {
       "id": "g5ztez",
