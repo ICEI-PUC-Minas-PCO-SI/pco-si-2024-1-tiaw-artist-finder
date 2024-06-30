@@ -263,6 +263,10 @@ section .container > * {
     position: relative;
 }
 
+.gallery-item {
+    cursor: pointer;
+}
+
 .gallery-controls-voltar::before{
     border: solid rgb(119, 0, 167);
     border-width: 0 5px 5px 0;
