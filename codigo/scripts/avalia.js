@@ -16,7 +16,7 @@ async function carregarDadosUsuario() {
     idQueryString = urlParams.get('id');
 
     try {
-        const response = await fetch(`https://api-tiaw-vercel.vercel.app/usuarios/${idQueryString}`);
+        const response = await fetch(`https://api-artistfinder-tiaw.onrender.com/usuarios/${idQueryString}`);
         if (!response.ok) {
             throw new Error('Erro ao carregar dados do usuário.');
         }
@@ -34,7 +34,7 @@ async function carregarDadosUsuario() {
                 if (userData && userData.foto) {
                     userPhoto.src = userData.foto;
                 } else {
-                    userPhoto.src = 'https://thispersondoesnotexist.com/';
+                    userPhoto.src = `https://robohash.org/${usuario.id}`;
                 }
             }
         }
@@ -211,7 +211,7 @@ function carregarPortfolioUsuario() {
     const galeriPortfolio = document.getElementById('galeriPortfolio');
     const defaultImage = 'https://cdn-icons-png.flaticon.com/512/3979/3979303.png';
 
-    fetch(`https://api-tiaw-vercel.vercel.app/usuarios/${idQueryString}`)
+    fetch(`https://api-artistfinder-tiaw.onrender.com/usuarios/${idQueryString}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Erro ao carregar dados do usuário.');

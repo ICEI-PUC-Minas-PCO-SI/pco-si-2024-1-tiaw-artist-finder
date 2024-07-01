@@ -44,7 +44,7 @@ function isLoggedIn() {
 
 async function obterDadosUsuarios() {
     try {
-        const response = await fetch('https://api-tiaw-vercel.vercel.app/usuarios/');
+        const response = await fetch('https://api-artistfinder-tiaw.onrender.com/usuarios/');
         if (!response.ok) {
             throw new Error('Erro ao carregar usuários.');
         }
@@ -59,7 +59,7 @@ async function updateProfilePicture() {
     const loggedInUserId = localStorage.getItem('loggedInUserId');
     if (loggedInUserId) {
         try {
-            const response = await fetch('https://api-tiaw-vercel.vercel.app/usuarios');
+            const response = await fetch('https://api-artistfinder-tiaw.onrender.com/usuarios');
             if (!response.ok) {
                 throw new Error('Erro ao carregar dados do usuário.');
             }
@@ -190,8 +190,7 @@ function updateSubMenu() {
 
     if (!loggedInUserId) {
         subMenuWrap.innerHTML = `
-           <a href="login.html" class="btn-logar"><button>Entrar</button></a>
-           
+                <a href="login.html" class="btn-logar"><button>Entrar</button></a>
         `;
     }
 }

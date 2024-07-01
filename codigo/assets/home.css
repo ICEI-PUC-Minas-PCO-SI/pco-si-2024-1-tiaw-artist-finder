@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 *{
     margin: 0;
@@ -113,6 +112,8 @@ section .container > * {
     left: 0;
 }
 
+
+
 .projetos {
     background-image: url(img/artistbanner.jpg);
     background-position: center;
@@ -137,19 +138,7 @@ section .container > * {
         
     }
     
-.menu button{
-        background: #7400aa;
-        color: #fff;
-        border: none;
-        padding: 20px 50px;
-        border-radius: 4px;
-        cursor: pointer;
-            
-            
-}
-.menu button:hover {
-        opacity: 0.8;
-}
+
 
 .projetos button:hover {
         opacity: 0.8;
@@ -199,6 +188,7 @@ section .container > * {
     align-items: center;
     display: flex;
     height: 400px;
+    width: 900px;
     margin: 0 auto;
     position: relative;
 }
@@ -263,6 +253,7 @@ section .container > * {
     background-color: transparent;
     border: 0;
     cursor: pointer;
+    color:#7400aa;
     font-size: 30px;
     margin: 0 50px;
     padding: 0 12px;
@@ -345,10 +336,196 @@ section .container > * {
     background: #555;
 }
 
+@media screen and (max-width: 900px) {
 
+    .menu .btn-profile button{
+        background: #7400aa;
+        color: #fff;
+        border: none;
+        padding: 12px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+            
+            
+}
+.menu button:hover {
+        opacity: 0.8;
+}
 
+    #text_capa{
+        position: relative;
+        color: #fff;
+        font-size: 5.2rem;
+        z-index: 1;
+    }
 
+    .main-content{
+        width: 100%;
+        position: relative;
+    }
+    
+    section .container{
+        padding: 3rem;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        align-items: center;
+        justify-content: center;
+        
+    
+    }
+    
+    .main-content img{
+        width: 100%;
+        border-radius: 10%;
+        filter: drop-shadow(6px 6px rgb(255, 238, 0))  drop-shadow(-6px -6px rgb(119, 0, 167));
+    }
+    
+    section .container > * {
+        margin: 2rem;
+    }
+    
+    .content{
+        color: black;
+    }
+    
+    
+    .main-content .container .titulo{
+        font-weight: 600;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        padding-bottom: .5rem;
+        position: relative;
+    }
+    .main-content .container .titulo span{
+        font-weight: 10;
+       
+    }
+    
+    
+    .main-content .container .border{
+        display: none;
+    }
 
+    
 
+    .projetos {
+        background-image: url(img/artistbanner.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 80vh;
+    }
 
+    .projetos h1{
+        width: 3rem;
+        font-size: 3rem;
+    }
+    .projetos button{
+        background: #7400aa;
+        color: #fff;
+        border: none;
+        padding: 20px 50px;
+        border-radius: 4px;
+        cursor: pointer;
 
+        
+    }
+
+    .slider_body{
+        margin: 0;
+        padding: 0;
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background:white;
+        
+    }
+
+    .gallery {
+        width: 90%;
+        padding: 0 0 0 4rem;
+        
+    }
+
+    
+    .gallery-container{
+        align-items: center;
+        display: flex;
+        height: 150px;
+        width: 180px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .gallery-item{
+        height: 200px;
+        opacity: 0;
+        position: absolute;
+        transition: all 0.3s ease-in-out;
+        width: 100px;
+        z-index: 0;
+        border-radius: 15px;
+        background-size: contain;
+    }
+    
+    .gallery-item-1{
+        left: 15%;
+        opacity: .4;
+        transform: translateX(-50%);
+    }
+    
+    .gallery-item-2, .gallery-item-4{
+        height: 200px;
+        opacity: 0.8;
+        width: 180px;
+        z-index: 1;
+    }
+    
+    .gallery-item-2{
+        left: 30%;
+        transform: translateX(-50%);
+    }
+    
+    .gallery-item-3{
+        box-shadow: -2px 5px 33px 6px rgba(0, 0, 0, 0.35);
+        height: 200px;
+        opacity: 1;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 330px;
+        z-index: 2;
+    }
+    
+    .gallery-item-4 {
+        left: 70%;
+        transform: translateX(-50%);
+    }
+    
+    .gallery-item-5{
+        left: 85%;
+        opacity: .4;
+        transform: translateX(-50%);
+    }
+
+    .gallery-controls button{
+        color:#7400aa;
+}
+}
+
+@media screen and (max-width: 600px) {
+    #text_capa {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #text_capa {
+        font-size: 3rem;
+    }
+}

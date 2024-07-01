@@ -26,172 +26,124 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/brands.min.css">
   <title>Calendário</title>
 </head>
-<div class="menu">
-  <header id="header">
-    <div class="container-header ">
-      <div class="navbar navbar-expand-lg  text-center">
-        <a href="index.html"><img src="assets/img/logo.svg" id="logo"> </a>
-        <button id="expandir" class="navbar-toggler " type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse fs-3 " id="navbarTogglerDemo02">
-          <nav>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li> <a class="nav-link" aria-current="page" href="index.html">Home</a> </li>
-              <li> <a class="nav-link" href="explore.html">Explorar</a></li>
-              <li> <a class="nav-link" href="graphic.html">Vendas</a></li>
-              <li> <a class="nav-link" href="chat.html">Chat</a> </li>
-              <img src="assets/img/user-profile-icon.svg" id="navbar-user-photo" class="pic" onclick="ToggleMenu()">
-              <div class="sub-menu-wrap" id="subMenu">
-                <div class="sub-menu">
-                  <div class="user-info">
-                    <img src="assets/img/user-profile-icon.svg" alt="">
-                    <h2>Nome</h2>
-                  </div>
-                  <hr>
-                  <a href="profile.html" class="sub-menu-link">
-                    <img src="assets/img/edit-profile.svg" alt="">
-                    <p>Editar Perfil</p>
-                    <span>></span>
-                  </a>
-                  <a href="calendario.html" class="sub-menu-link">
-                    <img src="assets/img/edit-profile.svg" alt="">
-                    <p>Calendário</p>
-                    <span>></span>
-                  </a>
-                  <a href="#" id="logoutButton" class="sub-menu-link">
-                    <img src="assets/img/edit-profile.svg" alt="">
-                    <p>Logout</p>
-                    <span>></span>
-                  </a>
-                </div>
-              </div>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </header>
-</div>
 
 <body>
   <div class="menu">
     <header id="header">
-      <div class="container-header">
-        <div class="flex">
-          <a href="index.html"><img src="assets/img/logo.svg" id="logo"> </a>
-          <nav>
-            <ul>
-              <li> <a class="nav-link" aria-current="page" href="index.html">Home</a> </li>
-              <li> <a class="nav-link" href="explore.html">Explorar</a></li>
-            </ul>
-          </nav>
+        <div class="container-header">
+            <div class="flex">
+                <a href="index.html"><img src="assets/img/logo.svg" id="logo"> </a>
+                <nav>
+                    <ul>
+                        <li> <a class="nav-link" aria-current="page" href="index.html">Home</a> </li>
+                        <li> <a class="nav-link" href="explore.html">Explorar</a></li>
+                    </ul>
+                </nav>
+                <section class="btn-profile">
+                    <img src="assets/img/user-profile-icon.svg" id="navbar-user-photo" class="pic"
+                        onclick="ToggleMenu()">
+                    <div class="sub-menu-wrap" id="subMenu">
+                        <div class="sub-menu">
+                            <div class="user-info">
+                                <img src="assets/img/user-profile-icon.svg" alt="">
+                                <h2>Nome</h2>
+                            </div>
+                            <hr>
+                            <a href="profile.html" class="sub-menu-link">
+                                <i class="fa-solid fa-user-pen"></i>
+                                <p>Editar Perfil</p>
+                                <span>></span>
+                            </a>
+                            <a href="calendario.html" class="sub-menu-link">
+                                <i class="fa-regular fa-calendar"></i>
+                                <p>Calendário</p>
+                                <span>></span>
+                            </a>
+                            <a href="chat.html" class="sub-menu-link">
+                                <i class="fa-solid fa-comments"></i>
+                                <p>Chat</p>
+                                <span>></span>
+                            </a>
+                            <a href="graphic.html" class="sub-menu-link">
+                                <i class="fa-solid fa-chart-line"></i>
+                                <p>Vendas</p>
+                                <span>></span>
+                            </a>
+                            <a href="#" id="logoutButton" class="sub-menu-link">
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                                <p>Logout</p>
+                                <span>></span>
+                            </a>
 
-          <section class="btn-profile">
-            <img src="assets/img/user-profile-icon.svg" id="navbar-user-photo" class="pic" onclick="ToggleMenu()">
-            <div class="sub-menu-wrap" id="subMenu">
-              <div class="sub-menu">
-                <div class="user-info">
-                  <img src="assets/img/user-profile-icon.svg" alt="">
-                  <h2>Nome</h2>
-                </div>
-                <hr>
-                <a href="profile.html" class="sub-menu-link">
-                  <i class="fa-solid fa-user-pen"></i>
-                  <p>Editar Perfil</p>
-                  <span>></span>
-                </a>
-                <a href="calendario.html" class="sub-menu-link">
-                  <i class="fa-regular fa-calendar"></i>
-                  <p>Calendário</p>
-                  <span>></span>
-                </a>
-                <a href="chat.html" class="sub-menu-link">
-                  <i class="fa-solid fa-comments"></i>
-                  <p>Chat</p>
-                  <span>></span>
-                </a>
-                <a href="graphic.html" class="sub-menu-link">
-                  <i class="fa-solid fa-chart-line"></i>
-                  <p>Vendas</p>
-                  <span>></span>
-                </a>
-                <a href="#" id="logoutButton" class="sub-menu-link">
-                  <i class="fa-solid fa-right-from-bracket"></i>
-                  <p>Logout</p>
-                  <span>></span>
-                </a>
-
-              </div>
+                        </div>
+                    </div>
+                </section>
             </div>
-          </section>
         </div>
-      </div>
     </header>
-  </div>
-  <div class="calendar-body">
-    <div class="container">
-      <div class="left">
-        <div class="calendar">
-          <div class="month">
-            <i class="fas fa-angle-left prev"></i>
-            <div class="date">dezembro 2015</div>
-            <i class="fas fa-angle-right next"></i>
+</div>
+<div class="calendar-body">
+  <div class="container">
+    <div class="left">
+      <div class="calendar">
+        <div class="month">
+          <i class="fas fa-angle-left prev"></i>
+          <div class="date">dezembro 2015</div>
+          <i class="fas fa-angle-right next"></i>
+        </div>
+        <div class="weekdays">
+          <div>Dom</div>
+          <div>Seg</div>
+          <div>Ter</div>
+          <div>qua</div>
+          <div>qui</div>
+          <div>Sex</div>
+          <div>Sab</div>
+        </div>
+        <div class="days"></div>
+        <div class="goto-today">
+          <div class="goto">
+            <input type="text" placeholder="mm/yyyy" class="date-input" />
+            <button class="goto-btn">Ir</button>
           </div>
-          <div class="weekdays">
-            <div>Dom</div>
-            <div>Seg</div>
-            <div>Ter</div>
-            <div>qua</div>
-            <div>qui</div>
-            <div>Sex</div>
-            <div>Sab</div>
-          </div>
-          <div class="days"></div>
-          <div class="goto-today">
-            <div class="goto">
-              <input type="text" placeholder="mm/yyyy" class="date-input" />
-              <button class="goto-btn">Ir</button>
-            </div>
-            <button class="today-btn">Hoje</button>
-          </div>
+          <button class="today-btn">Hoje</button>
         </div>
       </div>
-      <div class="right">
-        <div class="today-date">
-          <div class="event-day">qua</div>
-          <div class="event-date">12 de dezembro de 2022</div>
-        </div>
-        <div class="events"></div>
-        <div class="add-event-wrapper">
-          <div class="add-event-header">
-            <div class="title">Adicionar Evento</div>
-            <i class="fas fa-times close"></i>
-          </div>
-          <div class="add-event-body">
-            <div class="add-event-input">
-              <input type="text" placeholder="Event Name" class="event-name" />
-            </div>
-            <div class="add-event-input">
-              <input type="text" placeholder="Event Time From" class="event-time-from" />
-            </div>
-            <div class="add-event-input">
-              <input type="text" placeholder="Event Time To" class="event-time-to" />
-            </div>
-          </div>
-          <div class="add-event-footer">
-            <button class="add-event-btn">Adicionar Evento</button>
-          </div>
-        </div>
-      </div>
-      <button class="add-event">
-        <i class="fas fa-plus"></i>
-      </button>
     </div>
+    <div class="right">
+      <div class="today-date">
+        <div class="event-day">qua</div>
+        <div class="event-date">12 de dezembro de 2022</div>
+      </div>
+      <div class="events"></div>
+      <div class="add-event-wrapper">
+        <div class="add-event-header">
+          <div class="title">Adicionar Evento</div>
+          <i class="fas fa-times close"></i>
+        </div>
+        <div class="add-event-body">
+          <div class="add-event-input">
+            <input type="text" placeholder="Event Name" class="event-name" />
+          </div>
+          <div class="add-event-input">
+            <input type="text" placeholder="Event Time From" class="event-time-from" />
+          </div>
+          <div class="add-event-input">
+            <input type="text" placeholder="Event Time To" class="event-time-to" />
+          </div>
+        </div>
+        <div class="add-event-footer">
+          <button class="add-event-btn">Adicionar Evento</button>
+        </div>
+      </div>
+    </div>
+    <button class="add-event">
+      <i class="fas fa-plus"></i>
+    </button>
   </div>
+</div>
   <script src="./scripts/calendario.js"></script>
+  <script src="./scripts/menu.js"></script>
   <script src="./scripts/login.js"></script>
 </body>
 

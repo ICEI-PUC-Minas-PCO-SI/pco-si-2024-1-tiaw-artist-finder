@@ -49,7 +49,7 @@ class Carousel {
 
 async function fetchGalleryImages() {
     try {
-        const response = await fetch('https://api-tiaw-vercel.vercel.app/usuarios');
+        const response = await fetch('https://api-artistfinder-tiaw.onrender.com/usuarios');
         const users = await response.json();
         const images = users.slice(0, 5).map(user => user.galeria1);
 

@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     checkLoginStatusAndPopulateContent();
 });
 
-const URL = "https://api-tiaw-vercel.vercel.app/vendas";
+const URL = "https://api-artistfinder-tiaw.onrender.com/vendas";
 
 document.getElementById("open_btn").addEventListener("click", function () {
     document.getElementById("sidebar").classList.toggle("open-sidebar");

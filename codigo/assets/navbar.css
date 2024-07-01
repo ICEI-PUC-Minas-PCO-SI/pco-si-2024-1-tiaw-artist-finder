@@ -9,6 +9,20 @@
     margin: auto;
 }
 
+.menu .btn-profile button{
+    background: #7400aa;
+    color: #fff;
+    border: none;
+    padding: 20px 50px;
+    border-radius: 4px;
+    cursor: pointer;
+        
+        
+}
+.menu button:hover {
+    opacity: 0.8;
+}
+
 .flex{
     display: flex;
     align-items: center;
@@ -76,20 +90,6 @@
     padding: 20px;
     margin: 10px;
 }
-.menu button{
-    background: #7400aa;
-    color: #fff;
-    border: none;
-    padding: 20px 50px;
-    border-radius: 4px;
-    cursor: pointer;
-        
-        
-}
-.menu button:hover {
-    opacity: 0.8;
-}
-
 
 .pic {
     width: 60px;
@@ -116,6 +116,7 @@
     border-radius: 50%;
     margin-right: 15px;
     object-fit: cover;
+    height: 60px;
 }
 
 .sub-menu i{

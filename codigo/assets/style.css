@@ -207,7 +207,6 @@ fa-star {
 }
 
 @media (max-width: 500px) {
-
     #h1-presentation {
         font-size: 4rem;
     }  
@@ -218,4 +217,3 @@ fa-star {
         font-size: 3rem;
     }  
 }
-
