@@ -1,2 +1,7 @@
 desktop.ini
 Icon?
+
+# Dependências do Node
+./codigo/scripts/node_modules/
+./codigo/scripts/package-lock.json
+./codigo/scripts/package.json

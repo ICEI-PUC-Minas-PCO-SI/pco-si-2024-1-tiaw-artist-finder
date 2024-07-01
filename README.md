@@ -22,4 +22,7 @@ O Artist Finder é uma plataforma online dedicada a simplificar o processo de co
 ## Instruções de utilização
 
 Acesse a aplicação pelo seguinte link:
+
+- [Aplicação](https://artist-finder-virid.vercel.app/)
+
 Ao entrar na aplicação, talvez demore um tempo para o servidor na nuvem ser iniciado, no máximo 3 minutos. Aguarde, e crie uma conta para acessar a aplicação. A partir do cadastro e posteriormente do login, você é livre para explorar todos as funcionalidades que preparamos com muito carinho e dedicação!
