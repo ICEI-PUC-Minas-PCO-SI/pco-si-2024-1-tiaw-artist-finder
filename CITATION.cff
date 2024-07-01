@@ -30,7 +30,7 @@ authors:
     affiliation: PUC Minas
 repository-code: >-
   https://github.com/ICEI-PUC-Minas-PCO-SI/pco-si-2024-1-tiaw-artist-finder
-url: 'https://seraadicionadoposteriormente.com'
+url: 'https://artist-finder-virid.vercel.app/'
 abstract: >-
   O Artist Finder é uma plataforma online dedicada a
   simplificar o processo de conexão entre artistas
