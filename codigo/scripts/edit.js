@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById('editPhoto').addEventListener('change', function (event) {
         const file = event.target.files[0];
-        if (file) {
+        if (file && file.size < 2000000) {
             convertImageToBase64(file, function (base64) {
                 let userPicData = JSON.parse(localStorage.getItem('userPicData')) || [];
                 const userIndex = userPicData.findIndex(user => user.id === loggedInUserId.toString());
@@ -168,12 +168,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 const userPhoto = document.getElementById('user-photo');
                 userPhoto.src = base64;
             });
+        } else {
+            alert("O tamanho da imagem deve ser inferior a 2MB");
         }
     });
 
     document.getElementById('editCapa').addEventListener('change', function (event) {
         const file = event.target.files[0];
-        if (file) {
+        if (file && file.size < 2000000) {
             convertImageToBase64(file, function (base64) {
                 let userCapaData = JSON.parse(localStorage.getItem('userCapaData')) || [];
                 const userIndex = userCapaData.findIndex(user => user.id === loggedInUserId.toString());
@@ -184,13 +186,15 @@ document.addEventListener('DOMContentLoaded', function () {
                         id: loggedInUserId.toString(),
                         capa: base64
                     });
-                }
+                } 
 
                 localStorage.setItem('userCapaData', JSON.stringify(userCapaData));
                 console.log('Imagem da capa salva no localStorage.');
                 const capa = document.getElementById('header-capa');
                 capa.style.backgroundImage = `url(${base64})`;
             });
+        } else {
+            alert("O tamanho da imagem deve ser inferior a 2MB");
         }
     });
 });

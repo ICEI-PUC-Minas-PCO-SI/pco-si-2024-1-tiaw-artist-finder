@@ -139,7 +139,6 @@ section .container > * {
     }
     
 
-
 .projetos button:hover {
         opacity: 0.8;
 }
@@ -272,47 +271,12 @@ section .container > * {
     cursor: pointer;
 }
 
-.gallery-controls-voltar::before{
-    border: solid rgb(119, 0, 167);
-    border-width: 0 5px 5px 0;
-    content: '';
-    display: inline-block;
-    height: 5px;
-    left: -30px;
-    padding: 10px;
-    position: absolute;
-    top: 25%;
-    transform: rotate(135deg) translateY(-50%);
-    transition: left 0.15 ease-in-out;
-    width: 5px;
-}
 
-.gallery-controls-voltar:hover::before{
-    left: -40px;
-}
 
 .gallery-controls-proximo{
     position: relative;
 }
 
-.gallery-controls-proximo::before{
-    border: solid rgb(119, 0, 167);
-    border-width: 0 5px 5px 0;
-    content: '';
-    display: inline-block;
-    height: 5px;
-    padding: 10px;
-    position: absolute;
-    right: -30px;
-    top: 45%;
-    transform: rotate(-45deg) translateY(-50%);
-    transition: right 0.15s ease-in-out;
-    width: 5px;
-}
-
-.gallery-controls-proximo:hover:before{
-    right: -40px;
-}
 
 .gallery-nav{
     bottom: -15px;
